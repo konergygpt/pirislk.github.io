@@ -798,6 +798,10 @@ textarea {
   letter-spacing: -0.04em;
 }
 
+.auth-login-title-test {
+  color: #d94141;
+}
+
 .auth-lead.compact {
   max-width: 460px;
   font-size: 18px;
