@@ -136,10 +136,6 @@ textarea {
   color: #ffffff;
 }
 
-.sidebar-footer {
-  padding-top: 18px;
-}
-
 .role-pill-group {
   display: flex;
   gap: 8px;
@@ -353,6 +349,68 @@ textarea {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.45;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  margin: 8px 4px;
+  background: rgba(19, 33, 28, 0.08);
+}
+
+.profile-dropdown-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  color: #9e4f40;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    color 0.18s ease;
+}
+
+.profile-dropdown-action:hover {
+  background: rgba(158, 79, 64, 0.08);
+  color: #8c4437;
+  transform: translateX(2px);
+}
+
+.profile-dropdown-action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  background: rgba(158, 79, 64, 0.1);
+}
+
+.profile-dropdown-action-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.profile-dropdown-action-label {
+  flex: 1 1 auto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.profile-dropdown-action-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(158, 79, 64, 0.1);
+  font-size: 18px;
+  line-height: 1;
 }
 
 .topbar h1,
@@ -1260,32 +1318,6 @@ textarea {
   color: var(--muted);
   line-height: 1.6;
   text-align: center;
-}
-
-.sidebar-utility-links {
-  display: grid;
-  gap: 12px;
-}
-
-.sidebar-utility-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(243, 250, 247, 0.86);
-  text-decoration: none;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.sidebar-utility-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  font-size: 16px;
 }
 
 .projects-filter-bar {
@@ -4166,15 +4198,6 @@ textarea {
     white-space: nowrap;
   }
 
-  .sidebar-footer {
-    padding-top: 0;
-  }
-
-  .sidebar-utility-links {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   .content {
     padding: 20px;
   }
@@ -4508,8 +4531,7 @@ textarea {
   }
 
   .nav-link,
-  .role-pill,
-  .sidebar-utility-link {
+  .role-pill {
     padding: 10px 12px;
     font-size: 14px;
   }
@@ -4655,9 +4677,22 @@ textarea {
     border-radius: 18px;
   }
 
-  .profile-dropdown-link {
+  .profile-dropdown-link,
+  .profile-dropdown-action {
     padding: 12px 13px;
     border-radius: 14px;
+  }
+
+  .profile-dropdown-action-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .profile-dropdown-action-arrow {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
   }
 
   .account-hero {
