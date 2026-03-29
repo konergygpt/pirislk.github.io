@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Грейды</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Профиль</p>
+            <h1>Грейды</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link active" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="account-page-shell">
+          <article class="account-hero">
+            <div class="account-hero-main">
+              <div class="account-avatar">S</div>
+              <div class="account-hero-copy">
+                <p class="eyebrow">Текущий уровень</p>
+                <h2>Серебро</h2>
+                <div class="account-hero-meta">
+                  <span>Коэффициент выплат: x1.1</span>
+                  <span>До Золота: 2 подтвержденных проекта</span>
+                </div>
+                <p>Грейд влияет на скорость обработки заявок, приоритет поддержки и бонусы к мотивации.</p>
+              </div>
+            </div>
+            <div class="account-hero-actions">
+              <span class="grade-badge silver">Серебро</span>
+            </div>
+          </article>
+
+          <section class="metrics-grid">
+            <article class="panel metric-card">
+              <span>Подтверждено проектов</span>
+              <strong>6</strong>
+              <small>За последние 12 месяцев</small>
+            </article>
+            <article class="panel metric-card">
+              <span>Бонус к выплате</span>
+              <strong>+10%</strong>
+              <small>Действует для новых подтвержденных проектов</small>
+            </article>
+            <article class="panel metric-card">
+              <span>До следующего уровня</span>
+              <strong>2 проекта</strong>
+              <small>Нужно перейти в Золото</small>
+            </article>
+          </section>
+
+          <article class="panel project-form-panel">
+            <div class="account-panel-head">
+              <div>
+                <h3>Уровни грейдов</h3>
+                <p>Каждый уровень открывает новые преимущества и увеличивает доверие к вашим заявкам.</p>
+              </div>
+            </div>
+
+            <div class="grade-overview">
+              <article class="grade-card bronze">
+                <span class="grade-badge bronze">Бронза</span>
+                <strong>Стартовый уровень</strong>
+                <p>Для новых проектировщиков после регистрации.</p>
+                <ul class="grade-perks">
+                  <li>Базовая ставка вознаграждения</li>
+                  <li>Стандартный срок проверки</li>
+                  <li>Доступ ко всем типовым решениям</li>
+                </ul>
+              </article>
+
+              <article class="grade-card silver current">
+                <span class="grade-badge silver">Серебро</span>
+                <strong>6+ подтвержденных проектов</strong>
+                <p>Ваш текущий статус.</p>
+                <ul class="grade-perks">
+                  <li>Повышающий коэффициент x1.1</li>
+                  <li>Приоритетный разбор спорных кейсов</li>
+                  <li>Быстрая обратная связь по замечаниям</li>
+                </ul>
+              </article>
+
+              <article class="grade-card gold">
+                <span class="grade-badge gold">Золото</span>
+                <strong>8+ подтвержденных проектов</strong>
+                <p>Следующий уровень роста.</p>
+                <ul class="grade-perks">
+                  <li>Повышающий коэффициент x1.2</li>
+                  <li>Выделенный менеджер по сложным проектам</li>
+                  <li>Ранний доступ к новым решениям PIRIS</li>
+                </ul>
+              </article>
+
+              <article class="grade-card diamond">
+                <span class="grade-badge diamond">Бриллиант</span>
+                <strong>15+ подтвержденных проектов</strong>
+                <p>Максимальный партнерский статус.</p>
+                <ul class="grade-perks">
+                  <li>Максимальный бонус к вознаграждению</li>
+                  <li>Персональный приоритет обработки</li>
+                  <li>Участие в закрытых программах PIRIS</li>
+                </ul>
+              </article>
+            </div>
+          </article>
+
+          <div class="account-grid two-up">
+            <article class="panel project-form-panel">
+              <div class="account-panel-head">
+                <div>
+                  <h3>Прогресс до Золота</h3>
+                  <p>Ещё немного, и вы перейдете на следующий уровень.</p>
+                </div>
+              </div>
+              <div class="grade-progress">
+                <strong>6 из 8 подтвержденных проектов</strong>
+                <div class="progress-track">
+                  <span class="progress-fill create-progress-fill create-progress-complete" style="width: 75%;"></span>
+                </div>
+                <p class="account-section-note">
+                  После двух новых подтвержденных проектов система автоматически переведет вас в уровень Золото.
+                </p>
+              </div>
+            </article>
+
+            <article class="panel project-form-panel">
+              <div class="account-panel-head">
+                <div>
+                  <h3>Что влияет на грейд</h3>
+                </div>
+              </div>
+              <div class="account-checklist">
+                <div class="account-chip">Подтвержденные проекты PIRIS</div>
+                <div class="account-chip">Полнота и качество документации</div>
+                <div class="account-chip">Своевременные ответы на замечания</div>
+                <div class="account-chip">Актуальные реквизиты и профиль</div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

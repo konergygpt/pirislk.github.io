@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Решения и документы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link active" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Проекты</p>
+            <h1>Решения и документы</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="create-project-shell">
+          <article class="create-project-intro panel">
+            <div>
+              <p class="eyebrow">Шаг 2</p>
+              <h2>Добавьте решения PIRIS и загрузите документацию</h2>
+              <p class="hero-copy">
+                Для MVP достаточно указать артикулы заложенных решений и
+                приложить PDF-файл проекта.
+              </p>
+            </div>
+
+            <div class="step-indicator">
+              <span class="step-indicator-current">2/2</span>
+              <div class="progress-track">
+                <span
+                  class="progress-fill create-progress-fill create-progress-half"
+                  data-page-progress
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <div class="content-grid two-columns submit-grid">
+            <article class="panel project-form-panel">
+              <div class="panel-heading">
+                <h3>Решения PIRIS</h3>
+              </div>
+
+              <form class="project-form-grid compact-project-form">
+                <label>
+                  Артикул PIRIS
+                  <input
+                    type="text"
+                    placeholder="Например: AVR-630-2VV"
+                    data-article-input
+                  />
+                  <small class="field-hint">
+                    Если решений несколько, добавьте их по одному или вставьте список артикулов через запятую.
+                  </small>
+                </label>
+
+                <div class="inline-form-action">
+                  <button class="secondary-button" type="button" data-add-article>Добавить</button>
+                </div>
+              </form>
+
+              <div class="tag-list" data-article-list>
+                <span class="tag-item">AVR-630-2VV</span>
+                <span class="tag-item">VRU-400-1</span>
+                <span class="tag-item">GRSH-1000</span>
+              </div>
+            </article>
+
+            <article class="panel project-form-panel">
+              <div class="panel-heading">
+                <h3>Документация проекта</h3>
+              </div>
+
+              <div class="upload-zone project-upload-zone">
+                <strong>Перетащите PDF сюда</strong>
+                <span>или выберите файл с проектной документацией</span>
+                <button class="secondary-button" type="button">Выбрать файл</button>
+              </div>
+
+              <div class="document-preview-list">
+                <div class="document-preview-item">
+                  <div>
+                    <strong>Проект_ЖК_Южный_квартал.pdf</strong>
+                    <p>PDF, 12.4 MB</p>
+                  </div>
+                  <span class="status-chip neutral">Загружен</span>
+                </div>
+              </div>
+
+              <label class="full-width project-comment-field">
+                Комментарий
+                <textarea
+                  rows="4"
+                  placeholder="Если нужно, оставьте комментарий к решениям PIRIS или к документации."
+                ></textarea>
+              </label>
+            </article>
+          </div>
+
+          <div class="project-form-footer">
+            <a class="secondary-button form-link-button" href="./project-create.html">
+              Назад
+            </a>
+            <button class="primary-button form-link-button" type="button" data-submit-project>
+              Отправить на проверку
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" data-submit-modal>
+      <div class="modal-card success-modal-card">
+        <div class="modal-success-copy">
+          <h2>Проект отправлен на проверку</h2>
+          <p>
+            Срок проверки проекта до 2 рабочих дней.
+          </p>
+        </div>
+
+        <div class="modal-actions success-modal-actions">
+          <a class="primary-button form-link-button" href="./home.html" data-submit-home>
+            Перейти к проектам
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

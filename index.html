@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Вход в личный кабинет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="auth-page auth-page-minimal" data-role="designer">
+      <section class="auth-showcase">
+        <div class="auth-showcase-top">
+          <a class="brand-link" href="./index.html">
+            <img
+              class="brand-logo auth-brand-logo"
+              src="./assets/logo-piris.png"
+              alt="PIRIS"
+            />
+          </a>
+        </div>
+
+        <div class="auth-reasons">
+          <div class="reason-stage">
+            <div class="reason-set active" data-role-content="designer">
+              <article class="reason-item">
+                <span class="reason-index">01</span>
+                <strong>Готовая база документации</strong>
+              </article>
+              <article class="reason-item">
+                <span class="reason-index">02</span>
+                <strong>Вознаграждения</strong>
+              </article>
+              <article class="reason-item">
+                <span class="reason-index">03</span>
+                <strong>Инженерная поддержка</strong>
+              </article>
+            </div>
+
+            <div class="reason-set" data-role-content="client">
+              <article class="reason-item">
+                <span class="reason-index">01</span>
+                <strong>Дополнительные скидки</strong>
+              </article>
+              <article class="reason-item">
+                <span class="reason-index">02</span>
+                <strong>Приоритетная техподдержка</strong>
+              </article>
+              <article class="reason-item">
+                <span class="reason-index">03</span>
+                <strong>История заказов и документов</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-showcase-copy">
+          <h1>Вход в личный кабинет</h1>
+          <p class="auth-lead compact">
+            Один аккаунт для покупателей и проектировщиков.
+          </p>
+        </div>
+      </section>
+
+      <section class="auth-card-shell">
+        <div class="auth-card-minimal">
+          <div class="auth-card-head">
+            <p class="eyebrow">Авторизация</p>
+          </div>
+
+          <div class="role-toggle" aria-label="Выбор роли">
+            <button class="role-toggle-button" type="button" data-role="client">Покупатель</button>
+            <button class="role-toggle-button active" type="button" data-role="designer">Проектировщик</button>
+          </div>
+
+          <form class="auth-form minimal-form">
+            <label>
+              E-mail
+              <input type="email" placeholder="name@company.ru" />
+            </label>
+            <label>
+              Пароль
+              <input type="password" placeholder="Введите пароль" />
+            </label>
+
+            <a href="./home.html" class="primary-button auth-button auth-link-button">
+              Войти
+            </a>
+          </form>
+
+          <div class="auth-card-footer">
+            <a class="text-link dark-link" href="./register.html">Создать аккаунт</a>
+            <a class="text-link dark-link muted-link" href="./forgot-password.html">Забыли пароль?</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Профиль</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Профиль</p>
+            <h1>Мой профиль</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link active" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="account-page-shell">
+          <article class="account-hero profile-hero">
+            <div class="account-hero-main">
+              <div class="account-avatar">
+                ЕН
+                <span class="account-avatar-edit" aria-hidden="true">✎</span>
+              </div>
+              <div class="account-hero-copy">
+                <p class="eyebrow">Карточка проектировщика</p>
+                <h2>Неустроев Егор</h2>
+                <div class="account-hero-meta">
+                  <span>Проектировщик</span>
+                  <span>Москва</span>
+                  <span>id: 327190</span>
+                </div>
+                <p>Редактируйте аватар, имя и контакты, которые видит команда PIRIS.</p>
+              </div>
+            </div>
+            <div class="account-hero-actions">
+              <button class="secondary-button account-ghost-button" type="button">
+                Сменить аватар
+              </button>
+              <button class="secondary-button account-ghost-button" type="button">
+                Изменить имя
+              </button>
+            </div>
+          </article>
+
+          <div class="account-grid two-up">
+            <article class="panel project-form-panel">
+              <div class="account-panel-head">
+                <div>
+                  <h3>Основные данные</h3>
+                  <p>Публичные данные профиля и контакты для связи.</p>
+                </div>
+              </div>
+
+              <form class="account-form-grid">
+                <label>
+                  Имя и фамилия
+                  <input type="text" value="Неустроев Егор" />
+                </label>
+                <label>
+                  Роль
+                  <input type="text" value="Проектировщик" />
+                </label>
+                <label>
+                  Телефон
+                  <input type="tel" value="+7 (999) 123-45-67" />
+                </label>
+                <label>
+                  E-mail
+                  <input type="email" value="egor.neustroev2@yandex.ru" />
+                </label>
+                <label class="full-width">
+                  Город
+                  <input type="text" value="Москва" />
+                </label>
+              </form>
+
+              <div class="account-actions-row">
+                <button class="secondary-button" type="button">Отменить</button>
+                <button class="primary-button" type="button">Сохранить профиль</button>
+              </div>
+            </article>
+
+            <article class="panel project-form-panel">
+              <div class="account-panel-head">
+                <div>
+                  <h3>Пароль</h3>
+                  <p>Измените пароль для входа в личный кабинет.</p>
+                </div>
+              </div>
+
+              <div class="account-stat-list">
+                <div class="account-stat-item">
+                  <span>Текущий пароль</span>
+                  <strong>••••••••••</strong>
+                </div>
+              </div>
+
+              <form class="account-form-grid" style="margin-top: 18px;">
+                <label class="full-width">
+                  Новый пароль
+                  <input type="password" placeholder="Введите новый пароль" />
+                </label>
+                <label class="full-width">
+                  Подтвердите пароль
+                  <input type="password" placeholder="Повторите новый пароль" />
+                </label>
+              </form>
+
+              <div class="account-actions-row">
+                <button class="secondary-button" type="button">Сбросить</button>
+                <button class="primary-button" type="button">Изменить пароль</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel project-form-panel">
+            <div class="account-panel-head">
+              <div>
+                <h3>Запасные контакты</h3>
+                <p>Контакты для экстренной связи и уточнений по проектам.</p>
+              </div>
+            </div>
+
+            <form class="account-form-grid">
+              <label>
+                Резервный телефон
+                <input type="tel" placeholder="+7 (___) ___-__-__" />
+              </label>
+              <label>
+                Резервный E-mail
+                <input type="email" placeholder="backup@example.ru" />
+              </label>
+              <label class="full-width">
+                Комментарий
+                <textarea placeholder="Например: контакт бухгалтера или руководителя проекта."></textarea>
+              </label>
+            </form>
+
+            <p class="account-section-note">
+              Эти контакты помогут быстрее связаться с вами, если по проекту понадобится уточнение или нужно будет подтвердить данные.
+            </p>
+
+            <div class="account-actions-row">
+              <button class="secondary-button" type="button">Очистить</button>
+              <button class="primary-button" type="button">Сохранить контакты</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

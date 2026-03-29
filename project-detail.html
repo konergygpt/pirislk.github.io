@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Карточка проекта</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link active" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar detail-topbar">
+          <div>
+            <a class="back-link" href="./projects.html">← Мои проекты</a>
+            <h1>ЖК Южный квартал</h1>
+          </div>
+          <div class="detail-topbar-actions">
+            <span class="status-chip info">На проверке</span>
+            <a class="secondary-button form-link-button" href="./project-submit.html">
+              Изменить
+            </a>
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="detail-hero panel">
+          <div class="detail-hero-main">
+            <div class="detail-hero-stat">
+              <span>Дата регистрации</span>
+              <strong>29 марта 2026</strong>
+            </div>
+            <div class="detail-hero-stat">
+              <span>Добавлено решений PIRIS</span>
+              <strong>3 позиции</strong>
+            </div>
+            <div class="detail-hero-stat">
+              <span>Документы</span>
+              <strong>1 PDF</strong>
+            </div>
+            <div class="detail-hero-stat">
+              <span>Вознаграждение</span>
+              <strong data-reward-total>7 000 ₽</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-layout">
+          <div class="detail-main-column">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Основные данные</h3>
+              </div>
+              <dl class="detail-grid-list">
+                <div>
+                  <dt>Название проекта</dt>
+                  <dd>ЖК Южный квартал</dd>
+                </div>
+                <div>
+                  <dt>Город / регион объекта</dt>
+                  <dd>Москва</dd>
+                </div>
+                <div>
+                  <dt>Заказчик</dt>
+                  <dd class="detail-customer-card">
+                    <span>АО "Северасталь"</span>
+                    <small>ИНН: 7701234567</small>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Тип объекта</dt>
+                  <dd>Жилой комплекс</dd>
+                </div>
+              </dl>
+            </article>
+
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Решения PIRIS</h3>
+                <a class="secondary-button form-link-button compact-action-button" href="./project-submit.html">
+                  Изменить
+                </a>
+              </div>
+              <div class="detail-item-list">
+                <div
+                  class="detail-item-row"
+                  data-solution-row
+                  data-solution-code="АВР-PRS-МБ-2-1-630-CHINT"
+                >
+                  <div>
+                    <strong>АВР-PRS-МБ-2-1-630-CHINT</strong>
+                    <p>Автоматический ввод резерва</p>
+                  </div>
+                  <div class="detail-item-meta">
+                    <span class="detail-item-reward" data-solution-reward>2 000 ₽</span>
+                  </div>
+                </div>
+                <div
+                  class="detail-item-row"
+                  data-solution-row
+                  data-solution-code="ВРУ-PRS-АВР-А-2-01-250-FERZ"
+                >
+                  <div>
+                    <strong>ВРУ-PRS-АВР-А-2-01-250-FERZ</strong>
+                    <p>Вводно-распределительное устройство</p>
+                  </div>
+                  <div class="detail-item-meta">
+                    <span class="detail-item-reward" data-solution-reward>3 000 ₽</span>
+                  </div>
+                </div>
+                <div
+                  class="detail-item-row"
+                  data-solution-row
+                  data-solution-code="АВР-PRS-А-2-01-630-FERZ"
+                >
+                  <div>
+                    <strong>АВР-PRS-А-2-01-630-FERZ</strong>
+                    <p>Автоматический ввод резерва</p>
+                  </div>
+                  <div class="detail-item-meta">
+                    <span class="detail-item-reward" data-solution-reward>2 000 ₽</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Документация</h3>
+                <a class="secondary-button form-link-button compact-action-button" href="./project-submit.html">
+                  Изменить
+                </a>
+              </div>
+              <div class="document-preview-list">
+                <div class="document-preview-item">
+                  <div>
+                    <strong>Проект_ЖК_Южный_квартал.pdf</strong>
+                    <p>PDF, 12.4 MB</p>
+                  </div>
+                  <span class="status-chip neutral">Загружен</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <aside class="detail-side-column">
+            <article class="panel project-discussion-panel">
+              <div class="panel-heading">
+                <div class="discussion-heading">
+                  <h3>Чат проекта</h3>
+                  <button class="tooltip-mark" type="button" aria-label="О чате проекта">
+                    ?
+                    <span class="tooltip-bubble">
+                      Здесь можно задать вопрос по проекту и получить ответ от инженера PIRIS.
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="discussion-thread">
+                <article class="discussion-message discussion-message-support">
+                  <div class="discussion-message-head">
+                    <span class="discussion-avatar">ГК</span>
+                    <div class="discussion-message-meta">
+                      <div class="discussion-author-row">
+                        <span class="discussion-author">Глеб Колосов</span>
+                        <span class="discussion-role-badge">Инженер PIRIS</span>
+                      </div>
+                      <span class="discussion-time">Сегодня, 10:14</span>
+                    </div>
+                  </div>
+                  <div class="discussion-bubble">
+                    Добрый день. Проект получили, сейчас проверяем комплект документации и состав решений PIRIS.
+                  </div>
+                </article>
+
+                <article class="discussion-message discussion-message-user">
+                  <div class="discussion-message-head">
+                    <span class="discussion-avatar">Вы</span>
+                    <div class="discussion-message-meta">
+                      <div class="discussion-author-row">
+                        <span class="discussion-author">Вы</span>
+                        <span class="discussion-role-badge discussion-role-badge-user">Автор проекта</span>
+                      </div>
+                      <span class="discussion-time">Сегодня, 10:27</span>
+                    </div>
+                  </div>
+                  <div class="discussion-bubble">
+                    Добрый день. Если потребуется, могу сразу дозагрузить дополнительные листы по ВРУ.
+                  </div>
+                </article>
+
+                <article class="discussion-message discussion-message-support">
+                  <div class="discussion-message-head">
+                    <span class="discussion-avatar">ГК</span>
+                    <div class="discussion-message-meta">
+                      <div class="discussion-author-row">
+                        <span class="discussion-author">Глеб Колосов</span>
+                        <span class="discussion-role-badge">Инженер PIRIS</span>
+                      </div>
+                      <span class="discussion-time">Сегодня, 10:42</span>
+                    </div>
+                  </div>
+                  <div class="discussion-bubble">
+                    Пока все в порядке. Если по ходу проверки понадобится уточнение, напишу сюда в этом чате.
+                  </div>
+                </article>
+              </div>
+
+              <div class="discussion-composer">
+                <textarea
+                  rows="3"
+                  placeholder="Напишите вопрос по проекту или прикрепите уточняющий файл..."
+                ></textarea>
+                <div class="discussion-composer-actions">
+                  <div class="discussion-composer-tools">
+                    <button class="secondary-button discussion-attach-button" type="button">
+                      Прикрепить файл
+                    </button>
+                    <span class="discussion-composer-note">Можно приложить PDF, лист проекта или уточняющий комментарий.</span>
+                  </div>
+                  <button class="primary-button" type="button">Отправить</button>
+                </div>
+              </div>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

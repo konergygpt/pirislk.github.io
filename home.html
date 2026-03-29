@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Главная</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link active" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content home-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Личный кабинет</p>
+            <h1>Главная</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="home-action-grid home-action-grid-single">
+          <a class="action-card primary-action-card" href="./project-create.html">
+            <strong>Зарегистрировать проект</strong>
+            <p>Зарегистрируйте объект и начните работу с решениями PIRIS.</p>
+          </a>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="profile-onboarding">
+      <div class="modal-card">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Профиль</p>
+            <h2>Дозаполним данные</h2>
+          </div>
+          <button class="modal-skip-button" type="button" data-modal-close>
+            Заполнить позже
+          </button>
+        </div>
+
+        <div class="modal-progress">
+          <div class="modal-progress-meta">
+            <span id="wizard-step-label">Шаг 1/2</span>
+          </div>
+          <div class="progress-track">
+            <span class="progress-fill" id="wizard-progress-fill"></span>
+          </div>
+        </div>
+
+        <div class="wizard-stage">
+          <div class="wizard-step active" data-wizard-step="1">
+            <div class="form-grid">
+              <label>
+                ФИО
+                <input type="text" placeholder="Иван Петров" />
+              </label>
+              <label>
+                Должность
+                <input type="text" placeholder="Ведущий инженер-проектировщик" />
+              </label>
+              <label class="full-width">
+                Номер телефона
+                <input type="tel" placeholder="+7 (999) 123-45-67" />
+              </label>
+            </div>
+          </div>
+
+          <div class="wizard-step" data-wizard-step="2">
+            <div class="form-grid">
+              <label class="full-width">
+                ИНН компании
+                <input type="text" placeholder="7701234567" />
+                <small class="field-hint">
+                  Найдем вашу компанию по ИНН и подтянем остальные данные автоматически.
+                </small>
+              </label>
+
+              <label class="full-width checkbox-field">
+                <span class="checkbox-row">
+                  <input type="checkbox" />
+                  <span>Я частный проектировщик</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="secondary-button ghost-button" type="button" data-wizard-back>
+            Назад
+          </button>
+          <button class="primary-button" type="button" data-wizard-next>
+            Далее ->
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

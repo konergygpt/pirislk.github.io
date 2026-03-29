@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Мои реквизиты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Профиль</p>
+            <h1>Мои реквизиты</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link active" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="account-page-shell">
+          <article class="account-hero">
+            <div class="account-hero-main">
+              <div class="account-avatar">₽</div>
+              <div class="account-hero-copy">
+                <p class="eyebrow">Выплаты</p>
+                <h2>Реквизиты для вознаграждений</h2>
+                <div class="account-hero-meta">
+                  <span>Статус проверки: требуется обновление</span>
+                  <span>Последнее изменение: 29 марта 2026</span>
+                </div>
+                <p>Заполните банковские и юридические данные, чтобы команда PIRIS могла проводить выплаты без задержек.</p>
+              </div>
+            </div>
+            <div class="account-hero-actions">
+              <span class="grade-badge gold">Нужна проверка</span>
+            </div>
+          </article>
+
+          <div class="account-grid two-up">
+            <article class="panel project-form-panel">
+              <div class="account-panel-head">
+                <div>
+                  <h3>Основные реквизиты</h3>
+                  <p>Данные получателя и банковские реквизиты для выплат.</p>
+                </div>
+              </div>
+
+              <form class="account-form-grid">
+                <label>
+                  Тип получателя
+                  <select>
+                    <option selected>Физическое лицо</option>
+                    <option>Самозанятый</option>
+                    <option>ИП</option>
+                    <option>Юридическое лицо</option>
+                  </select>
+                </label>
+                <label>
+                  ФИО получателя
+                  <input type="text" value="Неустроев Егор" />
+                </label>
+                <label>
+                  ИНН
+                  <input type="text" value="7701234567" />
+                </label>
+                <label>
+                  Банк
+                  <input type="text" placeholder="Название банка" />
+                </label>
+                <label>
+                  БИК
+                  <input type="text" placeholder="044525225" />
+                </label>
+                <label>
+                  Расчетный счет
+                  <input type="text" placeholder="4070..." />
+                </label>
+                <label class="full-width">
+                  Корреспондентский счет
+                  <input type="text" placeholder="3010..." />
+                </label>
+              </form>
+
+              <div class="account-actions-row">
+                <button class="secondary-button" type="button">Сохранить черновик</button>
+                <button class="primary-button" type="button">Отправить на проверку</button>
+              </div>
+            </article>
+
+            <article class="requisites-summary-card">
+              <div>
+                <span class="eyebrow">Статус</span>
+                <strong>Проверка реквизитов не завершена</strong>
+              </div>
+
+              <div class="account-chip-row">
+                <span class="account-chip">Нет подтвержденного банка</span>
+                <span class="account-chip">Нужен полный расчетный счет</span>
+              </div>
+
+              <p>
+                После отправки команда PIRIS проверит реквизиты. Обычно это занимает до 1 рабочего дня.
+              </p>
+
+              <div class="account-stat-list">
+                <div class="account-stat-item">
+                  <span>Следующая выплата</span>
+                  <strong>04 апреля</strong>
+                </div>
+                <div class="account-stat-item">
+                  <span>Сумма в ожидании</span>
+                  <strong>28 000 ₽</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel project-form-panel">
+            <div class="account-panel-head">
+              <div>
+                <h3>История изменений</h3>
+                <p>Последние действия по реквизитам и проверке выплат.</p>
+              </div>
+            </div>
+
+            <div class="account-checklist">
+              <div class="account-chip">29 марта: создан новый черновик реквизитов</div>
+              <div class="account-chip">26 марта: выплата приостановлена до обновления счета</div>
+              <div class="account-chip">20 марта: предыдущая версия реквизитов подтверждена</div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

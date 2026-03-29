@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Каталог решений</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link active" href="./solutions-catalog.html">
+              Каталог решений
+            </a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content solutions-page">
+        <header class="topbar solutions-topbar">
+          <div>
+            <h1>Каталог решений</h1>
+            <p class="hero-copy solutions-hero-copy">
+              Ищите нужное типовое решение, открывайте комплект документов и
+              сразу забирайте его в проект.
+            </p>
+          </div>
+          <div class="topbar-meta solutions-topbar-actions">
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="solutions-filters panel">
+          <div class="solutions-filter-head">
+            <div class="solutions-results-meta">
+              <strong data-solution-results-count>8 решений</strong>
+            </div>
+          </div>
+
+          <div class="solutions-filter-grid">
+            <label class="solutions-search-field">
+              Поиск по артикулу
+              <input
+                type="search"
+                placeholder="Например: АВР-PRS-МБ-2-1-100-CHINT"
+                data-solution-filter-search
+              />
+            </label>
+
+            <label>
+              Категория
+              <select data-solution-filter-category>
+                <option value="all" selected>Все категории</option>
+                <option value="АВР">АВР</option>
+                <option value="ВРУ">ВРУ</option>
+                <option value="ГРЩ">ГРЩ</option>
+              </select>
+            </label>
+
+            <label>
+              Бренд комплектующих
+              <select data-solution-filter-brand>
+                <option value="all" selected>Все бренды</option>
+                <option value="CHINT">CHINT</option>
+                <option value="EKF">EKF</option>
+                <option value="DEKRAFT">DEKRAFT</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="filter-pill-group solutions-status-pills">
+            <button class="filter-pill active" type="button" data-solution-status-pill="all">
+              Все решения
+            </button>
+            <button class="filter-pill" type="button" data-solution-status-pill="ready">
+              Документация готова
+            </button>
+            <button class="filter-pill" type="button" data-solution-status-pill="pending">
+              В подготовке
+            </button>
+            <button class="filter-pill" type="button" data-solution-status-pill="100">
+              100 А
+            </button>
+          </div>
+        </section>
+
+        <section class="solutions-layout">
+          <div class="solutions-list" data-solution-grid>
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-100-chint"
+              data-search="авр prs мб 2 1 100 chint шкаф авр 100а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="100"
+              data-status="ready"
+            >
+              <div class="solution-offer-media has-photo">
+                <img
+                  class="solution-offer-image"
+                  src="./assets/solutions/avr-prs-mb-2-1-100-chint.jpg"
+                  alt="Шкаф АВР-PRS 100А, моноблок, 2 ввода, CHINT"
+                />
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-100-CHINT</span>
+                <h3>Шкаф АВР-PRS 100А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>100 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-100-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-100-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-25-chint"
+              data-search="авр prs мб 2 1 25 chint шкаф авр 25а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="25"
+              data-status="pending"
+            >
+              <div class="solution-offer-media has-photo">
+                <img
+                  class="solution-offer-image"
+                  src="./assets/solutions/avr-prs-mb-2-1-25-chint.jpg"
+                  alt="Шкаф АВР-PRS 25А, моноблок, 2 ввода, CHINT"
+                />
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-25-CHINT</span>
+                <h3>Шкаф АВР-PRS 25А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>25 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-25-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-25-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-40-chint"
+              data-search="авр prs мб 2 1 40 chint шкаф авр 40а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="40"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-40-CHINT</span>
+                <h3>Шкаф АВР-PRS 40А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>40 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-40-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-40-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-63-chint"
+              data-search="авр prs мб 2 1 63 chint шкаф авр 63а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="63"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-63-CHINT</span>
+                <h3>Шкаф АВР-PRS 63А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>63 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-63-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-63-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-160-chint"
+              data-search="авр prs мб 2 1 160 chint шкаф авр 160а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="160"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-160-CHINT</span>
+                <h3>Шкаф АВР-PRS 160А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>160 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-160-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-160-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-250-chint"
+              data-search="авр prs мб 2 1 250 chint шкаф авр 250а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="250"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-250-CHINT</span>
+                <h3>Шкаф АВР-PRS 250А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>250 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-250-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-250-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-400-chint"
+              data-search="авр prs мб 2 1 400 chint шкаф авр 400а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="400"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-400-CHINT</span>
+                <h3>Шкаф АВР-PRS 400А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>400 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-400-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-400-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="solution-offer-card"
+              data-solution-card
+              data-solution-id="avr-prs-mb-2-1-630-chint"
+              data-search="авр prs мб 2 1 630 chint шкаф авр 630а моноблок 2 ввода"
+              data-category="АВР"
+              data-brand="CHINT"
+              data-current="630"
+              data-status="pending"
+            >
+              <div class="solution-offer-media">
+                <div class="solution-offer-placeholder">
+                  <div class="solution-card-cabinet">
+                    <span class="solution-card-indicator indicator-green"></span>
+                    <span class="solution-card-indicator indicator-red"></span>
+                    <span class="solution-card-display"></span>
+                    <span class="solution-card-warning"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-main">
+                <span class="solution-offer-code">АВР-PRS-МБ-2-1-630-CHINT</span>
+                <h3>Шкаф АВР-PRS 630А, моноблок, 2 ввода, CHINT</h3>
+                <div class="solution-offer-specs">
+                  <div class="solution-offer-spec">
+                    <span>Количество вводов</span>
+                    <strong>2 ввода</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Номинальный ток</span>
+                    <strong>630 А</strong>
+                  </div>
+                  <div class="solution-offer-spec">
+                    <span>Бренд комплектующих</span>
+                    <strong>CHINT</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-offer-side">
+                <div class="solution-offer-reward">
+                  <span>Вознаграждение</span>
+                  <strong>2 000 ₽</strong>
+                </div>
+                <div class="solution-offer-actions">
+                  <button
+                    class="primary-button solution-project-trigger"
+                    type="button"
+                    data-solution-project-trigger
+                    data-solution-id="avr-prs-mb-2-1-630-chint"
+                  >
+                    Добавить в проект
+                  </button>
+                  <button
+                    class="secondary-button solution-docs-trigger"
+                    type="button"
+                    data-open-solution-docs="avr-prs-mb-2-1-630-chint"
+                  >
+                    Документация
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="solutions-empty-state panel" data-solution-empty hidden>
+              <p class="eyebrow">Ничего не найдено</p>
+              <h3>Попробуйте изменить фильтры</h3>
+              <p>
+                Можно убрать часть ограничений или поискать решение по артикулу,
+                току или бренду комплектующих.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="solution-doc-drawer-overlay" data-solution-doc-drawer hidden>
+      <aside class="solution-doc-drawer">
+        <div class="solution-doc-drawer-head">
+          <div>
+            <p class="eyebrow">Документация</p>
+            <strong class="solution-doc-drawer-code" data-solution-panel-code>
+              АВР-PRS-МБ-2-1-100-CHINT
+            </strong>
+          </div>
+          <button
+            class="solution-doc-drawer-close"
+            type="button"
+            aria-label="Закрыть документацию"
+            data-solution-doc-drawer-close
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="solution-documents-section">
+          <div class="solution-documents-head">
+            <h3>Документы по решению</h3>
+            <span class="solution-documents-count" data-solution-doc-count>4 PDF</span>
+          </div>
+          <div class="solution-document-list" data-solution-doc-list></div>
+        </div>
+
+        <div class="solution-preview-panel" data-solution-preview-panel>
+          <div class="solution-preview-head">
+            <p class="solution-preview-label">Превью документа</p>
+          </div>
+
+          <div class="solution-preview-frame" data-solution-preview-frame>
+            <img
+              src="./assets/previews/avr-prs-mb-2-1-100-chint/constructive-documentation.png"
+              alt="Превью документа"
+              data-solution-preview-image
+            />
+          </div>
+
+          <div class="solution-preview-actions">
+            <a
+              class="primary-button form-link-button"
+              href="./assets/docs/avr-prs-mb-2-1-100-chint/constructive-documentation.pdf"
+              target="_blank"
+              rel="noreferrer"
+              data-solution-preview-link
+            >
+              Открыть PDF
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="project-picker-overlay" data-project-picker hidden>
+      <div class="project-picker-card">
+        <div class="project-picker-head">
+          <div>
+            <p class="eyebrow">Выбор проекта</p>
+            <h2>Добавить решение в проект</h2>
+            <p class="project-picker-copy">
+              Выберите уже зарегистрированный проект или создайте новый.
+            </p>
+          </div>
+          <button
+            class="project-picker-close"
+            type="button"
+            aria-label="Закрыть выбор проекта"
+            data-project-picker-close
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="project-picker-list">
+          <a class="project-picker-option" href="./project-detail.html">
+            <span class="project-picker-option-main">
+              <strong>ЖК Южный квартал</strong>
+              <span>ООО "СтройИнвест" • Москва</span>
+            </span>
+            <span class="status-chip info">На проверке</span>
+          </a>
+
+          <a class="project-picker-option" href="./project-detail.html">
+            <span class="project-picker-option-main">
+              <strong>Складской комплекс Север</strong>
+              <span>АО "Север Логистик" • Санкт-Петербург</span>
+            </span>
+            <span class="status-chip warning">Требует уточнения</span>
+          </a>
+
+          <a class="project-picker-option" href="./project-detail.html">
+            <span class="project-picker-option-main">
+              <strong>БЦ Линия Парк</strong>
+              <span>ООО "Линия Девелопмент" • Казань</span>
+            </span>
+            <span class="status-chip success">Подтвержден</span>
+          </a>
+
+          <a class="project-picker-option" href="./project-detail.html">
+            <span class="project-picker-option-main">
+              <strong>Технопарк Восток</strong>
+              <span>ООО "Восток Инжиниринг" • Екатеринбург</span>
+            </span>
+            <span class="status-chip neutral">Черновик</span>
+          </a>
+
+          <a
+            class="project-picker-option project-picker-option-accent"
+            href="./project-create.html"
+          >
+            <span class="project-picker-option-main">
+              <strong>Добавить в новый проект</strong>
+              <span>Открыть форму регистрации нового проекта</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

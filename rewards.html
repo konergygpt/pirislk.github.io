@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Вознаграждения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link active" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Финансы</p>
+            <h1>Вознаграждения</h1>
+          </div>
+          <div class="topbar-actions">
+            <a class="secondary-button form-link-button" href="./projects.html">
+              Открыть проекты
+            </a>
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="metrics-grid rewards-metrics">
+          <article class="panel metric-card">
+            <span>К выплате</span>
+            <strong>28 000 ₽</strong>
+            <small>3 проекта прошли проверку</small>
+          </article>
+          <article class="panel metric-card">
+            <span>На проверке</span>
+            <strong>7 000 ₽</strong>
+            <small>1 проект у инженера PIRIS</small>
+          </article>
+          <article class="panel metric-card">
+            <span>Нужно уточнить</span>
+            <strong>3 000 ₽</strong>
+            <small>1 проект ждёт документы</small>
+          </article>
+          <article class="panel metric-card">
+            <span>За март</span>
+            <strong>38 000 ₽</strong>
+            <small>По всем активным проектам</small>
+          </article>
+        </section>
+
+        <section class="content-grid rewards-layout">
+          <div class="rewards-main-column">
+            <section class="projects-filter-bar panel">
+              <div class="filter-pill-group">
+                <button class="filter-pill active" type="button">Все</button>
+                <button class="filter-pill" type="button">Подтверждено</button>
+                <button class="filter-pill" type="button">На проверке</button>
+                <button class="filter-pill" type="button">Нужно уточнить</button>
+              </div>
+              <div class="projects-summary">
+                <span>4 проекта участвуют в расчёте</span>
+              </div>
+            </section>
+
+            <section class="rewards-list">
+              <article class="panel reward-record-card">
+                <div class="reward-record-main">
+                  <div class="reward-record-title">
+                    <h2>БЦ Линия Парк</h2>
+                    <span class="status-chip success">Подтверждено</span>
+                  </div>
+                  <p class="reward-record-subtitle">Заказчик: ООО "Линия Девелопмент" • Казань</p>
+                  <div class="reward-record-meta">
+                    <span>Решение PIRIS: 3 позиции</span>
+                    <span>Проверка завершена: 25 марта</span>
+                  </div>
+                  <div class="reward-record-foot">
+                    <span>Следующий шаг: проект попадёт в ближайший реестр выплат</span>
+                    <a class="text-button" href="./project-detail.html">Открыть проект</a>
+                  </div>
+                </div>
+                <div class="reward-record-side">
+                  <strong>8 000 ₽</strong>
+                  <span>Выплата в ближайший реестр</span>
+                </div>
+              </article>
+
+              <article class="panel reward-record-card">
+                <div class="reward-record-main">
+                  <div class="reward-record-title">
+                    <h2>ЖК Южный квартал</h2>
+                    <span class="status-chip info">На проверке</span>
+                  </div>
+                  <p class="reward-record-subtitle">Заказчик: АО "Северасталь" • Москва</p>
+                  <div class="reward-record-meta">
+                    <span>Решение PIRIS: 3 позиции</span>
+                    <span>Зарегистрирован: 29 марта</span>
+                  </div>
+                  <div class="reward-record-foot">
+                    <span>Следующий шаг: ждём решение инженера по проверке</span>
+                    <a class="text-button" href="./project-detail.html">Открыть проект</a>
+                  </div>
+                </div>
+                <div class="reward-record-side">
+                  <strong>7 000 ₽</strong>
+                  <span>Сумма ожидает подтверждения</span>
+                </div>
+              </article>
+
+              <article class="panel reward-record-card">
+                <div class="reward-record-main">
+                  <div class="reward-record-title">
+                    <h2>Складской комплекс Север</h2>
+                    <span class="status-chip warning">Требует уточнения</span>
+                  </div>
+                  <p class="reward-record-subtitle">Заказчик: АО "Север Логистик" • Санкт-Петербург</p>
+                  <div class="reward-record-meta">
+                    <span>Решение PIRIS: 1 позиция</span>
+                    <span>Нужен дополнительный лист по ВРУ</span>
+                  </div>
+                  <div class="reward-record-foot">
+                    <span>Следующий шаг: дозагрузите уточняющий лист по проекту</span>
+                    <a class="text-button" href="./project-detail.html">Открыть проект</a>
+                  </div>
+                </div>
+                <div class="reward-record-side">
+                  <strong>3 000 ₽</strong>
+                  <span>Подтверждение остановлено</span>
+                </div>
+              </article>
+
+              <article class="panel reward-record-card">
+                <div class="reward-record-main">
+                  <div class="reward-record-title">
+                    <h2>Технопарк Восток</h2>
+                    <span class="status-chip neutral">Черновик</span>
+                  </div>
+                  <p class="reward-record-subtitle">Заказчик: ООО "Восток Инжиниринг" • Екатеринбург</p>
+                  <div class="reward-record-meta">
+                    <span>Решение PIRIS: еще не отправлено</span>
+                    <span>Проект не участвует в расчете</span>
+                  </div>
+                  <div class="reward-record-foot">
+                    <span>Следующий шаг: отправьте проект на проверку</span>
+                    <a class="text-button" href="./project-detail.html">Открыть проект</a>
+                  </div>
+                </div>
+                <div class="reward-record-side">
+                  <strong>0 ₽</strong>
+                  <span>Черновики не учитываются</span>
+                </div>
+              </article>
+            </section>
+          </div>
+
+          <aside class="rewards-side-column">
+            <article class="panel rewards-side-panel">
+              <div class="panel-heading">
+                <h3>Ближайший реестр</h3>
+              </div>
+              <div class="reward-total-box">
+                <span>Плановая дата выплаты</span>
+                <strong>5 апреля</strong>
+                <p>В этот реестр сейчас попадают 3 подтвержденных проекта на сумму 28 000 ₽.</p>
+              </div>
+            </article>
+
+            <article class="panel rewards-side-panel">
+              <div class="panel-heading">
+                <h3>Требуют вашего действия</h3>
+              </div>
+              <div class="rewards-attention-list">
+                <div class="rewards-attention-item">
+                  <strong>Складской комплекс Север</strong>
+                  <p>Инженер PIRIS запросил дополнительный лист по ВРУ. Пока его нет, сумма 3 000 ₽ не подтвердится.</p>
+                  <a class="text-button" href="./project-detail.html">Открыть проект</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel rewards-side-panel">
+              <div class="panel-heading">
+                <h3>Как читается статус</h3>
+              </div>
+              <div class="rewards-rule-list">
+                <div class="rewards-rule-item">
+                  <strong>На проверке</strong>
+                  <p>Проект у инженера PIRIS. Сумма видна в кабинете, но ещё не вошла в реестр выплат.</p>
+                </div>
+                <div class="rewards-rule-item">
+                  <strong>Нужно уточнить</strong>
+                  <p>Ждём файл, лист проекта или комментарий. Пока проект не будет дополнен, начисление не подтвердится.</p>
+                </div>
+                <div class="rewards-rule-item">
+                  <strong>Подтверждено</strong>
+                  <p>Проверка завершена. Проект попадает в ближайший реестр и готов к выплате.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel rewards-side-panel">
+              <div class="panel-heading">
+                <h3>Что считаем в выплату</h3>
+              </div>
+              <div class="reward-total-box">
+                <span>Текущая база расчёта</span>
+                <strong>28 000 ₽</strong>
+                <p>Учитываем только подтверждённые проекты без открытых замечаний и недостающих материалов.</p>
+              </div>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

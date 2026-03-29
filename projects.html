@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Мои проекты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">Главная</a>
+            <a class="nav-link active" href="./projects.html">Проекты</a>
+            <a class="nav-link" href="./solutions-catalog.html">Каталог решений</a>
+            <a class="nav-link" href="./rewards.html">Вознаграждения</a>
+            <a class="nav-link" href="#">Аналитика</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-utility-links">
+            <a class="sidebar-utility-link" href="#">
+              <span class="sidebar-utility-icon">⚙</span>
+              <span>Поддержка</span>
+            </a>
+            <a class="role-pill active" href="./index.html">Выйти</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Проекты</p>
+            <h1>Мои проекты</h1>
+          </div>
+          <div class="topbar-actions">
+            <a class="primary-button form-link-button" href="./project-create.html">
+              Создать проект
+            </a>
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Мои реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="projects-filter-bar panel">
+          <div class="filter-pill-group">
+            <button class="filter-pill active" type="button">Все</button>
+            <button class="filter-pill" type="button">Активные</button>
+            <button class="filter-pill" type="button">На проверке</button>
+            <button class="filter-pill" type="button">Требуют действий</button>
+          </div>
+          <div class="projects-summary">
+            <span>Всего проектов: 4</span>
+          </div>
+        </section>
+
+        <section class="projects-list">
+          <article class="project-row-card panel">
+            <div class="project-row-main">
+              <div class="project-row-title">
+                <h2>ЖК Южный квартал</h2>
+                <span class="status-chip info">На проверке</span>
+              </div>
+              <p class="project-row-subtitle">
+                Конечный заказчик: ООО "СтройИнвест" • Москва
+              </p>
+            </div>
+            <div class="project-row-meta">
+              <span>Обновлен 29 марта</span>
+              <a class="secondary-button form-link-button" href="./project-detail.html">
+                Открыть
+              </a>
+            </div>
+          </article>
+
+          <article class="project-row-card panel">
+            <div class="project-row-main">
+              <div class="project-row-title">
+                <h2>Складской комплекс Север</h2>
+                <span class="status-chip warning">Требует уточнения</span>
+              </div>
+              <p class="project-row-subtitle">
+                Конечный заказчик: АО "Север Логистик" • Санкт-Петербург
+              </p>
+            </div>
+            <div class="project-row-meta">
+              <span>Обновлен 28 марта</span>
+              <a class="secondary-button form-link-button" href="./project-detail.html">
+                Открыть
+              </a>
+            </div>
+          </article>
+
+          <article class="project-row-card panel">
+            <div class="project-row-main">
+              <div class="project-row-title">
+                <h2>БЦ Линия Парк</h2>
+                <span class="status-chip success">Подтвержден</span>
+              </div>
+              <p class="project-row-subtitle">
+                Конечный заказчик: ООО "Линия Девелопмент" • Казань
+              </p>
+            </div>
+            <div class="project-row-meta">
+              <span>Обновлен 25 марта</span>
+              <a class="secondary-button form-link-button" href="./project-detail.html">
+                Открыть
+              </a>
+            </div>
+          </article>
+
+          <article class="project-row-card panel">
+            <div class="project-row-main">
+              <div class="project-row-title">
+                <h2>Технопарк Восток</h2>
+                <span class="status-chip neutral">Черновик</span>
+              </div>
+              <p class="project-row-subtitle">
+                Конечный заказчик: ООО "Восток Инжиниринг" • Екатеринбург
+              </p>
+            </div>
+            <div class="project-row-meta">
+              <span>Обновлен 22 марта</span>
+              <a class="secondary-button form-link-button" href="./project-detail.html">
+                Открыть
+              </a>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
