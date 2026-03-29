@@ -4131,11 +4131,56 @@ textarea {
   }
 
   .sidebar {
+    position: static;
+    height: auto;
+    justify-content: flex-start;
     gap: 18px;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: visible;
+  }
+
+  .brand {
+    margin-bottom: 0;
+  }
+
+  .sidebar-brand-caption {
+    display: none;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .sidebar-footer {
+    padding-top: 0;
+  }
+
+  .sidebar-utility-links {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .content {
     padding: 20px;
+  }
+
+  .home-content {
+    min-height: auto;
   }
 
   .topbar,
@@ -4177,10 +4222,20 @@ textarea {
   .topbar-profile {
     width: 100%;
     max-width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .topbar-profile-copy {
+    flex: 1 1 180px;
   }
 
   .topbar-profile-id {
     margin-left: 0;
+  }
+
+  .topbar-profile-toggle {
+    margin-left: auto;
   }
 
   .topbar-profile-copy small {
@@ -4275,9 +4330,32 @@ textarea {
     align-items: flex-start;
   }
 
+  .project-form-footer,
+  .account-actions-row {
+    width: 100%;
+  }
+
+  .project-form-footer .primary-button,
+  .project-form-footer .secondary-button,
+  .project-form-footer .form-link-button,
+  .account-actions-row .primary-button,
+  .account-actions-row .secondary-button,
+  .topbar-actions .primary-button,
+  .topbar-actions .secondary-button,
+  .detail-topbar-actions .primary-button,
+  .detail-topbar-actions .secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
   .project-form-grid,
   .compact-project-form {
     grid-template-columns: 1fr;
+  }
+
+  .compact-project-form .inline-form-action,
+  .compact-project-form .inline-form-action > * {
+    width: 100%;
   }
 
   .action-card {
@@ -4313,6 +4391,11 @@ textarea {
   .modal-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .modal-card {
+    max-height: calc(100vh - 40px);
+    overflow: auto;
   }
 
   .success-modal-card {
@@ -4392,5 +4475,345 @@ textarea {
   .project-picker-option {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .project-picker-card {
+    max-height: calc(100vh - 48px);
+    padding: 20px;
+  }
+
+  .data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .sidebar-brand-logo {
+    width: 136px;
+  }
+
+  .sidebar-nav {
+    gap: 6px;
+  }
+
+  .nav-link,
+  .role-pill,
+  .sidebar-utility-link {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .topbar {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .topbar h1 {
+    font-size: clamp(30px, 11vw, 40px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .panel,
+  .hero-panel,
+  .metric-card,
+  .project-form-panel,
+  .solutions-empty-state,
+  .project-picker-card,
+  .solution-doc-drawer,
+  .modal-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .metrics-grid,
+  .content-grid {
+    gap: 14px;
+  }
+
+  .metric-card strong,
+  .reward-record-side strong,
+  .solution-offer-reward strong {
+    font-size: 28px;
+  }
+
+  .project-row-title h2,
+  .solution-offer-main h3,
+  .documentation-solution-card h2,
+  .project-picker-head h2,
+  .modal-head h2 {
+    font-size: 24px;
+    line-height: 1.08;
+  }
+
+  .project-row-subtitle,
+  .reward-record-subtitle,
+  .hero-copy,
+  .project-picker-copy {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .action-card {
+    min-height: 220px;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .home-action-grid-single .action-card {
+    min-height: 240px;
+  }
+
+  .action-card strong {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  .auth-showcase,
+  .auth-card-shell,
+  .auth-hero,
+  .auth-panel {
+    padding: 18px;
+  }
+
+  .auth-showcase-copy h1 {
+    font-size: clamp(36px, 12vw, 48px);
+  }
+
+  .auth-lead.compact {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+
+  .auth-reasons {
+    margin-top: 32px;
+  }
+
+  .reason-stage {
+    min-height: 300px;
+  }
+
+  .reason-item strong {
+    font-size: clamp(20px, 7vw, 28px);
+  }
+
+  .auth-card-minimal {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .role-toggle {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-profile {
+    gap: 12px;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .topbar-profile-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .topbar-profile-copy strong {
+    font-size: 16px;
+  }
+
+  .topbar-profile-copy span {
+    font-size: 13px;
+  }
+
+  .topbar-profile-copy small {
+    font-size: 12px;
+  }
+
+  .topbar-profile-id {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .profile-dropdown {
+    top: calc(100% + 8px);
+    width: min(calc(100vw - 32px), 320px);
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .profile-dropdown-link {
+    padding: 12px 13px;
+    border-radius: 14px;
+  }
+
+  .account-hero {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .account-avatar {
+    width: 92px;
+    height: 92px;
+  }
+
+  .account-avatar-edit {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .account-hero-copy h2 {
+    font-size: clamp(28px, 10vw, 36px);
+  }
+
+  .account-hero-meta span {
+    font-size: 14px;
+  }
+
+  .project-form-panel {
+    padding: 20px;
+  }
+
+  .project-form-grid input,
+  .project-form-grid select,
+  .account-form-grid input,
+  .account-form-grid select,
+  .modal-card .form-grid input,
+  .modal-card .form-grid select {
+    height: 56px;
+    padding: 14px 16px;
+    border-radius: 18px;
+  }
+
+  .project-form-grid textarea,
+  .account-form-grid textarea,
+  .modal-card .form-grid textarea {
+    min-height: 120px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .project-form-footer,
+  .account-actions-row,
+  .modal-actions,
+  .success-modal-actions,
+  .detail-topbar-actions,
+  .solution-detail-actions,
+  .documentation-preview-actions {
+    width: 100%;
+  }
+
+  .modal-actions > *,
+  .success-modal-actions > *,
+  .project-form-footer > *,
+  .account-actions-row > *,
+  .solution-detail-actions > *,
+  .documentation-preview-actions > * {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .projects-filter-bar,
+  .reward-record-card,
+  .project-row-card,
+  .solution-offer-card {
+    gap: 16px;
+  }
+
+  .filter-pill {
+    padding: 10px 14px;
+  }
+
+  .project-row-title,
+  .reward-record-title {
+    gap: 8px;
+  }
+
+  .project-row-title h2 {
+    font-size: 24px;
+  }
+
+  .project-row-subtitle,
+  .reward-record-subtitle {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .reward-record-meta {
+    gap: 8px;
+  }
+
+  .solution-offer-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .solution-offer-media {
+    height: 180px;
+  }
+
+  .solution-offer-main {
+    gap: 12px;
+  }
+
+  .solution-offer-main h3 {
+    font-size: 24px;
+  }
+
+  .solution-offer-spec strong {
+    font-size: 16px;
+  }
+
+  .solution-offer-reward {
+    padding: 14px 16px;
+    border-radius: 18px;
+  }
+
+  .documentation-card,
+  .documentation-preview-frame,
+  .solution-preview-frame {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .documentation-preview-meta-grid div {
+    padding: 12px 14px;
+  }
+
+  .project-picker-overlay,
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .project-picker-card,
+  .modal-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .wizard-stage {
+    min-height: auto;
+  }
+
+  .solution-doc-drawer {
+    padding: 16px;
+  }
+
+  .solution-doc-drawer-code {
+    font-size: 20px;
   }
 }
