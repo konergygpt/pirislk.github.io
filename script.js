@@ -430,6 +430,25 @@ function setupProjectsList() {
     projectSearchInput.addEventListener("input", applyProjectsFilter);
   }
 
+  projectRows.forEach((row) => {
+    const target = row.dataset.projectLink;
+
+    if (!target) {
+      return;
+    }
+
+    row.addEventListener("click", () => {
+      window.location.href = target;
+    });
+
+    row.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        window.location.href = target;
+      }
+    });
+  });
+
   applyProjectsFilter();
 }
 

@@ -1594,11 +1594,12 @@ textarea {
 .projects-board {
   overflow: hidden;
   padding: 0;
+  margin-top: 10px;
 }
 
 .projects-table-head {
   display: grid;
-  grid-template-columns: 120px minmax(260px, 1.7fr) 180px 180px 220px auto;
+  grid-template-columns: 120px minmax(300px, 1.8fr) 220px 220px 240px;
   gap: 16px;
   align-items: center;
   min-height: 58px;
@@ -1622,20 +1623,24 @@ textarea {
 
 .project-list-row {
   display: grid;
-  grid-template-columns: 120px minmax(260px, 1.7fr) 180px 180px 220px auto;
+  grid-template-columns: 120px minmax(300px, 1.8fr) 220px 220px 240px;
   gap: 16px;
   align-items: center;
   padding: 18px 24px;
   border-bottom: 1px solid rgba(17, 120, 93, 0.08);
-  transition: background 0.18s ease;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
 
 .project-list-row:last-child {
   border-bottom: 0;
 }
 
-.project-list-row:hover {
+.project-list-row:hover,
+.project-list-row:focus-visible {
   background: rgba(17, 120, 93, 0.03);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .project-list-cell {
@@ -1684,6 +1689,7 @@ textarea {
 
 .project-list-cell-status {
   align-self: center;
+  justify-items: start;
 }
 
 .project-list-cell-activity {
@@ -1723,15 +1729,6 @@ textarea {
   background: rgba(17, 120, 93, 0.08);
   color: var(--muted);
   box-shadow: none;
-}
-
-.project-list-cell-action {
-  justify-self: end;
-}
-
-.project-list-cell-action .secondary-button {
-  min-width: 116px;
-  justify-content: center;
 }
 
 .projects-empty {
