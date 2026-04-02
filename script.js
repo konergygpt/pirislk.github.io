@@ -15,6 +15,7 @@ const wizardProgressFill = document.querySelector("#wizard-progress-fill");
 const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
+const notificationMenus = document.querySelectorAll("[data-notification-menu]");
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
 const articleList = document.querySelector("[data-article-list]");
@@ -211,9 +212,9 @@ progressLinks.forEach((link) => {
   });
 });
 
-function closeProfileMenu(menu) {
-  const toggle = menu.querySelector("[data-profile-menu-toggle]");
-  const panel = menu.querySelector("[data-profile-menu-panel]");
+function closeDropdownMenu(menu, toggleSelector, panelSelector) {
+  const toggle = menu.querySelector(toggleSelector);
+  const panel = menu.querySelector(panelSelector);
 
   if (!toggle || !panel) {
     return;
@@ -224,9 +225,9 @@ function closeProfileMenu(menu) {
   toggle.setAttribute("aria-expanded", "false");
 }
 
-function openProfileMenu(menu) {
-  const toggle = menu.querySelector("[data-profile-menu-toggle]");
-  const panel = menu.querySelector("[data-profile-menu-panel]");
+function openDropdownMenu(menu, toggleSelector, panelSelector) {
+  const toggle = menu.querySelector(toggleSelector);
+  const panel = menu.querySelector(panelSelector);
 
   if (!toggle || !panel) {
     return;
@@ -237,40 +238,67 @@ function openProfileMenu(menu) {
   toggle.setAttribute("aria-expanded", "true");
 }
 
-profileMenus.forEach((menu) => {
-  const toggle = menu.querySelector("[data-profile-menu-toggle]");
-  const panel = menu.querySelector("[data-profile-menu-panel]");
+function closeAllDropdownMenus(exceptMenu) {
+  profileMenus.forEach((menu) => {
+    if (menu !== exceptMenu) {
+      closeDropdownMenu(menu, "[data-profile-menu-toggle]", "[data-profile-menu-panel]");
+    }
+  });
 
-  if (!toggle || !panel) {
-    return;
-  }
+  notificationMenus.forEach((menu) => {
+    if (menu !== exceptMenu) {
+      closeDropdownMenu(
+        menu,
+        "[data-notification-menu-toggle]",
+        "[data-notification-menu-panel]"
+      );
+    }
+  });
+}
 
-  toggle.addEventListener("click", (event) => {
-    event.stopPropagation();
+function setupDropdownMenus(menus, toggleSelector, panelSelector) {
+  menus.forEach((menu) => {
+    const toggle = menu.querySelector(toggleSelector);
+    const panel = menu.querySelector(panelSelector);
 
-    const shouldOpen = panel.hidden;
-
-    profileMenus.forEach((otherMenu) => {
-      if (otherMenu !== menu) {
-        closeProfileMenu(otherMenu);
-      }
-    });
-
-    if (shouldOpen) {
-      openProfileMenu(menu);
+    if (!toggle || !panel) {
       return;
     }
 
-    closeProfileMenu(menu);
-  });
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
 
-  panel.addEventListener("click", (event) => {
-    event.stopPropagation();
+      const shouldOpen = panel.hidden;
+
+      closeAllDropdownMenus(menu);
+
+      if (shouldOpen) {
+        openDropdownMenu(menu, toggleSelector, panelSelector);
+        return;
+      }
+
+      closeDropdownMenu(menu, toggleSelector, panelSelector);
+    });
+
+    panel.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
   });
-});
+}
+
+setupDropdownMenus(
+  profileMenus,
+  "[data-profile-menu-toggle]",
+  "[data-profile-menu-panel]"
+);
+setupDropdownMenus(
+  notificationMenus,
+  "[data-notification-menu-toggle]",
+  "[data-notification-menu-panel]"
+);
 
 document.addEventListener("click", () => {
-  profileMenus.forEach((menu) => closeProfileMenu(menu));
+  closeAllDropdownMenus();
 });
 
 document.addEventListener("keydown", (event) => {
@@ -278,7 +306,7 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  profileMenus.forEach((menu) => closeProfileMenu(menu));
+  closeAllDropdownMenus();
 });
 
 function addArticleTag() {
