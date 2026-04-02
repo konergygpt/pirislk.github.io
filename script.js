@@ -16,6 +16,12 @@ const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
 const notificationMenus = document.querySelectorAll("[data-notification-menu]");
+const projectSearchInput = document.querySelector("[data-project-search]");
+const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
+const projectRows = document.querySelectorAll("[data-project-row]");
+const projectCountLabel = document.querySelector("[data-project-count]");
+const projectEmptyState = document.querySelector("[data-project-empty]");
+const projectBoard = document.querySelector("[data-project-board]");
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
 const articleList = document.querySelector("[data-article-list]");
@@ -349,6 +355,84 @@ if (articleInput) {
   });
 }
 
+function setupProjectsList() {
+  if (!projectRows.length) {
+    return;
+  }
+
+  let activeFilter = "all";
+  const totalProjects = projectRows.length;
+
+  function normalizeProjectValue(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function projectMatchesFilter(row) {
+    const status = row.dataset.projectStatus || "";
+
+    if (activeFilter === "all") {
+      return true;
+    }
+
+    if (activeFilter === "active") {
+      return status !== "draft";
+    }
+
+    return status === activeFilter;
+  }
+
+  function applyProjectsFilter() {
+    const query = normalizeProjectValue(projectSearchInput?.value);
+    let visibleProjects = 0;
+
+    projectRows.forEach((row) => {
+      const haystack = normalizeProjectValue(row.dataset.projectSearch);
+      const matchesQuery = !query || haystack.includes(query);
+      const matchesFilter = projectMatchesFilter(row);
+      const isVisible = matchesQuery && matchesFilter;
+
+      row.hidden = !isVisible;
+
+      if (isVisible) {
+        visibleProjects += 1;
+      }
+    });
+
+    if (projectCountLabel) {
+      projectCountLabel.textContent = `Показано проектов: ${visibleProjects} из ${totalProjects}`;
+    }
+
+    if (projectBoard) {
+      projectBoard.hidden = visibleProjects === 0;
+    }
+
+    if (projectEmptyState) {
+      projectEmptyState.hidden = visibleProjects !== 0;
+    }
+  }
+
+  projectFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.projectFilter || "all";
+
+      projectFilterButtons.forEach((item) => {
+        item.classList.toggle("active", item === button);
+      });
+
+      applyProjectsFilter();
+    });
+  });
+
+  if (projectSearchInput) {
+    projectSearchInput.addEventListener("input", applyProjectsFilter);
+  }
+
+  applyProjectsFilter();
+}
+
 function openSubmitModal() {
   if (!submitModal) {
     return;
@@ -419,6 +503,7 @@ function setupProjectRewardSummary() {
 }
 
 setupProjectRewardSummary();
+setupProjectsList();
 
 const solutionCatalogData = {
   "avr-prs-mb-2-1-100-chint": {

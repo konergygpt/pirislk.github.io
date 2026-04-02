@@ -166,106 +166,219 @@
           </div>
         </header>
 
-        <section class="projects-filter-bar panel">
-          <div class="filter-pill-group">
-            <button class="filter-pill active" type="button">Все</button>
-            <button class="filter-pill" type="button">Активные</button>
-            <button class="filter-pill" type="button">На проверке</button>
-            <button class="filter-pill" type="button">Требуют действий</button>
+        <section class="projects-toolbar panel">
+          <div class="projects-toolbar-row">
+            <label class="projects-search-field">
+              <span class="projects-search-label">Поиск по проектам</span>
+              <span class="projects-search-shell">
+                <span class="projects-search-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.7" />
+                    <path d="M13.2 13.2L17 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <input
+                  type="search"
+                  placeholder="ID, название проекта, заказчик или город"
+                  data-project-search
+                />
+              </span>
+            </label>
+            <div class="projects-summary">
+              <span data-project-count>Показано проектов: 4 из 4</span>
+            </div>
           </div>
-          <div class="projects-summary">
-            <span>Всего проектов: 4</span>
+
+          <div class="filter-pill-group projects-filter-group">
+            <button class="filter-pill active" type="button" data-project-filter="all">Все</button>
+            <button class="filter-pill" type="button" data-project-filter="active">Активные</button>
+            <button class="filter-pill" type="button" data-project-filter="review">На проверке</button>
+            <button class="filter-pill" type="button" data-project-filter="needs-action">
+              Требуют действий
+            </button>
           </div>
         </section>
 
-        <section class="projects-list">
-          <article class="project-row-card panel">
-            <div class="project-row-main">
-              <div class="project-row-title">
-                <h2>ЖК Южный квартал</h2>
+        <section class="projects-board panel" data-project-board>
+          <div class="projects-table-head" aria-hidden="true">
+            <span>ID проекта</span>
+            <span>Проект</span>
+            <span>Статус</span>
+            <span>Дата постановки</span>
+            <span>Активность</span>
+            <span></span>
+          </div>
+
+          <section class="projects-list projects-list-structured">
+            <article
+              class="project-list-row"
+              data-project-row
+              data-project-status="review"
+              data-project-search="24058 ЖК Южный квартал СтройИнвест Москва"
+            >
+              <div class="project-list-cell project-list-cell-id">
+                <span class="project-list-mobile-label">ID проекта</span>
+                <span class="project-id-chip">#24058</span>
+              </div>
+              <div class="project-list-cell project-list-cell-main">
+                <span class="project-list-mobile-label">Проект</span>
+                <strong>ЖК Южный квартал</strong>
+                <span>ООО "СтройИнвест" • Москва</span>
+              </div>
+              <div class="project-list-cell project-list-cell-status">
+                <span class="project-list-mobile-label">Статус</span>
                 <span class="status-chip info">На проверке</span>
               </div>
-              <p class="project-row-subtitle">
-                Конечный заказчик: ООО "СтройИнвест" • Москва
-              </p>
-            </div>
-            <div class="project-row-meta">
-              <div class="project-row-activity">
-                <span class="project-activity-badge">3</span>
-                <span class="project-row-activity-label">Новые комментарии</span>
+              <div class="project-list-cell project-list-cell-date">
+                <span class="project-list-mobile-label">Дата постановки</span>
+                <strong>29 марта 2026</strong>
               </div>
-              <span>Обновлен 29 марта</span>
-              <a class="secondary-button form-link-button" href="./project-detail.html">
-                Открыть
-              </a>
-            </div>
-          </article>
+              <div class="project-list-cell project-list-cell-activity">
+                <span class="project-list-mobile-label">Активность</span>
+                <div class="project-row-activity">
+                  <span class="project-activity-badge">3</span>
+                  <span class="project-row-activity-label">Новые комментарии</span>
+                </div>
+                <small>Комментарий 30 марта, 08:51</small>
+              </div>
+              <div class="project-list-cell project-list-cell-action">
+                <a
+                  class="secondary-button form-link-button compact-action-button"
+                  href="./project-detail.html"
+                >
+                  Открыть
+                </a>
+              </div>
+            </article>
 
-          <article class="project-row-card panel">
-            <div class="project-row-main">
-              <div class="project-row-title">
-                <h2>Складской комплекс Север</h2>
+            <article
+              class="project-list-row"
+              data-project-row
+              data-project-status="needs-action"
+              data-project-search="24044 Складской комплекс Север Север Логистик Санкт-Петербург"
+            >
+              <div class="project-list-cell project-list-cell-id">
+                <span class="project-list-mobile-label">ID проекта</span>
+                <span class="project-id-chip">#24044</span>
+              </div>
+              <div class="project-list-cell project-list-cell-main">
+                <span class="project-list-mobile-label">Проект</span>
+                <strong>Складской комплекс Север</strong>
+                <span>АО "Север Логистик" • Санкт-Петербург</span>
+              </div>
+              <div class="project-list-cell project-list-cell-status">
+                <span class="project-list-mobile-label">Статус</span>
                 <span class="status-chip warning">Требует уточнения</span>
               </div>
-              <p class="project-row-subtitle">
-                Конечный заказчик: АО "Север Логистик" • Санкт-Петербург
-              </p>
-            </div>
-            <div class="project-row-meta">
-              <div class="project-row-activity">
-                <span class="project-activity-badge">2</span>
-                <span class="project-row-activity-label">Требует ответа</span>
+              <div class="project-list-cell project-list-cell-date">
+                <span class="project-list-mobile-label">Дата постановки</span>
+                <strong>27 марта 2026</strong>
               </div>
-              <span>Обновлен 28 марта</span>
-              <a class="secondary-button form-link-button" href="./project-detail.html">
-                Открыть
-              </a>
-            </div>
-          </article>
+              <div class="project-list-cell project-list-cell-activity">
+                <span class="project-list-mobile-label">Активность</span>
+                <div class="project-row-activity">
+                  <span class="project-activity-badge">2</span>
+                  <span class="project-row-activity-label">Требует ответа</span>
+                </div>
+                <small>Уточнение 30 марта, 09:14</small>
+              </div>
+              <div class="project-list-cell project-list-cell-action">
+                <a
+                  class="secondary-button form-link-button compact-action-button"
+                  href="./project-detail.html"
+                >
+                  Открыть
+                </a>
+              </div>
+            </article>
 
-          <article class="project-row-card panel">
-            <div class="project-row-main">
-              <div class="project-row-title">
-                <h2>БЦ Линия Парк</h2>
+            <article
+              class="project-list-row"
+              data-project-row
+              data-project-status="confirmed"
+              data-project-search="23987 БЦ Линия Парк Линия Девелопмент Казань"
+            >
+              <div class="project-list-cell project-list-cell-id">
+                <span class="project-list-mobile-label">ID проекта</span>
+                <span class="project-id-chip">#23987</span>
+              </div>
+              <div class="project-list-cell project-list-cell-main">
+                <span class="project-list-mobile-label">Проект</span>
+                <strong>БЦ Линия Парк</strong>
+                <span>ООО "Линия Девелопмент" • Казань</span>
+              </div>
+              <div class="project-list-cell project-list-cell-status">
+                <span class="project-list-mobile-label">Статус</span>
                 <span class="status-chip success">Подтвержден</span>
               </div>
-              <p class="project-row-subtitle">
-                Конечный заказчик: ООО "Линия Девелопмент" • Казань
-              </p>
-            </div>
-            <div class="project-row-meta">
-              <div class="project-row-activity">
-                <span class="project-activity-badge">1</span>
-                <span class="project-row-activity-label">Обновлён статус</span>
+              <div class="project-list-cell project-list-cell-date">
+                <span class="project-list-mobile-label">Дата постановки</span>
+                <strong>25 марта 2026</strong>
               </div>
-              <span>Обновлен 25 марта</span>
-              <a class="secondary-button form-link-button" href="./project-detail.html">
-                Открыть
-              </a>
-            </div>
-          </article>
+              <div class="project-list-cell project-list-cell-activity">
+                <span class="project-list-mobile-label">Активность</span>
+                <div class="project-row-activity">
+                  <span class="project-activity-badge">1</span>
+                  <span class="project-row-activity-label">Обновлён статус</span>
+                </div>
+                <small>Подтверждение 29 марта, 18:10</small>
+              </div>
+              <div class="project-list-cell project-list-cell-action">
+                <a
+                  class="secondary-button form-link-button compact-action-button"
+                  href="./project-detail.html"
+                >
+                  Открыть
+                </a>
+              </div>
+            </article>
 
-          <article class="project-row-card panel">
-            <div class="project-row-main">
-              <div class="project-row-title">
-                <h2>Технопарк Восток</h2>
+            <article
+              class="project-list-row"
+              data-project-row
+              data-project-status="draft"
+              data-project-search="23951 Технопарк Восток Восток Инжиниринг Екатеринбург"
+            >
+              <div class="project-list-cell project-list-cell-id">
+                <span class="project-list-mobile-label">ID проекта</span>
+                <span class="project-id-chip">#23951</span>
+              </div>
+              <div class="project-list-cell project-list-cell-main">
+                <span class="project-list-mobile-label">Проект</span>
+                <strong>Технопарк Восток</strong>
+                <span>ООО "Восток Инжиниринг" • Екатеринбург</span>
+              </div>
+              <div class="project-list-cell project-list-cell-status">
+                <span class="project-list-mobile-label">Статус</span>
                 <span class="status-chip neutral">Черновик</span>
               </div>
-              <p class="project-row-subtitle">
-                Конечный заказчик: ООО "Восток Инжиниринг" • Екатеринбург
-              </p>
-            </div>
-            <div class="project-row-meta">
-              <div class="project-row-activity project-row-activity-idle">
-                <span class="project-activity-badge">0</span>
-                <span class="project-row-activity-label">Без новых событий</span>
+              <div class="project-list-cell project-list-cell-date">
+                <span class="project-list-mobile-label">Дата постановки</span>
+                <strong>22 марта 2026</strong>
               </div>
-              <span>Обновлен 22 марта</span>
-              <a class="secondary-button form-link-button" href="./project-detail.html">
-                Открыть
-              </a>
-            </div>
-          </article>
+              <div class="project-list-cell project-list-cell-activity">
+                <span class="project-list-mobile-label">Активность</span>
+                <div class="project-row-activity project-row-activity-idle">
+                  <span class="project-activity-badge">0</span>
+                  <span class="project-row-activity-label">Без новых событий</span>
+                </div>
+                <small>Последнее изменение 22 марта, 14:06</small>
+              </div>
+              <div class="project-list-cell project-list-cell-action">
+                <a
+                  class="secondary-button form-link-button compact-action-button"
+                  href="./project-detail.html"
+                >
+                  Открыть
+                </a>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <section class="projects-empty panel" data-project-empty hidden>
+          <strong>Ничего не найдено</strong>
+          <p>Попробуйте изменить поисковый запрос или сбросить фильтр по статусу.</p>
         </section>
       </main>
     </div>
