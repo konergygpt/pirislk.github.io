@@ -120,7 +120,7 @@
           </div>
         </section>
 
-        <section class="detail-layout">
+        <section class="detail-layout detail-layout-single">
           <div class="detail-main-column">
             <article class="panel">
               <div class="panel-heading">
@@ -216,90 +216,94 @@
                 </div>
               </div>
             </article>
-
           </div>
+        </section>
 
-          <aside class="detail-side-column">
-            <article class="panel project-discussion-panel">
-              <div class="panel-heading">
+        <section class="project-comments-section">
+          <article class="panel project-comments-panel">
+            <div class="panel-heading project-comments-panel-head">
+              <div class="project-comments-heading">
                 <div class="discussion-heading">
-                  <h3>Чат проекта</h3>
-                  <button class="tooltip-mark" type="button" aria-label="О чате проекта">
-                    ?
-                    <span class="tooltip-bubble">
-                      Здесь можно задать вопрос по проекту и получить ответ от инженера PIRIS.
-                    </span>
+                  <h3>Комментарии к проекту</h3>
+                  <span class="project-comments-count">3</span>
+                </div>
+                <p>
+                  Все рабочие уточнения по проекту, проверке документации и составу решений PIRIS
+                  собираются в одной ленте.
+                </p>
+              </div>
+            </div>
+
+            <div class="project-comments-thread">
+              <article class="discussion-message discussion-message-support">
+                <div class="discussion-message-head">
+                  <span class="discussion-avatar">ГК</span>
+                  <div class="discussion-message-meta">
+                    <div class="discussion-author-row">
+                      <span class="discussion-author">Глеб Колосов</span>
+                      <span class="discussion-role-badge">Инженер PIRIS</span>
+                    </div>
+                    <span class="discussion-time">Сегодня, 10:14</span>
+                  </div>
+                </div>
+                <div class="discussion-bubble">
+                  Проект получили, начали проверку комплекта документации и состава решений PIRIS.
+                </div>
+              </article>
+
+              <article class="discussion-message discussion-message-user">
+                <div class="discussion-message-head">
+                  <span class="discussion-avatar">Вы</span>
+                  <div class="discussion-message-meta">
+                    <div class="discussion-author-row">
+                      <span class="discussion-author">Вы</span>
+                      <span class="discussion-role-badge discussion-role-badge-user">Автор проекта</span>
+                    </div>
+                    <span class="discussion-time">Сегодня, 10:27</span>
+                  </div>
+                </div>
+                <div class="discussion-bubble">
+                  Если потребуется, могу сразу дозагрузить дополнительные листы по ВРУ и обновленную
+                  спецификацию.
+                </div>
+              </article>
+
+              <article class="discussion-message discussion-message-support">
+                <div class="discussion-message-head">
+                  <span class="discussion-avatar">ГК</span>
+                  <div class="discussion-message-meta">
+                    <div class="discussion-author-row">
+                      <span class="discussion-author">Глеб Колосов</span>
+                      <span class="discussion-role-badge">Инженер PIRIS</span>
+                    </div>
+                    <span class="discussion-time">Сегодня, 10:42</span>
+                  </div>
+                </div>
+                <div class="discussion-bubble">
+                  Пока всё в порядке. Если по ходу проверки понадобится уточнение, оставлю комментарий
+                  здесь в карточке проекта.
+                </div>
+              </article>
+            </div>
+
+            <div class="discussion-composer project-comments-composer">
+              <textarea
+                rows="3"
+                placeholder="Добавьте комментарий по проекту, уточнение или приложите файл..."
+              ></textarea>
+              <div class="discussion-composer-actions">
+                <div class="discussion-composer-tools">
+                  <button class="secondary-button discussion-attach-button" type="button">
+                    Прикрепить файл
                   </button>
+                  <span class="discussion-composer-note">
+                    Комментарии сохраняются в истории проекта и видны команде PIRIS.
+                  </span>
                 </div>
+                <button class="primary-button" type="button">Добавить комментарий</button>
               </div>
-
-              <div class="discussion-thread">
-                <article class="discussion-message discussion-message-support">
-                  <div class="discussion-message-head">
-                    <span class="discussion-avatar">ГК</span>
-                    <div class="discussion-message-meta">
-                      <div class="discussion-author-row">
-                        <span class="discussion-author">Глеб Колосов</span>
-                        <span class="discussion-role-badge">Инженер PIRIS</span>
-                      </div>
-                      <span class="discussion-time">Сегодня, 10:14</span>
-                    </div>
-                  </div>
-                  <div class="discussion-bubble">
-                    Добрый день. Проект получили, сейчас проверяем комплект документации и состав решений PIRIS.
-                  </div>
-                </article>
-
-                <article class="discussion-message discussion-message-user">
-                  <div class="discussion-message-head">
-                    <span class="discussion-avatar">Вы</span>
-                    <div class="discussion-message-meta">
-                      <div class="discussion-author-row">
-                        <span class="discussion-author">Вы</span>
-                        <span class="discussion-role-badge discussion-role-badge-user">Автор проекта</span>
-                      </div>
-                      <span class="discussion-time">Сегодня, 10:27</span>
-                    </div>
-                  </div>
-                  <div class="discussion-bubble">
-                    Добрый день. Если потребуется, могу сразу дозагрузить дополнительные листы по ВРУ.
-                  </div>
-                </article>
-
-                <article class="discussion-message discussion-message-support">
-                  <div class="discussion-message-head">
-                    <span class="discussion-avatar">ГК</span>
-                    <div class="discussion-message-meta">
-                      <div class="discussion-author-row">
-                        <span class="discussion-author">Глеб Колосов</span>
-                        <span class="discussion-role-badge">Инженер PIRIS</span>
-                      </div>
-                      <span class="discussion-time">Сегодня, 10:42</span>
-                    </div>
-                  </div>
-                  <div class="discussion-bubble">
-                    Пока все в порядке. Если по ходу проверки понадобится уточнение, напишу сюда в этом чате.
-                  </div>
-                </article>
-              </div>
-
-              <div class="discussion-composer">
-                <textarea
-                  rows="3"
-                  placeholder="Напишите вопрос по проекту или прикрепите уточняющий файл..."
-                ></textarea>
-                <div class="discussion-composer-actions">
-                  <div class="discussion-composer-tools">
-                    <button class="secondary-button discussion-attach-button" type="button">
-                      Прикрепить файл
-                    </button>
-                    <span class="discussion-composer-note">Можно приложить PDF, лист проекта или уточняющий комментарий.</span>
-                  </div>
-                  <button class="primary-button" type="button">Отправить</button>
-                </div>
-              </div>
-            </article>
-          </aside>
+            </div>
+          </article>
         </section>
       </main>
     </div>

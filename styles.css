@@ -2012,6 +2012,10 @@ textarea {
   align-items: stretch;
 }
 
+.detail-layout-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .detail-main-column,
 .detail-side-column {
   gap: 18px;
@@ -2026,6 +2030,45 @@ textarea {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.project-comments-section {
+  margin-top: 18px;
+}
+
+.project-comments-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.project-comments-panel-head {
+  align-items: flex-start;
+}
+
+.project-comments-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.project-comments-heading p {
+  margin: 0;
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.project-comments-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(17, 120, 93, 0.1);
+  color: var(--brand-dark);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .detail-grid-list {
@@ -2228,6 +2271,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .project-discussion-panel h3 {
@@ -2254,6 +2298,28 @@ textarea {
 .discussion-thread {
   display: grid;
   gap: 14px;
+}
+
+.project-comments-thread {
+  display: grid;
+  gap: 14px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.project-comments-thread::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-comments-thread::-webkit-scrollbar-track {
+  background: rgba(17, 120, 93, 0.06);
+  border-radius: 999px;
+}
+
+.project-comments-thread::-webkit-scrollbar-thumb {
+  background: rgba(17, 120, 93, 0.22);
+  border-radius: 999px;
 }
 
 .discussion-message {
@@ -2361,6 +2427,10 @@ textarea {
   background: linear-gradient(180deg, #fbfdfc 0%, #f6faf8 100%);
   border: 1px solid var(--line);
   margin-top: auto;
+}
+
+.project-comments-composer {
+  margin-top: 0;
 }
 
 .discussion-composer textarea {
@@ -4331,6 +4401,11 @@ textarea {
     justify-items: start;
   }
 
+  .project-comments-thread {
+    max-height: 360px;
+    padding-right: 4px;
+  }
+
   .project-discussion-panel {
     min-height: auto;
   }
@@ -4711,6 +4786,11 @@ textarea {
   .detail-hero {
     padding: 14px;
     border-radius: 22px;
+  }
+
+  .project-comments-thread {
+    max-height: 320px;
+    padding-right: 2px;
   }
 
   .detail-hero-main {
