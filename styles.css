@@ -2465,10 +2465,13 @@ textarea {
   flex-wrap: wrap;
 }
 
-.discussion-attach-button {
+.discussion-tool-button {
   padding: 10px 14px;
   border-radius: 12px;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .discussion-composer-note {
