@@ -229,7 +229,7 @@ textarea {
 
 .dashboard-shell.sidebar-collapsed .brand {
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar > div:first-child {
@@ -252,18 +252,40 @@ textarea {
 .dashboard-shell.sidebar-collapsed .nav-link {
   grid-template-columns: 1fr;
   justify-items: center;
+  position: relative;
+  overflow: visible;
   padding: 14px 12px;
   min-height: 56px;
 }
 
 .dashboard-shell.sidebar-collapsed .nav-link-label {
-  display: none;
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  z-index: 6;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #11211c;
+  box-shadow: 0 14px 34px rgba(8, 18, 14, 0.22);
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-8px, -50%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .dashboard-shell.sidebar-collapsed .nav-link-icon {
   width: 24px;
   height: 24px;
   justify-self: center;
+}
+
+.dashboard-shell.sidebar-collapsed .nav-link:hover .nav-link-label,
+.dashboard-shell.sidebar-collapsed .nav-link:focus-visible .nav-link-label {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
