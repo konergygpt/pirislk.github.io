@@ -2678,14 +2678,14 @@ textarea {
 }
 
 .grades-levels-panel {
-  padding: 18px;
+  padding: 14px;
   border: 1px solid rgba(114, 94, 214, 0.12);
   background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 100%);
 }
 
 .grades-levels-list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .grades-level-item,
@@ -2700,10 +2700,10 @@ textarea {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
   align-items: center;
-  gap: 12px;
-  min-height: 88px;
-  padding: 14px 16px;
-  border-radius: 16px;
+  gap: 10px;
+  min-height: 72px;
+  padding: 10px 14px;
+  border-radius: 14px;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -2714,7 +2714,7 @@ textarea {
 
 .grades-level-copy {
   display: grid;
-  gap: 2px;
+  gap: 0;
 }
 
 .grades-level-copy strong,
@@ -2723,13 +2723,14 @@ textarea {
 }
 
 .grades-level-copy strong {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.2;
 }
 
 .grades-level-copy small {
   color: var(--muted);
-  line-height: 1.4;
+  line-height: 1.3;
+  font-size: 13px;
 }
 
 .grades-workbench-panel {
