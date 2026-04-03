@@ -66,7 +66,6 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">Профиль</p>
-            <h1>Грейды</h1>
           </div>
           <div class="topbar-meta">
             <div class="notification-menu" data-notification-menu>
@@ -225,17 +224,82 @@
                   <p>Подтверждено в апреле</p>
                   <small>Учитываются проекты, которые прошли проверку в этом месяце.</small>
                 </article>
-
-                <article class="panel grades-summary-card grades-summary-target">
-                  <span class="grades-summary-label">Что дальше</span>
-                  <div class="grades-target-lines">
-                    <p><strong>Для сохранения:</strong> 1 проект в этом месяце</p>
-                    <p><strong>Для перехода:</strong> ещё 2 проекта до Золота</p>
-                  </div>
-                </article>
               </div>
 
-              <article class="panel grades-benefits-panel">
+              <article class="panel grades-next-panel">
+                <div class="grades-next-line">
+                  <span class="grades-next-line-label">Для сохранения</span>
+                  <strong>1 проект в этом месяце</strong>
+                </div>
+                <div class="grades-next-line">
+                  <span class="grades-next-line-label">Для перехода</span>
+                  <strong>Ещё 2 проекта до Золота</strong>
+                </div>
+              </article>
+            </div>
+
+            <aside class="panel grades-levels-panel">
+              <div class="grades-section-head compact">
+                <div>
+                  <h3>Уровни грейдов</h3>
+                </div>
+              </div>
+
+              <div class="grades-levels-list">
+                <button
+                  class="grades-level-item bronze"
+                  type="button"
+                  data-grade-level-button
+                  data-grade-level="bronze"
+                >
+                  <span class="grade-badge bronze">Бронза</span>
+                  <span class="grades-level-copy">
+                    <strong>0–5 проектов</strong>
+                    <small>Стартовый уровень</small>
+                  </span>
+                </button>
+                <button
+                  class="grades-level-item silver active current"
+                  type="button"
+                  data-grade-level-button
+                  data-grade-level="silver"
+                >
+                  <span class="grade-badge silver">Серебро</span>
+                  <span class="grades-level-copy">
+                    <strong>6–9 проектов</strong>
+                    <small>Текущий статус</small>
+                  </span>
+                </button>
+                <button
+                  class="grades-level-item gold"
+                  type="button"
+                  data-grade-level-button
+                  data-grade-level="gold"
+                >
+                  <span class="grade-badge gold">Золото</span>
+                  <span class="grades-level-copy">
+                    <strong>10–14 проектов</strong>
+                    <small>Следующий шаг роста</small>
+                  </span>
+                </button>
+                <button
+                  class="grades-level-item diamond"
+                  type="button"
+                  data-grade-level-button
+                  data-grade-level="diamond"
+                >
+                  <span class="grade-badge diamond">Бриллиант</span>
+                  <span class="grades-level-copy">
+                    <strong>15+ проектов</strong>
+                    <small>Максимальный уровень</small>
+                  </span>
+                </button>
+              </div>
+            </aside>
+          </section>
+
+          <article class="panel grades-workbench-panel">
+            <section class="grades-benefits-panel">
                 <div class="grades-section-head">
                   <div>
                     <h3>Привилегии и коэффициенты</h3>
@@ -297,147 +361,86 @@
                     <li>Ускоренная обратная связь по спорным кейсам</li>
                   </ul>
                 </div>
-              </article>
-            </div>
+              </section>
 
-            <aside class="panel grades-levels-panel">
-              <div class="grades-section-head compact">
+            <section class="grades-projects-panel">
+              <div class="grades-section-head">
                 <div>
-                  <h3>Уровни грейдов</h3>
+                  <h3>Проекты</h3>
+                  <p>Список проектов, которые влияют на ваш текущий грейд и сумму выплат.</p>
                 </div>
               </div>
 
-              <div class="grades-levels-list">
+              <div class="grades-project-tabs">
                 <button
-                  class="grades-level-item bronze"
+                  class="grades-project-tab-button active"
                   type="button"
-                  data-grade-level-button
-                  data-grade-level="bronze"
+                  data-grade-project-tab
+                  data-grade-project-tab-target="work"
                 >
-                  <span class="grade-badge bronze">Бронза</span>
-                  <span class="grades-level-copy">
-                    <strong>0–5 проектов</strong>
-                    <small>Стартовый уровень</small>
-                  </span>
+                  В работе
                 </button>
                 <button
-                  class="grades-level-item silver active current"
+                  class="grades-project-tab-button"
                   type="button"
-                  data-grade-level-button
-                  data-grade-level="silver"
+                  data-grade-project-tab
+                  data-grade-project-tab-target="completed"
                 >
-                  <span class="grades-level-current">Ваш грейд</span>
-                  <span class="grade-badge silver">Серебро</span>
-                  <span class="grades-level-copy">
-                    <strong>6–9 проектов</strong>
-                    <small>Текущий статус</small>
-                  </span>
-                </button>
-                <button
-                  class="grades-level-item gold"
-                  type="button"
-                  data-grade-level-button
-                  data-grade-level="gold"
-                >
-                  <span class="grade-badge gold">Золото</span>
-                  <span class="grades-level-copy">
-                    <strong>10–14 проектов</strong>
-                    <small>Следующий шаг роста</small>
-                  </span>
-                </button>
-                <button
-                  class="grades-level-item diamond"
-                  type="button"
-                  data-grade-level-button
-                  data-grade-level="diamond"
-                >
-                  <span class="grade-badge diamond">Бриллиант</span>
-                  <span class="grades-level-copy">
-                    <strong>15+ проектов</strong>
-                    <small>Максимальный уровень</small>
-                  </span>
+                  Завершённые
                 </button>
               </div>
-            </aside>
-          </section>
 
-          <article class="panel grades-projects-panel">
-            <div class="grades-section-head">
-              <div>
-                <h3>Проекты</h3>
-                <p>Список проектов, которые влияют на ваш текущий грейд и сумму выплат.</p>
+              <div class="grades-project-list" data-grade-project-list="work">
+                <article class="grades-project-row">
+                  <div class="grades-project-main">
+                    <strong>ЖК Южный квартал</strong>
+                    <small>Добавлены решения PIRIS и комплект документации</small>
+                  </div>
+                  <span class="status-pill review">На проверке</span>
+                  <strong class="grades-project-reward">7 000 ₽</strong>
+                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                </article>
+                <article class="grades-project-row">
+                  <div class="grades-project-main">
+                    <strong>Складской комплекс Север</strong>
+                    <small>Ожидает уточнений по спецификации и составу решений</small>
+                  </div>
+                  <span class="status-pill warning">Требует уточнения</span>
+                  <strong class="grades-project-reward">4 500 ₽</strong>
+                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                </article>
               </div>
-            </div>
 
-            <div class="grades-project-tabs">
-              <button
-                class="role-pill active"
-                type="button"
-                data-grade-project-tab
-                data-grade-project-tab-target="work"
-              >
-                В работе
-              </button>
-              <button
-                class="role-pill"
-                type="button"
-                data-grade-project-tab
-                data-grade-project-tab-target="completed"
-              >
-                Завершённые
-              </button>
-            </div>
-
-            <div class="grades-project-list" data-grade-project-list="work">
-              <article class="grades-project-row">
-                <div class="grades-project-main">
-                  <strong>ЖК Южный квартал</strong>
-                  <small>Добавлены решения PIRIS и комплект документации</small>
-                </div>
-                <span class="status-pill review">На проверке</span>
-                <strong class="grades-project-reward">7 000 ₽</strong>
-                <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-              </article>
-              <article class="grades-project-row">
-                <div class="grades-project-main">
-                  <strong>Складской комплекс Север</strong>
-                  <small>Ожидает уточнений по спецификации и составу решений</small>
-                </div>
-                <span class="status-pill warning">Требует уточнения</span>
-                <strong class="grades-project-reward">4 500 ₽</strong>
-                <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-              </article>
-            </div>
-
-            <div class="grades-project-list" data-grade-project-list="completed" hidden>
-              <article class="grades-project-row">
-                <div class="grades-project-main">
-                  <strong>БЦ Линия Парк</strong>
-                  <small>Проект подтверждён и учтён в программе лояльности</small>
-                </div>
-                <span class="status-pill success">Подтверждён</span>
-                <strong class="grades-project-reward">5 800 ₽</strong>
-                <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-              </article>
-              <article class="grades-project-row">
-                <div class="grades-project-main">
-                  <strong>Административный центр Вектор</strong>
-                  <small>Выплата начислена после завершения проверки проекта</small>
-                </div>
-                <span class="status-pill paid">Завершён</span>
-                <strong class="grades-project-reward">6 200 ₽</strong>
-                <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-              </article>
-              <article class="grades-project-row">
-                <div class="grades-project-main">
-                  <strong>Логистический парк Нева</strong>
-                  <small>Проект закрыт, вознаграждение выплачено в полном объёме</small>
-                </div>
-                <span class="status-pill paid">Завершён</span>
-                <strong class="grades-project-reward">8 100 ₽</strong>
-                <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-              </article>
-            </div>
+              <div class="grades-project-list" data-grade-project-list="completed" hidden>
+                <article class="grades-project-row">
+                  <div class="grades-project-main">
+                    <strong>БЦ Линия Парк</strong>
+                    <small>Проект подтверждён и учтён в программе лояльности</small>
+                  </div>
+                  <span class="status-pill success">Подтверждён</span>
+                  <strong class="grades-project-reward">5 800 ₽</strong>
+                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                </article>
+                <article class="grades-project-row">
+                  <div class="grades-project-main">
+                    <strong>Административный центр Вектор</strong>
+                    <small>Выплата начислена после завершения проверки проекта</small>
+                  </div>
+                  <span class="status-pill paid">Завершён</span>
+                  <strong class="grades-project-reward">6 200 ₽</strong>
+                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                </article>
+                <article class="grades-project-row">
+                  <div class="grades-project-main">
+                    <strong>Логистический парк Нева</strong>
+                    <small>Проект закрыт, вознаграждение выплачено в полном объёме</small>
+                  </div>
+                  <span class="status-pill paid">Завершён</span>
+                  <strong class="grades-project-reward">8 100 ₽</strong>
+                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                </article>
+              </div>
+            </section>
           </article>
         </section>
       </main>

@@ -2496,23 +2496,27 @@ textarea {
 
 .grades-page {
   display: grid;
-  gap: 20px;
+  gap: 18px;
 }
 
 .grades-intro-panel,
-.grades-benefits-panel,
-.grades-projects-panel,
 .grades-levels-panel,
-.grades-summary-card {
-  border-radius: 24px;
+.grades-workbench-panel,
+.grades-summary-card,
+.grades-next-panel {
+  border-radius: 18px;
+}
+
+.grades-intro-panel {
+  padding: 18px 24px;
 }
 
 .grades-intro-head,
 .grades-section-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
 .grades-intro-head h2,
@@ -2557,16 +2561,16 @@ textarea {
 
 .grades-help-panel {
   margin-top: 14px;
-  padding: 16px 18px;
-  border: 1px solid rgba(93, 124, 246, 0.14);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(240, 243, 255, 0.96) 0%, rgba(255, 255, 255, 0.96) 100%);
+  padding: 14px 16px;
+  border: 1px solid rgba(93, 124, 246, 0.16);
+  border-radius: 14px;
+  background: #f8fbff;
 }
 
 .grades-help-panel p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .grades-help-panel a {
@@ -2576,57 +2580,57 @@ textarea {
 
 .grades-dashboard {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 18px;
   align-items: start;
 }
 
 .grades-main-column {
   display: grid;
-  gap: 20px;
+  gap: 14px;
 }
 
 .grades-summary-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .grades-summary-card {
   display: grid;
   gap: 10px;
-  min-height: 214px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+  min-height: 188px;
+  padding: 18px 20px;
+  border: 1px solid #cfdad5;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(18, 33, 28, 0.04);
 }
 
 .grades-summary-current {
-  background:
-    radial-gradient(circle at left top, rgba(30, 170, 132, 0.18), transparent 38%),
-    linear-gradient(135deg, rgba(240, 255, 250, 0.98) 0%, rgba(232, 246, 240, 0.98) 100%);
+  background: linear-gradient(180deg, #eef4f3 0%, #e4eeeb 100%);
+}
+
+.grades-summary-current.silver-tone,
+.grades-summary-current {
+  background: linear-gradient(180deg, #eef2f6 0%, #e4e9ef 100%);
+  border-color: rgba(123, 143, 164, 0.28);
 }
 
 .grades-summary-month {
-  background:
-    linear-gradient(135deg, rgba(248, 241, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
-}
-
-.grades-summary-target {
-  background:
-    linear-gradient(135deg, rgba(239, 247, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+  background: linear-gradient(180deg, #faf8ff 0%, #f1eefb 100%);
+  border-color: rgba(124, 109, 188, 0.18);
 }
 
 .grades-summary-label {
-  color: var(--muted);
+  color: #5f746d;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .grades-summary-card strong {
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-size: clamp(30px, 3.4vw, 52px);
   line-height: 1.02;
 }
 
@@ -2636,46 +2640,56 @@ textarea {
 }
 
 .grades-summary-card p {
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 19px;
+  line-height: 1.24;
 }
 
 .grades-summary-card small {
   color: var(--muted);
-  line-height: 1.55;
-}
-
-.grades-target-lines {
-  display: grid;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.grades-target-lines p {
-  font-size: 16px;
   line-height: 1.5;
 }
 
-.grades-target-lines strong {
-  font-size: inherit;
-  line-height: inherit;
+.grades-next-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.grades-next-line {
+  display: grid;
+  gap: 6px;
+}
+
+.grades-next-line-label {
+  color: #5f746d;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.grades-next-line strong {
+  font-size: 18px;
+  line-height: 1.25;
 }
 
 .grades-levels-panel {
-  padding: 20px;
+  padding: 18px;
   border: 1px solid rgba(114, 94, 214, 0.12);
-  background: linear-gradient(180deg, rgba(245, 246, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+  background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 100%);
 }
 
 .grades-levels-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .grades-level-item,
 .grades-benefit-card {
-  position: relative;
-  border: 1px solid var(--line);
+  border: 1px solid #d7e1dc;
   background: #ffffff;
   cursor: pointer;
   text-align: left;
@@ -2683,43 +2697,23 @@ textarea {
 
 .grades-level-item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 120px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  padding: 16px 18px;
-  border-radius: 20px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  min-height: 88px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .grades-level-item.active {
-  border-color: rgba(105, 71, 214, 0.32);
-  box-shadow: 0 18px 32px rgba(68, 56, 155, 0.12);
-  transform: translateY(-1px);
-}
-
-.grades-level-item.current {
-  padding-left: 18px;
-}
-
-.grades-level-current {
-  position: absolute;
-  left: -11px;
-  top: 18px;
-  padding: 8px 6px;
-  border-radius: 10px 10px 0 0;
-  background: #6a47d6;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  border-color: rgba(105, 71, 214, 0.3);
+  background: #fbfbff;
 }
 
 .grades-level-copy {
   display: grid;
-  gap: 4px;
+  gap: 2px;
 }
 
 .grades-level-copy strong,
@@ -2728,21 +2722,33 @@ textarea {
 }
 
 .grades-level-copy strong {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
 .grades-level-copy small {
   color: var(--muted);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
-.grades-benefits-panel {
+.grades-workbench-panel {
+  display: grid;
+  gap: 22px;
   padding: 22px;
 }
 
+.grades-benefits-panel,
+.grades-projects-panel {
+  padding: 0;
+}
+
+.grades-projects-panel {
+  border-top: 1px solid rgba(216, 227, 221, 0.88);
+  padding-top: 22px;
+}
+
 .grades-section-head.compact {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .grades-section-head p {
@@ -2753,34 +2759,33 @@ textarea {
 .grades-benefit-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
 }
 
 .grades-benefit-card {
   display: grid;
-  gap: 12px;
-  padding: 18px;
-  border-radius: 20px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .grades-benefit-card.active {
   border-color: rgba(105, 71, 214, 0.28);
-  box-shadow: 0 14px 30px rgba(68, 56, 155, 0.12);
-  transform: translateY(-1px);
+  background: #fbfbff;
 }
 
 .grades-benefit-card strong {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.2;
 }
 
 .grades-benefit-detail {
-  margin-top: 18px;
-  padding: 20px;
+  margin-top: 14px;
+  padding: 18px;
   border: 1px solid rgba(105, 71, 214, 0.14);
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(251, 250, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+  border-radius: 16px;
+  background: #fbfbff;
 }
 
 .grades-benefit-detail-head {
@@ -2795,49 +2800,63 @@ textarea {
 }
 
 .grades-benefit-detail p {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .grades-benefit-list {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   padding-left: 18px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
   color: var(--text);
-}
-
-.grades-projects-panel {
-  padding: 22px;
 }
 
 .grades-project-tabs {
   display: flex;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.grades-project-tab-button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #cdd8d3;
+  border-radius: 12px;
+  background: #f7faf8;
+  color: #27413a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.grades-project-tab-button.active {
+  border-color: rgba(30, 170, 132, 0.28);
+  background: rgba(30, 170, 132, 0.14);
+  color: #11785d;
 }
 
 .grades-project-list {
   display: grid;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 .grades-project-row {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) auto auto auto;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+  gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid #d7e1dc;
+  border-radius: 14px;
+  background: #ffffff;
 }
 
 .grades-project-main {
   display: grid;
-  gap: 4px;
+  gap: 3px;
   min-width: 0;
 }
 
@@ -2847,22 +2866,25 @@ textarea {
 }
 
 .grades-project-main strong {
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.22;
 }
 
 .grades-project-main small {
   color: var(--muted);
-  line-height: 1.45;
+  line-height: 1.38;
+  font-size: 13px;
 }
 
 .grades-project-reward {
-  font-size: 20px;
+  font-size: 18px;
   white-space: nowrap;
 }
 
 .grades-project-link {
-  min-width: 118px;
+  min-width: 102px;
+  min-height: 38px;
+  border-radius: 12px;
   text-align: center;
   text-decoration: none;
 }
@@ -2871,10 +2893,10 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
-  padding: 8px 14px;
+  min-height: 32px;
+  padding: 6px 12px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -2904,14 +2926,6 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .grades-summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .grades-summary-target {
-    grid-column: 1 / -1;
-  }
-
   .grades-benefit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2926,17 +2940,15 @@ textarea {
   }
 
   .grades-summary-grid,
+  .grades-next-panel,
   .grades-benefit-grid,
-  .grades-project-row {
+  .grades-project-row,
+  .grades-level-item {
     grid-template-columns: 1fr;
   }
 
-  .grades-summary-card {
+  .grades-level-item {
     min-height: 0;
-  }
-
-  .grades-level-current {
-    top: 14px;
   }
 
   .grades-project-row {
