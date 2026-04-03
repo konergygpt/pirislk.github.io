@@ -20,7 +20,6 @@ const projectSearchInput = document.querySelector("[data-project-search]");
 const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
 const projectRows = document.querySelectorAll("[data-project-row]");
 const projectCountLabel = document.querySelector("[data-project-count]");
-const projectEmptyState = document.querySelector("[data-project-empty]");
 const projectBoard = document.querySelector("[data-project-board]");
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
@@ -409,9 +408,6 @@ function setupProjectsList() {
       projectBoard.hidden = visibleProjects === 0;
     }
 
-    if (projectEmptyState) {
-      projectEmptyState.hidden = visibleProjects !== 0;
-    }
   }
 
   projectFilterButtons.forEach((button) => {
