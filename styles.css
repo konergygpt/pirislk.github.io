@@ -48,6 +48,7 @@ textarea {
   display: grid;
   grid-template-columns: 280px 1fr;
   min-height: 100vh;
+  transition: grid-template-columns 0.28s ease;
 }
 
 .sidebar {
@@ -62,6 +63,7 @@ textarea {
   color: #f3faf7;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   overflow: auto;
+  transition: padding 0.28s ease, background 0.28s ease;
 }
 
 .dashboard-shell.sidebar-collapsed {
@@ -73,8 +75,9 @@ textarea {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  min-height: 104px;
-  margin-bottom: 28px;
+  min-height: 76px;
+  margin-bottom: 12px;
+  transition: min-height 0.28s ease, margin-bottom 0.28s ease, align-items 0.28s ease;
 }
 
 .brand-mark {
@@ -98,6 +101,7 @@ textarea {
 .sidebar-brand-logo {
   width: 170px;
   max-width: 100%;
+  transition: width 0.28s ease;
 }
 
 .sidebar-brand-caption {
@@ -106,6 +110,7 @@ textarea {
   font-size: 11px;
   line-height: 1.35;
   letter-spacing: 0.04em;
+  transition: opacity 0.2s ease;
 }
 
 .brand-text {
@@ -138,7 +143,8 @@ textarea {
   padding: 14px 18px;
   border-radius: 14px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, padding 0.28s ease, min-height 0.28s ease,
+    grid-template-columns 0.28s ease;
   line-height: 1.2;
 }
 
@@ -158,6 +164,7 @@ textarea {
   display: inline-block;
   min-width: 0;
   line-height: 1.15;
+  transition: opacity 0.16s ease;
 }
 
 .nav-link:hover .nav-link-icon,
@@ -189,7 +196,7 @@ textarea {
   background: rgba(255, 255, 255, 0.04);
   color: rgba(243, 250, 247, 0.84);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, padding 0.28s ease;
 }
 
 .sidebar-toggle:hover {
@@ -234,6 +241,7 @@ textarea {
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-brand-caption {
+  opacity: 0;
   display: none;
 }
 
