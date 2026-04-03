@@ -16,6 +16,8 @@ const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
 const notificationMenus = document.querySelectorAll("[data-notification-menu]");
+const dashboardShell = document.querySelector(".dashboard-shell");
+const sidebarToggleButton = document.querySelector("[data-sidebar-toggle]");
 const projectSearchInput = document.querySelector("[data-project-search]");
 const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
 const projectRows = document.querySelectorAll("[data-project-row]");
@@ -28,6 +30,7 @@ const submitProjectButton = document.querySelector("[data-submit-project]");
 const submitModal = document.querySelector("[data-submit-modal]");
 const submitHomeLink = document.querySelector("[data-submit-home]");
 const onboardingDismissedStorageKey = "piris-profile-onboarding-dismissed";
+const sidebarCollapsedStorageKey = "piris-sidebar-collapsed";
 let currentWizardStep = 1;
 
 const solutionRewardRules = [
@@ -139,6 +142,48 @@ function rememberOnboardingDismissed() {
   }
 }
 
+function setSidebarCollapsed(isCollapsed) {
+  if (!dashboardShell) {
+    return;
+  }
+
+  const shouldCollapse =
+    isCollapsed && !window.matchMedia("(max-width: 920px)").matches;
+
+  dashboardShell.classList.toggle("sidebar-collapsed", shouldCollapse);
+
+  if (sidebarToggleButton) {
+    sidebarToggleButton.setAttribute("aria-expanded", shouldCollapse ? "false" : "true");
+
+    const label = sidebarToggleButton.querySelector(".sidebar-toggle-label");
+    const icon = sidebarToggleButton.querySelector(".sidebar-toggle-icon");
+
+    if (label) {
+      label.textContent = shouldCollapse ? "Развернуть меню" : "Свернуть меню";
+    }
+
+    if (icon) {
+      icon.textContent = shouldCollapse ? "›" : "‹";
+    }
+  }
+}
+
+function getSidebarCollapsedPreference() {
+  try {
+    return window.localStorage.getItem(sidebarCollapsedStorageKey) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function rememberSidebarCollapsedPreference(isCollapsed) {
+  try {
+    window.localStorage.setItem(sidebarCollapsedStorageKey, String(isCollapsed));
+  } catch {
+    // Ignore storage issues and keep sidebar state in-memory only.
+  }
+}
+
 function openModal() {
   if (!modalOverlay) {
     return;
@@ -197,6 +242,20 @@ updateWizard();
 
 if (modalOverlay && !isOnboardingDismissed()) {
   openModal();
+}
+
+if (sidebarToggleButton && dashboardShell) {
+  setSidebarCollapsed(getSidebarCollapsedPreference());
+
+  sidebarToggleButton.addEventListener("click", () => {
+    const nextState = !dashboardShell.classList.contains("sidebar-collapsed");
+    rememberSidebarCollapsedPreference(nextState);
+    setSidebarCollapsed(nextState);
+  });
+
+  window.addEventListener("resize", () => {
+    setSidebarCollapsed(getSidebarCollapsedPreference());
+  });
 }
 
 progressLinks.forEach((link) => {
