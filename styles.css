@@ -155,35 +155,30 @@ textarea {
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
-  transform: translateY(var(--nav-icon-shift, 0));
+  transform: none;
 }
 
 .sidebar-nav .nav-link:nth-child(1)::before {
-  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-home.svg");
   mask-image: url("./assets/sidebar-home.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(2)::before {
-  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-projects.svg");
   mask-image: url("./assets/sidebar-projects.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(3)::before {
-  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-catalog.svg");
   mask-image: url("./assets/sidebar-catalog.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(4)::before {
-  --nav-icon-shift: 2px;
   -webkit-mask-image: url("./assets/sidebar-stats.svg");
   mask-image: url("./assets/sidebar-stats.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(5)::before {
-  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-faq.svg");
   mask-image: url("./assets/sidebar-faq.svg");
 }
@@ -238,13 +233,14 @@ textarea {
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar {
-  padding: 24px 14px;
+  padding: 28px 14px;
   align-items: center;
 }
 
 .dashboard-shell.sidebar-collapsed .brand {
   align-items: center;
-  margin-bottom: 20px;
+  min-height: 116px;
+  margin-bottom: 28px;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar > div:first-child {
@@ -274,7 +270,7 @@ textarea {
   width: 22px;
   height: 22px;
   flex-basis: 22px;
-  transform: translateY(var(--nav-icon-shift, 0));
+  transform: none;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
@@ -287,7 +283,7 @@ textarea {
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle-icon {
-  transform: rotate(180deg);
+  transform: none;
 }
 
 .role-pill-group {
