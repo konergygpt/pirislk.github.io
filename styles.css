@@ -255,6 +255,7 @@ textarea {
 .dashboard-shell.sidebar-collapsed .nav-link-icon {
   width: 24px;
   height: 24px;
+  justify-self: center;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
