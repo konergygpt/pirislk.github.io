@@ -73,7 +73,7 @@ textarea {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  min-height: 136px;
+  min-height: 104px;
   margin-bottom: 28px;
 }
 
