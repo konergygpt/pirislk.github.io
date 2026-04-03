@@ -124,9 +124,10 @@ textarea {
 }
 
 .nav-link {
-  display: flex;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
+  column-gap: 14px;
   border: 0;
   background: transparent;
   color: inherit;
@@ -141,9 +142,10 @@ textarea {
 
 .nav-link-icon {
   display: block;
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
+  width: 26px;
+  height: 26px;
+  justify-self: center;
+  align-self: center;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(96%) sepia(5%) saturate(346%) hue-rotate(94deg)
     brightness(106%) contrast(97%);
@@ -152,6 +154,8 @@ textarea {
 
 .nav-link-label {
   display: inline-block;
+  min-width: 0;
+  line-height: 1.15;
 }
 
 .nav-link:hover .nav-link-icon,
@@ -237,7 +241,8 @@ textarea {
 }
 
 .dashboard-shell.sidebar-collapsed .nav-link {
-  justify-content: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
   padding: 14px 12px;
   min-height: 52px;
 }
@@ -249,7 +254,6 @@ textarea {
 .dashboard-shell.sidebar-collapsed .nav-link-icon {
   width: 24px;
   height: 24px;
-  flex-basis: 24px;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
