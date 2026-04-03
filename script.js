@@ -23,6 +23,16 @@ const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
 const projectRows = document.querySelectorAll("[data-project-row]");
 const projectCountLabel = document.querySelector("[data-project-count]");
 const projectBoard = document.querySelector("[data-project-board]");
+const gradeInfoToggle = document.querySelector("[data-grade-info-toggle]");
+const gradeInfoPanel = document.querySelector("[data-grade-info-panel]");
+const gradeLevelButtons = document.querySelectorAll("[data-grade-level-button]");
+const gradeDetailPanel = document.querySelector("[data-grade-detail-panel]");
+const gradeDetailBadge = document.querySelector("[data-grade-detail-badge]");
+const gradeDetailTitle = document.querySelector("[data-grade-detail-title]");
+const gradeDetailText = document.querySelector("[data-grade-detail-text]");
+const gradeDetailList = document.querySelector("[data-grade-detail-list]");
+const gradeProjectTabs = document.querySelectorAll("[data-grade-project-tab]");
+const gradeProjectLists = document.querySelectorAll("[data-grade-project-list]");
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
 const articleList = document.querySelector("[data-article-list]");
@@ -39,6 +49,57 @@ const solutionRewardRules = [
   { prefix: "ГРЩ-PRS-", reward: 3000 },
   { prefix: "ШУН-PRS-", reward: 3000 },
 ];
+
+const gradeLevelMeta = {
+  bronze: {
+    label: "Бронза",
+    badgeClass: "bronze",
+    title: "Коэффициент 1.0",
+    text:
+      "Бронза — базовый уровень программы лояльности. Он фиксирует стартовую ставку выплат и стандартный приоритет проверки проектов.",
+    perks: [
+      "Базовый коэффициент выплат x1.0",
+      "Стандартный срок проверки проектов",
+      "Полный доступ к каталогу решений PIRIS",
+    ],
+  },
+  silver: {
+    label: "Серебро",
+    badgeClass: "silver",
+    title: "Коэффициент 1.1",
+    text:
+      "Серебро даёт повышенный коэффициент выплат, более высокий приоритет проверки и быструю обратную связь по замечаниям.",
+    perks: [
+      "Повышенный коэффициент выплат x1.1",
+      "Более высокий приоритет проверки проектов",
+      "Ускоренная обратная связь по спорным кейсам",
+    ],
+  },
+  gold: {
+    label: "Золото",
+    badgeClass: "gold",
+    title: "Коэффициент 1.15",
+    text:
+      "Золото усиливает размер выплаты и открывает более комфортное сопровождение по сложным проектам.",
+    perks: [
+      "Повышенный коэффициент выплат x1.15",
+      "Приоритетная поддержка по сложным кейсам",
+      "Ранний доступ к новым решениям PIRIS",
+    ],
+  },
+  diamond: {
+    label: "Бриллиант",
+    badgeClass: "diamond",
+    title: "Коэффициент 1.2",
+    text:
+      "Бриллиант — максимальный уровень программы. Он даёт самый высокий коэффициент выплат и максимальный приоритет обработки.",
+    perks: [
+      "Максимальный коэффициент выплат x1.2",
+      "Персональный приоритет обработки проектов",
+      "Специальные условия по программе лояльности PIRIS",
+    ],
+  },
+};
 
 function formatRubles(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
@@ -256,6 +317,67 @@ if (sidebarToggleButton && dashboardShell) {
   window.addEventListener("resize", () => {
     setSidebarCollapsed(getSidebarCollapsedPreference());
   });
+}
+
+if (gradeInfoToggle && gradeInfoPanel) {
+  gradeInfoToggle.addEventListener("click", () => {
+    const shouldOpen = gradeInfoPanel.hidden;
+    gradeInfoPanel.hidden = !shouldOpen;
+    gradeInfoToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    gradeInfoToggle.closest(".grades-intro-panel")?.classList.toggle("is-open", shouldOpen);
+  });
+}
+
+function setActiveGradeLevel(level) {
+  const meta = gradeLevelMeta[level];
+
+  if (!meta) {
+    return;
+  }
+
+  gradeLevelButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.gradeLevel === level);
+  });
+
+  if (!gradeDetailPanel || !gradeDetailBadge || !gradeDetailTitle || !gradeDetailText || !gradeDetailList) {
+    return;
+  }
+
+  gradeDetailBadge.textContent = meta.label;
+  gradeDetailBadge.className = `grade-badge ${meta.badgeClass}`;
+  gradeDetailTitle.textContent = meta.title;
+  gradeDetailText.textContent = meta.text;
+  gradeDetailList.innerHTML = meta.perks.map((item) => `<li>${item}</li>`).join("");
+}
+
+gradeLevelButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setActiveGradeLevel(button.dataset.gradeLevel);
+  });
+});
+
+function setActiveGradeProjectTab(tabName) {
+  gradeProjectTabs.forEach((button) => {
+    button.classList.toggle("active", button.dataset.gradeProjectTabTarget === tabName);
+  });
+
+  gradeProjectLists.forEach((list) => {
+    list.hidden = list.dataset.gradeProjectList !== tabName;
+  });
+}
+
+gradeProjectTabs.forEach((button) => {
+  button.addEventListener("click", () => {
+    setActiveGradeProjectTab(button.dataset.gradeProjectTabTarget);
+  });
+});
+
+if (gradeLevelButtons.length) {
+  setActiveGradeLevel("silver");
+}
+
+if (gradeProjectTabs.length) {
+  setActiveGradeProjectTab("work");
 }
 
 progressLinks.forEach((link) => {

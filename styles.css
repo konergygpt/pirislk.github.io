@@ -2494,6 +2494,462 @@ textarea {
   font-size: 24px;
 }
 
+.grades-page {
+  display: grid;
+  gap: 20px;
+}
+
+.grades-intro-panel,
+.grades-benefits-panel,
+.grades-projects-panel,
+.grades-levels-panel,
+.grades-summary-card {
+  border-radius: 24px;
+}
+
+.grades-intro-head,
+.grades-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.grades-intro-head h2,
+.grades-section-head h3 {
+  margin: 0;
+}
+
+.grades-help-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+}
+
+.grades-help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid rgba(93, 124, 246, 0.32);
+  border-radius: 999px;
+  color: var(--info);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.grades-help-arrow {
+  color: #7a8a84;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.grades-intro-panel.is-open .grades-help-arrow {
+  transform: rotate(180deg);
+}
+
+.grades-help-panel {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(93, 124, 246, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(240, 243, 255, 0.96) 0%, rgba(255, 255, 255, 0.96) 100%);
+}
+
+.grades-help-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.grades-help-panel a {
+  color: var(--info);
+  text-decoration: none;
+}
+
+.grades-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.grades-main-column {
+  display: grid;
+  gap: 20px;
+}
+
+.grades-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.grades-summary-card {
+  display: grid;
+  gap: 10px;
+  min-height: 214px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+}
+
+.grades-summary-current {
+  background:
+    radial-gradient(circle at left top, rgba(30, 170, 132, 0.18), transparent 38%),
+    linear-gradient(135deg, rgba(240, 255, 250, 0.98) 0%, rgba(232, 246, 240, 0.98) 100%);
+}
+
+.grades-summary-month {
+  background:
+    linear-gradient(135deg, rgba(248, 241, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.grades-summary-target {
+  background:
+    linear-gradient(135deg, rgba(239, 247, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.grades-summary-label {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.grades-summary-card strong {
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.02;
+}
+
+.grades-summary-card p,
+.grades-summary-card small {
+  margin: 0;
+}
+
+.grades-summary-card p {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.grades-summary-card small {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.grades-target-lines {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.grades-target-lines p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.grades-target-lines strong {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.grades-levels-panel {
+  padding: 20px;
+  border: 1px solid rgba(114, 94, 214, 0.12);
+  background: linear-gradient(180deg, rgba(245, 246, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.grades-levels-list {
+  display: grid;
+  gap: 12px;
+}
+
+.grades-level-item,
+.grades-benefit-card {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.grades-level-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.grades-level-item.active {
+  border-color: rgba(105, 71, 214, 0.32);
+  box-shadow: 0 18px 32px rgba(68, 56, 155, 0.12);
+  transform: translateY(-1px);
+}
+
+.grades-level-item.current {
+  padding-left: 18px;
+}
+
+.grades-level-current {
+  position: absolute;
+  left: -11px;
+  top: 18px;
+  padding: 8px 6px;
+  border-radius: 10px 10px 0 0;
+  background: #6a47d6;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.grades-level-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.grades-level-copy strong,
+.grades-level-copy small {
+  margin: 0;
+}
+
+.grades-level-copy strong {
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.grades-level-copy small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.grades-benefits-panel {
+  padding: 22px;
+}
+
+.grades-section-head.compact {
+  margin-bottom: 14px;
+}
+
+.grades-section-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.grades-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.grades-benefit-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.grades-benefit-card.active {
+  border-color: rgba(105, 71, 214, 0.28);
+  box-shadow: 0 14px 30px rgba(68, 56, 155, 0.12);
+  transform: translateY(-1px);
+}
+
+.grades-benefit-card strong {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.grades-benefit-detail {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid rgba(105, 71, 214, 0.14);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(251, 250, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.grades-benefit-detail-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.grades-benefit-detail-head strong {
+  font-size: 22px;
+}
+
+.grades-benefit-detail p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.grades-benefit-list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+  color: var(--text);
+}
+
+.grades-projects-panel {
+  padding: 22px;
+}
+
+.grades-project-tabs {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.grades-project-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.grades-project-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+}
+
+.grades-project-main {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.grades-project-main strong,
+.grades-project-main small {
+  margin: 0;
+}
+
+.grades-project-main strong {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.grades-project-main small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.grades-project-reward {
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.grades-project-link {
+  min-width: 118px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-pill.review {
+  color: #4157d9;
+  background: #edf0ff;
+}
+
+.status-pill.warning {
+  color: #9a6a0c;
+  background: var(--warning-bg);
+}
+
+.status-pill.success {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+.status-pill.paid {
+  color: #196d56;
+  background: rgba(30, 170, 132, 0.14);
+}
+
+@media (max-width: 1360px) {
+  .grades-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .grades-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grades-summary-target {
+    grid-column: 1 / -1;
+  }
+
+  .grades-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 920px) {
+  .grades-intro-head,
+  .grades-section-head,
+  .grades-benefit-detail-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grades-summary-grid,
+  .grades-benefit-grid,
+  .grades-project-row {
+    grid-template-columns: 1fr;
+  }
+
+  .grades-summary-card {
+    min-height: 0;
+  }
+
+  .grades-level-current {
+    top: 14px;
+  }
+
+  .grades-project-row {
+    align-items: flex-start;
+  }
+
+  .grades-project-link,
+  .grades-project-reward,
+  .status-pill {
+    width: fit-content;
+  }
+}
+
 .account-chip-row {
   display: flex;
   flex-wrap: wrap;
