@@ -236,6 +236,107 @@
                   <strong>Ещё 2 проекта до Золота</strong>
                 </div>
               </article>
+
+              <article class="panel grades-workbench-panel">
+                <section class="grades-benefits-panel">
+                  <div class="grades-section-head">
+                    <div>
+                      <h3>Привилегии и коэффициенты</h3>
+                      <p>Коэффициент влияет на сумму выплаты по подтверждённым проектам.</p>
+                    </div>
+                  </div>
+
+                  <div class="grades-benefit-detail" data-grade-detail-panel>
+                    <div class="grades-benefit-detail-head">
+                      <span class="grade-badge silver" data-grade-detail-badge>Серебро</span>
+                      <strong data-grade-detail-title>Коэффициент 1.1</strong>
+                    </div>
+                    <p data-grade-detail-text>
+                      Серебро даёт повышенный коэффициент выплат, более высокий приоритет
+                      проверки и быструю обратную связь по замечаниям.
+                    </p>
+                    <ul class="grades-benefit-list" data-grade-detail-list>
+                      <li>Повышенный коэффициент выплат x1.1</li>
+                      <li>Более высокий приоритет проверки проектов</li>
+                      <li>Ускоренная обратная связь по спорным кейсам</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <section class="grades-projects-panel">
+                  <div class="grades-section-head">
+                    <div>
+                      <h3>Проекты</h3>
+                      <p>Список проектов, которые влияют на ваш текущий грейд и сумму выплат.</p>
+                    </div>
+                  </div>
+
+                  <div class="grades-project-tabs">
+                    <button
+                      class="grades-project-tab-button active"
+                      type="button"
+                      data-grade-project-tab
+                      data-grade-project-tab-target="work"
+                    >
+                      В работе
+                    </button>
+                    <button
+                      class="grades-project-tab-button"
+                      type="button"
+                      data-grade-project-tab
+                      data-grade-project-tab-target="completed"
+                    >
+                      Завершённые
+                    </button>
+                  </div>
+
+                  <div class="grades-project-list" data-grade-project-list="work">
+                    <article class="grades-project-row">
+                      <div class="grades-project-main">
+                        <small>ID 24058</small>
+                        <strong>ЖК Южный квартал</strong>
+                      </div>
+                      <span class="status-pill review">На проверке</span>
+                      <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                    </article>
+                    <article class="grades-project-row">
+                      <div class="grades-project-main">
+                        <small>ID 24044</small>
+                        <strong>Складской комплекс Север</strong>
+                      </div>
+                      <span class="status-pill warning">Требует уточнения</span>
+                      <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                    </article>
+                  </div>
+
+                  <div class="grades-project-list" data-grade-project-list="completed" hidden>
+                    <article class="grades-project-row">
+                      <div class="grades-project-main">
+                        <small>ID 23987</small>
+                        <strong>БЦ Линия Парк</strong>
+                      </div>
+                      <span class="status-pill success">Подтверждён</span>
+                      <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                    </article>
+                    <article class="grades-project-row">
+                      <div class="grades-project-main">
+                        <small>ID 23894</small>
+                        <strong>Административный центр Вектор</strong>
+                      </div>
+                      <span class="status-pill paid">Завершён</span>
+                      <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                    </article>
+                    <article class="grades-project-row">
+                      <div class="grades-project-main">
+                        <small>ID 23811</small>
+                        <strong>Логистический парк Нева</strong>
+                      </div>
+                      <span class="status-pill paid">Завершён</span>
+                      <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
+                    </article>
+                  </div>
+                </section>
+              </article>
             </div>
 
             <aside class="panel grades-levels-panel">
@@ -298,150 +399,6 @@
             </aside>
           </section>
 
-          <article class="panel grades-workbench-panel">
-            <section class="grades-benefits-panel">
-                <div class="grades-section-head">
-                  <div>
-                    <h3>Привилегии и коэффициенты</h3>
-                    <p>Коэффициент влияет на сумму выплаты по подтверждённым проектам.</p>
-                  </div>
-                </div>
-
-                <div class="grades-benefit-grid">
-                  <button
-                    class="grades-benefit-card bronze"
-                    type="button"
-                    data-grade-level-button
-                    data-grade-level="bronze"
-                  >
-                    <span class="grade-badge bronze">Бронза</span>
-                    <strong>Коэффициент 1.0</strong>
-                  </button>
-                  <button
-                    class="grades-benefit-card silver active"
-                    type="button"
-                    data-grade-level-button
-                    data-grade-level="silver"
-                  >
-                    <span class="grade-badge silver">Серебро</span>
-                    <strong>Коэффициент 1.1</strong>
-                  </button>
-                  <button
-                    class="grades-benefit-card gold"
-                    type="button"
-                    data-grade-level-button
-                    data-grade-level="gold"
-                  >
-                    <span class="grade-badge gold">Золото</span>
-                    <strong>Коэффициент 1.15</strong>
-                  </button>
-                  <button
-                    class="grades-benefit-card diamond"
-                    type="button"
-                    data-grade-level-button
-                    data-grade-level="diamond"
-                  >
-                    <span class="grade-badge diamond">Бриллиант</span>
-                    <strong>Коэффициент 1.2</strong>
-                  </button>
-                </div>
-
-                <div class="grades-benefit-detail" data-grade-detail-panel>
-                  <div class="grades-benefit-detail-head">
-                    <span class="grade-badge silver" data-grade-detail-badge>Серебро</span>
-                    <strong data-grade-detail-title>Коэффициент 1.1</strong>
-                  </div>
-                  <p data-grade-detail-text>
-                    Серебро даёт повышенный коэффициент выплат, более высокий приоритет
-                    проверки и быструю обратную связь по замечаниям.
-                  </p>
-                  <ul class="grades-benefit-list" data-grade-detail-list>
-                    <li>Повышенный коэффициент выплат x1.1</li>
-                    <li>Более высокий приоритет проверки проектов</li>
-                    <li>Ускоренная обратная связь по спорным кейсам</li>
-                  </ul>
-                </div>
-              </section>
-
-            <section class="grades-projects-panel">
-              <div class="grades-section-head">
-                <div>
-                  <h3>Проекты</h3>
-                  <p>Список проектов, которые влияют на ваш текущий грейд и сумму выплат.</p>
-                </div>
-              </div>
-
-              <div class="grades-project-tabs">
-                <button
-                  class="grades-project-tab-button active"
-                  type="button"
-                  data-grade-project-tab
-                  data-grade-project-tab-target="work"
-                >
-                  В работе
-                </button>
-                <button
-                  class="grades-project-tab-button"
-                  type="button"
-                  data-grade-project-tab
-                  data-grade-project-tab-target="completed"
-                >
-                  Завершённые
-                </button>
-              </div>
-
-              <div class="grades-project-list" data-grade-project-list="work">
-                <article class="grades-project-row">
-                  <div class="grades-project-main">
-                    <strong>ЖК Южный квартал</strong>
-                    <small>Добавлены решения PIRIS и комплект документации</small>
-                  </div>
-                  <span class="status-pill review">На проверке</span>
-                  <strong class="grades-project-reward">7 000 ₽</strong>
-                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-                </article>
-                <article class="grades-project-row">
-                  <div class="grades-project-main">
-                    <strong>Складской комплекс Север</strong>
-                    <small>Ожидает уточнений по спецификации и составу решений</small>
-                  </div>
-                  <span class="status-pill warning">Требует уточнения</span>
-                  <strong class="grades-project-reward">4 500 ₽</strong>
-                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-                </article>
-              </div>
-
-              <div class="grades-project-list" data-grade-project-list="completed" hidden>
-                <article class="grades-project-row">
-                  <div class="grades-project-main">
-                    <strong>БЦ Линия Парк</strong>
-                    <small>Проект подтверждён и учтён в программе лояльности</small>
-                  </div>
-                  <span class="status-pill success">Подтверждён</span>
-                  <strong class="grades-project-reward">5 800 ₽</strong>
-                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-                </article>
-                <article class="grades-project-row">
-                  <div class="grades-project-main">
-                    <strong>Административный центр Вектор</strong>
-                    <small>Выплата начислена после завершения проверки проекта</small>
-                  </div>
-                  <span class="status-pill paid">Завершён</span>
-                  <strong class="grades-project-reward">6 200 ₽</strong>
-                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-                </article>
-                <article class="grades-project-row">
-                  <div class="grades-project-main">
-                    <strong>Логистический парк Нева</strong>
-                    <small>Проект закрыт, вознаграждение выплачено в полном объёме</small>
-                  </div>
-                  <span class="status-pill paid">Завершён</span>
-                  <strong class="grades-project-reward">8 100 ₽</strong>
-                  <a class="secondary-button grades-project-link" href="./project-detail.html">Перейти</a>
-                </article>
-              </div>
-            </section>
-          </article>
         </section>
       </main>
     </div>
