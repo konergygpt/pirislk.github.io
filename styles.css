@@ -2052,44 +2052,28 @@ textarea {
 }
 
 .grades-hero {
-  min-height: 100%;
-  padding: 22px 26px;
-  gap: 18px;
-  border-radius: 28px;
+  min-height: 0;
+  padding: 18px 22px;
+  gap: 12px;
+  border-radius: 24px;
 }
 
 .grades-hero .account-hero-main {
-  gap: 18px;
-}
-
-.grades-hero .account-avatar {
-  width: 98px;
-  height: 98px;
+  gap: 0;
+  min-width: 0;
 }
 
 .grades-hero .account-hero-copy {
-  gap: 6px;
+  gap: 2px;
 }
 
 .grades-hero .account-hero-copy h2 {
-  font-size: clamp(28px, 3.8vw, 44px);
-}
-
-.grades-hero .account-hero-copy p {
-  max-width: 760px;
-  font-size: 15px;
-}
-
-.grades-hero .account-hero-meta {
-  gap: 8px 16px;
-}
-
-.grades-hero .account-hero-meta span {
-  font-size: 14px;
+  font-size: clamp(24px, 3vw, 36px);
 }
 
 .grades-hero .account-hero-actions {
-  margin-right: 22px;
+  margin-right: 0;
+  align-self: center;
 }
 
 .grades-hero .grade-badge {
@@ -2104,7 +2088,7 @@ textarea {
 }
 
 .grades-metrics .metric-card {
-  padding: 18px 20px;
+  padding: 16px 18px;
   border-radius: 20px;
 }
 
@@ -2115,13 +2099,14 @@ textarea {
 }
 
 .grades-metrics .metric-card strong {
-  margin: 6px 0 4px;
-  font-size: 24px;
+  margin: 4px 0 3px;
+  font-size: 22px;
 }
 
 .grades-metrics .metric-card span,
 .grades-metrics .metric-card small {
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 @media (max-width: 1360px) {
@@ -4764,11 +4749,6 @@ textarea {
   .topbar-profile-copy small {
     white-space: normal;
     word-break: break-word;
-  }
-
-  .grades-hero .account-avatar {
-    width: 92px;
-    height: 92px;
   }
 
   .grades-hero .account-hero-actions {
