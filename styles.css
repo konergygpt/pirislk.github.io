@@ -2052,6 +2052,7 @@ textarea {
 }
 
 .grades-hero {
+  min-height: 100%;
   padding: 22px 26px;
   gap: 18px;
   border-radius: 28px;
@@ -2097,13 +2098,20 @@ textarea {
 }
 
 .grades-metrics {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 2px 0 0 132px;
+  grid-template-columns: minmax(340px, 1.45fr) repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  margin: 4px 0 0;
 }
 
 .grades-metrics .metric-card {
   padding: 18px 20px;
   border-radius: 20px;
+}
+
+.grades-metrics .grades-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .grades-metrics .metric-card strong {
@@ -2114,6 +2122,16 @@ textarea {
 .grades-metrics .metric-card span,
 .grades-metrics .metric-card small {
   font-size: 14px;
+}
+
+@media (max-width: 1360px) {
+  .grades-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grades-metrics .grades-hero {
+    grid-column: 1 / -1;
+  }
 }
 
 .account-grid {
@@ -4758,7 +4776,6 @@ textarea {
   }
 
   .grades-metrics {
-    margin-left: 0;
     margin-top: 8px;
   }
 
