@@ -317,7 +317,7 @@ textarea {
 }
 
 .topbar-profile-copy span {
-  color: #6947d6;
+  color: var(--brand);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
