@@ -73,6 +73,7 @@ textarea {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  min-height: 136px;
   margin-bottom: 28px;
 }
 
@@ -221,7 +222,6 @@ textarea {
 
 .dashboard-shell.sidebar-collapsed .brand {
   align-items: center;
-  min-height: 116px;
   margin-bottom: 28px;
 }
 
@@ -245,7 +245,7 @@ textarea {
   grid-template-columns: 1fr;
   justify-items: center;
   padding: 14px 12px;
-  min-height: 52px;
+  min-height: 56px;
 }
 
 .dashboard-shell.sidebar-collapsed .nav-link-label {
