@@ -144,9 +144,9 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   background: currentColor;
   opacity: 0.9;
   -webkit-mask-position: center;
@@ -155,30 +155,35 @@ textarea {
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
-  transform: translateY(-1px);
+  transform: translateY(var(--nav-icon-shift, 0));
 }
 
 .sidebar-nav .nav-link:nth-child(1)::before {
+  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-home.svg");
   mask-image: url("./assets/sidebar-home.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(2)::before {
+  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-projects.svg");
   mask-image: url("./assets/sidebar-projects.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(3)::before {
+  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-catalog.svg");
   mask-image: url("./assets/sidebar-catalog.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(4)::before {
+  --nav-icon-shift: 2px;
   -webkit-mask-image: url("./assets/sidebar-stats.svg");
   mask-image: url("./assets/sidebar-stats.svg");
 }
 
 .sidebar-nav .nav-link:nth-child(5)::before {
+  --nav-icon-shift: 1px;
   -webkit-mask-image: url("./assets/sidebar-faq.svg");
   mask-image: url("./assets/sidebar-faq.svg");
 }
@@ -269,7 +274,7 @@ textarea {
   width: 22px;
   height: 22px;
   flex-basis: 22px;
-  transform: none;
+  transform: translateY(var(--nav-icon-shift, 0));
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
