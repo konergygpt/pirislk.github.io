@@ -139,6 +139,7 @@ textarea {
 
 .nav-link::before {
   content: "";
+  display: inline-block;
   width: 18px;
   height: 18px;
   flex: 0 0 18px;
