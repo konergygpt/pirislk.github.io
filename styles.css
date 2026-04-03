@@ -126,23 +126,27 @@ textarea {
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   border: 0;
   background: transparent;
   color: inherit;
   text-align: left;
-  padding: 14px 16px;
+  min-height: 56px;
+  padding: 14px 18px;
   border-radius: 14px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
+  line-height: 1.2;
 }
 
 .nav-link::before {
   content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
   background: currentColor;
   opacity: 0.9;
   -webkit-mask-position: center;
@@ -151,6 +155,7 @@ textarea {
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
+  transform: translateY(-1px);
 }
 
 .sidebar-nav .nav-link:nth-child(1)::before {
@@ -256,13 +261,15 @@ textarea {
 .dashboard-shell.sidebar-collapsed .nav-link {
   justify-content: center;
   padding: 14px 12px;
+  min-height: 52px;
   font-size: 0;
 }
 
 .dashboard-shell.sidebar-collapsed .nav-link::before {
-  width: 20px;
-  height: 20px;
-  flex-basis: 20px;
+  width: 22px;
+  height: 22px;
+  flex-basis: 22px;
+  transform: none;
 }
 
 .dashboard-shell.sidebar-collapsed .sidebar-toggle {
