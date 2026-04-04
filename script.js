@@ -482,6 +482,39 @@ if (gradeProjectTabs.length) {
   setActiveGradeProjectTab("work");
 }
 
+function resetPageProgress({ disableTransition = false } = {}) {
+  if (!pageProgress) {
+    return;
+  }
+
+  const initialValue = pageProgress.dataset.pageProgressInitial;
+
+  if (typeof initialValue === "undefined") {
+    return;
+  }
+
+  if (disableTransition) {
+    pageProgress.style.transition = "none";
+  }
+
+  pageProgress.style.width = `${initialValue}%`;
+
+  if (!disableTransition) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      pageProgress.style.removeProperty("transition");
+    });
+  });
+}
+
+resetPageProgress({ disableTransition: true });
+window.addEventListener("pageshow", () => {
+  resetPageProgress({ disableTransition: true });
+});
+
 progressLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     const target = link.dataset.progressTarget || link.getAttribute("href");
@@ -867,12 +900,17 @@ function openSubmitModal() {
   }
 
   if (pageProgress) {
+    pageProgress.style.transitionDuration = "0.9s";
     pageProgress.style.width = "100%";
   }
 
   window.setTimeout(() => {
+    if (pageProgress) {
+      pageProgress.style.removeProperty("transition-duration");
+    }
+
     submitModal.classList.add("is-visible");
-  }, 280);
+  }, 1000);
 }
 
 function closeSubmitModal() {
