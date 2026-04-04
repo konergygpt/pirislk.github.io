@@ -3560,7 +3560,9 @@ textarea {
 
 .create-project-intro {
   display: grid;
+  align-content: space-between;
   gap: 16px;
+  min-height: 192px;
   padding: 20px 28px;
 }
 
@@ -5615,6 +5617,11 @@ textarea {
   .project-form-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .create-project-intro {
+    min-height: auto;
+    align-content: start;
   }
 
   .project-form-footer,
