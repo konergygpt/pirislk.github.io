@@ -188,16 +188,18 @@
             <div>
               <h2>Основные данные проекта</h2>
               <p class="hero-copy">
-                Укажите сведения о проекте и компании, через которую сейчас
-                ведётся работа. Остальные данные и документацию добавим на
+                Укажите базовые сведения о проекте. Документацию загрузим на
                 следующем шаге.
               </p>
             </div>
 
             <div class="step-indicator">
-              <span class="step-indicator-current">1/2</span>
+              <span class="step-indicator-current">1/3</span>
               <div class="progress-track">
-                <span class="progress-fill create-progress-fill" data-page-progress></span>
+                <span
+                  class="progress-fill create-progress-fill create-progress-step-one"
+                  data-page-progress
+                ></span>
               </div>
             </div>
           </article>
@@ -241,71 +243,6 @@
                   <option>Рабочая документация (стадия Р)</option>
                 </select>
               </label>
-
-              <div class="project-form-section-divider full-width" aria-hidden="true"></div>
-
-              <div class="project-form-section-head full-width">
-                <div class="project-form-section-heading-row">
-                  <h3>Основная компания по проекту</h3>
-                  <span class="tooltip-mark" tabindex="0">
-                    ?
-                    <span class="tooltip-bubble project-company-tooltip">
-                      Укажите компанию, с которой вы фактически работаете по
-                      этому проекту на текущем этапе. Это может быть конечный
-                      заказчик, генподрядчик, технический заказчик или другая
-                      сторона, через которую сейчас идёт согласование и закупка.
-                    </span>
-                  </span>
-                </div>
-              </div>
-
-              <label>
-                ИНН основной компании
-                <input type="text" placeholder="7701234567" />
-              </label>
-
-              <label>
-                Роль основной компании в проекте
-                <select>
-                  <option selected disabled>Выберите роль</option>
-                  <option>Конечный заказчик</option>
-                  <option>Генподрядчик</option>
-                  <option>Технический заказчик</option>
-                  <option>Другое</option>
-                </select>
-              </label>
-
-              <label class="full-width">
-                Наименование основной компании
-                <input type="text" placeholder='АО "ПромТех"' />
-                <small class="field-hint">
-                  Заполним автоматически по ИНН. При необходимости название можно уточнить вручную.
-                </small>
-              </label>
-
-              <label>
-                Контактное лицо
-                <input type="text" placeholder="Иванов Сергей Петрович" />
-              </label>
-
-              <label>
-                Должность
-                <input type="text" placeholder="Главный энергетик" />
-              </label>
-
-              <label>
-                Телефон
-                <input type="tel" placeholder="+7 (999) 123-45-67" />
-              </label>
-
-              <label>
-                Email
-                <input type="email" placeholder="sergey.ivanov@promteh.ru" />
-              </label>
-
-              <small class="field-hint full-width project-contact-hint">
-                Укажите хотя бы один способ связи: телефон или email.
-              </small>
             </form>
 
             <div class="project-form-footer">
@@ -317,7 +254,7 @@
                 href="./project-submit.html"
                 data-progress-link
                 data-progress-target="./project-submit.html"
-                data-progress-value="50"
+                data-progress-value="67"
               >
                 Далее ->
               </a>

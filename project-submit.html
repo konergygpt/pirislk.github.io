@@ -188,15 +188,16 @@
             <div>
               <h2>Загрузите проектную документацию</h2>
               <p class="hero-copy">
-                Это обязательный шаг для отправки проекта на проверку.
+                Это обязательный шаг. Данные компании по проекту можно
+                добавить после загрузки документации.
               </p>
             </div>
 
             <div class="step-indicator">
-              <span class="step-indicator-current">2/2</span>
+              <span class="step-indicator-current">2/3</span>
               <div class="progress-track">
                 <span
-                  class="progress-fill create-progress-fill create-progress-half"
+                  class="progress-fill create-progress-fill create-progress-step-two"
                   data-page-progress
                 ></span>
               </div>
@@ -299,29 +300,18 @@
             <a class="secondary-button form-link-button" href="./project-create.html">
               Назад
             </a>
-            <button class="primary-button form-link-button" type="button" data-submit-project>
-              Отправить на проверку
-            </button>
+            <a
+              class="primary-button form-link-button"
+              href="./project-company.html"
+              data-progress-link
+              data-progress-target="./project-company.html"
+              data-progress-value="100"
+            >
+              Далее ->
+            </a>
           </div>
         </section>
       </main>
-    </div>
-
-    <div class="modal-overlay" data-submit-modal>
-      <div class="modal-card success-modal-card">
-        <div class="modal-success-copy">
-          <h2>Проект отправлен на проверку</h2>
-          <p>
-            Срок проверки проекта до 2 рабочих дней.
-          </p>
-        </div>
-
-        <div class="modal-actions success-modal-actions">
-          <a class="primary-button form-link-button" href="./home.html" data-submit-home>
-            Перейти к проектам
-          </a>
-        </div>
-      </div>
     </div>
     <script src="./script.js"></script>
   </body>

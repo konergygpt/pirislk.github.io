@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIRIS - Регистрация проекта</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell dashboard-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand">
+            <a class="brand-link" href="./home.html">
+              <img
+                class="brand-logo sidebar-brand-logo"
+                src="./assets/logo-piris.png"
+                alt="PIRIS"
+              />
+            </a>
+            <p class="sidebar-brand-caption">
+              Платформа инженерных
+              <br />
+              решений и систем
+            </p>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="nav-link" href="./home.html">
+              <img class="nav-link-icon" src="./assets/sidebar-home.svg" alt="" aria-hidden="true" />
+              <span class="nav-link-label">Главная</span>
+            </a>
+            <a class="nav-link active" href="./projects.html">
+              <img class="nav-link-icon" src="./assets/sidebar-projects.svg" alt="" aria-hidden="true" />
+              <span class="nav-link-label">Проекты</span>
+            </a>
+            <a class="nav-link" href="./solutions-catalog.html">
+              <img class="nav-link-icon" src="./assets/sidebar-catalog.svg" alt="" aria-hidden="true" />
+              <span class="nav-link-label">Каталог решений</span>
+            </a>
+            <a class="nav-link" href="./rewards.html">
+              <img class="nav-link-icon" src="./assets/sidebar-stats.svg" alt="" aria-hidden="true" />
+              <span class="nav-link-label">Статистика</span>
+            </a>
+            <a class="nav-link" href="./faq.html">
+              <img class="nav-link-icon" src="./assets/sidebar-faq.svg" alt="" aria-hidden="true" />
+              <span class="nav-link-label">FAQ</span>
+            </a>
+          </nav>
+        </div>
+        <div class="sidebar-foot">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-expanded="true">
+            <span class="sidebar-toggle-icon" aria-hidden="true">‹</span>
+            <span class="sidebar-toggle-label">Свернуть меню</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Проекты</p>
+            <h1>Регистрация проекта</h1>
+          </div>
+          <div class="topbar-meta">
+            <div class="notification-menu" data-notification-menu>
+              <button
+                class="notification-toggle"
+                type="button"
+                data-notification-menu-toggle
+                aria-expanded="false"
+                aria-label="Уведомления"
+              >
+                <span class="notification-toggle-icon" aria-hidden="true">🔔</span>
+                <span class="notification-toggle-badge">6</span>
+              </button>
+              <div class="notification-dropdown" data-notification-menu-panel hidden>
+                <div class="notification-dropdown-head">
+                  <strong>Обновления</strong>
+                  <span>6 новых</span>
+                </div>
+                <div class="notification-dropdown-list">
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>ЖК Южный квартал</strong>
+                      <span>Анна Крылова оставила новый комментарий по документации</span>
+                      <small>5 минут назад</small>
+                    </span>
+                  </a>
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>ЖК Южный квартал</strong>
+                      <span>Статус проекта обновлён: документы на проверке</span>
+                      <small>18 минут назад</small>
+                    </span>
+                  </a>
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>Складской комплекс Север</strong>
+                      <span>Нужно уточнение по составу решений PIRIS</span>
+                      <small>42 минуты назад</small>
+                    </span>
+                  </a>
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>БЦ Линия Парк</strong>
+                      <span>Проект подтверждён и передан в расчёт вознаграждения</span>
+                      <small>Сегодня, 09:12</small>
+                    </span>
+                  </a>
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>Технопарк Восток</strong>
+                      <span>Черновик сохранён и ждёт отправки на проверку</span>
+                      <small>Вчера, 18:47</small>
+                    </span>
+                  </a>
+                  <a class="notification-item" href="./project-detail.html">
+                    <span class="notification-item-dot" aria-hidden="true"></span>
+                    <span class="notification-item-copy">
+                      <strong>Сводка</strong>
+                      <span>У вас появились новые уведомления по 4 проектам</span>
+                      <small>Вчера, 17:30</small>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="topbar-profile"
+                type="button"
+                data-profile-menu-toggle
+                aria-expanded="false"
+              >
+                <span class="topbar-profile-avatar" aria-hidden="true">ЕН</span>
+                <span class="topbar-profile-copy">
+                  <strong>Егор</strong>
+                  <span>Проектировщик</span>
+                  <small>egor.neustroev2@yandex.ru</small>
+                </span>
+                <span class="topbar-profile-id">ID 327190</span>
+                <span class="topbar-profile-toggle" aria-hidden="true">⌄</span>
+              </button>
+              <div class="profile-dropdown" data-profile-menu-panel hidden>
+                <a class="profile-dropdown-link" href="./profile.html">
+                  <strong>Профиль</strong>
+                  <span>Аватар, имя, телефон, почта и пароль</span>
+                </a>
+                <a class="profile-dropdown-link" href="./grades.html">
+                  <strong>Грейды</strong>
+                  <span>Бронза, Серебро, Золото и Бриллиант</span>
+                </a>
+                <a class="profile-dropdown-link" href="./requisites.html">
+                  <strong>Реквизиты</strong>
+                  <span>Данные для выплат и статусы проверки</span>
+                </a>
+                <div class="profile-dropdown-divider" aria-hidden="true"></div>
+                <a class="profile-dropdown-action" href="./index.html">
+                  <span class="profile-dropdown-action-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path d="M7.5 6.25V4.75C7.5 4.19772 7.94772 3.75 8.5 3.75H14.25C14.8023 3.75 15.25 4.19772 15.25 4.75V15.25C15.25 15.8023 14.8023 16.25 14.25 16.25H8.5C7.94772 16.25 7.5 15.8023 7.5 15.25V13.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11 10H4.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.25 7.5L4.75 10L7.25 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="profile-dropdown-action-label">Выйти</span>
+                  <span class="profile-dropdown-action-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="create-project-shell">
+          <article class="create-project-intro panel">
+            <div>
+              <h2>Основная компания по проекту</h2>
+              <p class="hero-copy">
+                Этот шаг можно пропустить. Если данные компании уже есть под
+                рукой, добавьте их — это ускорит проверку и сопровождение
+                проекта.
+              </p>
+            </div>
+
+            <div class="step-indicator">
+              <span class="step-indicator-current">3/3</span>
+              <div class="progress-track">
+                <span
+                  class="progress-fill create-progress-fill create-progress-complete"
+                  data-page-progress
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel project-form-panel project-registration-panel">
+            <form class="project-form-grid project-registration-form">
+              <label>
+                <span class="label-with-help">
+                  <span>ИНН основной компании</span>
+                  <span class="tooltip-mark" tabindex="0">
+                    ?
+                    <span class="tooltip-bubble project-company-tooltip">
+                      Укажите компанию, с которой вы фактически работаете по
+                      этому проекту на текущем этапе. Это может быть конечный
+                      заказчик, генподрядчик, технический заказчик или другая
+                      сторона, через которую сейчас идёт согласование и закупка.
+                    </span>
+                  </span>
+                </span>
+                <input type="text" placeholder="7701234567" />
+              </label>
+
+              <label>
+                Роль основной компании в проекте
+                <select>
+                  <option selected disabled>Выберите роль</option>
+                  <option>Конечный заказчик</option>
+                  <option>Генподрядчик</option>
+                  <option>Технический заказчик</option>
+                  <option>Другое</option>
+                </select>
+              </label>
+
+              <label class="full-width">
+                Наименование основной компании
+                <input type="text" placeholder='АО "ПромТех"' />
+                <small class="field-hint">
+                  Заполним автоматически по ИНН. При необходимости название можно уточнить вручную.
+                </small>
+              </label>
+
+              <label>
+                Контактное лицо
+                <input type="text" placeholder="Иванов Сергей Петрович" />
+              </label>
+
+              <label>
+                Должность
+                <input type="text" placeholder="Главный энергетик" />
+              </label>
+
+              <label>
+                Телефон
+                <input type="tel" placeholder="+7 (999) 123-45-67" />
+              </label>
+
+              <label>
+                Email
+                <input type="email" placeholder="sergey.ivanov@promteh.ru" />
+              </label>
+
+              <small class="field-hint full-width project-contact-hint">
+                Если заполняете контактный блок, укажите хотя бы один способ связи: телефон или email.
+              </small>
+            </form>
+
+            <div class="project-form-footer">
+              <a class="secondary-button form-link-button" href="./project-submit.html">
+                Назад
+              </a>
+              <button class="primary-button form-link-button" type="button" data-submit-project>
+                Отправить на проверку
+              </button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" data-submit-modal>
+      <div class="modal-card success-modal-card">
+        <div class="modal-success-copy">
+          <h2>Проект отправлен на проверку</h2>
+          <p>
+            Срок проверки проекта до 2 рабочих дней.
+          </p>
+        </div>
+
+        <div class="modal-actions success-modal-actions">
+          <a class="primary-button form-link-button" href="./home.html" data-submit-home>
+            Перейти к проектам
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
