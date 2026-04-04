@@ -2,6 +2,12 @@
   --bg: #f4f7f2;
   --surface: #ffffff;
   --surface-alt: #eef6f2;
+  --sidebar-bg: #e8efea;
+  --sidebar-surface: rgba(17, 120, 93, 0.06);
+  --sidebar-surface-strong: rgba(30, 170, 132, 0.12);
+  --sidebar-text: #21342d;
+  --sidebar-muted: #6c8179;
+  --sidebar-line: rgba(17, 120, 93, 0.1);
   --text: #13211c;
   --muted: #678078;
   --line: #d8e3dd;
@@ -59,12 +65,31 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
   padding: 28px 22px;
-  background: rgba(19, 33, 28, 0.96);
-  color: #f3faf7;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(236, 242, 238, 0.98) 0%, rgba(231, 238, 233, 0.98) 100%);
+  color: var(--sidebar-text);
+  border-right: 0;
+  box-shadow: inset -1px 0 0 rgba(17, 120, 93, 0.04);
   overflow: auto;
   z-index: 5;
-  transition: padding 0.28s ease, background 0.28s ease;
+  transition: padding 0.28s ease, background 0.28s ease, color 0.28s ease;
+}
+
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 0;
+  bottom: 18px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 120, 93, 0) 0%,
+    rgba(17, 120, 93, 0.08) 14%,
+    var(--sidebar-line) 50%,
+    rgba(17, 120, 93, 0.08) 86%,
+    rgba(17, 120, 93, 0) 100%
+  );
+  pointer-events: none;
 }
 
 .dashboard-shell.sidebar-collapsed {
@@ -107,7 +132,7 @@ textarea {
 
 .sidebar-brand-caption {
   margin: 2px 0 0;
-  color: rgba(243, 250, 247, 0.58);
+  color: var(--sidebar-muted);
   font-size: 11px;
   line-height: 1.35;
   letter-spacing: 0.04em;
@@ -121,7 +146,7 @@ textarea {
 
 .brand-text span,
 .muted-label {
-  color: rgba(243, 250, 247, 0.66);
+  color: var(--sidebar-muted);
   font-size: 13px;
 }
 
@@ -138,7 +163,7 @@ textarea {
   justify-items: start;
   border: 0;
   background: transparent;
-  color: inherit;
+  color: rgba(19, 33, 28, 0.82);
   text-align: left;
   min-height: 56px;
   padding: 14px 18px;
@@ -156,9 +181,8 @@ textarea {
   justify-self: start;
   align-self: center;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(96%) sepia(5%) saturate(346%) hue-rotate(94deg)
-    brightness(106%) contrast(97%);
-  opacity: 0.94;
+  filter: none;
+  opacity: 0.68;
 }
 
 .nav-link-label {
@@ -175,14 +199,14 @@ textarea {
 
 .nav-link:hover,
 .nav-link.active {
-  background: rgba(38, 209, 159, 0.14);
-  color: #ffffff;
+  background: var(--sidebar-surface-strong);
+  color: var(--text);
 }
 
 .sidebar-foot {
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(17, 120, 93, 0.08);
 }
 
 .sidebar-toggle {
@@ -194,15 +218,15 @@ textarea {
   padding: 12px 14px;
   border: 0;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(243, 250, 247, 0.84);
+  background: var(--sidebar-surface);
+  color: rgba(33, 52, 45, 0.84);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, padding 0.28s ease;
 }
 
 .sidebar-toggle:hover {
-  background: rgba(38, 209, 159, 0.12);
-  color: #ffffff;
+  background: var(--sidebar-surface-strong);
+  color: var(--text);
 }
 
 .sidebar-toggle-icon {
@@ -212,7 +236,7 @@ textarea {
   width: 26px;
   height: 26px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(17, 120, 93, 0.08);
   font-size: 18px;
   line-height: 1;
   transition: transform 0.2s ease;
@@ -5689,8 +5713,13 @@ textarea {
     gap: 18px;
     padding: 16px;
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(17, 120, 93, 0.08);
+    box-shadow: none;
     overflow: visible;
+  }
+
+  .sidebar::after {
+    display: none;
   }
 
   .brand {
