@@ -3620,10 +3620,14 @@ textarea {
 }
 
 .progress-fill.create-progress-step-one {
-  width: 33.333%;
+  width: 0%;
 }
 
 .progress-fill.create-progress-step-two {
+  width: 33.333%;
+}
+
+.progress-fill.create-progress-step-three {
   width: 66.666%;
 }
 
