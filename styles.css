@@ -3561,9 +3561,9 @@ textarea {
 .create-project-intro {
   display: grid;
   align-content: space-between;
-  gap: 12px;
-  min-height: 156px;
-  padding: 18px 24px;
+  gap: 10px;
+  min-height: 132px;
+  padding: 14px 20px;
 }
 
 .create-project-intro h2 {
@@ -3574,14 +3574,14 @@ textarea {
 }
 
 .create-project-intro .hero-copy {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   max-width: 980px;
 }
 
 .step-indicator {
   width: 100%;
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .step-indicator-current {
