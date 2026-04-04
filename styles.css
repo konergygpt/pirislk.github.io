@@ -3690,6 +3690,68 @@ textarea {
   margin-top: -2px;
 }
 
+.project-registration-panel {
+  padding: 28px;
+}
+
+.project-registration-form {
+  gap: 18px 20px;
+}
+
+.project-registration-form label {
+  gap: 10px;
+}
+
+.project-registration-form input,
+.project-registration-form select {
+  height: 60px;
+  padding: 16px 18px;
+  border-radius: 20px;
+}
+
+.project-form-section-head {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 2px;
+}
+
+.project-form-section-kicker {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-form-section-heading-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.project-form-section-heading-row h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.project-form-section-divider {
+  height: 1px;
+  margin: 2px 0 0;
+  background: linear-gradient(90deg, rgba(17, 120, 93, 0.14) 0%, rgba(17, 120, 93, 0.04) 100%);
+}
+
+.project-company-tooltip {
+  min-width: 320px;
+  max-width: 420px;
+}
+
+.project-contact-hint {
+  margin-top: -4px;
+}
+
 .project-form-grid textarea {
   min-height: 140px;
   resize: vertical;
@@ -5888,6 +5950,23 @@ textarea {
   .project-form-grid,
   .compact-project-form {
     grid-template-columns: 1fr;
+  }
+
+  .project-registration-panel {
+    padding: 20px;
+  }
+
+  .project-form-section-heading-row {
+    align-items: flex-start;
+  }
+
+  .project-form-section-heading-row h3 {
+    font-size: 22px;
+  }
+
+  .project-company-tooltip {
+    min-width: 240px;
+    max-width: min(320px, calc(100vw - 56px));
   }
 
   .submit-articles-input-row {

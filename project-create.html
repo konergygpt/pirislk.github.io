@@ -188,8 +188,9 @@
             <div>
               <h2>Основные данные проекта</h2>
               <p class="hero-copy">
-                Только базовая информация. Остальные данные, оборудование и
-                документы добавим на следующих шагах.
+                Укажите сведения о проекте и компании, через которую сейчас
+                ведётся работа. Остальные данные и документацию добавим на
+                следующем шаге.
               </p>
             </div>
 
@@ -201,19 +202,18 @@
             </div>
           </article>
 
-          <article class="panel project-form-panel">
-            <form class="project-form-grid">
-              <label>
-                Название проекта
-                <input type="text" placeholder="ЖК Южный квартал" />
-              </label>
+          <article class="panel project-form-panel project-registration-panel">
+            <form class="project-form-grid project-registration-form">
+              <div class="project-form-section-head full-width">
+                <span class="project-form-section-kicker">Проект</span>
+                <div class="project-form-section-heading-row">
+                  <h3>Данные проекта</h3>
+                </div>
+              </div>
 
-              <label>
-                ИНН конечного заказчика
-                <input type="text" placeholder="7701234567" />
-                <small class="field-hint">
-                  Найдем заказчика по ИНН и подставим данные автоматически.
-                </small>
+              <label class="full-width">
+                Название проекта
+                <input type="text" placeholder="Цех металлообработки АО ПромТех" />
               </label>
 
               <label>
@@ -228,6 +228,18 @@
               </label>
 
               <label>
+                Тип объекта
+                <select>
+                  <option selected disabled>Выберите тип объекта</option>
+                  <option>Жилой комплекс</option>
+                  <option>Бизнес-центр</option>
+                  <option>Производственный объект</option>
+                  <option>Складской комплекс</option>
+                  <option>Другое</option>
+                </select>
+              </label>
+
+              <label class="full-width">
                 Стадия проекта
                 <select>
                   <option selected disabled>Выберите стадию</option>
@@ -237,17 +249,71 @@
                 </select>
               </label>
 
+              <div class="project-form-section-divider full-width" aria-hidden="true"></div>
+
+              <div class="project-form-section-head full-width">
+                <span class="project-form-section-kicker">Участники проекта</span>
+                <div class="project-form-section-heading-row">
+                  <h3>Основная компания по проекту</h3>
+                  <span class="tooltip-mark" tabindex="0">
+                    ?
+                    <span class="tooltip-bubble project-company-tooltip">
+                      Укажите компанию, с которой вы фактически работаете по
+                      этому проекту на текущем этапе. Это может быть конечный
+                      заказчик, генподрядчик, технический заказчик или другая
+                      сторона, через которую сейчас идёт согласование и закупка.
+                    </span>
+                  </span>
+                </div>
+              </div>
+
               <label>
-                Тип объекта
+                ИНН основной компании
+                <input type="text" placeholder="7701234567" />
+              </label>
+
+              <label>
+                Роль основной компании в проекте
                 <select>
-                  <option selected disabled>Выберите тип объекта</option>
-                  <option>Жилой комплекс</option>
-                  <option>Бизнес-центр</option>
-                  <option>Производство</option>
-                  <option>Склад</option>
+                  <option selected disabled>Выберите роль</option>
+                  <option>Конечный заказчик</option>
+                  <option>Генподрядчик</option>
+                  <option>Технический заказчик</option>
                   <option>Другое</option>
                 </select>
               </label>
+
+              <label class="full-width">
+                Наименование основной компании
+                <input type="text" placeholder='АО "ПромТех"' />
+                <small class="field-hint">
+                  Заполним автоматически по ИНН. При необходимости название можно уточнить вручную.
+                </small>
+              </label>
+
+              <label>
+                Контактное лицо
+                <input type="text" placeholder="Иванов Сергей Петрович" />
+              </label>
+
+              <label>
+                Должность
+                <input type="text" placeholder="Главный энергетик" />
+              </label>
+
+              <label>
+                Телефон
+                <input type="tel" placeholder="+7 (999) 123-45-67" />
+              </label>
+
+              <label>
+                Email
+                <input type="email" placeholder="sergey.ivanov@promteh.ru" />
+              </label>
+
+              <small class="field-hint full-width project-contact-hint">
+                Укажите хотя бы один способ связи: телефон или email.
+              </small>
             </form>
 
             <div class="project-form-footer">
