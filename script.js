@@ -36,6 +36,7 @@ const gradeProjectLists = document.querySelectorAll("[data-grade-project-list]")
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
 const articleList = document.querySelector("[data-article-list]");
+const articleListHead = document.querySelector("[data-article-list-head]");
 const articleToggleButton = document.querySelector("[data-article-toggle]");
 const articlePanel = document.querySelector("[data-article-panel]");
 const articleEmptyState = document.querySelector("[data-article-empty-state]");
@@ -186,7 +187,13 @@ function updateArticleEmptyState() {
     return;
   }
 
-  articleEmptyState.hidden = articleList.children.length > 0;
+  const hasItems = articleList.children.length > 0;
+
+  articleEmptyState.hidden = hasItems;
+
+  if (articleListHead) {
+    articleListHead.hidden = !hasItems;
+  }
 }
 
 function setArticleAccordionExpanded(isExpanded) {
