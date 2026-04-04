@@ -186,11 +186,9 @@
         <section class="create-project-shell">
           <article class="create-project-intro panel">
             <div>
-              <p class="eyebrow">Шаг 2</p>
-              <h2>Добавьте решения PIRIS и загрузите документацию</h2>
+              <h2>Загрузите проектную документацию</h2>
               <p class="hero-copy">
-                Для MVP достаточно указать артикулы заложенных решений и
-                приложить PDF-файл проекта.
+                Это обязательный шаг для отправки проекта на проверку.
               </p>
             </div>
 
@@ -205,67 +203,70 @@
             </div>
           </article>
 
-          <div class="content-grid two-columns submit-grid">
-            <article class="panel project-form-panel">
-              <div class="panel-heading">
-                <h3>Решения PIRIS</h3>
-              </div>
+          <article class="panel project-form-panel submit-primary-panel">
+            <div class="submit-section-head submit-section-head-primary">
+              <h3>Документация проекта</h3>
+              <p>Загрузите PDF-файл проекта, чтобы отправить его на проверку.</p>
+            </div>
 
-              <form class="project-form-grid compact-project-form">
-                <label>
-                  Артикул PIRIS
-                  <input
-                    type="text"
-                    placeholder="Например: AVR-630-2VV"
-                    data-article-input
-                  />
-                  <small class="field-hint">
-                    Если решений несколько, добавьте их по одному или вставьте список артикулов через запятую.
-                  </small>
-                </label>
+            <div class="upload-zone project-upload-zone">
+              <strong>Перетащите PDF сюда</strong>
+              <span>или выберите файл с проектной документацией</span>
+              <button class="secondary-button" type="button">Выбрать файл</button>
+            </div>
 
-                <div class="inline-form-action">
-                  <button class="secondary-button" type="button" data-add-article>Добавить</button>
+            <div class="document-preview-list">
+              <div class="document-preview-item">
+                <div>
+                  <strong>Проект_ЖК_Южный_квартал.pdf</strong>
+                  <p>PDF, 12.4 MB</p>
                 </div>
-              </form>
-
-              <div class="tag-list" data-article-list>
-                <span class="tag-item">AVR-630-2VV</span>
-                <span class="tag-item">VRU-400-1</span>
-                <span class="tag-item">GRSH-1000</span>
+                <span class="status-chip neutral">Загружен</span>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="panel project-form-panel">
-              <div class="panel-heading">
-                <h3>Документация проекта</h3>
-              </div>
+          <article class="panel project-form-panel submit-support-panel">
+            <div class="submit-section-head">
+              <h3>Артикулы PIRIS (необязательно)</h3>
+              <p>
+                Если знаете артикулы заложенных решений, добавьте их — это
+                ускорит проверку проекта.
+              </p>
+            </div>
 
-              <div class="upload-zone project-upload-zone">
-                <strong>Перетащите PDF сюда</strong>
-                <span>или выберите файл с проектной документацией</span>
-                <button class="secondary-button" type="button">Выбрать файл</button>
-              </div>
-
-              <div class="document-preview-list">
-                <div class="document-preview-item">
-                  <div>
-                    <strong>Проект_ЖК_Южный_квартал.pdf</strong>
-                    <p>PDF, 12.4 MB</p>
-                  </div>
-                  <span class="status-chip neutral">Загружен</span>
-                </div>
-              </div>
-
-              <label class="full-width project-comment-field">
-                Комментарий
-                <textarea
-                  rows="4"
-                  placeholder="Если нужно, оставьте комментарий к решениям PIRIS или к документации."
-                ></textarea>
+            <form class="project-form-grid compact-project-form submit-articles-form">
+              <label>
+                Артикул PIRIS
+                <input
+                  type="text"
+                  placeholder="Например: AVR-630-2VV"
+                  data-article-input
+                />
+                <small class="field-hint">
+                  Если решений несколько, добавьте их по одному или вставьте список артикулов через запятую.
+                </small>
               </label>
-            </article>
-          </div>
+
+              <div class="inline-form-action">
+                <button class="secondary-button" type="button" data-add-article>Добавить</button>
+              </div>
+            </form>
+
+            <div class="tag-list" data-article-list>
+              <span class="tag-item">AVR-630-2VV</span>
+              <span class="tag-item">VRU-400-1</span>
+              <span class="tag-item">GRSH-1000</span>
+            </div>
+
+            <label class="full-width project-comment-field">
+              Комментарий для инженера PIRIS
+              <textarea
+                rows="4"
+                placeholder="Если нужно, оставьте комментарий по документации или решениям PIRIS."
+              ></textarea>
+            </label>
+          </article>
 
           <div class="project-form-footer">
             <a class="secondary-button form-link-button" href="./project-create.html">

@@ -3559,29 +3559,34 @@ textarea {
 }
 
 .create-project-intro {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
+  display: grid;
+  gap: 16px;
+  padding: 20px 28px;
 }
 
 .create-project-intro h2 {
   margin: 0;
-  font-size: clamp(34px, 4vw, 48px);
-  line-height: 1.02;
+  font-size: clamp(32px, 3.9vw, 46px);
+  line-height: 1.04;
   letter-spacing: -0.04em;
 }
 
+.create-project-intro .hero-copy {
+  margin: 10px 0 0;
+  max-width: 980px;
+}
+
 .step-indicator {
-  width: min(280px, 100%);
+  width: 100%;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .step-indicator-current {
   color: var(--text);
   font-size: 16px;
   font-weight: 700;
+  justify-self: end;
 }
 
 .progress-fill.create-progress-fill {
@@ -3607,6 +3612,9 @@ textarea {
 }
 
 .project-form-grid label {
+  display: grid;
+  align-content: start;
+  gap: 12px;
   font-size: 15px;
   font-weight: 700;
 }
@@ -3676,6 +3684,10 @@ textarea {
   height: 64px;
 }
 
+.project-form-grid .field-hint {
+  margin-top: -2px;
+}
+
 .project-form-grid textarea {
   min-height: 140px;
   resize: vertical;
@@ -3696,6 +3708,37 @@ textarea {
   justify-content: space-between;
   gap: 16px;
   margin-top: 28px;
+}
+
+.submit-primary-panel,
+.submit-support-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.submit-section-head {
+  display: grid;
+  gap: 8px;
+}
+
+.submit-section-head h3 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.submit-section-head p {
+  margin: 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.submit-section-head-primary h3 {
+  font-size: clamp(30px, 3vw, 38px);
 }
 
 .submit-grid {
@@ -3736,8 +3779,28 @@ textarea {
   justify-content: center;
 }
 
+.submit-primary-panel .project-upload-zone {
+  margin-top: 0;
+  min-height: 260px;
+  padding: 32px 24px;
+}
+
+.submit-primary-panel .document-preview-list {
+  margin-top: 0;
+}
+
+.submit-articles-form {
+  margin-top: 0;
+}
+
+.submit-support-panel .tag-list {
+  margin-top: 0;
+}
+
 .project-comment-field {
-  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
 }
 
 .project-comment-field textarea {
