@@ -21,8 +21,8 @@ const sidebarToggleButton = document.querySelector("[data-sidebar-toggle]");
 const projectSearchInput = document.querySelector("[data-project-search]");
 const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
 const projectRows = document.querySelectorAll("[data-project-row]");
-const projectCountLabel = document.querySelector("[data-project-count]");
 const projectBoard = document.querySelector("[data-project-board]");
+const projectSortToggle = document.querySelector("[data-project-sort-toggle]");
 const gradeInfoToggle = document.querySelector("[data-grade-info-toggle]");
 const gradeInfoPanel = document.querySelector("[data-grade-info-panel]");
 const gradeLevelButtons = document.querySelectorAll("[data-grade-level-button]");
@@ -541,7 +541,9 @@ function setupProjectsList() {
   }
 
   let activeFilter = "all";
-  const totalProjects = projectRows.length;
+  let projectSortOrder = projectSortToggle?.dataset.sortOrder || "desc";
+  const projectList = document.querySelector(".projects-list");
+  const projectRowsCollection = Array.from(projectRows);
 
   function normalizeProjectValue(value) {
     return String(value || "")
@@ -564,6 +566,45 @@ function setupProjectsList() {
     return status === activeFilter;
   }
 
+  function getProjectCreatedAt(row) {
+    const value = row.dataset.projectCreatedAt || "";
+    const timestamp = Date.parse(value);
+
+    return Number.isNaN(timestamp) ? 0 : timestamp;
+  }
+
+  function updateProjectSortToggleMeta() {
+    if (!projectSortToggle) {
+      return;
+    }
+
+    projectSortToggle.dataset.sortOrder = projectSortOrder;
+
+    const isDescending = projectSortOrder === "desc";
+    const label = isDescending ? "Сортировка по дате создания: сначала новые" : "Сортировка по дате создания: сначала старые";
+    const hint = isDescending ? "Сначала новые" : "Сначала старые";
+
+    projectSortToggle.setAttribute("aria-label", label);
+    projectSortToggle.setAttribute("title", hint);
+  }
+
+  function sortProjectRows() {
+    if (!projectList) {
+      return;
+    }
+
+    projectRowsCollection
+      .slice()
+      .sort((leftRow, rightRow) => {
+        const difference = getProjectCreatedAt(rightRow) - getProjectCreatedAt(leftRow);
+
+        return projectSortOrder === "desc" ? difference : -difference;
+      })
+      .forEach((row) => {
+        projectList.appendChild(row);
+      });
+  }
+
   function applyProjectsFilter() {
     const query = normalizeProjectValue(projectSearchInput?.value);
     let visibleProjects = 0;
@@ -581,14 +622,9 @@ function setupProjectsList() {
       }
     });
 
-    if (projectCountLabel) {
-      projectCountLabel.textContent = `Показано проектов: ${visibleProjects} из ${totalProjects}`;
-    }
-
     if (projectBoard) {
       projectBoard.hidden = visibleProjects === 0;
     }
-
   }
 
   projectFilterButtons.forEach((button) => {
@@ -605,6 +641,17 @@ function setupProjectsList() {
 
   if (projectSearchInput) {
     projectSearchInput.addEventListener("input", applyProjectsFilter);
+  }
+
+  if (projectSortToggle) {
+    updateProjectSortToggleMeta();
+
+    projectSortToggle.addEventListener("click", () => {
+      projectSortOrder = projectSortOrder === "desc" ? "asc" : "desc";
+      updateProjectSortToggleMeta();
+      sortProjectRows();
+      applyProjectsFilter();
+    });
   }
 
   projectRows.forEach((row) => {
@@ -626,6 +673,7 @@ function setupProjectsList() {
     });
   });
 
+  sortProjectRows();
   applyProjectsFilter();
 }
 

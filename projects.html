@@ -204,9 +204,6 @@
                 />
               </span>
             </label>
-            <div class="projects-summary">
-              <span data-project-count>Показано проектов: 4 из 4</span>
-            </div>
           </div>
 
           <div class="filter-pill-group projects-filter-group">
@@ -220,11 +217,31 @@
         </section>
 
         <section class="projects-board panel" data-project-board>
-          <div class="projects-table-head" aria-hidden="true">
+          <div class="projects-table-head">
             <span>ID</span>
             <span>Проект</span>
             <span>Статус</span>
-            <span>Дата создания</span>
+            <button
+              class="projects-table-sort"
+              type="button"
+              data-project-sort-toggle
+              data-sort-order="desc"
+              aria-label="Сортировка по дате создания: сначала новые"
+              title="Сначала новые"
+            >
+              <span>Дата создания</span>
+              <span class="projects-table-sort-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
             <span>Активность</span>
           </div>
 
@@ -235,6 +252,7 @@
               data-project-link="./project-detail.html"
               data-project-status="review"
               data-project-search="24058 ЖК Южный квартал СтройИнвест Москва"
+              data-project-created-at="2026-03-29"
               tabindex="0"
             >
               <div class="project-list-cell project-list-cell-id">
@@ -270,6 +288,7 @@
               data-project-link="./project-detail.html"
               data-project-status="needs-action"
               data-project-search="24044 Складской комплекс Север Север Логистик Санкт-Петербург"
+              data-project-created-at="2026-03-27"
               tabindex="0"
             >
               <div class="project-list-cell project-list-cell-id">
@@ -305,6 +324,7 @@
               data-project-link="./project-detail.html"
               data-project-status="confirmed"
               data-project-search="23987 БЦ Линия Парк Линия Девелопмент Казань"
+              data-project-created-at="2026-03-25"
               tabindex="0"
             >
               <div class="project-list-cell project-list-cell-id">
@@ -340,6 +360,7 @@
               data-project-link="./project-detail.html"
               data-project-status="draft"
               data-project-search="23951 Технопарк Восток Восток Инжиниринг Екатеринбург"
+              data-project-created-at="2026-03-22"
               tabindex="0"
             >
               <div class="project-list-cell project-list-cell-id">
