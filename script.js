@@ -981,7 +981,84 @@ const solutionCatalogData = {
     tags: ["АВР", "CHINT", "100 А", "Моноблок"],
     statusLabel: "4 документа готовы",
     statusTone: "accent",
+    rewardLabel: "2 000 ₽",
+    priceLabel: "Проектная цена с НДС",
+    retailPrice: "87 900 ₽",
+    detailDescription:
+      "Трехфазный шкаф автоматического ввода резерва 100А на 2 ввода, выполнен на базе моноблочного АВР CHINT серии NZ7. Подходит для жилых, промышленных и коммерческих объектов.",
     productUrl: "https://piris.ru/product/avr-prs-mb-2-1-100-chint",
+    gallery: [
+      {
+        image: "./assets/solutions/avr-prs-mb-2-1-100-chint.jpg",
+        thumb: "./assets/solutions/avr-prs-mb-2-1-100-chint.jpg",
+        alt: "Шкаф АВР-PRS 100А, моноблок, 2 ввода, CHINT",
+        label: "Общий вид",
+      },
+      {
+        image: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/internal-view.jpg",
+        thumb: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/internal-view.jpg",
+        alt: "Внутренний вид шкафа АВР-PRS 100А, моноблок, 2 ввода, CHINT",
+        label: "Компоновка",
+      },
+      {
+        image: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/wiring.jpg",
+        thumb: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/wiring.jpg",
+        alt: "Принципиальная схема АВР-PRS 100А, моноблок, 2 ввода, CHINT",
+        label: "Схема",
+      },
+      {
+        image: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/navigation.jpg",
+        thumb: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/navigation.jpg",
+        alt: "Расшифровка артикула АВР-PRS-МБ-2-1-100-CHINT",
+        label: "Артикул",
+      },
+      {
+        image: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/real-photo-1.jpg",
+        thumb: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/real-photo-1.jpg",
+        alt: "Фото шкафа АВР-PRS-МБ, 2 ввода, моноблок АВР",
+        label: "Фото 1",
+      },
+      {
+        image: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/real-photo-2.jpg",
+        thumb: "./assets/solutions/detail-gallery/avr-prs-mb-2-1-100-chint/real-photo-2.jpg",
+        alt: "Крупный план компонентов шкафа АВР-PRS-МБ, 2 ввода, моноблок АВР",
+        label: "Фото 2",
+      },
+    ],
+    characteristics: [
+      { label: "Артикул", value: "АВР-PRS-МБ-2-1-100-CHINT" },
+      { label: "Производитель", value: "PIRIS" },
+      { label: "Тип коммутации АВР", value: "Моноблок" },
+      { label: "Документация", value: "Разработана" },
+      { label: "Исполнение", value: "Навесное" },
+      { label: "Масса", value: "35 кг" },
+      { label: "Степень защиты", value: "IP31" },
+      { label: "Направление ввода и вывода кабеля", value: "Снизу" },
+      { label: "Количество вводов", value: "2" },
+      { label: "Количество полюсов", value: "3 P" },
+      { label: "Номинальный ток", value: "100 А" },
+      { label: "Номинальная отключающая способность", value: "25 кА" },
+      { label: "Режим работы", value: "Автоматический и ручной" },
+      { label: "Номинальное рабочее напряжение", value: "380 В" },
+      { label: "Напряжение цепей управления", value: "220 В" },
+      { label: "Учет электроэнергии", value: "Нет" },
+      { label: "Тип расцепителя", value: "Электромагнитный и тепловой" },
+      { label: "Потребляемая мощность", value: "< 10 Вт" },
+      { label: "Секция распределения", value: "Без секции распределения" },
+      { label: "Ресурс, циклов вкл/откл", value: "6000" },
+      { label: "Тип заземления", value: "TN-C, TN-S, TN-C-S" },
+      { label: "Тип покрытия", value: "Порошковая покраска" },
+      { label: "Задержка перехода/возврат на резервный ввод", value: "от 0 с до 180 с" },
+      { label: "Высота, мм", value: "600" },
+      { label: "Ширина, мм", value: "500" },
+      { label: "Глубина, мм", value: "250" },
+      { label: "Рабочее время перехода", value: "< 3,5 с" },
+      { label: "Комплектующие", value: "CHINT" },
+      { label: "Цвет корпуса", value: "RAL 7035" },
+      { label: "Задержка на запуск/останов резервного генератора", value: "от 0 с до 180 с" },
+      { label: "Рабочая температура", value: "от -5 до +40 °C" },
+      { label: "Связь с противопожарной системой", value: "Да" },
+    ],
     docs: [
       {
         id: "constructive-documentation",
@@ -1164,6 +1241,21 @@ function setupSolutionsCatalog() {
   const projectPickerClose = document.querySelector("[data-project-picker-close]");
   const docsDrawer = document.querySelector("[data-solution-doc-drawer]");
   const docsDrawerClose = document.querySelector("[data-solution-doc-drawer-close]");
+  const detailTriggers = document.querySelectorAll("[data-open-solution-detail]");
+  const detailModal = document.querySelector("[data-solution-detail-modal]");
+  const detailModalClose = document.querySelector("[data-solution-detail-close]");
+  const detailCode = document.querySelector("[data-solution-detail-code]");
+  const detailTitle = document.querySelector("[data-solution-detail-title]");
+  const detailDescription = document.querySelector("[data-solution-detail-description]");
+  const detailImage = document.querySelector("[data-solution-detail-image]");
+  const detailStage = document.querySelector("[data-solution-detail-stage]");
+  const detailThumbs = document.querySelector("[data-solution-detail-thumbs]");
+  const detailReward = document.querySelector("[data-solution-detail-reward]");
+  const detailPrice = document.querySelector("[data-solution-detail-price]");
+  const detailPriceLabel = document.querySelector("[data-solution-detail-price-label]");
+  const detailLink = document.querySelector("[data-solution-detail-link]");
+  const detailCharacteristics = document.querySelector("[data-solution-detail-characteristics]");
+  const detailGalleryCount = document.querySelector("[data-solution-detail-gallery-count]");
 
   const docCount = document.querySelector("[data-solution-doc-count]");
   const docList = document.querySelector("[data-solution-doc-list]");
@@ -1175,6 +1267,182 @@ function setupSolutionsCatalog() {
   let activeSolutionId =
     cards[0]?.dataset.solutionId;
   let activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
+  let activeDetailImageIndex = 0;
+
+  function getSolutionCard(solutionId) {
+    return cards.find((card) => card.dataset.solutionId === solutionId) || null;
+  }
+
+  function getFallbackSolutionGallery(card, solution) {
+    const image = card?.querySelector(".solution-offer-image");
+
+    if (!image) {
+      return [];
+    }
+
+    return [
+      {
+        image: image.getAttribute("src"),
+        thumb: image.getAttribute("src"),
+        alt: image.getAttribute("alt") || solution.title,
+        label: "Общий вид",
+      },
+    ];
+  }
+
+  function getFallbackSolutionCharacteristics(card, solution) {
+    const cardSpecs = Array.from(card?.querySelectorAll(".solution-offer-spec") || [])
+      .map((item) => {
+        const label = item.querySelector("span")?.textContent?.trim();
+        const value = item.querySelector("strong")?.textContent?.trim();
+
+        if (!label || !value) {
+          return null;
+        }
+
+        return { label, value };
+      })
+      .filter(Boolean);
+
+    return [
+      { label: "Артикул", value: solution.code },
+      ...cardSpecs,
+      { label: "Статус документации", value: solution.statusLabel },
+    ];
+  }
+
+  function getSolutionDetailPayload(solutionId) {
+    const solution = solutionCatalogData[solutionId];
+    const card = getSolutionCard(solutionId);
+
+    if (!solution || !card) {
+      return null;
+    }
+
+    return {
+      ...solution,
+      rewardLabel:
+        solution.rewardLabel ||
+        card.querySelector(".solution-offer-reward strong")?.textContent?.trim() ||
+        "Уточняется",
+      retailPrice:
+        solution.retailPrice ||
+        card.querySelector("[data-solution-price-value]")?.textContent?.trim() ||
+        "Уточняется",
+      priceLabel: solution.priceLabel || "Проектная цена с НДС",
+      detailDescription:
+        solution.detailDescription ||
+        solution.description ||
+        "Подробные фотографии и характеристики будут добавлены позже.",
+      gallery: solution.gallery?.length
+        ? solution.gallery
+        : getFallbackSolutionGallery(card, solution),
+      characteristics: solution.characteristics?.length
+        ? solution.characteristics
+        : getFallbackSolutionCharacteristics(card, solution),
+    };
+  }
+
+  function updateSolutionDetailGallery(detailData) {
+    if (!detailStage || !detailImage || !detailThumbs) {
+      return;
+    }
+
+    const activeImage = detailData.gallery[activeDetailImageIndex];
+    const hasImage = Boolean(activeImage);
+
+    detailStage.classList.toggle("is-empty", !hasImage);
+
+    if (!hasImage) {
+      detailImage.removeAttribute("src");
+      detailImage.alt = detailData.title;
+    } else {
+      detailImage.src = activeImage.image;
+      detailImage.alt = activeImage.alt || detailData.title;
+    }
+
+    Array.from(detailThumbs.children).forEach((thumb, index) => {
+      thumb.classList.toggle("is-active", index === activeDetailImageIndex);
+    });
+  }
+
+  function renderSolutionDetailModal(solutionId) {
+    const detailData = getSolutionDetailPayload(solutionId);
+
+    if (!detailData || !detailModal) {
+      return;
+    }
+
+    if (detailCode) {
+      detailCode.textContent = detailData.code;
+    }
+
+    if (detailTitle) {
+      detailTitle.textContent = detailData.title;
+    }
+
+    if (detailDescription) {
+      detailDescription.textContent = detailData.detailDescription;
+    }
+
+    if (detailReward) {
+      detailReward.textContent = detailData.rewardLabel;
+    }
+
+    if (detailPrice) {
+      detailPrice.textContent = detailData.retailPrice;
+    }
+
+    if (detailPriceLabel) {
+      detailPriceLabel.textContent = detailData.priceLabel;
+    }
+
+    if (detailLink) {
+      detailLink.href = detailData.productUrl || "#";
+      setAnchorState(detailLink, !detailData.productUrl || detailData.productUrl === "#");
+    }
+
+    if (detailGalleryCount) {
+      detailGalleryCount.textContent = `${detailData.gallery.length || 0} фото`;
+    }
+
+    if (detailThumbs) {
+      detailThumbs.innerHTML = "";
+
+      detailData.gallery.forEach((item, index) => {
+        const thumb = document.createElement("button");
+        const thumbImage = document.createElement("img");
+
+        thumb.type = "button";
+        thumb.className = "solution-detail-thumb";
+        thumb.setAttribute("aria-label", item.label || `Фото ${index + 1}`);
+        thumbImage.src = item.thumb || item.image;
+        thumbImage.alt = item.alt || detailData.title;
+        thumb.appendChild(thumbImage);
+        thumb.addEventListener("click", () => {
+          activeDetailImageIndex = index;
+          updateSolutionDetailGallery(detailData);
+        });
+        detailThumbs.appendChild(thumb);
+      });
+    }
+
+    if (detailCharacteristics) {
+      detailCharacteristics.innerHTML = detailData.characteristics
+        .map(
+          (item) => `
+            <div class="solution-detail-characteristic">
+              <dt>${item.label}</dt>
+              <dd>${item.value}</dd>
+            </div>
+          `
+        )
+        .join("");
+    }
+
+    activeDetailImageIndex = 0;
+    updateSolutionDetailGallery(detailData);
+  }
 
   function renderPreview(solution, documentItem) {
     const hasDocument = Boolean(documentItem);
@@ -1287,15 +1555,38 @@ function setupSolutionsCatalog() {
     document.body.style.overflow = "";
   }
 
+  function closeSolutionDetailModal() {
+    if (!detailModal) {
+      return;
+    }
+
+    detailModal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
   function openDocsDrawer(solutionId) {
     if (!docsDrawer) {
       return;
     }
 
+    closeSolutionDetailModal();
     activeSolutionId = solutionId;
     activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
     renderSolutionPanel(activeSolutionId);
     docsDrawer.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function openSolutionDetailModal(solutionId) {
+    if (!detailModal) {
+      return;
+    }
+
+    closeDocsDrawer();
+    closeProjectPicker();
+    activeSolutionId = solutionId;
+    renderSolutionDetailModal(solutionId);
+    detailModal.hidden = false;
     document.body.style.overflow = "hidden";
   }
 
@@ -1304,6 +1595,7 @@ function setupSolutionsCatalog() {
       return;
     }
 
+    closeSolutionDetailModal();
     projectPicker.hidden = false;
     document.body.style.overflow = "hidden";
   }
@@ -1368,6 +1660,18 @@ function setupSolutionsCatalog() {
     });
   });
 
+  detailTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const solutionId = trigger.dataset.openSolutionDetail;
+
+      if (!solutionId) {
+        return;
+      }
+
+      openSolutionDetailModal(solutionId);
+    });
+  });
+
   statusPills.forEach((pill) => {
     pill.addEventListener("click", () => {
       activeStatusFilter = pill.dataset.solutionStatusPill || "all";
@@ -1419,6 +1723,24 @@ function setupSolutionsCatalog() {
       }
     });
   }
+
+  if (detailModalClose) {
+    detailModalClose.addEventListener("click", closeSolutionDetailModal);
+  }
+
+  if (detailModal) {
+    detailModal.addEventListener("click", (event) => {
+      if (event.target === detailModal) {
+        closeSolutionDetailModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeSolutionDetailModal();
+    }
+  });
 
   applySolutionFilters();
 }
