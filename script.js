@@ -196,6 +196,13 @@ function setArticleAccordionExpanded(isExpanded) {
 
   articleToggleButton.setAttribute("aria-expanded", String(isExpanded));
   articlePanel.hidden = !isExpanded;
+  articlePanel.style.display = isExpanded ? "grid" : "none";
+
+  const articleSection = articleToggleButton.closest(".submit-support-panel");
+
+  if (articleSection) {
+    articleSection.classList.toggle("is-expanded", isExpanded);
+  }
 }
 
 function openScreen(screenId) {
@@ -606,16 +613,16 @@ function addArticleRow(code) {
     ["Артикул:", normalizedCode],
     ["Вознаграждение:", rewardLabel],
   ].forEach(([label, value]) => {
-    const line = document.createElement("div");
-    const lineLabel = document.createElement("span");
-    const lineValue = document.createElement("strong");
+    const cell = document.createElement("div");
+    const cellLabel = document.createElement("span");
+    const cellValue = document.createElement("strong");
 
-    line.className = "article-solution-line";
-    lineLabel.textContent = label;
-    lineValue.textContent = value;
+    cell.className = "article-solution-cell";
+    cellLabel.textContent = label;
+    cellValue.textContent = value;
 
-    line.append(lineLabel, lineValue);
-    articleRow.appendChild(line);
+    cell.append(cellLabel, cellValue);
+    articleRow.appendChild(cell);
   });
 
   articleList.appendChild(articleRow);
@@ -660,12 +667,14 @@ if (articleInput) {
 }
 
 if (articleToggleButton) {
-  articleToggleButton.addEventListener("click", () => {
+  articleToggleButton.addEventListener("click", (event) => {
+    event.preventDefault();
     const isExpanded = articleToggleButton.getAttribute("aria-expanded") === "true";
     setArticleAccordionExpanded(!isExpanded);
   });
 }
 
+setArticleAccordionExpanded(false);
 updateArticleEmptyState();
 
 function setupProjectsList() {

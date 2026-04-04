@@ -3868,6 +3868,7 @@ textarea {
   font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
+  white-space: nowrap;
 }
 
 .article-accordion-icon {
@@ -3918,19 +3919,22 @@ textarea {
 
 .article-solution-item {
   display: grid;
-  gap: 12px;
-  padding: 16px 18px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+  padding: 14px 18px;
   border: 1px solid rgba(17, 120, 93, 0.1);
   border-radius: 18px;
   background: linear-gradient(180deg, #fbfdfc 0%, #f6faf8 100%);
 }
 
-.article-solution-line {
+.article-solution-cell {
   display: grid;
   gap: 4px;
+  min-width: 0;
 }
 
-.article-solution-line span {
+.article-solution-cell span {
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
@@ -3938,15 +3942,15 @@ textarea {
   text-transform: uppercase;
 }
 
-.article-solution-line strong {
-  font-size: 17px;
+.article-solution-cell strong {
+  font-size: 16px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
-.article-solution-line:nth-child(2) strong,
-.article-solution-line:nth-child(3) strong {
-  font-size: 15px;
-  font-weight: 700;
+.article-solution-cell:last-child {
+  justify-items: end;
+  text-align: right;
 }
 
 .project-comment-field {
@@ -5851,6 +5855,20 @@ textarea {
 
   .article-accordion-title {
     font-size: 24px;
+  }
+
+  .article-accordion-description {
+    white-space: normal;
+  }
+
+  .article-solution-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .article-solution-cell:last-child {
+    justify-items: start;
+    text-align: left;
   }
 
   .document-preview-item {
