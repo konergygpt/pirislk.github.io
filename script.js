@@ -36,6 +36,9 @@ const gradeProjectLists = document.querySelectorAll("[data-grade-project-list]")
 const articleInput = document.querySelector("[data-article-input]");
 const addArticleButton = document.querySelector("[data-add-article]");
 const articleList = document.querySelector("[data-article-list]");
+const articleToggleButton = document.querySelector("[data-article-toggle]");
+const articlePanel = document.querySelector("[data-article-panel]");
+const articleEmptyState = document.querySelector("[data-article-empty-state]");
 const submitProjectButton = document.querySelector("[data-submit-project]");
 const submitModal = document.querySelector("[data-submit-modal]");
 const submitHomeLink = document.querySelector("[data-submit-home]");
@@ -105,9 +108,94 @@ function formatRubles(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
 }
 
+function normalizeArticleCode(code) {
+  return String(code || "")
+    .trim()
+    .toUpperCase()
+    .replace(/^AVR-PRS-/, "АВР-PRS-")
+    .replace(/^VRU-PRS-/, "ВРУ-PRS-")
+    .replace(/^GRSH-PRS-/, "ГРЩ-PRS-")
+    .replace(/^SHUN-PRS-/, "ШУН-PRS-");
+}
+
 function getSolutionRewardRule(code) {
-  const normalizedCode = (code || "").trim().toUpperCase();
+  const normalizedCode = normalizeArticleCode(code);
   return solutionRewardRules.find((rule) => normalizedCode.startsWith(rule.prefix));
+}
+
+function formatShortRubles(value) {
+  return `${new Intl.NumberFormat("ru-RU").format(value)} р.`;
+}
+
+function titleCaseLatinSegment(value) {
+  const lowerValue = String(value || "").toLowerCase();
+
+  return lowerValue.charAt(0).toUpperCase() + lowerValue.slice(1);
+}
+
+function getSolutionNameFromArticle(code) {
+  const normalizedCode = normalizeArticleCode(code);
+
+  if (!normalizedCode) {
+    return "Решение PIRIS";
+  }
+
+  const parts = normalizedCode.split("-");
+  const prefix = `${parts[0]}-${parts[1]}-`;
+  const familyMap = {
+    "АВР-PRS-": "Шкаф АВР",
+    "ВРУ-PRS-": "ВРУ PIRIS",
+    "ГРЩ-PRS-": "Главный распределительный щит",
+    "ШУН-PRS-": "Шкаф управления нагрузкой",
+  };
+  const typeMap = {
+    МБ: "моноблок",
+    НП: "напольный",
+    НВ: "навесной",
+  };
+  const familyName = familyMap[prefix] || "Решение PIRIS";
+  const suffixParts = parts.slice(2);
+  const typeLabel = typeMap[suffixParts[0]];
+  const inputCount = suffixParts.find((part) => /^\d+$/.test(part));
+  const amperage = [...suffixParts].reverse().find((part) => /^\d{2,4}$/.test(part));
+  const brandToken = suffixParts.at(-1);
+  const brandLabel = /^[A-Z0-9]+$/.test(brandToken || "") ? brandToken : titleCaseLatinSegment(brandToken);
+  const detailParts = [];
+
+  if (amperage) {
+    detailParts.push(`${amperage}А`);
+  }
+
+  if (typeLabel) {
+    detailParts.push(typeLabel);
+  }
+
+  if (inputCount) {
+    detailParts.push(`${inputCount} ввода`);
+  }
+
+  if (brandLabel) {
+    detailParts.push(brandLabel);
+  }
+
+  return detailParts.length ? `${familyName} ${detailParts.join(", ")}` : familyName;
+}
+
+function updateArticleEmptyState() {
+  if (!articleList || !articleEmptyState) {
+    return;
+  }
+
+  articleEmptyState.hidden = articleList.children.length > 0;
+}
+
+function setArticleAccordionExpanded(isExpanded) {
+  if (!articleToggleButton || !articlePanel) {
+    return;
+  }
+
+  articleToggleButton.setAttribute("aria-expanded", String(isExpanded));
+  articlePanel.hidden = !isExpanded;
 }
 
 function openScreen(screenId) {
@@ -495,6 +583,44 @@ document.addEventListener("keydown", (event) => {
   closeAllDropdownMenus();
 });
 
+function addArticleRow(code) {
+  if (!articleList) {
+    return;
+  }
+
+  const normalizedCode = normalizeArticleCode(code);
+  const existingRow = articleList.querySelector(`[data-article-code="${normalizedCode}"]`);
+
+  if (existingRow) {
+    return;
+  }
+
+  const rewardRule = getSolutionRewardRule(normalizedCode);
+  const rewardLabel = rewardRule ? formatShortRubles(rewardRule.reward) : "Уточняется";
+  const articleRow = document.createElement("article");
+  articleRow.className = "article-solution-item";
+  articleRow.dataset.articleCode = normalizedCode;
+
+  [
+    ["Название решения:", getSolutionNameFromArticle(normalizedCode)],
+    ["Артикул:", normalizedCode],
+    ["Вознаграждение:", rewardLabel],
+  ].forEach(([label, value]) => {
+    const line = document.createElement("div");
+    const lineLabel = document.createElement("span");
+    const lineValue = document.createElement("strong");
+
+    line.className = "article-solution-line";
+    lineLabel.textContent = label;
+    lineValue.textContent = value;
+
+    line.append(lineLabel, lineValue);
+    articleRow.appendChild(line);
+  });
+
+  articleList.appendChild(articleRow);
+}
+
 function addArticleTag() {
   if (!articleInput || !articleList) {
     return;
@@ -513,13 +639,11 @@ function addArticleTag() {
     .filter(Boolean);
 
   items.forEach((item) => {
-    const tag = document.createElement("span");
-    tag.className = "tag-item";
-    tag.textContent = item;
-    articleList.appendChild(tag);
+    addArticleRow(item);
   });
 
   articleInput.value = "";
+  updateArticleEmptyState();
 }
 
 if (addArticleButton) {
@@ -534,6 +658,15 @@ if (articleInput) {
     }
   });
 }
+
+if (articleToggleButton) {
+  articleToggleButton.addEventListener("click", () => {
+    const isExpanded = articleToggleButton.getAttribute("aria-expanded") === "true";
+    setArticleAccordionExpanded(!isExpanded);
+  });
+}
+
+updateArticleEmptyState();
 
 function setupProjectsList() {
   if (!projectRows.length) {

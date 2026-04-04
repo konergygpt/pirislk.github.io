@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PIRIS - Решения и документы</title>
+    <title>PIRIS - Регистрация проекта</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,7 +66,7 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">Проекты</p>
-            <h1>Решения и документы</h1>
+            <h1>Регистрация проекта</h1>
           </div>
           <div class="topbar-meta">
             <div class="notification-menu" data-notification-menu>
@@ -217,9 +217,12 @@
 
             <div class="document-preview-list">
               <div class="document-preview-item">
-                <div>
-                  <strong>Проект_ЖК_Южный_квартал.pdf</strong>
-                  <p>PDF, 12.4 MB</p>
+                <div class="document-preview-main">
+                  <span class="document-file-icon" aria-hidden="true">PDF</span>
+                  <div class="document-preview-copy">
+                    <strong>Проект_ЖК_Южный_квартал.pdf</strong>
+                    <p>PDF, 12.4 MB</p>
+                  </div>
                 </div>
                 <span class="status-chip neutral">Загружен</span>
               </div>
@@ -227,45 +230,62 @@
           </article>
 
           <article class="panel project-form-panel submit-support-panel">
-            <div class="submit-section-head">
-              <h3>Артикулы PIRIS (необязательно)</h3>
-              <p>
-                Если знаете артикулы заложенных решений, добавьте их — это
-                ускорит проверку проекта.
-              </p>
-            </div>
+            <button
+              class="article-accordion-toggle"
+              type="button"
+              data-article-toggle
+              aria-expanded="false"
+            >
+              <span class="article-accordion-copy">
+                <span class="article-accordion-title">Артикулы PIRIS</span>
+                <span class="article-accordion-description">
+                  Можно пропустить, но если знаете артикулы заложенных решений,
+                  добавьте их — это ускорит проверку проекта.
+                </span>
+              </span>
+              <span class="article-accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
 
-            <form class="project-form-grid compact-project-form submit-articles-form">
-              <label>
-                Артикул PIRIS
-                <input
-                  type="text"
-                  placeholder="Например: AVR-630-2VV"
-                  data-article-input
-                />
-                <small class="field-hint">
+            <div class="article-accordion-body" data-article-panel hidden>
+              <form class="project-form-grid submit-articles-form">
+                <div class="submit-articles-input-row full-width">
+                  <input
+                    type="text"
+                    placeholder="Например: АВР-PRS-МБ-2-1-100-CHINT"
+                    aria-label="Артикул PIRIS"
+                    data-article-input
+                  />
+                  <button class="secondary-button" type="button" data-add-article>Добавить</button>
+                </div>
+                <small class="field-hint full-width">
                   Если решений несколько, добавьте их по одному или вставьте список артикулов через запятую.
                 </small>
+              </form>
+
+              <div class="article-solution-list" data-article-list></div>
+
+              <p class="article-solution-empty" data-article-empty-state>
+                Решения пока не добавлены.
+              </p>
+
+              <label class="full-width project-comment-field">
+                Комментарий для инженера PIRIS
+                <textarea
+                  rows="4"
+                  placeholder="Если нужно, оставьте комментарий по документации или решениям PIRIS."
+                ></textarea>
               </label>
-
-              <div class="inline-form-action">
-                <button class="secondary-button" type="button" data-add-article>Добавить</button>
-              </div>
-            </form>
-
-            <div class="tag-list" data-article-list>
-              <span class="tag-item">AVR-630-2VV</span>
-              <span class="tag-item">VRU-400-1</span>
-              <span class="tag-item">GRSH-1000</span>
             </div>
-
-            <label class="full-width project-comment-field">
-              Комментарий для инженера PIRIS
-              <textarea
-                rows="4"
-                placeholder="Если нужно, оставьте комментарий по документации или решениям PIRIS."
-              ></textarea>
-            </label>
           </article>
 
           <div class="project-form-footer">
