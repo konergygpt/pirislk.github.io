@@ -625,6 +625,22 @@ function addArticleRow(code) {
     articleRow.appendChild(cell);
   });
 
+  const removeButton = document.createElement("button");
+  removeButton.className = "article-solution-remove";
+  removeButton.type = "button";
+  removeButton.dataset.removeArticle = normalizedCode;
+  removeButton.setAttribute("aria-label", `Удалить решение ${normalizedCode}`);
+  removeButton.innerHTML = `
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M5.75 7.25V14.25C5.75 15.2165 6.5335 16 7.5 16H12.5C13.4665 16 14.25 15.2165 14.25 14.25V7.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M4.5 5.25H15.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8 5.25V4.5C8 4.08579 8.33579 3.75 8.75 3.75H11.25C11.6642 3.75 12 4.08579 12 4.5V5.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8.5 8.5V13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M11.5 8.5V13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+  `;
+  articleRow.appendChild(removeButton);
+
   articleList.appendChild(articleRow);
 }
 
@@ -655,6 +671,25 @@ function addArticleTag() {
 
 if (addArticleButton) {
   addArticleButton.addEventListener("click", addArticleTag);
+}
+
+if (articleList) {
+  articleList.addEventListener("click", (event) => {
+    const removeButton = event.target.closest("[data-remove-article]");
+
+    if (!removeButton) {
+      return;
+    }
+
+    const articleRow = removeButton.closest(".article-solution-item");
+
+    if (!articleRow) {
+      return;
+    }
+
+    articleRow.remove();
+    updateArticleEmptyState();
+  });
 }
 
 if (articleInput) {

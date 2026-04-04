@@ -3915,9 +3915,9 @@ textarea {
 
 .article-solution-item {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr) auto;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr) auto 44px;
   gap: 18px;
-  align-items: start;
+  align-items: center;
   padding: 14px 18px;
   border: 1px solid rgba(17, 120, 93, 0.1);
   border-radius: 18px;
@@ -3947,6 +3947,41 @@ textarea {
 .article-solution-cell:last-child {
   justify-items: end;
   text-align: right;
+}
+
+.article-solution-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(17, 120, 93, 0.1);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #90a29c;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.article-solution-remove:hover,
+.article-solution-remove:focus-visible {
+  outline: none;
+  color: #ca4d38;
+  background: #fff4f1;
+  border-color: rgba(202, 77, 56, 0.2);
+  box-shadow: 0 10px 22px rgba(202, 77, 56, 0.12);
+  transform: translateY(-1px);
+}
+
+.article-solution-remove svg {
+  width: 18px;
+  height: 18px;
 }
 
 .project-comment-field {
@@ -5865,6 +5900,10 @@ textarea {
   .article-solution-cell:last-child {
     justify-items: start;
     text-align: left;
+  }
+
+  .article-solution-remove {
+    justify-self: start;
   }
 
   .document-preview-item {
