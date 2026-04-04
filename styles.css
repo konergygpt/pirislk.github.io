@@ -3743,10 +3743,6 @@ textarea {
   line-height: 1.6;
 }
 
-.submit-section-head-primary h3 {
-  font-size: clamp(30px, 3vw, 38px);
-}
-
 .submit-grid {
   align-items: start;
 }
