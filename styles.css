@@ -3691,55 +3691,48 @@ textarea {
 }
 
 .project-registration-panel {
-  padding: 28px;
+  padding: 22px;
 }
 
 .project-registration-form {
-  gap: 18px 20px;
+  gap: 14px 18px;
 }
 
 .project-registration-form label {
-  gap: 10px;
+  gap: 8px;
 }
 
 .project-registration-form input,
 .project-registration-form select {
-  height: 60px;
-  padding: 16px 18px;
-  border-radius: 20px;
+  height: 56px;
+  padding: 14px 16px;
+  border-radius: 18px;
 }
 
 .project-form-section-head {
   display: grid;
-  gap: 6px;
-  padding-bottom: 2px;
-}
-
-.project-form-section-kicker {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 4px;
+  padding-top: 2px;
 }
 
 .project-form-section-heading-row {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 8px;
   min-width: 0;
 }
 
 .project-form-section-heading-row h3 {
   margin: 0;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.08;
   letter-spacing: -0.03em;
 }
 
 .project-form-section-divider {
   height: 1px;
-  margin: 2px 0 0;
+  margin: 6px 0 2px;
   background: linear-gradient(90deg, rgba(17, 120, 93, 0.14) 0%, rgba(17, 120, 93, 0.04) 100%);
 }
 
@@ -5953,7 +5946,7 @@ textarea {
   }
 
   .project-registration-panel {
-    padding: 20px;
+    padding: 18px;
   }
 
   .project-form-section-heading-row {
@@ -5961,7 +5954,7 @@ textarea {
   }
 
   .project-form-section-heading-row h3 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .project-company-tooltip {
