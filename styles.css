@@ -5223,7 +5223,7 @@ textarea {
 }
 
 .solution-project-trigger {
-  min-width: 270px;
+  min-width: 0;
 }
 
 .project-picker-overlay {
