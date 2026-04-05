@@ -636,6 +636,10 @@ function updateNotificationToggleIcons() {
   });
 }
 
+function isHomePagePath() {
+  return /\/home\.html$/i.test(window.location.pathname);
+}
+
 function collectTopbarAccountActionGroups() {
   return Array.from(document.querySelectorAll(".topbar"))
     .map((topbar) => {
@@ -668,6 +672,21 @@ function collectTopbarAccountActionGroups() {
         accountActions = document.createElement("div");
         accountActions.className = "topbar-account-actions";
         actionContainer.insertBefore(accountActions, notificationMenu);
+      }
+
+      if (!isHomePagePath()) {
+        let createProjectLink = actionContainer.querySelector(
+          '.primary-button.form-link-button[href="./project-create.html"]'
+        );
+
+        if (!createProjectLink) {
+          createProjectLink = document.createElement("a");
+          createProjectLink.className = "primary-button form-link-button";
+          createProjectLink.href = "./project-create.html";
+          createProjectLink.textContent = "Создать проект";
+        }
+
+        accountActions.append(createProjectLink);
       }
 
       accountActions.append(notificationMenu, profileMenu);

@@ -391,6 +391,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 12px;
   margin-left: auto;
 }
@@ -400,7 +401,13 @@ textarea {
   top: 20px;
   right: 28px;
   z-index: 80;
+  flex-wrap: nowrap;
   max-width: calc(100vw - 56px);
+}
+
+.topbar-account-actions .primary-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .notification-menu,
