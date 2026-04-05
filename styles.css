@@ -981,6 +981,14 @@ textarea {
   margin: 0;
 }
 
+.topbar h1 {
+  font-size: clamp(32px, 2.35vw, 38px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: rgba(19, 33, 28, 0.86);
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: var(--brand-dark);
@@ -6798,12 +6806,6 @@ textarea {
     flex-basis: 420px;
   }
 
-  .solutions-topbar h1 {
-    font-size: clamp(42px, 3.2vw, 52px);
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-  }
-
   .topbar-account-actions .primary-button {
     padding: 11px 18px;
     border-radius: 16px;
@@ -6973,10 +6975,6 @@ textarea {
 
   .solutions-topbar > :first-child {
     flex-basis: 360px;
-  }
-
-  .solutions-topbar h1 {
-    font-size: clamp(38px, 3vw, 46px);
   }
 
   .topbar-account-actions .primary-button {
