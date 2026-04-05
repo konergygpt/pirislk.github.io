@@ -350,7 +350,7 @@ textarea {
 
 .content {
   min-width: 0;
-  padding: 28px;
+  padding: 18px 28px 28px;
   overflow-x: clip;
 }
 
@@ -398,7 +398,7 @@ textarea {
 
 .topbar-account-actions.is-floating {
   position: fixed;
-  top: 20px;
+  top: 14px;
   right: 28px;
   z-index: 80;
   flex-wrap: nowrap;
@@ -6504,7 +6504,7 @@ textarea {
   }
 
   .content {
-    padding: 20px;
+    padding: 16px 20px 20px;
   }
 
   .home-content {
@@ -7081,7 +7081,7 @@ textarea {
   }
 
   .content {
-    padding: 16px;
+    padding: 12px 16px 16px;
   }
 
   .topbar {

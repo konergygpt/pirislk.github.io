@@ -683,8 +683,9 @@ function collectTopbarAccountActionGroups() {
           createProjectLink = document.createElement("a");
           createProjectLink.className = "primary-button form-link-button";
           createProjectLink.href = "./project-create.html";
-          createProjectLink.textContent = "Создать проект";
         }
+
+        createProjectLink.textContent = "+ Новый проект";
 
         accountActions.append(createProjectLink);
       }
