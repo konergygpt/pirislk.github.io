@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260405-33" />
+    <link rel="stylesheet" href="./styles.css?v=20260405-35" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -66,10 +66,6 @@
         <header class="topbar solutions-topbar">
           <div>
             <h1>Каталог решений</h1>
-            <p class="hero-copy solutions-hero-copy">
-              Ищите готовое решение, открывайте документы и сразу добавляйте
-              его в проект.
-            </p>
           </div>
           <div class="topbar-meta solutions-topbar-actions">
             <div class="notification-menu" data-notification-menu>
@@ -204,12 +200,6 @@
         </header>
 
         <section class="solutions-filters panel">
-          <div class="solutions-filter-head">
-            <div class="solutions-results-meta">
-              <strong data-solution-results-count>8 решений</strong>
-            </div>
-          </div>
-
           <div class="solutions-filter-grid">
             <label class="solutions-search-field">
               Поиск по артикулу
@@ -239,21 +229,37 @@
                 <option value="DEKRAFT">DEKRAFT</option>
               </select>
             </label>
-          </div>
 
-          <div class="filter-pill-group solutions-status-pills">
-            <button class="filter-pill active" type="button" data-solution-status-pill="all">
-              Все решения
-            </button>
-            <button class="filter-pill" type="button" data-solution-status-pill="ready">
-              Документация готова
-            </button>
-            <button class="filter-pill" type="button" data-solution-status-pill="pending">
-              В подготовке
-            </button>
-            <button class="filter-pill" type="button" data-solution-status-pill="100">
-              100 А
-            </button>
+            <label>
+              Номинальный ток
+              <select data-solution-filter-current>
+                <option value="all" selected>Все значения</option>
+                <option value="25">25 А</option>
+                <option value="40">40 А</option>
+                <option value="63">63 А</option>
+                <option value="100">100 А</option>
+                <option value="160">160 А</option>
+                <option value="250">250 А</option>
+                <option value="400">400 А</option>
+                <option value="630">630 А</option>
+              </select>
+            </label>
+
+            <label>
+              Количество вводов
+              <select data-solution-filter-inputs>
+                <option value="all" selected>Все варианты</option>
+                <option value="2">2 ввода</option>
+              </select>
+            </label>
+
+            <label>
+              Секция распределения
+              <select data-solution-filter-section>
+                <option value="all" selected>Все варианты</option>
+                <option value="none">Без секции распределения</option>
+              </select>
+            </label>
           </div>
         </section>
 
@@ -267,6 +273,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="100"
+              data-inputs="2"
+              data-section="none"
               data-status="ready"
             >
               <div class="solution-offer-media-column">
@@ -344,6 +352,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="25"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -421,6 +431,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="40"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -501,6 +513,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="63"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -581,6 +595,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="160"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -661,6 +677,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="250"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -741,6 +759,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="400"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -821,6 +841,8 @@
               data-category="АВР"
               data-brand="CHINT"
               data-current="630"
+              data-inputs="2"
+              data-section="none"
               data-status="pending"
             >
               <div class="solution-offer-media-column">
@@ -1102,6 +1124,6 @@
       </div>
     </div>
 
-    <script src="./script.js?v=20260405-28"></script>
+    <script src="./script.js?v=20260405-29"></script>
   </body>
 </html>

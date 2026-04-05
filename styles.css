@@ -4878,12 +4878,12 @@ textarea {
 
 .solutions-filter-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) repeat(2, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
 }
 
 .solutions-search-field {
-  grid-column: span 1;
+  grid-column: 1 / -1;
 }
 
 .solutions-filter-grid label {
@@ -4992,7 +4992,7 @@ textarea {
 
 .solutions-list {
   display: grid;
-  gap: 16px;
+  gap: 8px;
   min-width: 0;
 }
 

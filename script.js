@@ -1371,8 +1371,9 @@ function setupSolutionsCatalog() {
   const searchInput = document.querySelector("[data-solution-filter-search]");
   const categorySelect = document.querySelector("[data-solution-filter-category]");
   const brandSelect = document.querySelector("[data-solution-filter-brand]");
-  const statusPills = document.querySelectorAll("[data-solution-status-pill]");
-  const resultsCount = document.querySelector("[data-solution-results-count]");
+  const currentSelect = document.querySelector("[data-solution-filter-current]");
+  const inputsSelect = document.querySelector("[data-solution-filter-inputs]");
+  const sectionSelect = document.querySelector("[data-solution-filter-section]");
   const emptyState = document.querySelector("[data-solution-empty]");
 
   const docsTriggers = document.querySelectorAll("[data-open-solution-docs]");
@@ -1404,7 +1405,6 @@ function setupSolutionsCatalog() {
   const previewImage = document.querySelector("[data-solution-preview-image]");
   const previewLink = document.querySelector("[data-solution-preview-link]");
 
-  let activeStatusFilter = "all";
   let activeSolutionId =
     cards[0]?.dataset.solutionId;
   let activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
@@ -2021,6 +2021,9 @@ function setupSolutionsCatalog() {
     const searchValue = (searchInput?.value || "").trim().toLowerCase();
     const categoryValue = categorySelect?.value || "all";
     const brandValue = brandSelect?.value || "all";
+    const currentValue = currentSelect?.value || "all";
+    const inputsValue = inputsSelect?.value || "all";
+    const sectionValue = sectionSelect?.value || "all";
 
     const visibleCards = cards.filter((card) => {
       const matchesSearch =
@@ -2030,23 +2033,23 @@ function setupSolutionsCatalog() {
         categoryValue === "all" || card.dataset.category === categoryValue;
       const matchesBrand =
         brandValue === "all" || card.dataset.brand === brandValue;
-      const matchesStatus =
-        activeStatusFilter === "all" ||
-        card.dataset.status === activeStatusFilter ||
-        card.dataset.current === activeStatusFilter;
+      const matchesCurrent =
+        currentValue === "all" || card.dataset.current === currentValue;
+      const matchesInputs =
+        inputsValue === "all" || card.dataset.inputs === inputsValue;
+      const matchesSection =
+        sectionValue === "all" || card.dataset.section === sectionValue;
       const isVisible =
         matchesSearch &&
         matchesCategory &&
         matchesBrand &&
-        matchesStatus;
+        matchesCurrent &&
+        matchesInputs &&
+        matchesSection;
 
       card.hidden = !isVisible;
       return isVisible;
     });
-
-    if (resultsCount) {
-      resultsCount.textContent = formatSolutionCount(visibleCards.length);
-    }
 
     if (emptyState) {
       emptyState.hidden = visibleCards.length > 0;
@@ -2122,19 +2125,7 @@ function setupSolutionsCatalog() {
     });
   });
 
-  statusPills.forEach((pill) => {
-    pill.addEventListener("click", () => {
-      activeStatusFilter = pill.dataset.solutionStatusPill || "all";
-
-      statusPills.forEach((item) => {
-        item.classList.toggle("active", item === pill);
-      });
-
-      applySolutionFilters();
-    });
-  });
-
-  [searchInput, categorySelect, brandSelect].forEach((field) => {
+  [searchInput, categorySelect, brandSelect, currentSelect, inputsSelect, sectionSelect].forEach((field) => {
     if (!field) {
       return;
     }
