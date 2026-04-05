@@ -37,6 +37,7 @@ body {
     radial-gradient(circle at top left, rgba(30, 170, 132, 0.16), transparent 28%),
     linear-gradient(180deg, #f8fbf8 0%, var(--bg) 100%);
   color: var(--text);
+  overflow-x: clip;
 }
 
 a {
@@ -348,7 +349,9 @@ textarea {
 }
 
 .content {
+  min-width: 0;
   padding: 28px;
+  overflow-x: clip;
 }
 
 .home-content {
@@ -4919,11 +4922,13 @@ textarea {
 
 .solutions-layout {
   display: block;
+  min-width: 0;
 }
 
 .solutions-list {
   display: grid;
   gap: 16px;
+  min-width: 0;
 }
 
 .solution-catalog-card,
@@ -5483,6 +5488,7 @@ textarea {
 
 .solution-offer-card {
   display: grid;
+  grid-template-areas: "media main side";
   grid-template-columns: 172px minmax(0, 1fr) 184px;
   gap: 12px;
   align-items: start;
@@ -5499,10 +5505,12 @@ textarea {
 }
 
 .solution-offer-media-column {
+  grid-area: media;
   display: grid;
   grid-template-rows: 132px auto;
   gap: 5px;
-  width: 172px;
+  width: auto;
+  min-width: 0;
   align-self: start;
   align-content: start;
 }
@@ -5593,6 +5601,7 @@ textarea {
 }
 
 .solution-offer-main {
+  grid-area: main;
   display: grid;
   gap: 8px;
   min-width: 0;
@@ -5638,13 +5647,15 @@ textarea {
 }
 
 .solution-offer-side {
+  grid-area: side;
   display: grid;
   gap: 8px;
-  width: 184px;
+  width: auto;
+  min-width: 0;
   align-self: start;
   align-content: start;
   justify-items: stretch;
-  justify-self: end;
+  justify-self: stretch;
 }
 
 .solution-offer-reward {
@@ -6081,6 +6092,9 @@ textarea {
   }
 
   .solution-offer-card {
+    grid-template-areas:
+      "media main"
+      "media side";
     grid-template-columns: 172px minmax(0, 1fr);
   }
 
@@ -6089,10 +6103,7 @@ textarea {
   }
 
   .solution-offer-side {
-    grid-column: 2;
-    width: auto;
-    max-width: 100%;
-    justify-self: stretch;
+    max-width: none;
     grid-template-columns: minmax(0, 176px) minmax(0, 1fr);
     gap: 8px;
     align-items: start;
@@ -6560,6 +6571,13 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .solution-offer-card {
+    grid-template-areas:
+      "media"
+      "main"
+      "side";
+  }
+
   .solution-offer-media-column,
   .solution-offer-side {
     width: auto;
@@ -6568,7 +6586,7 @@ textarea {
   }
 
   .solution-offer-side {
-    grid-column: auto;
+    grid-template-columns: 1fr;
   }
 
   .solution-offer-actions {
