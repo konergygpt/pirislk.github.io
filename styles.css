@@ -5483,26 +5483,32 @@ textarea {
 
 .solution-offer-card {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) 236px;
-  gap: 18px;
+  grid-template-columns: 196px minmax(0, 1fr) 214px;
+  gap: 14px;
   align-items: start;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 24px;
   border: 1px solid rgba(17, 120, 93, 0.1);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 18px 34px rgba(14, 31, 24, 0.06);
 }
 
+.solution-offer-card > * {
+  align-self: start;
+}
+
 .solution-offer-media-column {
   display: grid;
-  gap: 8px;
+  grid-template-rows: 156px auto;
+  gap: 6px;
+  width: 196px;
   align-self: start;
   align-content: start;
 }
 
 .solution-offer-media {
   position: relative;
-  height: 180px;
+  height: 156px;
   border-radius: 18px;
   overflow: hidden;
   background: linear-gradient(180deg, #eff4f1 0%, #e8efeb 100%);
@@ -5540,6 +5546,7 @@ textarea {
   height: 24px;
   min-height: 24px;
   padding: 0 12px;
+  margin: 0;
   border: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -5585,21 +5592,22 @@ textarea {
 
 .solution-offer-main {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
   align-self: start;
+  align-content: start;
 }
 
 .solution-offer-code {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .solution-offer-main h3 {
   margin: 0;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.08;
   letter-spacing: -0.04em;
 }
@@ -5607,8 +5615,8 @@ textarea {
 .solution-offer-specs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  padding-top: 4px;
+  gap: 10px;
+  padding-top: 2px;
   border-top: 1px solid rgba(17, 120, 93, 0.08);
 }
 
@@ -5619,26 +5627,27 @@ textarea {
 
 .solution-offer-spec span {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .solution-offer-spec strong {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
 .solution-offer-side {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   align-self: start;
+  align-content: start;
   justify-items: stretch;
 }
 
 .solution-offer-reward {
   display: grid;
-  gap: 8px;
-  padding: 12px 14px;
-  border-radius: 18px;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 16px;
   background: linear-gradient(180deg, #f4f7ff 0%, #eef3ff 100%);
   border: 1px solid rgba(93, 124, 246, 0.08);
 }
@@ -5646,31 +5655,31 @@ textarea {
 .solution-offer-reward span,
 .solution-offer-reward small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 }
 
 .solution-offer-reward strong {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .solution-offer-price {
   display: grid;
-  gap: 4px;
-  padding-top: 10px;
+  gap: 3px;
+  padding-top: 8px;
   border-top: 1px solid rgba(93, 124, 246, 0.12);
 }
 
 .solution-offer-price small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 }
 
 .solution-offer-price b {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
@@ -5685,7 +5694,7 @@ textarea {
   width: 100%;
   justify-content: center;
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 9px 14px;
 }
 
 .solution-docs-trigger {
