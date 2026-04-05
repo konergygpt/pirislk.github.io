@@ -5507,7 +5507,7 @@ textarea {
 .solution-offer-media-column {
   grid-area: media;
   display: grid;
-  grid-template-rows: 132px auto;
+  grid-template-rows: 172px auto;
   gap: 5px;
   width: auto;
   min-width: 0;
@@ -5517,8 +5517,8 @@ textarea {
 
 .solution-offer-media {
   position: relative;
-  height: 132px;
-  border-radius: 14px;
+  height: 172px;
+  border-radius: 5px;
   overflow: hidden;
   background: linear-gradient(180deg, #eff4f1 0%, #e8efeb 100%);
 }
