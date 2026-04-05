@@ -16,8 +16,6 @@ const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
 const notificationMenus = document.querySelectorAll("[data-notification-menu]");
-const solutionsTopbar = document.querySelector(".solutions-topbar");
-const solutionsTopbarActions = document.querySelector(".solutions-topbar-actions");
 const dashboardShell = document.querySelector(".dashboard-shell");
 const sidebarToggleButton = document.querySelector("[data-sidebar-toggle]");
 const projectSearchInput = document.querySelector("[data-project-search]");
@@ -609,6 +607,79 @@ function setupDropdownMenus(menus, toggleSelector, panelSelector) {
   });
 }
 
+const notificationToggleIconSvg = `
+  <svg viewBox="0 0 24 24" fill="none">
+    <path
+      d="M10 5a2 2 0 1 1 4 0c3.038.606 5 2.833 5 6v2c0 .832.302 1.592.803 2.176A1 1 0 0 1 19.05 17H4.95a1 1 0 0 1-.753-1.824A3.241 3.241 0 0 0 5 13v-2c0-3.167 1.962-5.394 5-6"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9 17v1a3 3 0 0 0 6 0v-1"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+`;
+
+function updateNotificationToggleIcons() {
+  document.querySelectorAll(".notification-toggle-icon").forEach((icon) => {
+    if (icon.querySelector("svg")) {
+      return;
+    }
+
+    icon.innerHTML = notificationToggleIconSvg;
+  });
+}
+
+function collectTopbarAccountActionGroups() {
+  return Array.from(document.querySelectorAll(".topbar"))
+    .map((topbar) => {
+      const actionContainer = Array.from(topbar.children).find((child) =>
+        child.matches(
+          ".topbar-meta, .topbar-actions, .detail-topbar-actions, .documentation-topbar-actions"
+        )
+      );
+
+      if (!actionContainer) {
+        return null;
+      }
+
+      const directChildren = Array.from(actionContainer.children);
+      const notificationMenu =
+        directChildren.find((child) => child.classList.contains("notification-menu")) ||
+        null;
+      const profileMenu =
+        directChildren.find((child) => child.classList.contains("profile-menu")) || null;
+
+      if (!notificationMenu || !profileMenu) {
+        return null;
+      }
+
+      let accountActions =
+        directChildren.find((child) => child.classList.contains("topbar-account-actions")) ||
+        null;
+
+      if (!accountActions) {
+        accountActions = document.createElement("div");
+        accountActions.className = "topbar-account-actions";
+        actionContainer.insertBefore(accountActions, notificationMenu);
+      }
+
+      accountActions.append(notificationMenu, profileMenu);
+
+      return {
+        topbar,
+        accountActions,
+      };
+    })
+    .filter(Boolean);
+}
+
 setupDropdownMenus(
   profileMenus,
   "[data-profile-menu-toggle]",
@@ -632,50 +703,49 @@ document.addEventListener("keydown", (event) => {
   closeAllDropdownMenus();
 });
 
-const solutionsTopbarFloatingMediaQuery = window.matchMedia("(min-width: 921px)");
-let solutionsTopbarActionsAnimationFrame = null;
+updateNotificationToggleIcons();
 
-function updateSolutionsTopbarActionsState() {
-  if (!solutionsTopbar || !solutionsTopbarActions) {
-    return;
-  }
+const topbarAccountActionGroups = collectTopbarAccountActionGroups();
+const topbarAccountActionsMediaQuery = window.matchMedia("(min-width: 921px)");
+let topbarAccountActionsAnimationFrame = null;
 
-  const topbarBottom = solutionsTopbar.getBoundingClientRect().bottom;
-  const shouldFloat =
-    solutionsTopbarFloatingMediaQuery.matches && topbarBottom <= 20;
+function updateTopbarAccountActionsState() {
+  topbarAccountActionGroups.forEach(({ topbar, accountActions }) => {
+    const topbarBottom = topbar.getBoundingClientRect().bottom;
+    const shouldFloat =
+      topbarAccountActionsMediaQuery.matches && topbarBottom <= 20;
 
-  solutionsTopbarActions.classList.toggle("is-floating", shouldFloat);
-}
-
-function queueSolutionsTopbarActionsStateUpdate() {
-  if (solutionsTopbarActionsAnimationFrame !== null) {
-    return;
-  }
-
-  solutionsTopbarActionsAnimationFrame = window.requestAnimationFrame(() => {
-    solutionsTopbarActionsAnimationFrame = null;
-    updateSolutionsTopbarActionsState();
+    accountActions.classList.toggle("is-floating", shouldFloat);
   });
 }
 
-if (solutionsTopbar && solutionsTopbarActions) {
-  updateSolutionsTopbarActionsState();
+function queueTopbarAccountActionsStateUpdate() {
+  if (topbarAccountActionsAnimationFrame !== null) {
+    return;
+  }
 
-  window.addEventListener("scroll", queueSolutionsTopbarActionsStateUpdate, {
+  topbarAccountActionsAnimationFrame = window.requestAnimationFrame(() => {
+    topbarAccountActionsAnimationFrame = null;
+    updateTopbarAccountActionsState();
+  });
+}
+
+if (topbarAccountActionGroups.length) {
+  updateTopbarAccountActionsState();
+
+  window.addEventListener("scroll", queueTopbarAccountActionsStateUpdate, {
     passive: true,
   });
-  window.addEventListener("resize", queueSolutionsTopbarActionsStateUpdate);
+  window.addEventListener("resize", queueTopbarAccountActionsStateUpdate);
 
-  if (typeof solutionsTopbarFloatingMediaQuery.addEventListener === "function") {
-    solutionsTopbarFloatingMediaQuery.addEventListener(
+  if (typeof topbarAccountActionsMediaQuery.addEventListener === "function") {
+    topbarAccountActionsMediaQuery.addEventListener(
       "change",
-      queueSolutionsTopbarActionsStateUpdate
+      queueTopbarAccountActionsStateUpdate
     );
-  } else if (
-    typeof solutionsTopbarFloatingMediaQuery.addListener === "function"
-  ) {
-    solutionsTopbarFloatingMediaQuery.addListener(
-      queueSolutionsTopbarActionsStateUpdate
+  } else if (typeof topbarAccountActionsMediaQuery.addListener === "function") {
+    topbarAccountActionsMediaQuery.addListener(
+      queueTopbarAccountActionsStateUpdate
     );
   }
 }

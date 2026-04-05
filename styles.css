@@ -387,6 +387,22 @@ textarea {
   gap: 12px;
 }
 
+.topbar-account-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.topbar-account-actions.is-floating {
+  position: fixed;
+  top: 20px;
+  right: 28px;
+  z-index: 80;
+  max-width: calc(100vw - 56px);
+}
+
 .notification-menu,
 .profile-menu {
   position: relative;
@@ -499,7 +515,7 @@ textarea {
   flex: 0 0 auto;
   overflow: hidden;
   border-radius: 50%;
-  border: 2px solid rgba(199, 128, 88, 0.7);
+  border: 0;
   background:
     var(--profile-photo) center 24% / cover no-repeat,
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(241, 246, 243, 0.98) 100%);
@@ -4769,18 +4785,8 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
-.solutions-topbar-actions.is-floating {
-  position: fixed;
-  top: 20px;
-  right: 28px;
-  z-index: 80;
-  flex-wrap: nowrap;
   align-items: center;
-  max-width: calc(100vw - 56px);
+  justify-content: flex-end;
 }
 
 .solutions-hero-copy {
@@ -6514,7 +6520,13 @@ textarea {
     justify-content: flex-start;
   }
 
-  .solutions-topbar-actions.is-floating {
+  .topbar-account-actions {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .topbar-account-actions.is-floating {
     position: static;
     top: auto;
     right: auto;
