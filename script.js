@@ -16,6 +16,7 @@ const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
 const notificationMenus = document.querySelectorAll("[data-notification-menu]");
+let balanceMenus = [];
 const dashboardShell = document.querySelector(".dashboard-shell");
 const sidebarToggleButton = document.querySelector("[data-sidebar-toggle]");
 const projectSearchInput = document.querySelector("[data-project-search]");
@@ -108,6 +109,13 @@ const gradeLevelMeta = {
 function formatRubles(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
 }
+
+const topbarBalanceMeta = {
+  label: "Баланс",
+  value: formatRubles(28000),
+  triggerValue: new Intl.NumberFormat("ru-RU").format(28000),
+  href: "./rewards.html",
+};
 
 function normalizeArticleCode(code) {
   return String(code || "")
@@ -575,6 +583,12 @@ function closeAllDropdownMenus(exceptMenu) {
       );
     }
   });
+
+  balanceMenus.forEach((menu) => {
+    if (menu !== exceptMenu) {
+      closeDropdownMenu(menu, "[data-balance-menu-toggle]", "[data-balance-menu-panel]");
+    }
+  });
 }
 
 function setupDropdownMenus(menus, toggleSelector, panelSelector) {
@@ -626,6 +640,88 @@ const notificationToggleIconSvg = `
   </svg>
 `;
 
+const profileToggleIconSvg = `
+  <svg viewBox="0 0 24 24" fill="none">
+    <path
+      d="M7 10l5 5 5-5"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+`;
+
+const topbarBalanceIconSvg = `
+  <svg viewBox="0 0 24 24" fill="none">
+    <path
+      d="M6 8.75A2.75 2.75 0 0 1 8.75 6h6.5A2.75 2.75 0 0 1 18 8.75v6.5A2.75 2.75 0 0 1 15.25 18h-6.5A2.75 2.75 0 0 1 6 15.25v-6.5Z"
+      stroke="currentColor"
+      stroke-width="1.8"
+    />
+    <path
+      d="M11.1 8.75v7.05"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+    />
+    <path
+      d="M11.1 8.75h2.75a1.85 1.85 0 0 1 0 3.7H11.1"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M10.1 12.45h3.4"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+    />
+  </svg>
+`;
+
+function ensureTopbarBalanceMenu(accountActions) {
+  let balanceMenu = accountActions.querySelector("[data-balance-menu]");
+
+  if (!balanceMenu) {
+    balanceMenu = document.createElement("div");
+    balanceMenu.className = "balance-menu";
+    balanceMenu.setAttribute("data-balance-menu", "");
+  }
+
+  balanceMenu.innerHTML = `
+    <button
+      class="topbar-balance"
+      type="button"
+      data-balance-menu-toggle
+      aria-expanded="false"
+      aria-label="${topbarBalanceMeta.label}: ${topbarBalanceMeta.value}"
+    >
+      <span class="topbar-balance-icon" aria-hidden="true">${topbarBalanceIconSvg}</span>
+      <span class="topbar-balance-copy">
+        <strong>${topbarBalanceMeta.triggerValue}</strong>
+        <span class="topbar-balance-toggle" aria-hidden="true">${profileToggleIconSvg}</span>
+      </span>
+    </button>
+    <div class="balance-dropdown" data-balance-menu-panel hidden>
+      <div class="balance-dropdown-head">
+        <span>Баланс</span>
+        <strong>${topbarBalanceMeta.value}</strong>
+      </div>
+      <div class="balance-dropdown-divider" aria-hidden="true"></div>
+      <a class="balance-dropdown-link" href="${topbarBalanceMeta.href}">Все операции</a>
+    </div>
+  `;
+
+  balanceMenu.setAttribute(
+    "aria-label",
+    `${topbarBalanceMeta.label}: ${topbarBalanceMeta.value}`
+  );
+
+  return balanceMenu;
+}
+
 function updateNotificationToggleIcons() {
   document.querySelectorAll(".notification-toggle-icon").forEach((icon) => {
     if (icon.querySelector("svg")) {
@@ -633,6 +729,16 @@ function updateNotificationToggleIcons() {
     }
 
     icon.innerHTML = notificationToggleIconSvg;
+  });
+}
+
+function updateProfileToggleIcons() {
+  document.querySelectorAll(".topbar-profile-toggle").forEach((icon) => {
+    if (icon.querySelector("svg")) {
+      return;
+    }
+
+    icon.innerHTML = profileToggleIconSvg;
   });
 }
 
@@ -690,7 +796,9 @@ function collectTopbarAccountActionGroups() {
         accountActions.append(createProjectLink);
       }
 
-      accountActions.append(notificationMenu, profileMenu);
+      const balanceMenu = ensureTopbarBalanceMenu(accountActions);
+
+      accountActions.append(balanceMenu, notificationMenu, profileMenu);
 
       return {
         topbar,
@@ -724,8 +832,15 @@ document.addEventListener("keydown", (event) => {
 });
 
 updateNotificationToggleIcons();
+updateProfileToggleIcons();
 
 const topbarAccountActionGroups = collectTopbarAccountActionGroups();
+balanceMenus = Array.from(document.querySelectorAll("[data-balance-menu]"));
+setupDropdownMenus(
+  balanceMenus,
+  "[data-balance-menu-toggle]",
+  "[data-balance-menu-panel]"
+);
 const topbarAccountActionsMediaQuery = window.matchMedia("(min-width: 921px)");
 let topbarAccountActionsAnimationFrame = null;
 
