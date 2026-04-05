@@ -1068,7 +1068,6 @@ const solutionCatalogData = {
       {
         id: "constructive-documentation",
         title: "Конструкторская документация",
-        kind: "Общий файл",
         description:
           "Общий комплект по типовому решению для включения в проект, согласования и передачи в рабочую документацию.",
         fileName: "Конструкторская документация АВР-PRS-МБ-2-1-100-CHINT.pdf",
@@ -1080,7 +1079,6 @@ const solutionCatalogData = {
       {
         id: "dimensional-drawing",
         title: "Габаритный чертеж",
-        kind: "Габариты и монтаж",
         description:
           "Лист с внешними размерами шкафа для быстрой увязки по месту установки, проходам и узлам крепления.",
         fileName: "Габаритный чертеж АВР-PRS-МБ-2-1-100-CHINT.pdf",
@@ -1092,7 +1090,6 @@ const solutionCatalogData = {
       {
         id: "schematic",
         title: "Принципиальная схема",
-        kind: "Электрическая логика",
         description:
           "Схема подключения и логика переключения между рабочим и резервным вводом с приоритетом первого ввода.",
         fileName: "Принципиальная схема АВР-PRS-МБ-2-1-100-CHINT.pdf",
@@ -1103,7 +1100,6 @@ const solutionCatalogData = {
       {
         id: "specification",
         title: "Спецификация компонентов",
-        kind: "Состав решения",
         description:
           "Перечень комплектующих и состава типового решения для оценки, проверки бренда и согласования закупки.",
         fileName: "Спецификация компонентов АВР-PRS-МБ-2-1-100-CHINT.pdf",
@@ -1273,6 +1269,65 @@ function setupSolutionsCatalog() {
     cards[0]?.dataset.solutionId;
   let activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
   let activeDetailImageIndex = 0;
+  const pdfIconMarkup =
+    '<span class="solution-file-icon" aria-hidden="true"><img src="./assets/pdf-file.svg" alt="" /></span>';
+  const copyIconMarkup = `
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <rect x="7" y="4" width="9" height="11" rx="2" stroke="currentColor" stroke-width="1.6" />
+      <path d="M5 12H4C2.89543 12 2 11.1046 2 10V4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+  `;
+
+  async function copyTextValue(value) {
+    if (!value) {
+      return false;
+    }
+
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(value);
+        return true;
+      } catch (error) {
+        // Fallback continues below.
+      }
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = value;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    textarea.style.pointerEvents = "none";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    let isCopied = false;
+
+    try {
+      isCopied = document.execCommand("copy");
+    } catch (error) {
+      isCopied = false;
+    }
+
+    textarea.remove();
+    return isCopied;
+  }
+
+  function showCopyFeedback(statusNode, message) {
+    if (!statusNode) {
+      return;
+    }
+
+    statusNode.textContent = message;
+    statusNode.classList.add("is-visible");
+    window.clearTimeout(Number(statusNode.dataset.timeoutId || 0));
+
+    statusNode.dataset.timeoutId = String(
+      window.setTimeout(() => {
+        statusNode.classList.remove("is-visible");
+      }, 1400)
+    );
+  }
 
   function getSolutionCard(solutionId) {
     return cards.find((card) => card.dataset.solutionId === solutionId) || null;
@@ -1325,6 +1380,88 @@ function setupSolutionsCatalog() {
       .filter(Boolean);
   }
 
+  function renderSolutionOfferCodes() {
+    cards.forEach((card) => {
+      const solutionId = card.dataset.solutionId;
+      const solution = solutionCatalogData[solutionId];
+      const mainColumn = card.querySelector(".solution-offer-main");
+      const titleNode = mainColumn?.querySelector("h3");
+      const specsBlock = mainColumn?.querySelector(".solution-offer-specs");
+      const existingCode = mainColumn?.querySelector(".solution-offer-code");
+      const codeValue = existingCode?.textContent?.trim() || solution?.code || "";
+      const legacyPanel = card.querySelector("[data-solution-code-panel]");
+      const legacyHeading = mainColumn?.querySelector("[data-solution-offer-heading]");
+
+      if (!mainColumn || !titleNode || !specsBlock || !codeValue) {
+        return;
+      }
+
+      legacyPanel?.remove();
+      if (legacyHeading) {
+        if (titleNode.parentElement === legacyHeading) {
+          legacyHeading.before(titleNode);
+        }
+
+        legacyHeading.remove();
+      }
+
+      let codeRow = mainColumn.querySelector("[data-solution-code-row]");
+
+      if (!codeRow) {
+        codeRow = document.createElement("div");
+        codeRow.className = "solution-offer-code-row";
+        codeRow.setAttribute("data-solution-code-row", "");
+        specsBlock.before(codeRow);
+      }
+
+      let codeInline = codeRow.querySelector("[data-solution-code-inline]");
+
+      if (!codeInline) {
+        codeInline = document.createElement("div");
+        codeInline.className = "solution-offer-code-inline";
+        codeInline.setAttribute("data-solution-code-inline", "");
+        codeInline.innerHTML = `
+          <span class="solution-offer-code-label">арт.</span>
+          <span class="solution-offer-code-meta">
+            <strong class="solution-offer-code-value" data-solution-code-value></strong>
+            <button
+              class="solution-offer-copy-button"
+              type="button"
+              aria-label="Скопировать артикул"
+              title="Скопировать артикул"
+              data-solution-copy-button
+            >
+              ${copyIconMarkup}
+            </button>
+          </span>
+          <span class="solution-offer-copy-status" role="status" aria-live="polite" data-solution-copy-status>
+            Скопирован
+          </span>
+        `;
+
+        const copyButton = codeInline.querySelector("[data-solution-copy-button]");
+        const copyStatus = codeInline.querySelector("[data-solution-copy-status]");
+
+        copyButton?.addEventListener("click", async () => {
+          const currentCode =
+            codeInline.querySelector("[data-solution-code-value]")?.textContent?.trim() || "";
+          const isCopied = await copyTextValue(currentCode);
+          showCopyFeedback(copyStatus, isCopied ? "Скопирован" : "Не удалось");
+        });
+
+        codeRow.appendChild(codeInline);
+      }
+
+      const codeValueNode = codeInline.querySelector("[data-solution-code-value]");
+
+      if (codeValueNode) {
+        codeValueNode.textContent = codeValue;
+      }
+
+      existingCode?.remove();
+    });
+  }
+
   function renderInlineSolutionDocs() {
     cards.forEach((card) => {
       const solutionId = card.dataset.solutionId;
@@ -1363,10 +1500,9 @@ function setupSolutionsCatalog() {
         link.target = "_blank";
         link.rel = "noreferrer";
         link.innerHTML = `
-          <span class="solution-offer-doc-badge" aria-hidden="true">PDF</span>
+          ${pdfIconMarkup}
           <span class="solution-offer-doc-main">
             <strong>${item.title}</strong>
-            <span>${item.kind}</span>
           </span>
           <span class="solution-offer-doc-size">${item.size}</span>
         `;
@@ -1569,10 +1705,9 @@ function setupSolutionsCatalog() {
       button.className = "solution-document-item";
       button.classList.toggle("is-active", item.id === activeDocumentId);
       button.innerHTML = `
-        <span class="solution-document-icon" aria-hidden="true">PDF</span>
+        ${pdfIconMarkup}
         <span class="solution-document-item-main">
           <strong>${item.title}</strong>
-          <span>${item.kind}</span>
         </span>
         <span class="solution-document-item-meta">${item.size}</span>
       `;
@@ -1718,7 +1853,38 @@ function setupSolutionsCatalog() {
     activeSolutionId = selectedCard.dataset.solutionId;
   }
 
+  renderSolutionOfferCodes();
   renderInlineSolutionDocs();
+
+  cards.forEach((card) => {
+    const solutionId = card.dataset.solutionId;
+    const mediaTrigger = card.querySelector(".solution-offer-media");
+    const title = card.querySelector(".solution-offer-main h3")?.textContent?.trim();
+
+    if (!solutionId || !mediaTrigger) {
+      return;
+    }
+
+    mediaTrigger.tabIndex = 0;
+    mediaTrigger.setAttribute("role", "button");
+    mediaTrigger.setAttribute(
+      "aria-label",
+      title ? `Открыть карточку решения: ${title}` : "Открыть карточку решения"
+    );
+
+    mediaTrigger.addEventListener("click", () => {
+      openSolutionDetailModal(solutionId);
+    });
+
+    mediaTrigger.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      event.preventDefault();
+      openSolutionDetailModal(solutionId);
+    });
+  });
 
   docsTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
