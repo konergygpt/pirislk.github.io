@@ -5483,10 +5483,10 @@ textarea {
 
 .solution-offer-card {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) 260px;
-  gap: 22px;
-  align-items: center;
-  padding: 18px 20px;
+  grid-template-columns: 220px minmax(0, 1fr) 236px;
+  gap: 18px;
+  align-items: start;
+  padding: 16px 18px;
   border-radius: 24px;
   border: 1px solid rgba(17, 120, 93, 0.1);
   background: rgba(255, 255, 255, 0.92);
@@ -5495,8 +5495,9 @@ textarea {
 
 .solution-offer-media-column {
   display: grid;
-  gap: 10px;
-  align-self: stretch;
+  gap: 8px;
+  align-self: start;
+  align-content: start;
 }
 
 .solution-offer-media {
@@ -5535,7 +5536,7 @@ textarea {
   align-items: center;
   justify-content: center;
   justify-self: start;
-  align-self: end;
+  align-self: start;
   height: 24px;
   min-height: 24px;
   padding: 0 12px;
@@ -5584,8 +5585,9 @@ textarea {
 
 .solution-offer-main {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
+  align-self: start;
 }
 
 .solution-offer-code {
@@ -5597,7 +5599,7 @@ textarea {
 
 .solution-offer-main h3 {
   margin: 0;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.08;
   letter-spacing: -0.04em;
 }
@@ -5605,7 +5607,7 @@ textarea {
 .solution-offer-specs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
   padding-top: 4px;
   border-top: 1px solid rgba(17, 120, 93, 0.08);
 }
@@ -5627,16 +5629,16 @@ textarea {
 
 .solution-offer-side {
   display: grid;
-  gap: 18px;
-  align-self: stretch;
+  gap: 12px;
+  align-self: start;
   justify-items: stretch;
 }
 
 .solution-offer-reward {
   display: grid;
-  gap: 10px;
-  padding: 16px 18px;
-  border-radius: 20px;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 18px;
   background: linear-gradient(180deg, #f4f7ff 0%, #eef3ff 100%);
   border: 1px solid rgba(93, 124, 246, 0.08);
 }
@@ -5644,36 +5646,38 @@ textarea {
 .solution-offer-reward span,
 .solution-offer-reward small {
   color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .solution-offer-reward strong {
-  font-size: 32px;
-  line-height: 1;
+  font-size: 24px;
+  line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .solution-offer-price {
   display: grid;
   gap: 4px;
-  padding-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid rgba(93, 124, 246, 0.12);
 }
 
 .solution-offer-price small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .solution-offer-price b {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
 
 .solution-offer-actions {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .solution-offer-actions .primary-button,
@@ -5681,6 +5685,7 @@ textarea {
   width: 100%;
   justify-content: center;
   text-decoration: none;
+  padding: 10px 16px;
 }
 
 .solution-docs-trigger {
