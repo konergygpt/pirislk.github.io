@@ -16,6 +16,8 @@ const progressLinks = document.querySelectorAll("[data-progress-link]");
 const pageProgress = document.querySelector("[data-page-progress]");
 const profileMenus = document.querySelectorAll("[data-profile-menu]");
 const notificationMenus = document.querySelectorAll("[data-notification-menu]");
+const solutionsTopbar = document.querySelector(".solutions-topbar");
+const solutionsTopbarActions = document.querySelector(".solutions-topbar-actions");
 const dashboardShell = document.querySelector(".dashboard-shell");
 const sidebarToggleButton = document.querySelector("[data-sidebar-toggle]");
 const projectSearchInput = document.querySelector("[data-project-search]");
@@ -629,6 +631,54 @@ document.addEventListener("keydown", (event) => {
 
   closeAllDropdownMenus();
 });
+
+const solutionsTopbarFloatingMediaQuery = window.matchMedia("(min-width: 921px)");
+let solutionsTopbarActionsAnimationFrame = null;
+
+function updateSolutionsTopbarActionsState() {
+  if (!solutionsTopbar || !solutionsTopbarActions) {
+    return;
+  }
+
+  const topbarBottom = solutionsTopbar.getBoundingClientRect().bottom;
+  const shouldFloat =
+    solutionsTopbarFloatingMediaQuery.matches && topbarBottom <= 20;
+
+  solutionsTopbarActions.classList.toggle("is-floating", shouldFloat);
+}
+
+function queueSolutionsTopbarActionsStateUpdate() {
+  if (solutionsTopbarActionsAnimationFrame !== null) {
+    return;
+  }
+
+  solutionsTopbarActionsAnimationFrame = window.requestAnimationFrame(() => {
+    solutionsTopbarActionsAnimationFrame = null;
+    updateSolutionsTopbarActionsState();
+  });
+}
+
+if (solutionsTopbar && solutionsTopbarActions) {
+  updateSolutionsTopbarActionsState();
+
+  window.addEventListener("scroll", queueSolutionsTopbarActionsStateUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", queueSolutionsTopbarActionsStateUpdate);
+
+  if (typeof solutionsTopbarFloatingMediaQuery.addEventListener === "function") {
+    solutionsTopbarFloatingMediaQuery.addEventListener(
+      "change",
+      queueSolutionsTopbarActionsStateUpdate
+    );
+  } else if (
+    typeof solutionsTopbarFloatingMediaQuery.addListener === "function"
+  ) {
+    solutionsTopbarFloatingMediaQuery.addListener(
+      queueSolutionsTopbarActionsStateUpdate
+    );
+  }
+}
 
 function addArticleRow(code) {
   if (!articleList) {
@@ -1269,6 +1319,9 @@ function setupSolutionsCatalog() {
     cards[0]?.dataset.solutionId;
   let activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
   let activeDetailImageIndex = 0;
+  const docRequestStorageKey = "solutionDocRequests";
+  const docRequestTooltipText =
+    "Отметьте, если документация по этому решению для вас актуальна. Мы учитываем запросы при определении приоритетов разработки. Нажатие не означает мгновенную подготовку документации.";
   const pdfIconMarkup =
     '<span class="solution-file-icon" aria-hidden="true"><img src="./assets/pdf-file.svg" alt="" /></span>';
   const copyIconMarkup = `
@@ -1277,6 +1330,14 @@ function setupSolutionsCatalog() {
       <path d="M5 12H4C2.89543 12 2 11.1046 2 10V4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
     </svg>
   `;
+  const requestedDocSolutions = (() => {
+    try {
+      const storedValue = JSON.parse(window.localStorage.getItem(docRequestStorageKey) || "[]");
+      return new Set(Array.isArray(storedValue) ? storedValue : []);
+    } catch {
+      return new Set();
+    }
+  })();
 
   async function copyTextValue(value) {
     if (!value) {
@@ -1327,6 +1388,65 @@ function setupSolutionsCatalog() {
         statusNode.classList.remove("is-visible");
       }, 1400)
     );
+  }
+
+  function rememberDocRequests() {
+    try {
+      window.localStorage.setItem(
+        docRequestStorageKey,
+        JSON.stringify(Array.from(requestedDocSolutions))
+      );
+    } catch {
+      // Ignore storage issues and keep request state in-memory only.
+    }
+  }
+
+  function submitDocRequest(solutionId) {
+    if (!solutionId || requestedDocSolutions.has(solutionId)) {
+      return;
+    }
+
+    requestedDocSolutions.add(solutionId);
+    rememberDocRequests();
+    renderInlineSolutionDocs();
+
+    if (activeSolutionId === solutionId) {
+      renderSolutionPanel(solutionId);
+    }
+  }
+
+  function createDocRequestSection(solutionId) {
+    const requestBlock = document.createElement("div");
+    const isRequested = requestedDocSolutions.has(solutionId);
+
+    requestBlock.className = "solution-doc-request";
+    requestBlock.innerHTML = `
+      <div class="solution-doc-request-head">
+        <button
+          class="solution-doc-request-button${isRequested ? " is-active" : ""}"
+          type="button"
+          ${isRequested ? "disabled" : ""}
+        >
+          ${isRequested ? "Запрос учтён" : "Нужна документация"}
+        </button>
+        <span
+          class="tooltip-mark solution-doc-request-help"
+          tabindex="0"
+          role="button"
+          aria-label="Что делает эта кнопка?"
+        >
+          ?
+          <span class="tooltip-bubble">${docRequestTooltipText}</span>
+        </span>
+      </div>
+    `;
+
+    const requestButton = requestBlock.querySelector(".solution-doc-request-button");
+    requestButton?.addEventListener("click", () => {
+      submitDocRequest(solutionId);
+    });
+
+    return requestBlock;
   }
 
   function getSolutionCard(solutionId) {
@@ -1489,6 +1609,7 @@ function setupSolutionsCatalog() {
         emptyState.className = "solution-offer-docs-empty";
         emptyState.innerHTML =
           "<strong>Документация готовится</strong><span>PDF-комплект по этой модификации появится здесь, как только будет загружен.</span>";
+        emptyState.appendChild(createDocRequestSection(solutionId));
         docsBlock.appendChild(emptyState);
         return;
       }
@@ -1694,6 +1815,7 @@ function setupSolutionsCatalog() {
       emptyCard.className = "solution-document-empty";
       emptyCard.innerHTML =
         "<strong>Документация готовится</strong><p>Карточка решения уже есть в каталоге, но комплект PDF по этой модификации еще не загружен.</p>";
+      emptyCard.appendChild(createDocRequestSection(activeSolutionId));
       docList.appendChild(emptyCard);
       renderPreview(solution, null);
       return;
