@@ -5488,6 +5488,7 @@ textarea {
   align-items: start;
   padding: 12px 14px;
   border-radius: 20px;
+  overflow: hidden;
   border: 1px solid rgba(17, 120, 93, 0.1);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 18px 34px rgba(14, 31, 24, 0.06);
@@ -6080,7 +6081,7 @@ textarea {
   }
 
   .solution-offer-card {
-    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-columns: 172px minmax(0, 1fr);
   }
 
   .solution-offer-specs {
@@ -6088,9 +6089,18 @@ textarea {
   }
 
   .solution-offer-side {
-    grid-column: 1 / -1;
-    grid-template-columns: 240px 1fr;
+    grid-column: 2;
+    width: auto;
+    max-width: 100%;
+    justify-self: stretch;
+    grid-template-columns: minmax(0, 176px) minmax(0, 1fr);
+    gap: 8px;
     align-items: start;
+  }
+
+  .solution-offer-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: start;
   }
 
   .solution-detail-modal-body {
@@ -6547,6 +6557,21 @@ textarea {
   .solution-offer-specs,
   .solution-offer-card,
   .solution-offer-side {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-offer-media-column,
+  .solution-offer-side {
+    width: auto;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .solution-offer-side {
+    grid-column: auto;
+  }
+
+  .solution-offer-actions {
     grid-template-columns: 1fr;
   }
 
