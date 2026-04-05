@@ -1502,7 +1502,7 @@ function setupSolutionsCatalog() {
 
     requestedDocSolutions.add(solutionId);
     rememberDocRequests();
-    renderInlineSolutionDocs();
+    renderSolutionOfferSummaries();
 
     if (activeSolutionId === solutionId) {
       renderSolutionPanel(solutionId);
@@ -1720,7 +1720,7 @@ function setupSolutionsCatalog() {
     });
   }
 
-  function renderInlineSolutionDocs() {
+  function renderSolutionOfferSummaries() {
     cards.forEach((card) => {
       const solutionId = card.dataset.solutionId;
       const solution = solutionCatalogData[solutionId];
@@ -1731,42 +1731,26 @@ function setupSolutionsCatalog() {
         return;
       }
 
-      let docsBlock = mainColumn.querySelector("[data-solution-inline-docs]");
+      let summaryCard = mainColumn.querySelector("[data-solution-inline-summary]");
 
-      if (!docsBlock) {
-        docsBlock = document.createElement("div");
-        docsBlock.className = "solution-offer-docs";
-        docsBlock.setAttribute("data-solution-inline-docs", "");
-        specsBlock.insertAdjacentElement("afterend", docsBlock);
+      if (!summaryCard) {
+        summaryCard = document.createElement("button");
+        summaryCard.className = "solution-offer-summary-card";
+        summaryCard.type = "button";
+        summaryCard.setAttribute("data-solution-inline-summary", "");
+        summaryCard.addEventListener("click", () => {
+          openSolutionDetailModal(solutionId);
+        });
+        specsBlock.insertAdjacentElement("afterend", summaryCard);
       }
 
-      docsBlock.innerHTML = "";
-
-      if (!solution.docs?.length) {
-        const emptyState = document.createElement("div");
-        emptyState.className = "solution-offer-docs-empty";
-        emptyState.innerHTML =
-          "<strong>Документация готовится</strong><span>PDF-комплект по этой модификации появится здесь, как только будет загружен.</span>";
-        emptyState.appendChild(createDocRequestSection(solutionId));
-        docsBlock.appendChild(emptyState);
-        return;
-      }
-
-      solution.docs.slice(0, 4).forEach((item) => {
-        const link = document.createElement("a");
-        link.className = "solution-offer-doc";
-        link.href = item.file;
-        link.target = "_blank";
-        link.rel = "noreferrer";
-        link.innerHTML = `
-          ${pdfIconMarkup}
-          <span class="solution-offer-doc-main">
-            <strong>${item.title}</strong>
-          </span>
-          <span class="solution-offer-doc-size">${item.size}</span>
-        `;
-        docsBlock.appendChild(link);
-      });
+      summaryCard.innerHTML = `
+        <span class="solution-offer-summary-copy">
+          <strong>Документация, характеристики, описание</strong>
+          <span class="solution-offer-summary-meta">Все материалы и параметры в одном окне</span>
+        </span>
+        <span class="solution-offer-summary-action" aria-hidden="true">Подробнее</span>
+      `;
     });
   }
 
@@ -2168,7 +2152,7 @@ function setupSolutionsCatalog() {
   }
 
   renderSolutionOfferCodes();
-  renderInlineSolutionDocs();
+  renderSolutionOfferSummaries();
 
   cards.forEach((card) => {
     const solutionId = card.dataset.solutionId;
