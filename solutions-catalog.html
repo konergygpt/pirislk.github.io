@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260405-35" />
+    <link rel="stylesheet" href="./styles.css?v=20260405-47" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -201,39 +201,39 @@
 
         <section class="solutions-filters panel">
           <div class="solutions-filter-grid">
-            <label class="solutions-search-field">
-              Поиск по артикулу
+            <label class="solutions-filter-card solutions-search-field">
               <input
                 type="search"
-                placeholder="Например: АВР-PRS-МБ-2-1-100-CHINT"
+                aria-label="Поиск по артикулу"
+                placeholder="Поиск по артикулу"
                 data-solution-filter-search
               />
             </label>
 
-            <label>
-              Категория
-              <select data-solution-filter-category>
-                <option value="all" selected>Все категории</option>
+            <label class="solutions-filter-card">
+              <span class="solutions-filter-caption">Категория</span>
+              <select data-solution-filter-category aria-label="Категория">
+                <option value="all" selected>Все</option>
                 <option value="АВР">АВР</option>
                 <option value="ВРУ">ВРУ</option>
                 <option value="ГРЩ">ГРЩ</option>
               </select>
             </label>
 
-            <label>
-              Бренд комплектующих
-              <select data-solution-filter-brand>
-                <option value="all" selected>Все бренды</option>
+            <label class="solutions-filter-card">
+              <span class="solutions-filter-caption">Бренд комплектующих</span>
+              <select data-solution-filter-brand aria-label="Бренд комплектующих">
+                <option value="all" selected>Все</option>
                 <option value="CHINT">CHINT</option>
                 <option value="EKF">EKF</option>
                 <option value="DEKRAFT">DEKRAFT</option>
               </select>
             </label>
 
-            <label>
-              Номинальный ток
-              <select data-solution-filter-current>
-                <option value="all" selected>Все значения</option>
+            <label class="solutions-filter-card">
+              <span class="solutions-filter-caption">Номинальный ток</span>
+              <select data-solution-filter-current aria-label="Номинальный ток">
+                <option value="all" selected>Все</option>
                 <option value="25">25 А</option>
                 <option value="40">40 А</option>
                 <option value="63">63 А</option>
@@ -245,18 +245,18 @@
               </select>
             </label>
 
-            <label>
-              Количество вводов
-              <select data-solution-filter-inputs>
-                <option value="all" selected>Все варианты</option>
+            <label class="solutions-filter-card">
+              <span class="solutions-filter-caption">Количество вводов</span>
+              <select data-solution-filter-inputs aria-label="Количество вводов">
+                <option value="all" selected>Все</option>
                 <option value="2">2 ввода</option>
               </select>
             </label>
 
-            <label>
-              Секция распределения
-              <select data-solution-filter-section>
-                <option value="all" selected>Все варианты</option>
+            <label class="solutions-filter-card">
+              <span class="solutions-filter-caption">Секция распределения</span>
+              <select data-solution-filter-section aria-label="Секция распределения">
+                <option value="all" selected>Все</option>
                 <option value="none">Без секции распределения</option>
               </select>
             </label>
@@ -1013,9 +1013,6 @@
                   data-solution-detail-image
                 />
               </div>
-              <div class="solution-detail-description" data-solution-detail-description>
-                <p>Подробные фотографии решения и расширенные характеристики по шкафу.</p>
-              </div>
             </div>
           </div>
 
@@ -1041,17 +1038,71 @@
               >
                 Открыть на PIRIS
               </a>
+              <button
+                class="primary-button"
+                type="button"
+                data-solution-detail-project-trigger
+              >
+                Добавить в проект
+              </button>
+            </div>
+          </div>
+
+          <div class="solution-detail-tabs-shell">
+            <div
+              class="solution-detail-tabs"
+              role="tablist"
+              aria-label="Разделы карточки решения"
+            >
+              <button
+                class="solution-detail-tab is-active"
+                type="button"
+                data-solution-detail-tab="docs"
+                aria-selected="true"
+              >
+                Документация
+              </button>
+              <button
+                class="solution-detail-tab"
+                type="button"
+                data-solution-detail-tab="characteristics"
+                aria-selected="false"
+              >
+                Характеристики
+              </button>
+              <button
+                class="solution-detail-tab"
+                type="button"
+                data-solution-detail-tab="description"
+                aria-selected="false"
+              >
+                Описание
+              </button>
             </div>
 
-            <div class="solution-detail-characteristics-panel">
-              <div class="solution-detail-characteristics-head">
-                <h3>Характеристики</h3>
-                <span data-solution-detail-gallery-count>6 фото</span>
+            <div class="solution-detail-content-panel">
+              <div class="solution-detail-tab-panel is-active" data-solution-detail-section="docs">
+                <div class="solution-detail-doc-grid" data-solution-detail-docs></div>
               </div>
-              <dl
-                class="solution-detail-characteristics-grid"
-                data-solution-detail-characteristics
-              ></dl>
+              <div
+                class="solution-detail-tab-panel"
+                data-solution-detail-section="characteristics"
+                hidden
+              >
+                <dl
+                  class="solution-detail-characteristics-grid"
+                  data-solution-detail-characteristics
+                ></dl>
+              </div>
+              <div
+                class="solution-detail-tab-panel"
+                data-solution-detail-section="description"
+                hidden
+              >
+                <div class="solution-detail-description" data-solution-detail-description>
+                  <p>Подробные фотографии решения и расширенные характеристики по шкафу.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1124,6 +1175,6 @@
       </div>
     </div>
 
-    <script src="./script.js?v=20260405-29"></script>
+    <script src="./script.js?v=20260405-33"></script>
   </body>
 </html>

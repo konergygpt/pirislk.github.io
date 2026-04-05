@@ -1397,7 +1397,10 @@ function setupSolutionsCatalog() {
   const detailPriceLabel = document.querySelector("[data-solution-detail-price-label]");
   const detailLink = document.querySelector("[data-solution-detail-link]");
   const detailCharacteristics = document.querySelector("[data-solution-detail-characteristics]");
-  const detailGalleryCount = document.querySelector("[data-solution-detail-gallery-count]");
+  const detailDocs = document.querySelector("[data-solution-detail-docs]");
+  const detailProjectTrigger = document.querySelector("[data-solution-detail-project-trigger]");
+  const detailTabs = Array.from(document.querySelectorAll("[data-solution-detail-tab]"));
+  const detailSections = Array.from(document.querySelectorAll("[data-solution-detail-section]"));
 
   const docCount = document.querySelector("[data-solution-doc-count]");
   const docList = document.querySelector("[data-solution-doc-list]");
@@ -1409,6 +1412,7 @@ function setupSolutionsCatalog() {
     cards[0]?.dataset.solutionId;
   let activeDocumentId = solutionCatalogData[activeSolutionId]?.docs[0]?.id || null;
   let activeDetailImageIndex = 0;
+  let activeDetailSection = "docs";
   const docRequestStorageKey = "solutionDocRequests";
   const docRequestTooltipText =
     "Отметьте, если документация по этому решению для вас актуальна. Мы учитываем запросы при определении приоритетов разработки. Нажатие не означает мгновенную подготовку документации.";
@@ -1590,6 +1594,50 @@ function setupSolutionsCatalog() {
       .filter(Boolean);
   }
 
+  function sortSolutionCharacteristics(items) {
+    const priority = [
+      "Артикул",
+      "Производитель",
+      "Тип коммутации АВР",
+      "Комплектующие",
+      "Исполнение",
+      "Документация",
+      "Количество вводов",
+      "Количество полюсов",
+      "Номинальный ток",
+      "Номинальная отключающая способность",
+      "Номинальное рабочее напряжение",
+      "Напряжение цепей управления",
+      "Режим работы",
+      "Потребляемая мощность",
+      "Тип расцепителя",
+      "Ресурс, циклов вкл/откл",
+      "Секция распределения",
+      "Направление ввода и вывода кабеля",
+      "Степень защиты",
+      "Тип заземления",
+      "Тип покрытия",
+      "Цвет корпуса",
+      "Высота, мм",
+      "Ширина, мм",
+      "Глубина, мм",
+      "Масса",
+      "Задержка перехода/возврат на резервный ввод",
+      "Рабочее время перехода",
+      "Задержка на запуск/останов резервного генератора",
+      "Рабочая температура",
+      "Связь с противопожарной системой",
+      "Учет электроэнергии",
+    ];
+    const priorityMap = new Map(priority.map((label, index) => [label, index]));
+
+    return [...items].sort((left, right) => {
+      const leftOrder = priorityMap.get(left.label) ?? Number.MAX_SAFE_INTEGER;
+      const rightOrder = priorityMap.get(right.label) ?? Number.MAX_SAFE_INTEGER;
+      return leftOrder - rightOrder;
+    });
+  }
+
   function renderSolutionOfferCodes() {
     cards.forEach((card) => {
       const solutionId = card.dataset.solutionId;
@@ -1750,8 +1798,8 @@ function setupSolutionsCatalog() {
         ? solution.gallery
         : getFallbackSolutionGallery(card, solution),
       characteristics: solution.characteristics?.length
-        ? solution.characteristics
-        : getFallbackSolutionCharacteristics(card, solution),
+        ? sortSolutionCharacteristics(solution.characteristics)
+        : sortSolutionCharacteristics(getFallbackSolutionCharacteristics(card, solution)),
     };
   }
 
@@ -1775,6 +1823,57 @@ function setupSolutionsCatalog() {
 
     Array.from(detailThumbs.children).forEach((thumb, index) => {
       thumb.classList.toggle("is-active", index === activeDetailImageIndex);
+    });
+  }
+
+  function setActiveSolutionDetailSection(sectionName) {
+    activeDetailSection = sectionName;
+
+    detailTabs.forEach((tab) => {
+      const isActive = tab.dataset.solutionDetailTab === sectionName;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+
+    detailSections.forEach((section) => {
+      const isActive = section.dataset.solutionDetailSection === sectionName;
+      section.classList.toggle("is-active", isActive);
+      section.hidden = !isActive;
+    });
+  }
+
+  function renderSolutionDetailDocs(solutionId, detailData) {
+    if (!detailDocs) {
+      return;
+    }
+
+    detailDocs.innerHTML = "";
+
+    if (!detailData.docs?.length) {
+      const emptyState = document.createElement("div");
+      emptyState.className = "solution-offer-docs-empty";
+      emptyState.innerHTML =
+        "<strong>Документация готовится</strong><span>PDF-комплект по этой модификации появится здесь, как только будет загружен.</span>";
+      emptyState.appendChild(createDocRequestSection(solutionId));
+      detailDocs.appendChild(emptyState);
+      return;
+    }
+
+    detailData.docs.forEach((item) => {
+      const link = document.createElement("a");
+
+      link.className = "solution-offer-doc";
+      link.href = item.file;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.innerHTML = `
+        ${pdfIconMarkup}
+        <span class="solution-offer-doc-main">
+          <strong>${item.title}</strong>
+        </span>
+        <span class="solution-offer-doc-size">${item.size}</span>
+      `;
+      detailDocs.appendChild(link);
     });
   }
 
@@ -1802,6 +1901,8 @@ function setupSolutionsCatalog() {
       });
     }
 
+    renderSolutionDetailDocs(solutionId, detailData);
+
     if (detailReward) {
       detailReward.textContent = detailData.rewardLabel;
     }
@@ -1817,10 +1918,6 @@ function setupSolutionsCatalog() {
     if (detailLink) {
       detailLink.href = detailData.productUrl || "#";
       setAnchorState(detailLink, !detailData.productUrl || detailData.productUrl === "#");
-    }
-
-    if (detailGalleryCount) {
-      detailGalleryCount.textContent = `${detailData.gallery.length || 0} фото`;
     }
 
     if (detailThumbs) {
@@ -1858,6 +1955,7 @@ function setupSolutionsCatalog() {
     }
 
     activeDetailImageIndex = 0;
+    setActiveSolutionDetailSection(activeDetailSection);
     updateSolutionDetailGallery(detailData);
   }
 
@@ -2002,6 +2100,7 @@ function setupSolutionsCatalog() {
     closeDocsDrawer();
     closeProjectPicker();
     activeSolutionId = solutionId;
+    activeDetailSection = "docs";
     renderSolutionDetailModal(solutionId);
     detailModal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -2125,6 +2224,18 @@ function setupSolutionsCatalog() {
     });
   });
 
+  detailTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const sectionName = tab.dataset.solutionDetailTab;
+
+      if (!sectionName) {
+        return;
+      }
+
+      setActiveSolutionDetailSection(sectionName);
+    });
+  });
+
   [searchInput, categorySelect, brandSelect, currentSelect, inputsSelect, sectionSelect].forEach((field) => {
     if (!field) {
       return;
@@ -2140,6 +2251,12 @@ function setupSolutionsCatalog() {
       openProjectPicker();
     });
   });
+
+  if (detailProjectTrigger) {
+    detailProjectTrigger.addEventListener("click", () => {
+      openProjectPicker();
+    });
+  }
 
   if (projectPickerClose) {
     projectPickerClose.addEventListener("click", closeProjectPicker);
