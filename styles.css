@@ -385,6 +385,8 @@ textarea {
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 12px;
+  align-self: flex-start;
+  margin-top: 5px;
 }
 
 .topbar-account-actions {
@@ -394,12 +396,11 @@ textarea {
   flex-wrap: wrap;
   gap: 12px;
   margin-left: auto;
-  margin-top: -8px;
 }
 
 .topbar-account-actions.is-floating {
   position: fixed;
-  top: 6px;
+  top: 5px;
   right: 28px;
   z-index: 80;
   flex-wrap: nowrap;
@@ -3106,6 +3107,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: 12px;
+  align-self: flex-start;
+  margin-top: 5px;
 }
 
 .back-link {
@@ -4490,6 +4493,8 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-self: flex-start;
+  margin-top: 5px;
 }
 
 .documentation-hero-copy {
@@ -4817,6 +4822,8 @@ textarea {
   align-items: center;
   justify-content: flex-end;
   min-width: 0;
+  align-self: flex-start;
+  margin-top: 5px;
 }
 
 .solutions-hero-copy {
@@ -6547,6 +6554,7 @@ textarea {
   .topbar-meta,
   .topbar-actions {
     width: 100%;
+    margin-top: 0;
     justify-content: flex-start;
   }
 
@@ -6555,6 +6563,12 @@ textarea {
     margin-left: 0;
     margin-top: 0;
     justify-content: flex-start;
+  }
+
+  .detail-topbar-actions,
+  .documentation-topbar-actions,
+  .solutions-topbar-actions {
+    margin-top: 0;
   }
 
   .topbar-account-actions.is-floating {
