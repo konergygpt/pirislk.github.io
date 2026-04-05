@@ -984,8 +984,13 @@ const solutionCatalogData = {
     rewardLabel: "2 000 ₽",
     priceLabel: "Проектная цена с НДС",
     retailPrice: "87 900 ₽",
-    detailDescription:
-      "Трехфазный шкаф автоматического ввода резерва 100А на 2 ввода, выполнен на базе моноблочного АВР CHINT серии NZ7. Подходит для жилых, промышленных и коммерческих объектов.",
+    detailDescription: `Шкаф АВР-PRS-МБ-2-1-100-CHINT выполнен на моноблочных АВР серии NXZM бренда CHINT, имеет два ввода, индикацию и выносной дисплей контроллера на дверь.
+
+Система АВР выполняет функцию автоматического переключения на резервный источник питания при аварии на основном вводе, с функцией самовозврата. Шкаф АВР имеет приоритет 1-го ввода. Самовозврат на основной источник питания происходит при восстановлении номинальных параметров сети.
+
+Блок АВР NXZM оснащен встроенным контроллером с функциями мониторинга параметров сети, настройки приоритета вводов и регулировки времени переключения. Вводы подключаются снизу, с возможностью вывода на клеммы и дополнения секцией распределения.
+
+Шкаф выполнен в металлическом корпусе со степенью защиты IP 31, возможен заказ в корпусе со степенью защиты IP 54.`,
     productUrl: "https://piris.ru/product/avr-prs-mb-2-1-100-chint",
     gallery: [
       {
@@ -1311,6 +1316,15 @@ function setupSolutionsCatalog() {
     ];
   }
 
+  function normalizeDetailDescription(detailText) {
+    const sourceText = Array.isArray(detailText) ? detailText.join("\n\n") : String(detailText || "");
+
+    return sourceText
+      .split(/\n\s*\n/)
+      .map((paragraph) => paragraph.replace(/\n+/g, " ").trim())
+      .filter(Boolean);
+  }
+
   function getSolutionDetailPayload(solutionId) {
     const solution = solutionCatalogData[solutionId];
     const card = getSolutionCard(solutionId);
@@ -1330,10 +1344,11 @@ function setupSolutionsCatalog() {
         card.querySelector("[data-solution-price-value]")?.textContent?.trim() ||
         "Уточняется",
       priceLabel: solution.priceLabel || "Проектная цена с НДС",
-      detailDescription:
+      detailDescription: normalizeDetailDescription(
         solution.detailDescription ||
-        solution.description ||
-        "Подробные фотографии и характеристики будут добавлены позже.",
+          solution.description ||
+          "Подробные фотографии и характеристики будут добавлены позже."
+      ),
       gallery: solution.gallery?.length
         ? solution.gallery
         : getFallbackSolutionGallery(card, solution),
@@ -1382,7 +1397,12 @@ function setupSolutionsCatalog() {
     }
 
     if (detailDescription) {
-      detailDescription.textContent = detailData.detailDescription;
+      detailDescription.innerHTML = "";
+      detailData.detailDescription.forEach((paragraph) => {
+        const paragraphNode = document.createElement("p");
+        paragraphNode.textContent = paragraph;
+        detailDescription.appendChild(paragraphNode);
+      });
     }
 
     if (detailReward) {
