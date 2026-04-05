@@ -1325,6 +1325,56 @@ function setupSolutionsCatalog() {
       .filter(Boolean);
   }
 
+  function renderInlineSolutionDocs() {
+    cards.forEach((card) => {
+      const solutionId = card.dataset.solutionId;
+      const solution = solutionCatalogData[solutionId];
+      const mainColumn = card.querySelector(".solution-offer-main");
+      const specsBlock = card.querySelector(".solution-offer-specs");
+
+      if (!solution || !mainColumn || !specsBlock) {
+        return;
+      }
+
+      let docsBlock = mainColumn.querySelector("[data-solution-inline-docs]");
+
+      if (!docsBlock) {
+        docsBlock = document.createElement("div");
+        docsBlock.className = "solution-offer-docs";
+        docsBlock.setAttribute("data-solution-inline-docs", "");
+        specsBlock.insertAdjacentElement("afterend", docsBlock);
+      }
+
+      docsBlock.innerHTML = "";
+
+      if (!solution.docs?.length) {
+        const emptyState = document.createElement("div");
+        emptyState.className = "solution-offer-docs-empty";
+        emptyState.innerHTML =
+          "<strong>Документация готовится</strong><span>PDF-комплект по этой модификации появится здесь, как только будет загружен.</span>";
+        docsBlock.appendChild(emptyState);
+        return;
+      }
+
+      solution.docs.slice(0, 4).forEach((item) => {
+        const link = document.createElement("a");
+        link.className = "solution-offer-doc";
+        link.href = item.file;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.innerHTML = `
+          <span class="solution-offer-doc-badge" aria-hidden="true">PDF</span>
+          <span class="solution-offer-doc-main">
+            <strong>${item.title}</strong>
+            <span>${item.kind}</span>
+          </span>
+          <span class="solution-offer-doc-size">${item.size}</span>
+        `;
+        docsBlock.appendChild(link);
+      });
+    });
+  }
+
   function getSolutionDetailPayload(solutionId) {
     const solution = solutionCatalogData[solutionId];
     const card = getSolutionCard(solutionId);
@@ -1667,6 +1717,8 @@ function setupSolutionsCatalog() {
     const selectedCard = activeCard || visibleCards[0];
     activeSolutionId = selectedCard.dataset.solutionId;
   }
+
+  renderInlineSolutionDocs();
 
   docsTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
