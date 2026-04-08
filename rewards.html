@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260405-71" />
+    <link rel="stylesheet" href="./styles.css?v=20260408-07" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -182,54 +182,231 @@
           </div>
         </header>
 
-        <section class="metrics-grid rewards-metrics">
-          <article class="panel metric-card">
-            <span>К выплате</span>
-            <strong>28 000 ₽</strong>
-            <small>3 проекта прошли проверку</small>
-          </article>
-          <article class="panel metric-card">
-            <span>На проверке</span>
-            <strong>7 000 ₽</strong>
-            <small>1 проект у инженера PIRIS</small>
-          </article>
-          <article class="panel metric-card">
-            <span>Нужно уточнить</span>
-            <strong>3 000 ₽</strong>
-            <small>1 проект ждёт документы</small>
-          </article>
-          <article class="panel metric-card">
-            <span>За март</span>
-            <strong>38 000 ₽</strong>
-            <small>По всем активным проектам</small>
-          </article>
+        <section class="rewards-filters-bar">
+          <label class="rewards-filter-field">
+            <span>Период</span>
+            <select>
+              <option>За месяц</option>
+              <option>За квартал</option>
+              <option>За год</option>
+            </select>
+          </label>
+          <label class="rewards-filter-field">
+            <span>Тип решений</span>
+            <select>
+              <option>Все решения</option>
+              <option>ВРУ</option>
+              <option>АВР</option>
+              <option>ГРЩ</option>
+              <option>ШУН</option>
+            </select>
+          </label>
+          <label class="rewards-filter-field">
+            <span>Этап проекта</span>
+            <select>
+              <option>Все этапы</option>
+              <option>Подтверждено</option>
+              <option>На проверке</option>
+              <option>Нужно уточнить</option>
+            </select>
+          </label>
         </section>
 
-        <section class="content-grid rewards-layout">
-          <div class="rewards-main-column">
-            <section class="projects-filter-bar panel">
-              <div class="filter-pill-group">
-                <button class="filter-pill active" type="button">Все</button>
-                <button class="filter-pill" type="button">Подтверждено</button>
-                <button class="filter-pill" type="button">На проверке</button>
-                <button class="filter-pill" type="button">Нужно уточнить</button>
+        <section class="rewards-overview-grid">
+          <article class="panel rewards-trend-card">
+            <div class="rewards-trend-head">
+              <div class="rewards-trend-copy">
+                <span>Динамика выплат</span>
               </div>
-              <div class="projects-summary">
-                <span>4 проекта участвуют в расчёте</span>
+              <div class="rewards-trend-range" aria-label="Период графика">
+                <button class="is-active" type="button">Месяц</button>
+                <button type="button">Квартал</button>
+                <button type="button">Год</button>
               </div>
-            </section>
+            </div>
+            <div class="rewards-trend-stage" aria-label="График динамики выплат">
+              <svg viewBox="0 0 760 300" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="rewardsTrendFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(92, 232, 205, 0.42)" />
+                    <stop offset="100%" stop-color="rgba(92, 232, 205, 0.02)" />
+                  </linearGradient>
+                  <linearGradient id="rewardsTrendStroke" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#6fe5d4" />
+                    <stop offset="100%" stop-color="#1f9a83" />
+                  </linearGradient>
+                </defs>
+                <path
+                  class="rewards-trend-area"
+                  d="M0 252C48 220 86 190 126 176C165 162 205 162 253 208C300 254 345 112 390 88C435 64 479 138 524 154C568 170 613 92 659 82C698 73 728 92 760 114V300H0Z"
+                  fill="url(#rewardsTrendFill)"
+                ></path>
+                <path
+                  class="rewards-trend-line"
+                  d="M0 252C48 220 86 190 126 176C165 162 205 162 253 208C300 254 345 112 390 88C435 64 479 138 524 154C568 170 613 92 659 82C698 73 728 92 760 114"
+                  fill="none"
+                ></path>
+                <line class="rewards-trend-guide" x1="390" y1="88" x2="390" y2="268"></line>
+                <circle class="rewards-trend-point" cx="390" cy="88" r="7"></circle>
+              </svg>
+              <div class="rewards-trend-bubble">
+                <span>3 неделя</span>
+                <strong>7 000 ₽</strong>
+                <small>Рост к прошлой неделе +18%</small>
+              </div>
+            </div>
+            <div class="rewards-trend-axis">
+              <span>1 нед</span>
+              <span>2 нед</span>
+              <span>3 нед</span>
+              <span>4 нед</span>
+            </div>
+          </article>
 
-            <section class="rewards-list">
+          <div class="rewards-overview-side">
+            <article class="panel rewards-summary-card">
+              <span class="rewards-summary-label">К выплате</span>
+              <strong>28 000 ₽</strong>
+              <p>Подтвержденные проекты уже готовы к выплате. В работе ещё 10 000 ₽.</p>
+              <div class="rewards-summary-inline">
+                <span>Подтверждено: 3</span>
+                <span>На проверке: 1</span>
+                <span>Нужно уточнить: 1</span>
+              </div>
+            </article>
+
+            <article class="panel rewards-donut-card">
+              <div class="rewards-chart-head">
+                <span>Статусы проектов</span>
+              </div>
+              <div class="rewards-donut-layout">
+                <div class="rewards-donut-visual" aria-label="Распределение проектов по статусам">
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="rewards-donut-ring" cx="60" cy="60" r="42"></circle>
+                    <circle
+                      class="rewards-donut-segment is-confirmed"
+                      cx="60"
+                      cy="60"
+                      r="42"
+                      stroke-dasharray="158.34 263.89"
+                      stroke-dashoffset="0"
+                    ></circle>
+                    <circle
+                      class="rewards-donut-segment is-review"
+                      cx="60"
+                      cy="60"
+                      r="42"
+                      stroke-dasharray="52.78 263.89"
+                      stroke-dashoffset="-166.34"
+                    ></circle>
+                    <circle
+                      class="rewards-donut-segment is-warning"
+                      cx="60"
+                      cy="60"
+                      r="42"
+                      stroke-dasharray="52.78 263.89"
+                      stroke-dashoffset="-227.12"
+                    ></circle>
+                  </svg>
+                  <div class="rewards-donut-center">
+                    <strong>5</strong>
+                    <span>проектов</span>
+                  </div>
+                </div>
+                <div class="rewards-donut-legend">
+                  <div class="rewards-donut-legend-item">
+                    <span class="dot is-confirmed"></span>
+                    <small>Подтверждено</small>
+                    <strong>3</strong>
+                  </div>
+                  <div class="rewards-donut-legend-item">
+                    <span class="dot is-review"></span>
+                    <small>На проверке</small>
+                    <strong>1</strong>
+                  </div>
+                  <div class="rewards-donut-legend-item">
+                    <span class="dot is-warning"></span>
+                    <small>Нужно уточнить</small>
+                    <strong>1</strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel rewards-types-card">
+              <div class="rewards-chart-head">
+                <span>Типы решений</span>
+              </div>
+              <div class="rewards-types-chart" aria-label="Распределение проектов по типам решений">
+                <div class="rewards-type-row">
+                  <div class="rewards-type-meta">
+                    <strong>ВРУ</strong>
+                    <span>5 проектов</span>
+                  </div>
+                  <div class="rewards-type-bar"><span style="width: 100%"></span></div>
+                </div>
+                <div class="rewards-type-row">
+                  <div class="rewards-type-meta">
+                    <strong>АВР</strong>
+                    <span>4 проекта</span>
+                  </div>
+                  <div class="rewards-type-bar"><span style="width: 82%"></span></div>
+                </div>
+                <div class="rewards-type-row">
+                  <div class="rewards-type-meta">
+                    <strong>ГРЩ</strong>
+                    <span>3 проекта</span>
+                  </div>
+                  <div class="rewards-type-bar"><span style="width: 64%"></span></div>
+                </div>
+                <div class="rewards-type-row">
+                  <div class="rewards-type-meta">
+                    <strong>ШУН</strong>
+                    <span>1 проект</span>
+                  </div>
+                  <div class="rewards-type-bar"><span style="width: 28%"></span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel rewards-toolbar">
+          <div class="filter-pill-group">
+            <button class="filter-pill active" type="button">Все</button>
+            <button class="filter-pill" type="button">Подтверждено</button>
+            <button class="filter-pill" type="button">На проверке</button>
+            <button class="filter-pill" type="button">Нужно уточнить</button>
+          </div>
+          <div class="rewards-toolbar-meta">
+            <strong>4 проекта</strong>
+            <span>участвуют в расчёте</span>
+          </div>
+        </section>
+
+        <section class="rewards-list">
               <article class="panel reward-record-card">
                 <div class="reward-record-main">
-                  <div class="reward-record-title">
-                    <h2>БЦ Линия Парк</h2>
+                  <div class="reward-record-head">
+                    <div class="reward-record-title">
+                      <h2>БЦ Линия Парк</h2>
+                      <p class="reward-record-subtitle">ООО "Линия Девелопмент" • Казань</p>
+                    </div>
                     <span class="status-chip success">Подтверждено</span>
                   </div>
-                  <p class="reward-record-subtitle">Заказчик: ООО "Линия Девелопмент" • Казань</p>
-                  <div class="reward-record-meta">
-                    <span>Решение PIRIS: 3 позиции</span>
-                    <span>Проверка завершена: 25 марта</span>
+                  <div class="reward-record-facts">
+                    <div class="reward-record-fact">
+                      <span>Решения PIRIS</span>
+                      <strong>3 позиции</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Проверка завершена</span>
+                      <strong>25 марта</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Следующий шаг</span>
+                      <strong>Реестр выплат</strong>
+                    </div>
                   </div>
                   <div class="reward-record-foot">
                     <span>Следующий шаг: проект попадёт в ближайший реестр выплат</span>
@@ -244,14 +421,26 @@
 
               <article class="panel reward-record-card">
                 <div class="reward-record-main">
-                  <div class="reward-record-title">
-                    <h2>ЖК Южный квартал</h2>
+                  <div class="reward-record-head">
+                    <div class="reward-record-title">
+                      <h2>ЖК Южный квартал</h2>
+                      <p class="reward-record-subtitle">АО "Северасталь" • Москва</p>
+                    </div>
                     <span class="status-chip info">На проверке</span>
                   </div>
-                  <p class="reward-record-subtitle">Заказчик: АО "Северасталь" • Москва</p>
-                  <div class="reward-record-meta">
-                    <span>Решение PIRIS: 3 позиции</span>
-                    <span>Зарегистрирован: 29 марта</span>
+                  <div class="reward-record-facts">
+                    <div class="reward-record-fact">
+                      <span>Решения PIRIS</span>
+                      <strong>3 позиции</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Зарегистрирован</span>
+                      <strong>29 марта</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Следующий шаг</span>
+                      <strong>Решение инженера</strong>
+                    </div>
                   </div>
                   <div class="reward-record-foot">
                     <span>Следующий шаг: ждём решение инженера по проверке</span>
@@ -266,14 +455,26 @@
 
               <article class="panel reward-record-card">
                 <div class="reward-record-main">
-                  <div class="reward-record-title">
-                    <h2>Складской комплекс Север</h2>
+                  <div class="reward-record-head">
+                    <div class="reward-record-title">
+                      <h2>Складской комплекс Север</h2>
+                      <p class="reward-record-subtitle">АО "Север Логистик" • Санкт-Петербург</p>
+                    </div>
                     <span class="status-chip warning">Требует уточнения</span>
                   </div>
-                  <p class="reward-record-subtitle">Заказчик: АО "Север Логистик" • Санкт-Петербург</p>
-                  <div class="reward-record-meta">
-                    <span>Решение PIRIS: 1 позиция</span>
-                    <span>Нужен дополнительный лист по ВРУ</span>
+                  <div class="reward-record-facts">
+                    <div class="reward-record-fact">
+                      <span>Решения PIRIS</span>
+                      <strong>1 позиция</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Запрос</span>
+                      <strong>Лист по ВРУ</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Следующий шаг</span>
+                      <strong>Дозагрузка файла</strong>
+                    </div>
                   </div>
                   <div class="reward-record-foot">
                     <span>Следующий шаг: дозагрузите уточняющий лист по проекту</span>
@@ -288,14 +489,26 @@
 
               <article class="panel reward-record-card">
                 <div class="reward-record-main">
-                  <div class="reward-record-title">
-                    <h2>Технопарк Восток</h2>
+                  <div class="reward-record-head">
+                    <div class="reward-record-title">
+                      <h2>Технопарк Восток</h2>
+                      <p class="reward-record-subtitle">ООО "Восток Инжиниринг" • Екатеринбург</p>
+                    </div>
                     <span class="status-chip neutral">Черновик</span>
                   </div>
-                  <p class="reward-record-subtitle">Заказчик: ООО "Восток Инжиниринг" • Екатеринбург</p>
-                  <div class="reward-record-meta">
-                    <span>Решение PIRIS: еще не отправлено</span>
-                    <span>Проект не участвует в расчете</span>
+                  <div class="reward-record-facts">
+                    <div class="reward-record-fact">
+                      <span>Решения PIRIS</span>
+                      <strong>Еще не отправлено</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Статус расчёта</span>
+                      <strong>Не участвует</strong>
+                    </div>
+                    <div class="reward-record-fact">
+                      <span>Следующий шаг</span>
+                      <strong>Отправка на проверку</strong>
+                    </div>
                   </div>
                   <div class="reward-record-foot">
                     <span>Следующий шаг: отправьте проект на проверку</span>
@@ -307,65 +520,6 @@
                   <span>Черновики не учитываются</span>
                 </div>
               </article>
-            </section>
-          </div>
-
-          <aside class="rewards-side-column">
-            <article class="panel rewards-side-panel">
-              <div class="panel-heading">
-                <h3>Ближайший реестр</h3>
-              </div>
-              <div class="reward-total-box">
-                <span>Плановая дата выплаты</span>
-                <strong>5 апреля</strong>
-                <p>В этот реестр сейчас попадают 3 подтвержденных проекта на сумму 28 000 ₽.</p>
-              </div>
-            </article>
-
-            <article class="panel rewards-side-panel">
-              <div class="panel-heading">
-                <h3>Требуют вашего действия</h3>
-              </div>
-              <div class="rewards-attention-list">
-                <div class="rewards-attention-item">
-                  <strong>Складской комплекс Север</strong>
-                  <p>Инженер PIRIS запросил дополнительный лист по ВРУ. Пока его нет, сумма 3 000 ₽ не подтвердится.</p>
-                  <a class="text-button" href="./project-detail.html">Открыть проект</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="panel rewards-side-panel">
-              <div class="panel-heading">
-                <h3>Как читается статус</h3>
-              </div>
-              <div class="rewards-rule-list">
-                <div class="rewards-rule-item">
-                  <strong>На проверке</strong>
-                  <p>Проект у инженера PIRIS. Сумма видна в кабинете, но ещё не вошла в реестр выплат.</p>
-                </div>
-                <div class="rewards-rule-item">
-                  <strong>Нужно уточнить</strong>
-                  <p>Ждём файл, лист проекта или комментарий. Пока проект не будет дополнен, начисление не подтвердится.</p>
-                </div>
-                <div class="rewards-rule-item">
-                  <strong>Подтверждено</strong>
-                  <p>Проверка завершена. Проект попадает в ближайший реестр и готов к выплате.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="panel rewards-side-panel">
-              <div class="panel-heading">
-                <h3>Что считаем в выплату</h3>
-              </div>
-              <div class="reward-total-box">
-                <span>Текущая база расчёта</span>
-                <strong>28 000 ₽</strong>
-                <p>Учитываем только подтверждённые проекты без открытых замечаний и недостающих материалов.</p>
-              </div>
-            </article>
-          </aside>
         </section>
       </main>
     </div>
