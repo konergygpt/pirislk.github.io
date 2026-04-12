@@ -10,9 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260412-16" />
+    <link rel="stylesheet" href="./styles.css?v=20260412-20" />
   </head>
-  <body>
+  <body class="project-detail-page">
     <div class="app-shell dashboard-shell">
       <aside class="sidebar">
         <div>
@@ -69,10 +69,6 @@
             <h1>ЖК Южный квартал</h1>
           </div>
           <div class="detail-topbar-actions">
-            <span class="status-chip info">На проверке</span>
-            <a class="secondary-button form-link-button" href="./project-submit.html">
-              Изменить
-            </a>
             <div class="notification-menu" data-notification-menu>
   <button
     class="notification-toggle"
@@ -187,122 +183,161 @@
           </div>
         </header>
 
-        <section class="detail-hero panel">
-          <div class="detail-hero-main">
-            <div class="detail-hero-stat">
-              <span>Дата регистрации</span>
-              <strong>29 марта 2026</strong>
+        <section class="detail-topbar-meta" aria-label="Сводка по заказчику и вознаграждению">
+          <section class="detail-stakeholder-card" aria-label="Данные по конечному заказчику">
+            <div class="detail-stakeholder-grid">
+              <div class="detail-stakeholder-field">
+                <span>Наименование компании</span>
+                <strong>АО "Северасталь"</strong>
+              </div>
+              <div class="detail-stakeholder-field detail-stakeholder-field-inline">
+                <span>ИНН</span>
+                <div class="detail-copy-inline">
+                  <strong data-copy-value>7701234567</strong>
+                  <button
+                    class="detail-copy-button"
+                    type="button"
+                    aria-label="Скопировать ИНН"
+                    title="Скопировать ИНН"
+                    data-copy-trigger
+                  >
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <rect x="7" y="4" width="9" height="11" rx="2" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M5 12H4C2.89543 12 2 11.1046 2 10V4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </div>
+                <span class="detail-copy-status" role="status" aria-live="polite" data-copy-status>
+                  Скопировано
+                </span>
+              </div>
+              <div class="detail-stakeholder-field">
+                <span>Тип клиента</span>
+                <strong>Конечный заказчик</strong>
+              </div>
+              <div class="detail-stakeholder-field">
+                <span>Контактное лицо</span>
+                <strong>Иванов Сергей Петрович</strong>
+                <small>Главный энергетик</small>
+              </div>
+              <div class="detail-stakeholder-field detail-stakeholder-field-inline">
+                <span>Почта</span>
+                <div class="detail-copy-inline">
+                  <strong data-copy-value>ivanov@severstal.ru</strong>
+                  <button
+                    class="detail-copy-button"
+                    type="button"
+                    aria-label="Скопировать email"
+                    title="Скопировать email"
+                    data-copy-trigger
+                  >
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <rect x="7" y="4" width="9" height="11" rx="2" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M5 12H4C2.89543 12 2 11.1046 2 10V4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </div>
+                <span class="detail-copy-status" role="status" aria-live="polite" data-copy-status>
+                  Скопировано
+                </span>
+              </div>
+              <div class="detail-stakeholder-field detail-stakeholder-field-inline">
+                <span>Телефон</span>
+                <div class="detail-copy-inline">
+                  <strong data-copy-value>+7 (999) 123-45-67</strong>
+                  <button
+                    class="detail-copy-button"
+                    type="button"
+                    aria-label="Скопировать телефон"
+                    title="Скопировать телефон"
+                    data-copy-trigger
+                  >
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <rect x="7" y="4" width="9" height="11" rx="2" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M5 12H4C2.89543 12 2 11.1046 2 10V4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </div>
+                <span class="detail-copy-status" role="status" aria-live="polite" data-copy-status>
+                  Скопировано
+                </span>
+              </div>
             </div>
-            <div class="detail-hero-stat">
-              <span>Добавлено решений PIRIS</span>
-              <strong>3 позиции</strong>
+          </section>
+          <aside class="detail-project-summary" aria-label="Действия и статус проекта">
+            <a class="detail-project-edit" href="./project-submit.html">
+              <span class="detail-project-edit-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M4.167 13.75V15.833H6.25L14.271 7.812a1.473 1.473 0 0 0 0-2.083l-.001-.001a1.473 1.473 0 0 0-2.083 0L4.167 13.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M10.938 5.938L14.063 9.063" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>Изменить</span>
+            </a>
+            <div class="detail-project-summary-block">
+              <span>Статус проекта</span>
+              <strong class="status-chip info">На проверке</strong>
             </div>
-            <div class="detail-hero-stat">
-              <span>Документы</span>
-              <strong>1 PDF</strong>
-            </div>
-            <div class="detail-hero-stat">
+            <div class="detail-project-summary-block">
               <span>Вознаграждение</span>
               <strong data-reward-total>7 000 ₽</strong>
             </div>
-          </div>
+          </aside>
         </section>
 
-        <section class="detail-layout detail-layout-single">
-          <div class="detail-main-column">
-            <article class="panel">
-              <div class="panel-heading">
-                <h3>Основные данные</h3>
-              </div>
-              <dl class="detail-grid-list">
-                <div>
-                  <dt>Название проекта</dt>
-                  <dd>ЖК Южный квартал</dd>
-                </div>
-                <div>
-                  <dt>Город / регион объекта</dt>
-                  <dd>Москва</dd>
-                </div>
-                <div>
-                  <dt>Заказчик</dt>
-                  <dd class="detail-customer-card">
-                    <span>АО "Северасталь"</span>
-                    <small>ИНН: 7701234567</small>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Тип объекта</dt>
-                  <dd>Жилой комплекс</dd>
-                </div>
-              </dl>
-            </article>
-
-            <article class="panel">
-              <div class="panel-heading">
+        <section class="detail-layout detail-layout-single project-assets-section">
+          <div class="project-assets-grid">
+            <article class="panel project-minimal-panel">
+              <div class="panel-heading project-minimal-panel-head">
                 <h3>Решения PIRIS</h3>
-                <a class="secondary-button form-link-button compact-action-button" href="./project-submit.html">
+                <a class="text-button project-minimal-action" href="./project-submit.html">
                   Изменить
                 </a>
               </div>
-              <div class="detail-item-list">
-                <div
-                  class="detail-item-row"
-                  data-solution-row
-                  data-solution-code="АВР-PRS-МБ-2-1-630-CHINT"
-                >
-                  <div>
+              <ul class="project-minimal-list project-solution-list">
+                <li class="project-minimal-row" data-solution-row data-solution-code="АВР-PRS-МБ-2-1-630-CHINT">
+                  <div class="project-minimal-copy">
                     <strong>АВР-PRS-МБ-2-1-630-CHINT</strong>
-                    <p>Автоматический ввод резерва</p>
+                    <span>Автоматический ввод резерва</span>
                   </div>
-                  <div class="detail-item-meta">
-                    <span class="detail-item-reward" data-solution-reward>2 000 ₽</span>
-                  </div>
-                </div>
-                <div
-                  class="detail-item-row"
-                  data-solution-row
-                  data-solution-code="ВРУ-PRS-АВР-А-2-01-250-FERZ"
-                >
-                  <div>
+                  <span class="project-minimal-pill" data-solution-reward>2 000 ₽</span>
+                </li>
+                <li class="project-minimal-row" data-solution-row data-solution-code="ВРУ-PRS-АВР-А-2-01-250-FERZ">
+                  <div class="project-minimal-copy">
                     <strong>ВРУ-PRS-АВР-А-2-01-250-FERZ</strong>
-                    <p>Вводно-распределительное устройство</p>
+                    <span>Вводно-распределительное устройство</span>
                   </div>
-                  <div class="detail-item-meta">
-                    <span class="detail-item-reward" data-solution-reward>3 000 ₽</span>
-                  </div>
-                </div>
-                <div
-                  class="detail-item-row"
-                  data-solution-row
-                  data-solution-code="АВР-PRS-А-2-01-630-FERZ"
-                >
-                  <div>
+                  <span class="project-minimal-pill" data-solution-reward>3 000 ₽</span>
+                </li>
+                <li class="project-minimal-row" data-solution-row data-solution-code="АВР-PRS-А-2-01-630-FERZ">
+                  <div class="project-minimal-copy">
                     <strong>АВР-PRS-А-2-01-630-FERZ</strong>
-                    <p>Автоматический ввод резерва</p>
+                    <span>Автоматический ввод резерва</span>
                   </div>
-                  <div class="detail-item-meta">
-                    <span class="detail-item-reward" data-solution-reward>2 000 ₽</span>
-                  </div>
-                </div>
-              </div>
+                  <span class="project-minimal-pill" data-solution-reward>2 000 ₽</span>
+                </li>
+              </ul>
             </article>
 
-            <article class="panel">
-              <div class="panel-heading">
+            <article class="panel project-minimal-panel">
+              <div class="panel-heading project-minimal-panel-head">
                 <h3>Документация по проекту</h3>
-                <a class="secondary-button form-link-button compact-action-button" href="./project-submit.html">
+                <a class="text-button project-minimal-action" href="./project-submit.html">
                   Изменить
                 </a>
               </div>
-              <div class="document-preview-list">
-                <div class="document-preview-item">
-                  <div>
-                    <strong>Проект_ЖК_Южный_квартал.pdf</strong>
-                    <p>PDF, 12.4 MB</p>
+              <ul class="project-minimal-list project-document-list">
+                <li class="project-minimal-row project-document-row">
+                  <div class="project-document-main">
+                    <span class="project-document-icon" aria-hidden="true">PDF</span>
+                    <div class="project-minimal-copy">
+                      <strong>Проект_ЖК_Южный_квартал.pdf</strong>
+                      <span>PDF, 12.4 MB</span>
+                    </div>
                   </div>
-                  <span class="status-chip neutral">Загружен</span>
-                </div>
-              </div>
+                  <span class="status-chip neutral project-minimal-status">Загружен</span>
+                </li>
+              </ul>
             </article>
           </div>
         </section>

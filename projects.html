@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260412-16" />
+    <link rel="stylesheet" href="./styles.css?v=20260412-27" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -212,13 +212,18 @@
             <button class="filter-pill" type="button" data-project-filter="needs-action">
               Требуют действий
             </button>
+            <button class="filter-pill" type="button" data-project-filter="archived">Архив</button>
           </div>
         </section>
 
         <section class="projects-board panel" data-project-board>
           <div class="projects-table-head">
+            <label class="project-select-head" aria-label="Выбрать все проекты">
+              <input type="checkbox" data-project-select-all />
+            </label>
             <span>ID</span>
             <span>Проект</span>
+            <span aria-hidden="true"></span>
             <span>Статус</span>
             <button
               class="projects-table-sort"
@@ -241,7 +246,27 @@
                 </svg>
               </span>
             </button>
-            <span>Активность</span>
+            <button
+              class="projects-table-sort"
+              type="button"
+              data-project-activity-sort-toggle
+              data-sort-order="desc"
+              aria-label="Сортировка по активности: сначала больше"
+              title="Сначала больше"
+            >
+              <span>Активность</span>
+              <span class="projects-table-sort-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
 
           <section class="projects-list projects-list-structured">
@@ -252,8 +277,15 @@
               data-project-status="review"
               data-project-search="24058 ЖК Южный квартал СтройИнвест Москва"
               data-project-created-at="2026-03-29"
+              data-project-activity-count="3"
+              data-project-id="24058"
               tabindex="0"
             >
+              <div class="project-list-cell project-list-cell-select">
+                <label class="project-select-control" aria-label="Выбрать проект">
+                  <input type="checkbox" data-project-select-toggle />
+                </label>
+              </div>
               <div class="project-list-cell project-list-cell-id">
                 <span class="project-list-mobile-label">ID</span>
                 <span class="project-id-chip">#24058</span>
@@ -262,6 +294,25 @@
                 <span class="project-list-mobile-label">Проект</span>
                 <strong>ЖК Южный квартал</strong>
                 <span>ООО "СтройИнвест" • Москва</span>
+              </div>
+              <div class="project-list-cell project-list-cell-pin">
+                <span class="project-list-mobile-label">Закрепить</span>
+                <button
+                  class="project-pin-button"
+                  type="button"
+                  data-project-pin-toggle
+                  aria-label="Закрепить проект"
+                  title="Закрепить"
+                >
+                  <span class="project-pin-button-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M12.6 3.3L16.7 7.4L14.8 9.3L11.7 8.4L8.7 11.4L11.4 14.1L10.1 15.4L7.4 12.7L4.5 15.6L3.4 14.5L6.3 11.6L3.6 8.9L4.9 7.6L7.6 10.3L10.6 7.3L9.7 4.2L11.6 2.3L12.6 3.3Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
               </div>
               <div class="project-list-cell project-list-cell-status">
                 <span class="project-list-mobile-label">Статус</span>
@@ -275,9 +326,8 @@
                 <span class="project-list-mobile-label">Активность</span>
                 <div class="project-row-activity">
                   <span class="project-activity-badge">3</span>
-                  <span class="project-row-activity-label">Новые комментарии</span>
+                  <strong class="project-activity-date">30 марта, 08:51</strong>
                 </div>
-                <small>Комментарий 30 марта, 08:51</small>
               </div>
             </article>
 
@@ -288,8 +338,15 @@
               data-project-status="needs-action"
               data-project-search="24044 Складской комплекс Север Север Логистик Санкт-Петербург"
               data-project-created-at="2026-03-27"
+              data-project-activity-count="2"
+              data-project-id="24044"
               tabindex="0"
             >
+              <div class="project-list-cell project-list-cell-select">
+                <label class="project-select-control" aria-label="Выбрать проект">
+                  <input type="checkbox" data-project-select-toggle />
+                </label>
+              </div>
               <div class="project-list-cell project-list-cell-id">
                 <span class="project-list-mobile-label">ID</span>
                 <span class="project-id-chip">#24044</span>
@@ -298,6 +355,25 @@
                 <span class="project-list-mobile-label">Проект</span>
                 <strong>Складской комплекс Север</strong>
                 <span>АО "Север Логистик" • Санкт-Петербург</span>
+              </div>
+              <div class="project-list-cell project-list-cell-pin">
+                <span class="project-list-mobile-label">Закрепить</span>
+                <button
+                  class="project-pin-button"
+                  type="button"
+                  data-project-pin-toggle
+                  aria-label="Закрепить проект"
+                  title="Закрепить"
+                >
+                  <span class="project-pin-button-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M12.6 3.3L16.7 7.4L14.8 9.3L11.7 8.4L8.7 11.4L11.4 14.1L10.1 15.4L7.4 12.7L4.5 15.6L3.4 14.5L6.3 11.6L3.6 8.9L4.9 7.6L7.6 10.3L10.6 7.3L9.7 4.2L11.6 2.3L12.6 3.3Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
               </div>
               <div class="project-list-cell project-list-cell-status">
                 <span class="project-list-mobile-label">Статус</span>
@@ -311,9 +387,8 @@
                 <span class="project-list-mobile-label">Активность</span>
                 <div class="project-row-activity">
                   <span class="project-activity-badge">2</span>
-                  <span class="project-row-activity-label">Требует ответа</span>
+                  <strong class="project-activity-date">30 марта, 09:14</strong>
                 </div>
-                <small>Уточнение 30 марта, 09:14</small>
               </div>
             </article>
 
@@ -324,8 +399,15 @@
               data-project-status="confirmed"
               data-project-search="23987 БЦ Линия Парк Линия Девелопмент Казань"
               data-project-created-at="2026-03-25"
+              data-project-activity-count="1"
+              data-project-id="23987"
               tabindex="0"
             >
+              <div class="project-list-cell project-list-cell-select">
+                <label class="project-select-control" aria-label="Выбрать проект">
+                  <input type="checkbox" data-project-select-toggle />
+                </label>
+              </div>
               <div class="project-list-cell project-list-cell-id">
                 <span class="project-list-mobile-label">ID</span>
                 <span class="project-id-chip">#23987</span>
@@ -334,6 +416,25 @@
                 <span class="project-list-mobile-label">Проект</span>
                 <strong>БЦ Линия Парк</strong>
                 <span>ООО "Линия Девелопмент" • Казань</span>
+              </div>
+              <div class="project-list-cell project-list-cell-pin">
+                <span class="project-list-mobile-label">Закрепить</span>
+                <button
+                  class="project-pin-button"
+                  type="button"
+                  data-project-pin-toggle
+                  aria-label="Закрепить проект"
+                  title="Закрепить"
+                >
+                  <span class="project-pin-button-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M12.6 3.3L16.7 7.4L14.8 9.3L11.7 8.4L8.7 11.4L11.4 14.1L10.1 15.4L7.4 12.7L4.5 15.6L3.4 14.5L6.3 11.6L3.6 8.9L4.9 7.6L7.6 10.3L10.6 7.3L9.7 4.2L11.6 2.3L12.6 3.3Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
               </div>
               <div class="project-list-cell project-list-cell-status">
                 <span class="project-list-mobile-label">Статус</span>
@@ -347,9 +448,8 @@
                 <span class="project-list-mobile-label">Активность</span>
                 <div class="project-row-activity">
                   <span class="project-activity-badge">1</span>
-                  <span class="project-row-activity-label">Обновлён статус</span>
+                  <strong class="project-activity-date">29 марта, 18:10</strong>
                 </div>
-                <small>Подтверждение 29 марта, 18:10</small>
               </div>
             </article>
 
@@ -360,8 +460,15 @@
               data-project-status="draft"
               data-project-search="23951 Технопарк Восток Восток Инжиниринг Екатеринбург"
               data-project-created-at="2026-03-22"
+              data-project-activity-count="0"
+              data-project-id="23951"
               tabindex="0"
             >
+              <div class="project-list-cell project-list-cell-select">
+                <label class="project-select-control" aria-label="Выбрать проект">
+                  <input type="checkbox" data-project-select-toggle />
+                </label>
+              </div>
               <div class="project-list-cell project-list-cell-id">
                 <span class="project-list-mobile-label">ID</span>
                 <span class="project-id-chip">#23951</span>
@@ -370,6 +477,25 @@
                 <span class="project-list-mobile-label">Проект</span>
                 <strong>Технопарк Восток</strong>
                 <span>ООО "Восток Инжиниринг" • Екатеринбург</span>
+              </div>
+              <div class="project-list-cell project-list-cell-pin">
+                <span class="project-list-mobile-label">Закрепить</span>
+                <button
+                  class="project-pin-button"
+                  type="button"
+                  data-project-pin-toggle
+                  aria-label="Закрепить проект"
+                  title="Закрепить"
+                >
+                  <span class="project-pin-button-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M12.6 3.3L16.7 7.4L14.8 9.3L11.7 8.4L8.7 11.4L11.4 14.1L10.1 15.4L7.4 12.7L4.5 15.6L3.4 14.5L6.3 11.6L3.6 8.9L4.9 7.6L7.6 10.3L10.6 7.3L9.7 4.2L11.6 2.3L12.6 3.3Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
               </div>
               <div class="project-list-cell project-list-cell-status">
                 <span class="project-list-mobile-label">Статус</span>
@@ -383,16 +509,36 @@
                 <span class="project-list-mobile-label">Активность</span>
                 <div class="project-row-activity project-row-activity-idle">
                   <span class="project-activity-badge">0</span>
-                  <span class="project-row-activity-label">Без новых событий</span>
+                  <strong class="project-activity-date">22 марта, 14:06</strong>
                 </div>
-                <small>Последнее изменение 22 марта, 14:06</small>
               </div>
             </article>
           </section>
         </section>
 
+        <section class="projects-bulk-bar" data-project-bulk-bar hidden>
+          <div class="projects-bulk-bar-main">
+            <label class="projects-bulk-field">
+              <span>Выберите действие</span>
+              <select data-project-bulk-action>
+                <option value="">Выберите действие</option>
+              </select>
+            </label>
+            <button class="primary-button" type="button" data-project-bulk-apply>
+              Применить
+            </button>
+            <label class="checkbox-row projects-bulk-all">
+              <input type="checkbox" data-project-bulk-select-all />
+              <span>Выбрать все</span>
+            </label>
+          </div>
+          <div class="projects-bulk-bar-meta">
+            <span>Отмечено: <strong data-project-selected-count>0</strong></span>
+          </div>
+        </section>
+
       </main>
     </div>
-    <script src="./script.js?v=20260405-40"></script>
+    <script src="./script.js?v=20260412-27"></script>
   </body>
 </html>

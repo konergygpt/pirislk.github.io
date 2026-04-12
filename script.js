@@ -24,6 +24,14 @@ const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
 const projectRows = document.querySelectorAll("[data-project-row]");
 const projectBoard = document.querySelector("[data-project-board]");
 const projectSortToggle = document.querySelector("[data-project-sort-toggle]");
+const projectActivitySortToggle = document.querySelector("[data-project-activity-sort-toggle]");
+const projectPinButtons = document.querySelectorAll("[data-project-pin-toggle]");
+const projectSelectAllToggle = document.querySelector("[data-project-select-all]");
+const projectBulkBar = document.querySelector("[data-project-bulk-bar]");
+const projectBulkActionSelect = document.querySelector("[data-project-bulk-action]");
+const projectBulkApplyButton = document.querySelector("[data-project-bulk-apply]");
+const projectBulkSelectedCount = document.querySelector("[data-project-selected-count]");
+const projectBulkSelectAllToggle = document.querySelector("[data-project-bulk-select-all]");
 const gradeInfoToggle = document.querySelector("[data-grade-info-toggle]");
 const gradeInfoPanel = document.querySelector("[data-grade-info-panel]");
 const gradeLevelButtons = document.querySelectorAll("[data-grade-level-button]");
@@ -46,6 +54,8 @@ const submitModal = document.querySelector("[data-submit-modal]");
 const submitHomeLink = document.querySelector("[data-submit-home]");
 const onboardingDismissedStorageKey = "piris-profile-onboarding-dismissed";
 const sidebarCollapsedStorageKey = "piris-sidebar-collapsed";
+const pinnedProjectsStorageKey = "piris-pinned-projects";
+const archivedProjectsStorageKey = "piris-archived-projects";
 let currentWizardStep = 1;
 
 const solutionRewardRules = [
@@ -1014,8 +1024,56 @@ function setupProjectsList() {
 
   let activeFilter = "all";
   let projectSortOrder = projectSortToggle?.dataset.sortOrder || "desc";
+  let projectActivitySortOrder = projectActivitySortToggle?.dataset.sortOrder || "desc";
+  let currentProjectSortKey = "created-at";
   const projectList = document.querySelector(".projects-list");
-  const projectRowsCollection = Array.from(projectRows);
+  const pinnedProjectIds = new Set(getPinnedProjectIds());
+  const archivedProjectIds = new Set(getArchivedProjectIds());
+  const selectedProjectIds = new Set();
+
+  function getPinnedProjectIds() {
+    try {
+      const value = window.localStorage.getItem(pinnedProjectsStorageKey);
+      const parsed = JSON.parse(value || "[]");
+
+      return Array.isArray(parsed) ? parsed.map((item) => String(item)) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function savePinnedProjectIds() {
+    window.localStorage.setItem(
+      pinnedProjectsStorageKey,
+      JSON.stringify(Array.from(pinnedProjectIds))
+    );
+  }
+
+  function getArchivedProjectIds() {
+    try {
+      const value = window.localStorage.getItem(archivedProjectsStorageKey);
+      const parsed = JSON.parse(value || "[]");
+
+      return Array.isArray(parsed) ? parsed.map((item) => String(item)) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveArchivedProjectIds() {
+    window.localStorage.setItem(
+      archivedProjectsStorageKey,
+      JSON.stringify(Array.from(archivedProjectIds))
+    );
+  }
+
+  function getConnectedProjectRows() {
+    return Array.from(projectRows).filter((row) => row.isConnected);
+  }
+
+  function getVisibleProjectRows() {
+    return getConnectedProjectRows().filter((row) => !row.hidden);
+  }
 
   function normalizeProjectValue(value) {
     return String(value || "")
@@ -1026,6 +1084,15 @@ function setupProjectsList() {
 
   function projectMatchesFilter(row) {
     const status = row.dataset.projectStatus || "";
+    const archived = isProjectArchived(row);
+
+    if (activeFilter === "archived") {
+      return archived;
+    }
+
+    if (archived) {
+      return false;
+    }
 
     if (activeFilter === "all") {
       return true;
@@ -1045,6 +1112,227 @@ function setupProjectsList() {
     return Number.isNaN(timestamp) ? 0 : timestamp;
   }
 
+  function getProjectActivityCount(row) {
+    const value = Number.parseInt(row.dataset.projectActivityCount || "0", 10);
+
+    return Number.isNaN(value) ? 0 : value;
+  }
+
+  function isProjectPinned(row) {
+    return pinnedProjectIds.has(String(row.dataset.projectId || ""));
+  }
+
+  function isProjectArchived(row) {
+    return archivedProjectIds.has(String(row.dataset.projectId || ""));
+  }
+
+  function updateProjectPinState(row) {
+    const pinButton = row.querySelector("[data-project-pin-toggle]");
+
+    if (!pinButton) {
+      return;
+    }
+
+    const pinned = isProjectPinned(row);
+    row.dataset.projectPinned = pinned ? "true" : "false";
+    pinButton.dataset.pinned = pinned ? "true" : "false";
+    pinButton.setAttribute("aria-pressed", pinned ? "true" : "false");
+    pinButton.setAttribute("aria-label", pinned ? "Открепить проект" : "Закрепить проект");
+    pinButton.setAttribute("title", pinned ? "Открепить" : "Закрепить");
+  }
+
+  function updateProjectArchiveState(row) {
+    const archived = isProjectArchived(row);
+
+    row.dataset.projectArchived = archived ? "true" : "false";
+    row.classList.toggle("is-archived", archived);
+  }
+
+  function getProjectSelectToggle(row) {
+    return row.querySelector("[data-project-select-toggle]");
+  }
+
+  function isProjectSelected(row) {
+    return selectedProjectIds.has(String(row.dataset.projectId || ""));
+  }
+
+  function updateProjectSelectionState(row) {
+    const toggle = getProjectSelectToggle(row);
+
+    if (!toggle) {
+      return;
+    }
+
+    const selected = isProjectSelected(row);
+
+    row.classList.toggle("is-selected", selected);
+    row.dataset.projectSelected = selected ? "true" : "false";
+    row.setAttribute("aria-selected", selected ? "true" : "false");
+    toggle.checked = selected;
+  }
+
+  function renderProjectBulkActionOptions() {
+    if (!projectBulkActionSelect) {
+      return;
+    }
+
+    const previousValue = projectBulkActionSelect.value;
+    const options =
+      activeFilter === "archived"
+        ? [
+            { value: "", label: "Выберите действие" },
+            { value: "restore", label: "Вернуть из архива" },
+            { value: "delete", label: "Удалить навсегда" },
+          ]
+        : [
+            { value: "", label: "Выберите действие" },
+            { value: "archive", label: "Архивировать" },
+            { value: "delete", label: "Удалить" },
+          ];
+
+    projectBulkActionSelect.innerHTML = options
+      .map((option) => `<option value="${option.value}">${option.label}</option>`)
+      .join("");
+
+    if (options.some((option) => option.value === previousValue)) {
+      projectBulkActionSelect.value = previousValue;
+    }
+  }
+
+  function clearSelection() {
+    getConnectedProjectRows().forEach((row) => {
+      const projectId = String(row.dataset.projectId || "");
+
+      if (!projectId) {
+        return;
+      }
+
+      selectedProjectIds.delete(projectId);
+      updateProjectSelectionState(row);
+    });
+
+    syncBulkSelectionUI();
+  }
+
+  function syncBulkSelectionUI() {
+    const rows = getConnectedProjectRows();
+    const visibleRows = rows.filter((row) => !row.hidden);
+    const connectedProjectIds = new Set(rows.map((row) => String(row.dataset.projectId || "")));
+
+    Array.from(selectedProjectIds).forEach((projectId) => {
+      if (!connectedProjectIds.has(projectId)) {
+        selectedProjectIds.delete(projectId);
+      }
+    });
+
+    const selectedCount = rows.filter((row) => isProjectSelected(row)).length;
+    const visibleSelectedCount = visibleRows.filter((row) => isProjectSelected(row)).length;
+    const hasSelection = selectedCount > 0;
+    const allVisibleSelected = visibleRows.length > 0 && visibleSelectedCount === visibleRows.length;
+    const someVisibleSelected = visibleSelectedCount > 0 && visibleSelectedCount < visibleRows.length;
+
+    if (projectBulkBar) {
+      projectBulkBar.hidden = !hasSelection;
+      projectBulkBar.style.display = hasSelection ? "" : "none";
+    }
+
+    if (projectBulkSelectedCount) {
+      projectBulkSelectedCount.textContent = String(selectedCount);
+    }
+
+    [projectSelectAllToggle, projectBulkSelectAllToggle].forEach((toggle) => {
+      if (!toggle) {
+        return;
+      }
+
+      toggle.checked = allVisibleSelected;
+      toggle.indeterminate = someVisibleSelected;
+    });
+
+    if (projectBulkApplyButton) {
+      const actionChosen = Boolean(projectBulkActionSelect?.value);
+
+      projectBulkApplyButton.disabled = !hasSelection || !actionChosen;
+    }
+
+    renderProjectBulkActionOptions();
+  }
+
+  function setProjectSelected(row, selected) {
+    const projectId = String(row.dataset.projectId || "");
+    const toggle = getProjectSelectToggle(row);
+
+    if (!projectId || !toggle) {
+      return;
+    }
+
+    if (selected) {
+      selectedProjectIds.add(projectId);
+    } else {
+      selectedProjectIds.delete(projectId);
+    }
+
+    updateProjectSelectionState(row);
+    syncBulkSelectionUI();
+  }
+
+  function setVisibleRowsSelected(selected) {
+    getVisibleProjectRows().forEach((row) => {
+      setProjectSelected(row, selected);
+    });
+  }
+
+  function deleteSelectedProjects() {
+    const rowsToDelete = getConnectedProjectRows().filter((row) => isProjectSelected(row));
+
+    rowsToDelete.forEach((row) => {
+      const projectId = String(row.dataset.projectId || "");
+
+      if (pinnedProjectIds.has(projectId)) {
+        pinnedProjectIds.delete(projectId);
+      }
+
+      if (archivedProjectIds.has(projectId)) {
+        archivedProjectIds.delete(projectId);
+      }
+
+      selectedProjectIds.delete(projectId);
+      row.remove();
+    });
+
+    savePinnedProjectIds();
+    saveArchivedProjectIds();
+    clearSelection();
+    syncBulkSelectionUI();
+    sortProjectRows(currentProjectSortKey);
+    applyProjectsFilter();
+  }
+
+  function archiveSelectedProjects(archive) {
+    const rowsToToggle = getConnectedProjectRows().filter((row) => isProjectSelected(row));
+
+    rowsToToggle.forEach((row) => {
+      const projectId = String(row.dataset.projectId || "");
+
+      if (!projectId) {
+        return;
+      }
+
+      if (archive) {
+        archivedProjectIds.add(projectId);
+      } else {
+        archivedProjectIds.delete(projectId);
+      }
+
+      updateProjectArchiveState(row);
+    });
+
+    saveArchivedProjectIds();
+    clearSelection();
+    sortProjectRows(currentProjectSortKey);
+    applyProjectsFilter();
+  }
+
   function updateProjectSortToggleMeta() {
     if (!projectSortToggle) {
       return;
@@ -1060,14 +1348,47 @@ function setupProjectsList() {
     projectSortToggle.setAttribute("title", hint);
   }
 
-  function sortProjectRows() {
+  function updateProjectActivitySortToggleMeta() {
+    if (!projectActivitySortToggle) {
+      return;
+    }
+
+    projectActivitySortToggle.dataset.sortOrder = projectActivitySortOrder;
+
+    const isDescending = projectActivitySortOrder === "desc";
+    const label = isDescending
+      ? "Сортировка по активности: сначала больше"
+      : "Сортировка по активности: сначала меньше";
+    const hint = isDescending ? "Сначала больше" : "Сначала меньше";
+
+    projectActivitySortToggle.setAttribute("aria-label", label);
+    projectActivitySortToggle.setAttribute("title", hint);
+  }
+
+  function sortProjectRows(sortKey = "created-at") {
     if (!projectList) {
       return;
     }
 
-    projectRowsCollection
+    getConnectedProjectRows()
       .slice()
       .sort((leftRow, rightRow) => {
+        const pinDifference = Number(isProjectPinned(rightRow)) - Number(isProjectPinned(leftRow));
+
+        if (pinDifference !== 0) {
+          return pinDifference;
+        }
+
+        if (sortKey === "activity") {
+          const activityDifference = getProjectActivityCount(rightRow) - getProjectActivityCount(leftRow);
+
+          if (activityDifference !== 0) {
+            return projectActivitySortOrder === "desc"
+              ? activityDifference
+              : -activityDifference;
+          }
+        }
+
         const difference = getProjectCreatedAt(rightRow) - getProjectCreatedAt(leftRow);
 
         return projectSortOrder === "desc" ? difference : -difference;
@@ -1081,7 +1402,7 @@ function setupProjectsList() {
     const query = normalizeProjectValue(projectSearchInput?.value);
     let visibleProjects = 0;
 
-    projectRows.forEach((row) => {
+    getConnectedProjectRows().forEach((row) => {
       const haystack = normalizeProjectValue(row.dataset.projectSearch);
       const matchesQuery = !query || haystack.includes(query);
       const matchesFilter = projectMatchesFilter(row);
@@ -1097,6 +1418,8 @@ function setupProjectsList() {
     if (projectBoard) {
       projectBoard.hidden = visibleProjects === 0;
     }
+
+    syncBulkSelectionUI();
   }
 
   projectFilterButtons.forEach((button) => {
@@ -1107,6 +1430,7 @@ function setupProjectsList() {
         item.classList.toggle("active", item === button);
       });
 
+      clearSelection();
       applyProjectsFilter();
     });
   });
@@ -1119,21 +1443,108 @@ function setupProjectsList() {
     updateProjectSortToggleMeta();
 
     projectSortToggle.addEventListener("click", () => {
+      currentProjectSortKey = "created-at";
       projectSortOrder = projectSortOrder === "desc" ? "asc" : "desc";
       updateProjectSortToggleMeta();
-      sortProjectRows();
+      sortProjectRows("created-at");
       applyProjectsFilter();
     });
   }
 
+  if (projectActivitySortToggle) {
+    updateProjectActivitySortToggleMeta();
+
+    projectActivitySortToggle.addEventListener("click", () => {
+      currentProjectSortKey = "activity";
+      projectActivitySortOrder = projectActivitySortOrder === "desc" ? "asc" : "desc";
+      updateProjectActivitySortToggleMeta();
+      sortProjectRows("activity");
+      applyProjectsFilter();
+    });
+  }
+
+  [projectSelectAllToggle, projectBulkSelectAllToggle].forEach((toggle) => {
+    if (!toggle) {
+      return;
+    }
+
+    toggle.addEventListener("change", () => {
+      setVisibleRowsSelected(toggle.checked);
+      syncBulkSelectionUI();
+    });
+  });
+
+  if (projectBulkActionSelect) {
+    projectBulkActionSelect.addEventListener("change", syncBulkSelectionUI);
+  }
+
+  if (projectBulkApplyButton) {
+    projectBulkApplyButton.addEventListener("click", () => {
+      const action = projectBulkActionSelect?.value;
+
+      if (action === "archive") {
+        archiveSelectedProjects(true);
+      } else if (action === "restore") {
+        archiveSelectedProjects(false);
+      } else if (action === "delete") {
+        deleteSelectedProjects();
+      }
+    });
+  }
+
+  projectPinButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const row = button.closest("[data-project-row]");
+      const projectId = String(row?.dataset.projectId || "");
+
+      if (!row || !projectId) {
+        return;
+      }
+
+      if (pinnedProjectIds.has(projectId)) {
+        pinnedProjectIds.delete(projectId);
+      } else {
+        pinnedProjectIds.add(projectId);
+      }
+
+      savePinnedProjectIds();
+      updateProjectPinState(row);
+      sortProjectRows(currentProjectSortKey);
+      applyProjectsFilter();
+    });
+  });
+
   projectRows.forEach((row) => {
+    updateProjectPinState(row);
+    updateProjectArchiveState(row);
+    updateProjectSelectionState(row);
+
+    const selectToggle = getProjectSelectToggle(row);
+
+    if (selectToggle) {
+      selectToggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+
+      selectToggle.addEventListener("change", () => {
+        setProjectSelected(row, selectToggle.checked);
+      });
+    }
+
     const target = row.dataset.projectLink;
 
     if (!target) {
       return;
     }
 
-    row.addEventListener("click", () => {
+    row.addEventListener("click", (event) => {
+      if (event.target.closest("[data-project-select-toggle], [data-project-pin-toggle], .project-select-control, .project-pin-button")) {
+        return;
+      }
+
       window.location.href = target;
     });
 
@@ -1145,8 +1556,9 @@ function setupProjectsList() {
     });
   });
 
-  sortProjectRows();
+  sortProjectRows("created-at");
   applyProjectsFilter();
+  syncBulkSelectionUI();
 }
 
 function openSubmitModal() {
@@ -1598,6 +2010,34 @@ function setupSolutionsCatalog() {
       }, 1400)
     );
   }
+
+  function bindInlineCopyActions(scope = document) {
+    if (!scope) {
+      return;
+    }
+
+    const copyTriggers = scope.querySelectorAll("[data-copy-trigger]");
+
+    copyTriggers.forEach((button) => {
+      if (button.dataset.copyBound === "true") {
+        return;
+      }
+
+      button.dataset.copyBound = "true";
+
+      button.addEventListener("click", async () => {
+        const copyHost =
+          button.closest(".detail-stakeholder-field-inline, [data-copy-host]") || button.parentElement;
+        const valueNode = copyHost?.querySelector("[data-copy-value]");
+        const statusNode = copyHost?.querySelector("[data-copy-status]");
+        const value = valueNode?.textContent?.trim() || "";
+        const isCopied = await copyTextValue(value);
+        showCopyFeedback(statusNode, isCopied ? "Скопировано" : "Не удалось");
+      });
+    });
+  }
+
+  bindInlineCopyActions();
 
   function rememberDocRequests() {
     try {
