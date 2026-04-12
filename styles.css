@@ -2196,19 +2196,19 @@ textarea {
 .rewards-overview-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
-  gap: 12px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .rewards-overview-side {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .rewards-filters-bar {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   padding: 0;
 }
 
@@ -2245,25 +2245,25 @@ textarea {
 
 .rewards-trend-card {
   display: grid;
-  gap: 10px;
-  padding: 16px 18px 12px;
+  gap: 6px;
+  padding: 12px 14px 8px;
 }
 
 .rewards-trend-head {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 10px;
 }
 
 .rewards-trend-copy {
   display: grid;
-  gap: 4px;
+  gap: 2px;
 }
 
 .rewards-trend-copy span {
   color: #70857e;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2272,21 +2272,21 @@ textarea {
 .rewards-trend-range {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px;
+  gap: 4px;
+  padding: 3px;
   border-radius: 999px;
   background: rgba(244, 248, 246, 0.95);
   border: 1px solid rgba(17, 120, 93, 0.08);
 }
 
 .rewards-trend-range button {
-  min-height: 34px;
-  padding: 0 14px;
+  min-height: 30px;
+  padding: 0 12px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: #6d8179;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -2299,9 +2299,9 @@ textarea {
 
 .rewards-trend-stage {
   position: relative;
-  min-height: 244px;
-  padding: 0 4px 0;
-  border-radius: 24px;
+  min-height: 172px;
+  padding: 0 2px;
+  border-radius: 18px;
   background: linear-gradient(180deg, rgba(248, 251, 249, 0.98) 0%, rgba(242, 247, 244, 0.98) 100%);
   overflow: hidden;
 }
@@ -2339,14 +2339,14 @@ textarea {
 
 .rewards-trend-bubble {
   position: absolute;
-  top: 52px;
+  top: 16px;
   left: 50%;
   transform: translateX(-6%);
   display: grid;
-  gap: 4px;
-  min-width: 156px;
-  padding: 12px 14px;
-  border-radius: 16px;
+  gap: 3px;
+  min-width: 128px;
+  padding: 8px 10px;
+  border-radius: 12px;
   background: rgba(31, 45, 40, 0.88);
   color: #ffffff;
   box-shadow: 0 18px 36px rgba(12, 23, 19, 0.18);
@@ -2355,10 +2355,10 @@ textarea {
 .rewards-trend-bubble::after {
   content: "";
   position: absolute;
-  left: 36px;
-  bottom: -8px;
-  width: 16px;
-  height: 16px;
+  left: 32px;
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
   background: rgba(31, 45, 40, 0.88);
   transform: rotate(45deg);
 }
@@ -2366,12 +2366,12 @@ textarea {
 .rewards-trend-bubble span,
 .rewards-trend-bubble small {
   color: rgba(236, 244, 241, 0.78);
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.2;
 }
 
 .rewards-trend-bubble strong {
-  font-size: 22px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -2379,14 +2379,14 @@ textarea {
 .rewards-trend-axis {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: -2px;
-  padding: 0 8px 2px;
+  gap: 6px;
+  margin-top: -10px;
+  padding: 0 2px;
 }
 
 .rewards-trend-axis span {
   color: #7a8f88;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.2;
   text-align: center;
 }
@@ -2394,13 +2394,13 @@ textarea {
 .rewards-summary-card {
   display: grid;
   align-content: start;
-  gap: 10px;
-  padding: 18px 20px;
+  gap: 6px;
+  padding: 14px 16px;
 }
 
 .rewards-summary-label {
   color: #6f857d;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.08em;
@@ -2409,7 +2409,7 @@ textarea {
 
 .rewards-summary-card strong {
   display: block;
-  font-size: clamp(34px, 3.8vw, 48px);
+  font-size: clamp(30px, 3.1vw, 40px);
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
@@ -2417,55 +2417,56 @@ textarea {
 .rewards-summary-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .rewards-summary-inline {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 6px;
+  margin-top: 2px;
 }
 
 .rewards-summary-inline span {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 0 10px;
+  min-height: 28px;
+  padding: 0 9px;
   border-radius: 999px;
   background: rgba(246, 250, 248, 0.92);
   border: 1px solid rgba(17, 120, 93, 0.08);
   color: rgba(88, 110, 102, 0.92);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .rewards-chart-card {
   display: grid;
-  gap: 14px;
-  padding: 18px 18px 16px;
+  gap: 10px;
+  padding: 14px;
 }
 
 .rewards-donut-card {
   display: grid;
-  gap: 14px;
-  padding: 18px 18px 16px;
+  gap: 10px;
+  padding: 14px;
 }
 
 .rewards-types-card {
   display: grid;
-  gap: 14px;
-  padding: 18px 18px 16px;
+  gap: 10px;
+  padding: 14px;
 }
 
 .rewards-chart-head {
   display: grid;
-  gap: 3px;
+  gap: 2px;
 }
 
 .rewards-chart-head span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2;
 }
 
@@ -2523,15 +2524,15 @@ textarea {
 
 .rewards-donut-layout {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 12px;
   align-items: center;
 }
 
 .rewards-donut-visual {
   position: relative;
-  width: 132px;
-  height: 132px;
+  width: 118px;
+  height: 118px;
 }
 
 .rewards-donut-visual svg {
@@ -2590,15 +2591,15 @@ textarea {
 
 .rewards-donut-legend {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .rewards-donut-legend-item {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
-  min-height: 34px;
+  min-height: 30px;
   padding: 0 2px;
 }
 
@@ -2622,7 +2623,7 @@ textarea {
 
 .rewards-donut-legend-item small {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
@@ -2633,12 +2634,12 @@ textarea {
 
 .rewards-types-chart {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .rewards-type-row {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .rewards-type-meta {
@@ -2649,19 +2650,19 @@ textarea {
 }
 
 .rewards-type-meta strong {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.1;
 }
 
 .rewards-type-meta span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2;
 }
 
 .rewards-type-bar {
   position: relative;
-  height: 10px;
+  height: 9px;
   border-radius: 999px;
   overflow: hidden;
   background: rgba(236, 242, 239, 0.95);
@@ -2758,9 +2759,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 12px 18px;
-  margin-bottom: -2px;
+  gap: 12px;
+  padding: 8px 14px;
+  margin-top: 14px;
+  margin-bottom: 10px;
 }
 
 .rewards-toolbar-meta {
@@ -2776,40 +2778,90 @@ textarea {
 }
 
 .rewards-toolbar .filter-pill {
-  padding: 9px 14px;
-  font-size: 14px;
+  padding: 8px 13px;
+  font-size: 13px;
 }
 
 .rewards-list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
+}
+
+.rewards-projects-board {
+  padding: 0;
+  overflow: hidden;
+}
+
+.rewards-projects-head {
+  grid-template-columns: minmax(320px, 1.9fr) 210px 220px 240px 180px;
+}
+
+.rewards-projects-list {
+  gap: 0;
+}
+
+.rewards-project-row {
+  grid-template-columns: minmax(320px, 1.9fr) 210px 220px 240px 180px;
+  gap: 16px;
+}
+
+.rewards-project-main strong {
+  font-size: 18px;
+  line-height: 1.12;
+}
+
+.rewards-project-cell strong,
+.rewards-project-amount strong {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.rewards-project-cell span,
+.rewards-project-amount a {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.rewards-project-amount {
+  justify-items: end;
+  text-align: right;
+}
+
+.rewards-project-amount .text-button {
+  color: var(--brand-dark);
+  font-size: 14px;
 }
 
 .reward-record-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 176px;
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) 216px;
+  gap: 24px;
   align-items: start;
-  padding: 18px 20px;
+  padding: 16px 18px;
 }
 
 .reward-record-main {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
 }
 
 .reward-record-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px 14px;
+  display: grid;
+  gap: 8px;
+  align-items: start;
+}
+
+.reward-record-head .status-chip {
+  justify-self: start;
 }
 
 .reward-record-title {
   display: grid;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
 }
 
@@ -2824,19 +2876,19 @@ textarea {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .reward-record-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .reward-record-fact {
   display: grid;
-  gap: 5px;
-  padding: 10px 12px;
+  gap: 4px;
+  padding: 9px 12px;
   border-radius: 14px;
   background: rgba(246, 250, 248, 0.82);
   border: 1px solid rgba(17, 40, 31, 0.05);
@@ -2859,23 +2911,24 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid rgba(17, 40, 31, 0.08);
 }
 
 .reward-record-foot span {
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .reward-record-side {
   display: grid;
   justify-items: end;
   align-content: start;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
-  padding-left: 18px;
+  padding-left: 20px;
+  padding-top: 4px;
   border-left: 1px solid rgba(17, 120, 93, 0.08);
 }
 
@@ -2950,6 +3003,115 @@ textarea {
 .rewards-note-box {
   display: grid;
   gap: 14px;
+}
+
+.faq-shell {
+  display: grid;
+  gap: 12px;
+  max-width: 1540px;
+}
+
+.faq-intro-panel {
+  display: grid;
+  gap: 6px;
+  padding: 16px 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 252, 251, 0.9) 100%);
+}
+
+.faq-intro-copy {
+  display: grid;
+  gap: 8px;
+  max-width: 980px;
+}
+
+.faq-intro-copy h3 {
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+.faq-intro-copy p {
+  margin: 0;
+  max-width: 900px;
+  color: #6f857d;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.faq-section {
+  display: grid;
+  gap: 14px;
+  padding: 14px 22px;
+}
+
+.faq-section-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  row-gap: 3px;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(17, 120, 93, 0.08);
+}
+
+.faq-section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: rgba(30, 170, 132, 0.08);
+  color: var(--brand-dark);
+  box-shadow: inset 0 0 0 1px rgba(17, 120, 93, 0.08);
+}
+
+.faq-section-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.faq-section-head .eyebrow {
+  margin: 0;
+}
+
+.faq-section-head h3 {
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0;
+}
+
+.faq-item {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid rgba(17, 120, 93, 0.08);
+}
+
+.faq-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.faq-item h4 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.24;
+  letter-spacing: -0.03em;
+  color: rgba(19, 33, 28, 0.92);
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .account-page-shell {
@@ -3828,34 +3990,6 @@ textarea {
   }
 }
 
-@media (max-width: 920px) {
-  .grades-intro-head,
-  .grades-section-head,
-  .grades-benefit-detail-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .grades-summary-grid,
-  .grades-next-panel,
-  .grades-project-row,
-  .grades-level-item {
-    grid-template-columns: 1fr;
-  }
-
-  .grades-level-item {
-    min-height: 0;
-  }
-
-  .grades-project-row {
-    align-items: flex-start;
-  }
-
-  .grades-project-link,
-  .status-pill {
-    width: fit-content;
-  }
-}
 
 .account-chip-row {
   display: flex;
@@ -7749,1227 +7883,12 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .rewards-projects-head,
+  .rewards-project-row {
+    grid-template-columns: minmax(260px, 1.6fr) 180px 180px 200px 150px;
+  }
+
   .reward-record-card {
     grid-template-columns: minmax(0, 1fr) 160px;
-  }
-}
-
-@media (max-width: 920px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: static;
-    height: auto;
-    justify-content: flex-start;
-    gap: 18px;
-    padding: 16px;
-    border-right: 0;
-    border-bottom: 1px solid rgba(17, 120, 93, 0.08);
-    box-shadow: none;
-    overflow: visible;
-  }
-
-  .sidebar::after {
-    display: none;
-  }
-
-  .brand {
-    margin-bottom: 0;
-  }
-
-  .sidebar-brand-caption {
-    display: none;
-  }
-
-  .sidebar-nav {
-    display: flex;
-    width: 100%;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-
-  .sidebar-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-link {
-    white-space: nowrap;
-  }
-
-  .sidebar-foot {
-    display: none;
-  }
-
-  .content {
-    padding: 5px 20px 20px;
-  }
-
-  .home-content {
-    min-height: auto;
-  }
-
-  .topbar,
-  .section-header,
-  .hero-panel,
-  .filter-row,
-  .panel-heading,
-  .header-meta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .topbar-meta,
-  .topbar-actions {
-    width: 100%;
-    margin-top: 0;
-    justify-content: flex-start;
-  }
-
-  .topbar-account-actions {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
-    justify-content: flex-start;
-  }
-
-  .topbar-balance {
-    min-width: 0;
-  }
-
-  .detail-topbar-actions,
-  .documentation-topbar-actions,
-  .solutions-topbar-actions {
-    margin-top: 0;
-  }
-
-  .topbar-account-actions.is-floating {
-    position: static;
-    top: auto;
-    right: auto;
-    max-width: none;
-  }
-
-  .profile-dropdown {
-    left: 0;
-    right: 0;
-    width: auto;
-    min-width: 100%;
-  }
-
-  .notification-dropdown {
-    width: min(calc(100vw - 32px), 360px);
-  }
-
-  .balance-dropdown {
-    width: min(calc(100vw - 32px), 252px);
-  }
-
-  .account-hero,
-  .account-hero-main,
-  .account-hero-actions,
-  .account-panel-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .account-grid.two-up,
-  .account-form-grid,
-  .grade-overview {
-    grid-template-columns: 1fr;
-  }
-
-  .topbar-profile {
-    width: 100%;
-    max-width: 100%;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .topbar-profile-copy {
-    flex: 1 1 180px;
-  }
-
-  .topbar-profile-id {
-    margin-left: 0;
-    margin-bottom: 0;
-  }
-
-  .topbar-profile-toggle {
-    margin-left: auto;
-  }
-
-  .topbar-profile-copy small {
-    display: block;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .grades-hero .account-hero-actions {
-    margin-right: 0;
-  }
-
-  .grades-metrics {
-    margin-top: 8px;
-  }
-
-  .metrics-grid,
-  .two-columns,
-  .rewards-layout,
-  .project-grid,
-  .compact,
-  .timeline,
-  .form-grid,
-  .home-action-grid,
-  .detail-hero,
-  .detail-layout,
-  .detail-grid-list {
-    grid-template-columns: 1fr;
-  }
-
-  .projects-toolbar-row,
-  .reward-record-card,
-  .reward-record-foot,
-  .detail-topbar,
-  .detail-topbar-actions,
-  .detail-hero-main,
-  .detail-item-row,
-  .discussion-composer-actions {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-items: start;
-  }
-
-  .projects-toolbar-row {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-  }
-
-  .projects-table-head {
-    display: none;
-  }
-
-  .project-list-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 16px;
-    padding: 20px;
-  }
-
-  .project-list-mobile-label {
-    display: block;
-  }
-
-  .project-list-cell-main,
-  .project-list-cell-activity,
-  .project-list-cell-action {
-    grid-column: 1 / -1;
-  }
-
-  .project-list-cell-action {
-    justify-self: stretch;
-  }
-
-  .project-list-cell-action .secondary-button {
-    width: 100%;
-  }
-
-  .reward-record-side {
-    min-width: 0;
-    justify-items: start;
-    padding-left: 0;
-    padding-top: 12px;
-    border-top: 1px solid rgba(17, 120, 93, 0.08);
-    border-left: 0;
-  }
-
-  .reward-record-side span {
-    text-align: left;
-  }
-
-  .reward-record-foot {
-    width: 100%;
-  }
-
-  .rewards-toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .rewards-toolbar-meta {
-    justify-items: start;
-    text-align: left;
-  }
-
-  .rewards-overview-side {
-    grid-template-columns: 1fr;
-  }
-
-  .rewards-donut-layout {
-    grid-template-columns: 132px minmax(0, 1fr);
-  }
-
-  .rewards-filter-field {
-    width: 100%;
-  }
-
-  .rewards-action-strip {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .rewards-hero-stats,
-  .reward-record-facts,
-  .reward-record-card {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-hero-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .detail-hero {
-    padding: 16px;
-  }
-
-  .detail-item-meta {
-    width: 100%;
-    justify-items: start;
-  }
-
-  .project-comments-thread {
-    max-height: 360px;
-    padding-right: 4px;
-  }
-
-  .project-discussion-panel {
-    min-height: auto;
-  }
-
-  .discussion-message,
-  .discussion-message-user {
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  .discussion-message-head,
-  .discussion-message-user .discussion-message-head {
-    flex-direction: row;
-  }
-
-  .discussion-message-meta {
-    justify-items: start;
-  }
-
-  .discussion-author-row,
-  .discussion-message-user .discussion-author-row {
-    justify-content: flex-start;
-  }
-
-  .create-project-intro,
-  .project-form-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .create-project-intro {
-    min-height: auto;
-    align-content: start;
-  }
-
-  .project-form-footer,
-  .account-actions-row {
-    width: 100%;
-  }
-
-  .project-form-footer .primary-button,
-  .project-form-footer .secondary-button,
-  .project-form-footer .form-link-button,
-  .account-actions-row .primary-button,
-  .account-actions-row .secondary-button,
-  .topbar-actions .primary-button,
-  .topbar-actions .secondary-button,
-  .detail-topbar-actions .primary-button,
-  .detail-topbar-actions .secondary-button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .project-form-grid,
-  .compact-project-form {
-    grid-template-columns: 1fr;
-  }
-
-  .project-registration-panel {
-    padding: 18px;
-  }
-
-  .project-form-section-heading-row {
-    align-items: flex-start;
-  }
-
-  .project-form-section-heading-row h3 {
-    font-size: 20px;
-  }
-
-  .project-company-tooltip {
-    min-width: 240px;
-    max-width: min(320px, calc(100vw - 56px));
-  }
-
-  .submit-articles-input-row {
-    grid-template-columns: 1fr;
-  }
-
-  .compact-project-form .inline-form-action,
-  .compact-project-form .inline-form-action > *,
-  .submit-articles-input-row .secondary-button {
-    width: 100%;
-  }
-
-  .article-accordion-title {
-    font-size: 24px;
-  }
-
-  .article-accordion-description {
-    white-space: normal;
-  }
-
-  .article-solution-item {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .article-solution-head {
-    display: none;
-  }
-
-  .article-solution-cell span {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .article-solution-cell:last-child {
-    justify-items: start;
-    text-align: left;
-  }
-
-  .article-solution-remove {
-    justify-self: start;
-  }
-
-  .document-preview-item {
-    align-items: flex-start;
-  }
-
-  .action-card {
-    aspect-ratio: auto;
-    min-height: 260px;
-  }
-
-  .auth-hero,
-  .auth-panel {
-    padding: 24px;
-  }
-
-  .role-selector {
-    grid-template-columns: 1fr;
-  }
-
-  .auth-showcase,
-  .auth-card-shell {
-    padding: 24px;
-  }
-
-  .reason-stage {
-    min-height: 236px;
-  }
-
-  .auth-card-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .modal-head,
-  .modal-progress-meta,
-  .modal-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .modal-card {
-    max-height: calc(100vh - 40px);
-    overflow: auto;
-  }
-
-  .success-modal-card {
-    min-height: auto;
-    padding: 40px 24px;
-  }
-
-  .modal-success-copy {
-    margin-top: 32px;
-  }
-
-  .modal-success-copy p {
-    font-size: 18px;
-  }
-
-  .success-modal-actions {
-    align-items: center;
-  }
-
-  .success-modal-actions .primary-button,
-  .success-modal-actions .secondary-button {
-    font-size: 32px;
-    white-space: normal;
-  }
-
-  .documentation-topbar-actions,
-  .documentation-solution-top,
-  .documentation-card-head,
-  .documentation-preview-head,
-  .documentation-preview-actions,
-  .documentation-filter-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .documentation-metrics-grid,
-  .documentation-filter-grid,
-  .documentation-card-grid,
-  .documentation-preview-meta-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .documentation-results-meta {
-    text-align: left;
-  }
-
-  .solutions-topbar,
-  .solutions-filter-head,
-  .solution-preview-head,
-  .solution-documents-head,
-  .project-picker-head,
-  .solution-doc-drawer-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .solutions-filter-grid,
-  .solution-offer-specs,
-  .solution-offer-card,
-  .solution-offer-side {
-    display: grid;
-    grid-template-columns: 1fr;
-    height: auto;
-    align-self: start;
-  }
-
-  .solution-offer-side::before {
-    display: none;
-  }
-
-  .solution-offer-docs {
-    grid-template-columns: 1fr;
-  }
-
-  .solution-offer-doc,
-  .solution-document-item {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .solution-offer-doc-size,
-  .solution-document-item-meta {
-    grid-column: 2;
-    justify-self: start;
-    white-space: normal;
-  }
-
-  .solution-offer-card {
-    grid-template-areas:
-      "media"
-      "main"
-      "side";
-  }
-
-  .solution-offer-media-column,
-  .solution-offer-side {
-    width: auto;
-    max-width: 100%;
-    justify-self: stretch;
-  }
-
-  .solution-offer-side {
-    grid-template-columns: 1fr;
-  }
-
-  .solution-offer-code-row {
-    position: static;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    pointer-events: auto;
-  }
-
-  .solution-offer-code-inline {
-    grid-column: auto;
-  }
-
-  .solution-offer-code-meta {
-    justify-content: flex-start;
-  }
-
-  .solution-offer-code-value {
-    max-width: 100%;
-  }
-
-  .solution-offer-copy-status {
-    left: 0;
-  }
-
-  .solution-offer-actions {
-    grid-template-columns: 1fr;
-    margin-top: 0;
-  }
-
-  .solution-offer-summary-card {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 16px 18px;
-  }
-
-  .solution-offer-summary-action {
-    justify-self: start;
-  }
-
-  .solutions-results-meta {
-    text-align: left;
-  }
-
-  .solution-offer-media-column {
-    grid-template-rows: 220px;
-  }
-
-  .solution-offer-media {
-    height: 220px;
-  }
-
-  .solution-detail-modal-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .solution-detail-modal {
-    width: min(100vw - 24px, 1120px);
-    height: min(920px, calc(100vh - 24px));
-    max-height: calc(100vh - 24px);
-    padding: 20px;
-  }
-
-  .solution-detail-modal-body,
-  .solution-detail-gallery,
-  .solution-detail-price-grid,
-  .solution-detail-doc-grid,
-  .solution-detail-characteristics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .solution-detail-thumbs {
-    grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
-  }
-
-  .solution-detail-stage {
-    min-height: 0;
-  }
-
-  .solution-detail-stage img {
-    max-width: 100%;
-    max-height: 420px;
-  }
-
-  .solution-detail-characteristic {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .solution-detail-characteristic::after {
-    display: none;
-  }
-
-  .solution-detail-characteristic dd {
-    max-width: none;
-    text-align: left;
-    white-space: normal;
-  }
-
-  .solution-doc-drawer {
-    width: 100vw;
-    padding: 20px;
-  }
-
-  .project-picker-option {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .project-picker-card {
-    max-height: calc(100vh - 48px);
-    padding: 20px;
-  }
-
-  .data-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 640px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    padding: 14px;
-    gap: 14px;
-  }
-
-  .sidebar-brand-logo {
-    width: 136px;
-  }
-
-  .sidebar-nav {
-    gap: 6px;
-  }
-
-  .nav-link,
-  .role-pill {
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-
-  .content {
-    padding: 5px 16px 16px;
-  }
-
-  .topbar {
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-
-  .topbar h1 {
-    font-size: clamp(30px, 11vw, 40px);
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-  }
-
-  .panel,
-  .hero-panel,
-  .metric-card,
-  .project-form-panel,
-  .solutions-empty-state,
-  .project-picker-card,
-  .solution-doc-drawer,
-  .modal-card {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .metrics-grid,
-  .content-grid {
-    gap: 14px;
-  }
-
-  .metric-card strong,
-  .reward-record-side strong,
-  .solution-offer-reward strong {
-    font-size: 22px;
-  }
-
-  .project-list-cell-main strong,
-  .solution-offer-main h3,
-  .documentation-solution-card h2,
-  .project-picker-head h2,
-  .modal-head h2 {
-    font-size: 24px;
-    line-height: 1.08;
-  }
-
-  .project-list-cell-main span,
-  .project-list-cell-activity small,
-  .reward-record-subtitle,
-  .hero-copy,
-  .project-picker-copy {
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .action-card {
-    min-height: 220px;
-    padding: 22px;
-    border-radius: 24px;
-  }
-
-  .home-action-grid-single .action-card {
-    min-height: 240px;
-  }
-
-  .action-card strong {
-    font-size: clamp(30px, 9vw, 40px);
-  }
-
-  .auth-showcase,
-  .auth-card-shell,
-  .auth-hero,
-  .auth-panel {
-    padding: 18px;
-  }
-
-  .auth-showcase-copy h1 {
-    font-size: clamp(36px, 12vw, 48px);
-  }
-
-  .auth-lead.compact {
-    margin-top: 14px;
-    font-size: 16px;
-  }
-
-  .auth-reasons {
-    margin-top: 32px;
-  }
-
-  .reason-stage {
-    min-height: 300px;
-  }
-
-  .reason-item strong {
-    font-size: clamp(20px, 7vw, 28px);
-  }
-
-  .auth-card-minimal {
-    padding: 22px;
-    border-radius: 24px;
-  }
-
-  .role-toggle {
-    grid-template-columns: 1fr;
-  }
-
-  .topbar-profile {
-    gap: 10px;
-    padding: 8px 10px;
-    border-radius: 18px;
-  }
-
-  .topbar-balance {
-    min-width: 0;
-    min-height: 52px;
-    padding: 8px 12px 8px 10px;
-    border-radius: 16px;
-  }
-
-  .notification-toggle {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-  }
-
-  .notification-toggle-icon {
-    color: rgba(17, 120, 93, 0.62);
-  }
-
-  .notification-toggle-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .notification-toggle-badge {
-    min-width: 22px;
-    height: 22px;
-    font-size: 11px;
-  }
-
-  .topbar-balance-icon {
-    width: 34px;
-    height: 34px;
-  }
-
-  .topbar-balance-icon svg {
-    width: 17px;
-    height: 17px;
-  }
-
-  .topbar-balance-copy strong {
-    font-size: 15px;
-  }
-
-  .topbar-balance-toggle svg {
-    width: 15px;
-    height: 15px;
-  }
-
-  .topbar-profile-avatar {
-    width: 42px;
-    height: 42px;
-  }
-
-  .topbar-profile-copy strong {
-    font-size: 15px;
-  }
-
-  .submit-primary-panel .project-upload-zone {
-    min-height: 210px;
-    padding: 24px 18px;
-  }
-
-  .document-preview-item {
-    padding: 12px;
-  }
-
-  .document-preview-main {
-    align-items: flex-start;
-  }
-
-  .topbar-profile-copy span {
-    font-size: 12px;
-  }
-
-  .topbar-profile-copy small {
-    font-size: 11px;
-  }
-
-  .topbar-profile-id {
-    padding: 0;
-    font-size: 10px;
-  }
-
-  .notification-dropdown,
-  .profile-dropdown,
-  .balance-dropdown {
-    top: calc(100% + 8px);
-    width: min(calc(100vw - 32px), 360px);
-    padding: 8px;
-    border-radius: 18px;
-  }
-
-  .balance-dropdown {
-    width: min(calc(100vw - 32px), 252px);
-    padding: 10px;
-  }
-
-  .notification-item {
-    padding: 12px 13px;
-    border-radius: 14px;
-  }
-
-  .notification-item-copy strong {
-    font-size: 14px;
-  }
-
-  .notification-item-copy span,
-  .notification-item-copy small {
-    font-size: 12px;
-  }
-
-  .profile-dropdown-link,
-  .profile-dropdown-action {
-    padding: 12px 13px;
-    border-radius: 14px;
-  }
-
-  .profile-dropdown-action-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
-  }
-
-  .profile-dropdown-action-arrow {
-    width: 26px;
-    height: 26px;
-    font-size: 16px;
-  }
-
-  .account-hero {
-    padding: 20px;
-    border-radius: 24px;
-  }
-
-  .detail-hero {
-    padding: 14px;
-    border-radius: 22px;
-  }
-
-  .project-comments-thread {
-    max-height: 320px;
-    padding-right: 2px;
-  }
-
-  .detail-hero-main {
-    gap: 8px;
-  }
-
-  .detail-hero-stat {
-    padding: 12px 14px;
-    border-radius: 16px;
-  }
-
-  .detail-hero-stat span {
-    font-size: 12px;
-  }
-
-  .detail-hero-stat strong {
-    margin-top: 4px;
-    font-size: 17px;
-  }
-
-  .account-avatar {
-    width: 92px;
-    height: 92px;
-  }
-
-  .account-avatar-edit {
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-  }
-
-  .account-hero-copy h2 {
-    font-size: clamp(28px, 10vw, 36px);
-  }
-
-  .account-hero-meta span {
-    font-size: 14px;
-  }
-
-  .project-form-panel {
-    padding: 20px;
-  }
-
-  .project-form-grid input,
-  .project-form-grid select,
-  .account-form-grid input,
-  .account-form-grid select,
-  .modal-card .form-grid input,
-  .modal-card .form-grid select {
-    height: 56px;
-    padding: 14px 16px;
-    border-radius: 18px;
-  }
-
-  .project-form-grid textarea,
-  .account-form-grid textarea,
-  .modal-card .form-grid textarea {
-    min-height: 120px;
-    padding: 16px;
-    border-radius: 18px;
-  }
-
-  .project-form-footer,
-  .account-actions-row,
-  .modal-actions,
-  .success-modal-actions,
-  .detail-topbar-actions,
-  .solution-detail-actions,
-  .documentation-preview-actions {
-    width: 100%;
-  }
-
-  .modal-actions > *,
-  .success-modal-actions > *,
-  .project-form-footer > *,
-  .account-actions-row > *,
-  .solution-detail-actions > *,
-  .documentation-preview-actions > * {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .reward-record-card,
-  .solution-offer-card {
-    gap: 16px;
-  }
-
-  .rewards-hero {
-    padding: 18px;
-  }
-
-  .rewards-overview-grid,
-  .rewards-bars-chart {
-    gap: 10px;
-  }
-
-  .rewards-trend-card {
-    padding: 16px;
-  }
-
-  .rewards-trend-stage {
-    min-height: 240px;
-  }
-
-  .rewards-trend-bubble {
-    top: 44px;
-    min-width: 132px;
-    padding: 10px 12px;
-  }
-
-  .rewards-donut-layout {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .rewards-filters-bar {
-    padding: 0;
-  }
-
-  .rewards-hero-main strong {
-    font-size: clamp(32px, 8vw, 40px);
-  }
-
-  .rewards-summary-card,
-  .rewards-chart-card,
-  .rewards-action-strip {
-    padding: 16px;
-  }
-
-  .rewards-hero-stats,
-  .reward-record-facts {
-    grid-template-columns: 1fr;
-  }
-
-  .rewards-toolbar,
-  .reward-record-card,
-  .rewards-side-panel {
-    padding: 16px;
-  }
-
-  .projects-toolbar {
-    gap: 14px;
-  }
-
-  .projects-toolbar-row {
-    gap: 14px;
-  }
-
-  .projects-search-shell {
-    min-height: 54px;
-    padding: 0 14px;
-    border-radius: 16px;
-  }
-
-  .filter-pill {
-    padding: 10px 14px;
-  }
-
-  .project-list-row {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 18px 16px;
-  }
-
-  .project-list-cell,
-  .project-list-cell-main,
-  .project-list-cell-activity,
-  .project-list-cell-action {
-    grid-column: auto;
-  }
-
-  .project-list-cell-main strong {
-    font-size: 22px;
-  }
-
-  .solution-offer-card {
-    padding: 16px;
-    border-radius: 20px;
-  }
-
-  .solution-offer-media-column {
-    grid-template-rows: 180px;
-  }
-
-  .solution-offer-media {
-    height: 180px;
-  }
-
-  .solution-offer-main {
-    align-self: start;
-    gap: 12px;
-  }
-
-  .solution-offer-summary-copy strong {
-    font-size: 16px;
-  }
-
-  .solution-offer-main h3 {
-    font-size: 24px;
-  }
-
-  .solution-offer-spec strong {
-    font-size: 16px;
-  }
-
-  .solution-offer-reward {
-    padding: 14px 16px;
-    border-radius: 18px;
-  }
-
-  .solution-detail-modal {
-    height: min(920px, calc(100vh - 24px));
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .solution-detail-modal-head h2 {
-    font-size: 30px;
-  }
-
-  .solution-detail-price-card strong {
-    font-size: 24px;
-  }
-
-  .solution-detail-stage {
-    min-height: 0;
-  }
-
-  .documentation-card,
-  .documentation-preview-frame,
-  .solution-preview-frame {
-    padding: 14px;
-    border-radius: 18px;
-  }
-
-  .documentation-preview-meta-grid div {
-    padding: 12px 14px;
-  }
-
-  .project-picker-overlay,
-  .modal-overlay {
-    padding: 12px;
-  }
-
-  .project-picker-card,
-  .modal-card {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .wizard-stage {
-    min-height: auto;
-  }
-
-  .solution-doc-drawer {
-    padding: 16px;
-  }
-
-  .solution-doc-drawer-code {
-    font-size: 20px;
   }
 }

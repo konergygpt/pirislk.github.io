@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260405-71" />
+    <link rel="stylesheet" href="./styles.css?v=20260412-19" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -183,15 +183,187 @@
           </div>
         </header>
 
-        <section class="account-page-shell">
-          <article class="panel project-form-panel">
-            <div class="account-panel-head">
-              <div>
-                <h3>Раздел в подготовке</h3>
-                <p>Страницу FAQ добавили в структуру кабинета. Наполнение сделаем отдельным шагом.</p>
-              </div>
+        <section class="faq-shell">
+          <article class="panel faq-intro-panel">
+            <p class="eyebrow">Для проектировщиков</p>
+            <div class="faq-intro-copy">
+              <h3>Короткие ответы по работе с PIRIS</h3>
+              <p>
+                Собрали основные вопросы по регистрации проектов, подбору типовых решений,
+                проверке и выплатам. Формат намеренно простой: вопрос и короткий ответ, без
+                лишних кликов и длинных инструкций.
+              </p>
             </div>
           </article>
+
+          <section class="faq-section panel">
+            <div class="faq-section-head">
+              <span class="faq-section-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M10 3.5L16 6.5V9.5C16 13.1 13.48 16.42 10 17.2C6.52 16.42 4 13.1 4 9.5V6.5L10 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M7.5 9.75L9.2 11.45L12.7 7.95" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="eyebrow">Начало работы</p>
+            </div>
+
+            <div class="faq-list">
+              <article class="faq-item">
+                <h4>Кто может зарегистрироваться в личном кабинете PIRIS?</h4>
+                <p>
+                  Личный кабинет рассчитан на проектировщиков, которые закладывают типовые
+                  решения PIRIS в свои проекты. После регистрации вы получаете доступ к каталогу,
+                  проектам, статусам проверки и информации по выплатам.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Что даёт проектировщику личный кабинет?</h4>
+                <p>
+                  В кабинете можно зарегистрировать проект, подобрать типовое решение, посмотреть
+                  документацию, отследить статус проверки и увидеть сумму по подтверждённым
+                  проектам.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Что нужно сделать, чтобы начать работу?</h4>
+                <p>
+                  Сначала зарегистрируйтесь и заполните основные данные профиля. После этого можно
+                  переходить к регистрации проекта и подбору решений PIRIS под конкретный объект.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="faq-section panel">
+            <div class="faq-section-head">
+              <span class="faq-section-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M3.75 5.75H16.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M3.75 10H16.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M3.75 14.25H10.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="14.25" cy="14.25" r="2" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </span>
+              <p class="eyebrow">Проекты и решения</p>
+            </div>
+
+            <div class="faq-list">
+              <article class="faq-item">
+                <h4>Как зарегистрировать проект?</h4>
+                <p>
+                  Откройте раздел с проектами и создайте новую карточку проекта. Укажите основные
+                  данные по объекту и добавьте решения PIRIS, которые планируете заложить.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Какие данные нужны для регистрации проекта?</h4>
+                <p>
+                  Обычно достаточно названия объекта, заказчика, города и состава решений PIRIS.
+                  Если по проекту потребуется уточнение, мы отдельно подскажем, чего не хватает.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Можно ли добавить в один проект несколько решений PIRIS?</h4>
+                <p>
+                  Да, в одном проекте можно указать сразу несколько решений. Это удобно, если на
+                  объекте используются разные типы шкафов и распределительных решений PIRIS.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Где посмотреть состав типового решения и документацию?</h4>
+                <p>
+                  В каталоге решений доступна карточка каждого типового решения. Там можно
+                  посмотреть состав, основные параметры и комплект документации для закладки в
+                  проект.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Что означает статус «На проверке»?</h4>
+                <p>
+                  Это значит, что проект уже отправлен и находится у нас на проверке. На этом этапе
+                  дополнительные действия от вас обычно не нужны.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Что означает статус «Требует уточнения»?</h4>
+                <p>
+                  По проекту не хватает данных или документов для подтверждения. Посмотрите
+                  комментарий в карточке проекта и загрузите то, что мы запросили.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Что делать, если по проекту запросили уточнение?</h4>
+                <p>
+                  Откройте проект, проверьте замечание и добавьте недостающие материалы. После
+                  этого проект можно снова отправить на проверку.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="faq-section panel">
+            <div class="faq-section-head">
+              <span class="faq-section-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <rect x="3.75" y="4.25" width="12.5" height="11.5" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M6.75 10H9.25L10.25 8L11.75 12L12.75 10H14.25" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="eyebrow">Проверка и выплаты</p>
+            </div>
+
+            <div class="faq-list">
+              <article class="faq-item">
+                <h4>Как считается вознаграждение?</h4>
+                <p>
+                  Сумма зависит от состава решений PIRIS, которые подтверждены в проекте. Итоговая
+                  выплата отображается в кабинете после проверки проекта.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Когда проект попадает в реестр выплат?</h4>
+                <p>
+                  После подтверждения проект переходит на следующий этап обработки и попадает в
+                  ближайший реестр выплат. Точный статус всегда можно посмотреть в карточке проекта.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Почему выплата может задержаться?</h4>
+                <p>
+                  Чаще всего задержка связана с неполными данными по проекту или необходимостью
+                  дополнительной проверки. Если потребуется действие с вашей стороны, это будет
+                  видно в статусе проекта.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>Где посмотреть историю проектов и выплат?</h4>
+                <p>
+                  История проектов доступна в разделе «Проекты», а подтверждённые суммы и этапы
+                  выплат можно посмотреть в разделе «Статистика».
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h4>К кому обращаться, если возник вопрос по проекту или документации?</h4>
+                <p>
+                  Если ответ не нашёлся в кабинете, ориентируйтесь на комментарии и статусы внутри
+                  проекта. По нестандартным вопросам лучше сразу писать в поддержку через ваш
+                  рабочий канал связи с командой PIRIS.
+                </p>
+              </article>
+            </div>
+          </section>
         </section>
       </main>
     </div>
