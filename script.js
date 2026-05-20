@@ -1,7 +1,7 @@
 const navLinks = document.querySelectorAll(".nav-link");
 const screenLinks = document.querySelectorAll("[data-screen-link]");
 const screens = document.querySelectorAll(".screen");
-const authPage = document.querySelector(".auth-page[data-role]");
+const authPage = document.querySelector(".auth-page[data-role], .partner-auth-page[data-role]");
 const roleButtons = document.querySelectorAll(".role-toggle-button[data-role]");
 const reasonSets = document.querySelectorAll(".reason-set[data-role-content]");
 const modalOverlay = document.querySelector("#profile-onboarding");

@@ -3,101 +3,319 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PIRIS - Вход в личный кабинет</title>
+    <title>PIRIS - партнёрская платформа для проектировщиков НКУ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260412-16" />
+    <link rel="stylesheet" href="./styles.css?v=20260520-01" />
   </head>
   <body>
-    <main class="auth-page auth-page-minimal" data-role="designer">
-      <section class="auth-showcase">
-        <div class="auth-showcase-top">
-          <a class="brand-link" href="./index.html">
-            <img
-              class="brand-logo auth-brand-logo"
-              src="./assets/logo-piris.png"
-              alt="PIRIS"
-            />
+    <main class="partner-auth-page piris-landing" data-role="designer">
+      <header class="piris-landing-nav">
+        <a class="brand-link" href="./index.html" aria-label="PIRIS">
+          <img
+            class="brand-logo auth-brand-logo"
+            src="./assets/logo-piris.png"
+            alt="PIRIS"
+          />
+        </a>
+
+        <nav class="piris-landing-links" aria-label="Навигация по странице">
+          <a href="#how-it-works">Как работает</a>
+          <a href="#payments">Выплаты</a>
+          <a href="#inside">Кабинет</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="piris-landing-nav-actions">
+          <a class="text-link" href="#login">Войти</a>
+          <a class="primary-button auth-link-button" href="./register.html">
+            Создать аккаунт
           </a>
         </div>
+      </header>
 
-        <div class="auth-reasons">
-          <div class="reason-stage">
-            <div class="reason-set active" data-role-content="designer">
-              <article class="reason-item">
-                <span class="reason-index">01</span>
-                <strong>Готовая база документации</strong>
-              </article>
-              <article class="reason-item">
-                <span class="reason-index">02</span>
-                <strong>Вознаграждения</strong>
-              </article>
-              <article class="reason-item">
-                <span class="reason-index">03</span>
-                <strong>Инженерная поддержка</strong>
-              </article>
-            </div>
+      <section class="piris-hero">
+        <div class="piris-hero-copy">
+          <p class="piris-eyebrow">Партнёрская платформа для проектировщиков НКУ</p>
+          <h1>Проектируйте быстрее и зарабатывайте с PIRIS</h1>
+          <p class="piris-hero-lead">
+            Готовые решения НКУ, документация, сметная стоимость и фиксированные
+            выплаты за решения, прошедшие экспертизу.
+          </p>
 
-            <div class="reason-set" data-role-content="client">
-              <article class="reason-item">
-                <span class="reason-index">01</span>
-                <strong>Дополнительные скидки</strong>
-              </article>
-              <article class="reason-item">
-                <span class="reason-index">02</span>
-                <strong>Приоритетная техподдержка</strong>
-              </article>
-              <article class="reason-item">
-                <span class="reason-index">03</span>
-                <strong>История заказов и документов</strong>
-              </article>
-            </div>
+          <div class="piris-hero-actions">
+            <a class="primary-button auth-link-button" href="./register.html">
+              Создать аккаунт проектировщика
+            </a>
+            <a class="secondary-button auth-link-button" href="#how-it-works">
+              Посмотреть как работает
+            </a>
+          </div>
+
+          <div class="piris-value-chips" aria-label="Ключевые возможности">
+            <span>Документация</span>
+            <span>Выплаты после экспертизы</span>
+            <span>Инженерная поддержка</span>
           </div>
         </div>
 
-        <div class="auth-showcase-copy">
-          <h1>Вход в личный кабинет</h1>
-          <p class="auth-lead compact">
-            Один аккаунт для покупателей и проектировщиков.
-          </p>
+        <div class="piris-product-stage" aria-label="Превью личного кабинета PIRIS">
+          <div class="piris-dashboard-preview">
+            <div class="piris-preview-sidebar">
+              <span class="piris-preview-logo">PIRIS</span>
+              <span class="active">Дашборд</span>
+              <span>Проекты</span>
+              <span>Каталог</span>
+              <span>Выплаты</span>
+            </div>
+
+            <div class="piris-preview-main">
+              <div class="piris-preview-topline">
+                <div>
+                  <span>Личный кабинет</span>
+                  <strong>Платформа проектировщика</strong>
+                </div>
+                <a class="primary-button auth-link-button" href="./register.html">
+                  Зарегистрировать проект
+                </a>
+              </div>
+
+              <div class="piris-preview-metrics">
+                <article>
+                  <span>К выплате</span>
+                  <strong>12 000 ₽</strong>
+                </article>
+                <article>
+                  <span>На проверке</span>
+                  <strong>3 проекта</strong>
+                </article>
+                <article>
+                  <span>Типовые АВР</span>
+                  <strong>3 305</strong>
+                </article>
+              </div>
+
+              <div class="piris-preview-grid">
+                <article class="piris-preview-projects">
+                  <div class="piris-preview-card-head">
+                    <strong>Мои проекты</strong>
+                    <span class="status-chip info">На проверке</span>
+                  </div>
+                  <div class="piris-preview-row">
+                    <span>БЦ «Север»</span>
+                    <strong>АВР-PRS-250</strong>
+                  </div>
+                  <div class="piris-preview-row">
+                    <span>ЖК «Речной»</span>
+                    <strong>ВРУ-PRS-630</strong>
+                  </div>
+                </article>
+
+                <article class="piris-preview-rewards">
+                  <span>Вознаграждения</span>
+                  <strong>5 000 ₽</strong>
+                  <small>ГРЩ · подтвержден</small>
+                </article>
+
+                <article class="piris-preview-catalog">
+                  <div class="piris-preview-card-head">
+                    <strong>Каталог решений</strong>
+                    <span>НКУ</span>
+                  </div>
+                  <div class="piris-catalog-tags">
+                    <span>АВР</span>
+                    <span>ВРУ</span>
+                    <span>ГРЩ</span>
+                    <span>ШУН</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <aside class="landing-login-card" id="login" aria-label="Вход в кабинет">
+            <div class="auth-card-head">
+              <p class="eyebrow">Авторизация</p>
+              <h2>Вход в кабинет</h2>
+            </div>
+
+            <div class="role-toggle" aria-label="Выбор роли">
+              <button class="role-toggle-button active" type="button" data-role="designer">Проектировщик</button>
+              <button class="role-toggle-button" type="button" data-role="client">Покупатель</button>
+            </div>
+
+            <form class="auth-form minimal-form">
+              <label>
+                E-mail
+                <input type="email" placeholder="name@company.ru" />
+              </label>
+              <label>
+                Пароль
+                <input type="password" placeholder="Введите пароль" />
+              </label>
+
+              <a href="./home.html" class="primary-button auth-button auth-link-button">
+                Войти
+              </a>
+            </form>
+
+            <div class="auth-card-footer">
+              <a class="text-link dark-link" href="./register.html">Создать аккаунт</a>
+              <a class="text-link dark-link muted-link" href="./forgot-password.html">Забыли пароль?</a>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section class="auth-card-shell">
-        <div class="auth-card-minimal">
-          <div class="auth-card-head">
-            <p class="eyebrow">Авторизация</p>
-          </div>
-
-          <div class="role-toggle" aria-label="Выбор роли">
-            <button class="role-toggle-button" type="button" data-role="client">Покупатель</button>
-            <button class="role-toggle-button active" type="button" data-role="designer">Проектировщик</button>
-          </div>
-
-          <form class="auth-form minimal-form">
-            <label>
-              E-mail
-              <input type="email" placeholder="name@company.ru" />
-            </label>
-            <label>
-              Пароль
-              <input type="password" placeholder="Введите пароль" />
-            </label>
-
-            <a href="./home.html" class="primary-button auth-button auth-link-button">
-              Войти
-            </a>
-          </form>
-
-          <div class="auth-card-footer">
-            <a class="text-link dark-link" href="./register.html">Создать аккаунт</a>
-            <a class="text-link dark-link muted-link" href="./forgot-password.html">Забыли пароль?</a>
-          </div>
+      <section class="piris-section piris-flow-section" id="how-it-works">
+        <div class="piris-section-head">
+          <span>Процесс</span>
+          <h2>От типового решения до выплаты</h2>
         </div>
+
+        <div class="piris-flow-grid">
+          <article>
+            <span>01</span>
+            <strong>Выберите решение</strong>
+            <p>АВР, ВРУ, ГРЩ или шкаф управления.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>Используйте в проекте</strong>
+            <p>Документация, схемы и сметная стоимость.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Зарегистрируйте проект</strong>
+            <p>Объект, стадия и артикулы за 2–3 минуты.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Получите выплату</strong>
+            <p>После экспертизы / стадии Р.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="piris-section piris-split-section" id="payments">
+        <div class="piris-section-head">
+          <span>Выплаты</span>
+          <h2>Фиксированные суммы за подтверждённые решения</h2>
+        </div>
+
+        <div class="piris-payout-card">
+          <div class="piris-payout-list">
+            <div>
+              <span>Шкаф АВР</span>
+              <strong>2 000 ₽</strong>
+            </div>
+            <div>
+              <span>ВРУ</span>
+              <strong>3 000 ₽</strong>
+            </div>
+            <div>
+              <span>ГРЩ</span>
+              <strong>5 000 ₽</strong>
+            </div>
+          </div>
+          <p>1 уникальный артикул = 1 выплата. Начисление после подтверждения проектного решения.</p>
+        </div>
+      </section>
+
+      <section class="piris-section" id="inside">
+        <div class="piris-section-head">
+          <span>Кабинет</span>
+          <h2>Внутри всё, что нужно проектировщику</h2>
+        </div>
+
+        <div class="piris-inside-grid">
+          <article>
+            <strong>Каталог решений</strong>
+            <p>Типовые НКУ и материалы для проекта.</p>
+          </article>
+          <article>
+            <strong>Мои проекты</strong>
+            <p>Статусы, объекты и добавленные артикулы.</p>
+          </article>
+          <article>
+            <strong>Документация</strong>
+            <p>PDF, схемы, спецификации, опросные листы.</p>
+          </article>
+          <article>
+            <strong>Выплаты</strong>
+            <p>Суммы, начисления и история выплат.</p>
+          </article>
+          <article>
+            <strong>Диалог с инженером</strong>
+            <p>Уточнения внутри карточки проекта.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="piris-section piris-proof-section">
+        <div class="piris-section-head">
+          <span>PIRIS</span>
+          <h2>Почему это работает</h2>
+        </div>
+
+        <div class="piris-proof-grid">
+          <article>
+            <strong>15 лет в НКУ</strong>
+            <p>АВР, ВРУ, ГРЩ и шкафы управления для реальных объектов.</p>
+          </article>
+          <article>
+            <strong>Готовые решения</strong>
+            <p>Меньше ручной сборки документации и повторной работы.</p>
+          </article>
+          <article>
+            <strong>От проекта до закупки</strong>
+            <p>Заложенное решение превращается в конкретное КП по оборудованию.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="piris-section piris-faq-section" id="faq">
+        <div class="piris-section-head">
+          <span>FAQ</span>
+          <h2>Коротко о правилах</h2>
+        </div>
+
+        <div class="piris-faq-list">
+          <details>
+            <summary>Когда начисляется выплата?</summary>
+            <p>После подтверждения, что решение PIRIS прошло экспертизу / стадию Р.</p>
+          </details>
+          <details>
+            <summary>Выплата зависит от закупки?</summary>
+            <p>Нет. Выплата начисляется за подтверждённое проектное решение.</p>
+          </details>
+          <details>
+            <summary>Сколько занимает регистрация проекта?</summary>
+            <p>Обычно 2–3 минуты. Проект можно сохранить как черновик.</p>
+          </details>
+          <details>
+            <summary>Можно работать от проектной компании?</summary>
+            <p>Да. Формат участия и реквизиты указываются в кабинете.</p>
+          </details>
+          <details>
+            <summary>Где проходят уточнения?</summary>
+            <p>Внутри проекта есть диалог с инженерами PIRIS.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="piris-final-cta">
+        <div>
+          <h2>Начните с первого проекта</h2>
+          <p>Получите доступ к типовым решениям, документации и регистрации проектов.</p>
+        </div>
+        <a class="primary-button auth-link-button" href="./register.html">
+          Создать аккаунт проектировщика
+        </a>
       </section>
     </main>
     <script src="./script.js?v=20260405-40"></script>
