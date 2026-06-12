@@ -2843,3 +2843,74 @@ function setupSolutionsCatalog() {
 }
 
 setupSolutionsCatalog();
+
+function setupLandingScrollHero() {
+  const hero = document.querySelector("[data-landing-scroll-hero]");
+
+  if (!hero) {
+    return;
+  }
+
+  const steps = Array.from(hero.querySelectorAll("[data-landing-hero-step]"));
+  const cards = Array.from(hero.querySelectorAll("[data-landing-hero-card]"));
+
+  if (!steps.length) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let isTicking = false;
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function setActiveStep(activeIndex) {
+    steps.forEach((step, index) => {
+      step.classList.toggle("is-active", index === activeIndex);
+    });
+
+    cards.forEach((card, index) => {
+      card.classList.toggle("is-active", index === activeIndex);
+    });
+  }
+
+  function updateHero() {
+    const heroRect = hero.getBoundingClientRect();
+    const scrollableDistance = Math.max(hero.offsetHeight - window.innerHeight, 1);
+    const progress = clamp(-heroRect.top / scrollableDistance, 0, 1);
+    const rawStep = progress * (steps.length - 1);
+    const activeIndex = clamp(Math.round(rawStep), 0, steps.length - 1);
+
+    hero.style.setProperty("--landing-hero-progress", progress.toFixed(4));
+    setActiveStep(activeIndex);
+
+    if (!prefersReducedMotion) {
+      steps.forEach((step, index) => {
+        const distance = index - rawStep;
+        const opacity = clamp(1 - Math.abs(distance) * 1.65, 0, 1);
+        const translateX = distance * 110;
+
+        step.style.opacity = opacity.toFixed(3);
+        step.style.transform = `translate3d(${translateX}%, 0, 0)`;
+      });
+    }
+
+    isTicking = false;
+  }
+
+  function requestHeroUpdate() {
+    if (isTicking) {
+      return;
+    }
+
+    isTicking = true;
+    window.requestAnimationFrame(updateHero);
+  }
+
+  window.addEventListener("scroll", requestHeroUpdate, { passive: true });
+  window.addEventListener("resize", requestHeroUpdate);
+  updateHero();
+}
+
+setupLandingScrollHero();

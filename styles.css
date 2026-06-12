@@ -3334,6 +3334,554 @@ textarea {
   white-space: nowrap;
 }
 
+/* Landing rebuild: workflow-first B2B positioning. */
+.piris-landing {
+  min-width: 1180px;
+  padding: 18px 28px 46px;
+  background:
+    linear-gradient(180deg, #eef7f1 0%, #f8fbf8 34%, #eef6f2 100%);
+}
+
+.piris-landing-nav,
+.piris-hero,
+.piris-section,
+.piris-final-cta {
+  width: 100%;
+  max-width: 1680px;
+}
+
+.piris-landing-links {
+  gap: 6px;
+}
+
+.piris-landing-nav .auth-brand-logo {
+  width: 124px;
+}
+
+.piris-landing-nav {
+  position: sticky;
+  top: 18px;
+  z-index: 60;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border: 1px solid rgba(17, 120, 93, 0.08);
+  border-radius: 18px;
+  background: rgba(247, 251, 248, 0.82);
+  box-shadow: 0 16px 36px rgba(17, 40, 31, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.piris-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.piris-login-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
+
+.piris-hero {
+  grid-template-columns: minmax(520px, 0.92fr) minmax(520px, 1.08fr);
+  gap: 34px;
+  min-height: 610px;
+  padding: 46px;
+  background:
+    linear-gradient(135deg, rgba(9, 24, 18, 0.99) 0%, rgba(13, 48, 37, 0.98) 50%, rgba(225, 244, 236, 0.94) 50%, rgba(249, 252, 250, 0.98) 100%);
+}
+
+.piris-hero-copy h1 {
+  max-width: 780px;
+  font-size: 56px;
+  line-height: 1.08;
+}
+
+.piris-hero-lead {
+  max-width: 740px;
+  color: rgba(243, 250, 247, 0.86);
+  font-size: 17px;
+}
+
+.piris-hero-actions {
+  margin-bottom: 18px;
+}
+
+.piris-hero-login {
+  color: rgba(243, 250, 247, 0.82);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.piris-hero-login:hover {
+  color: #ffffff;
+}
+
+.piris-value-chips {
+  max-width: 740px;
+}
+
+.piris-dashboard-screenshot {
+  width: min(100%, 820px);
+  border-radius: 22px;
+}
+
+.piris-dashboard-screenshot img {
+  width: 112%;
+}
+
+.piris-scroll-hero {
+  display: block;
+  min-height: 420vh;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+.piris-scroll-hero::before {
+  display: none;
+}
+
+.piris-scroll-hero-sticky {
+  position: sticky;
+  top: 18px;
+  display: grid;
+  grid-template-columns: minmax(560px, 1fr) minmax(380px, 0.58fr);
+  gap: 42px;
+  align-items: center;
+  min-height: calc(100vh - 36px);
+  padding: 48px;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(9, 24, 18, 0.99) 0%, rgba(13, 48, 37, 0.98) 54%, rgba(225, 244, 236, 0.94) 54%, rgba(249, 252, 250, 0.98) 100%);
+  box-shadow: 0 40px 96px rgba(9, 26, 19, 0.24);
+  overflow: hidden;
+}
+
+.piris-scroll-hero-sticky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(116, 232, 196, 0.11), transparent 34%),
+    radial-gradient(circle at 58% 18%, rgba(116, 232, 196, 0.2), transparent 28%);
+  pointer-events: none;
+}
+
+.piris-scroll-hero-copy,
+.piris-scroll-hero-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.piris-scroll-hero .piris-scroll-title {
+  position: relative;
+  max-width: 900px;
+  min-height: 250px;
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: 70px;
+  line-height: 1.04;
+  letter-spacing: 0;
+  overflow: visible;
+}
+
+.piris-scroll-hero .piris-scroll-title-step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  max-width: 900px;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.piris-scroll-hero .piris-scroll-title-step.is-active {
+  opacity: 1;
+}
+
+.piris-scroll-hero .piris-hero-lead {
+  max-width: 760px;
+}
+
+.piris-scroll-hero-panel {
+  display: grid;
+  gap: 12px;
+  align-self: stretch;
+  align-content: center;
+}
+
+.piris-scroll-progress {
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  width: 3px;
+  height: min(360px, 60vh);
+  border-radius: 999px;
+  background: rgba(17, 120, 93, 0.14);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.piris-scroll-progress span {
+  display: block;
+  width: 100%;
+  height: calc(var(--landing-hero-progress, 0) * 100%);
+  border-radius: inherit;
+  background: var(--brand);
+}
+
+.piris-scroll-card {
+  padding: 22px;
+  border: 1px solid rgba(17, 120, 93, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 16px 38px rgba(17, 40, 31, 0.08);
+  opacity: 0.46;
+  transform: translateX(18px);
+  transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.piris-scroll-card.is-active {
+  border-color: rgba(17, 120, 93, 0.2);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.piris-scroll-card span {
+  color: var(--brand-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.piris-scroll-card strong {
+  display: block;
+  margin: 10px 0 8px;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1.18;
+}
+
+.piris-scroll-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .piris-scroll-hero {
+    min-height: auto;
+  }
+
+  .piris-scroll-hero-sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .piris-scroll-title {
+    display: grid;
+    gap: 10px;
+    min-height: auto;
+  }
+
+  .piris-scroll-title-step {
+    position: static;
+    opacity: 1;
+    transform: none !important;
+  }
+}
+
+.piris-section {
+  margin-top: 34px;
+  padding: 48px 28px;
+}
+
+.piris-section-head {
+  max-width: 920px;
+  margin-bottom: 26px;
+}
+
+.piris-section-head h2 {
+  max-width: 900px;
+  font-size: 40px;
+  line-height: 1.12;
+}
+
+.piris-section-head p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.piris-problem-layout,
+.piris-solution-layout,
+.piris-economy-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.78fr) minmax(560px, 1.22fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.piris-problem-copy,
+.piris-solution-copy,
+.piris-economy-main,
+.piris-economy-aside {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.piris-problem-copy p,
+.piris-solution-copy p,
+.piris-economy-main p,
+.piris-economy-aside p {
+  margin-bottom: 14px;
+  color: #38534a;
+}
+
+.piris-problem-copy p:last-child,
+.piris-solution-copy p:last-child,
+.piris-economy-main p:last-child,
+.piris-economy-aside p:last-child {
+  margin-bottom: 0;
+}
+
+.piris-problem-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(17, 120, 93, 0.12);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(17, 40, 31, 0.07);
+  list-style: none;
+}
+
+.piris-problem-list li {
+  position: relative;
+  min-height: 58px;
+  padding: 18px 22px 18px 48px;
+  border-bottom: 1px solid rgba(17, 120, 93, 0.08);
+  color: #28463c;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.piris-problem-list li:last-child {
+  border-bottom: 0;
+}
+
+.piris-problem-list li::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 23px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand);
+}
+
+.piris-solution-section,
+.piris-economy-section {
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(30, 170, 132, 0.08), rgba(255, 255, 255, 0.9) 42%),
+    #ffffff;
+  box-shadow: 0 24px 64px rgba(17, 40, 31, 0.08);
+}
+
+.piris-module-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.piris-module-list div,
+.piris-role-grid article,
+.piris-flow-grid article,
+.piris-inside-grid article,
+.piris-proof-grid article {
+  border: 1px solid rgba(17, 120, 93, 0.1);
+  border-radius: 18px;
+  background: #fbfdfb;
+}
+
+.piris-module-list div {
+  padding: 20px;
+}
+
+.piris-module-list span,
+.piris-role-grid span,
+.piris-flow-grid span {
+  color: var(--brand-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.piris-module-list strong,
+.piris-role-grid h3,
+.piris-flow-grid strong,
+.piris-inside-grid strong,
+.piris-proof-grid strong {
+  display: block;
+  margin: 10px 0 8px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.piris-module-list p,
+.piris-role-grid p,
+.piris-flow-grid p,
+.piris-inside-grid p,
+.piris-proof-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.piris-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.piris-role-grid article {
+  min-height: 230px;
+  padding: 22px;
+}
+
+.piris-economy-main {
+  padding: 26px;
+  border-left: 4px solid var(--brand);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.piris-economy-aside {
+  padding: 26px;
+  border-radius: 22px;
+  background: #10211b;
+  color: #ffffff;
+}
+
+.piris-economy-aside strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.piris-economy-aside p {
+  color: rgba(243, 250, 247, 0.78);
+}
+
+.piris-flow-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.piris-flow-grid article {
+  min-height: 210px;
+  padding: 22px;
+}
+
+.piris-inside-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.piris-inside-grid article {
+  min-height: 172px;
+  padding: 18px;
+}
+
+.piris-inside-grid strong {
+  font-size: 16px;
+}
+
+.piris-inside-grid p {
+  font-size: 13px;
+}
+
+.piris-split-section {
+  grid-template-columns: minmax(420px, 0.82fr) minmax(560px, 1.18fr);
+  padding: 48px;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(30, 170, 132, 0.12), rgba(255, 255, 255, 0.92) 44%),
+    #ffffff;
+  box-shadow: 0 24px 64px rgba(17, 40, 31, 0.08);
+}
+
+.piris-payout-card {
+  grid-template-columns: minmax(240px, 0.82fr) minmax(320px, 1.18fr);
+}
+
+.piris-proof-section {
+  padding: 48px;
+  border-radius: 28px;
+}
+
+.piris-proof-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.piris-proof-wide {
+  grid-column: span 2;
+}
+
+.piris-proof-grid article {
+  padding: 22px;
+}
+
+.piris-proof-grid article,
+.piris-proof-grid strong {
+  color: #ffffff;
+}
+
+.piris-faq-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.piris-faq-list details {
+  background: #ffffff;
+}
+
+.piris-faq-list summary {
+  min-height: 84px;
+}
+
+.piris-final-cta {
+  margin-top: 34px;
+  padding: 34px;
+  border-radius: 28px;
+}
+
+.piris-final-cta h2 {
+  max-width: 780px;
+}
+
 .empty-panel {
   min-height: 220px;
 }
