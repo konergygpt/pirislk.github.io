@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260612-06" />
+    <link rel="stylesheet" href="./index-page/index.css?v=20260613-05" />
   </head>
   <body>
     <main class="partner-auth-page piris-landing" data-role="designer">
@@ -35,11 +35,30 @@
         </div>
       </header>
 
-      <section class="piris-hero piris-scroll-hero" data-landing-scroll-hero>
+      <section class="piris-entry-hero" aria-labelledby="piris-entry-title">
+        <div class="piris-entry-hero-inner">
+          <h1 id="piris-entry-title">Личный кабинет для проектировщиков</h1>
+          <p class="piris-typing-line" aria-label="Возможности личного кабинета">
+            <span data-piris-typing>готовые решения НКУ</span>
+          </p>
+          <p class="piris-entry-lead">
+            Рабочая среда, где проектировщик быстрее находит готовые решения,
+            берёт документацию в проект и держит связь с инженерами PIRIS.
+          </p>
+        </div>
+
+        <a class="piris-scroll-cue" href="#value" aria-label="Прокрутить вниз">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5V19" />
+            <path d="M6 13L12 19L18 13" />
+          </svg>
+        </a>
+      </section>
+
+      <section class="piris-hero piris-scroll-hero" id="value" data-landing-scroll-hero>
         <div class="piris-scroll-hero-sticky">
           <div class="piris-hero-copy piris-scroll-hero-copy">
-            <p class="piris-eyebrow">Рабочая платформа для проектировщиков НКУ</p>
-            <h1
+            <h2
               class="piris-scroll-title"
               aria-label="Проектируйте НКУ быстрее. Выпускайте больше проектов. Зарабатывайте вместе с PIRIS."
             >
@@ -52,19 +71,13 @@
               <span class="piris-scroll-title-step" data-landing-hero-step>
                 Зарабатывайте вместе с PIRIS
               </span>
-            </h1>
+            </h2>
             <p class="piris-hero-lead">
               PIRIS — платформа готовых решений НКУ для проектировщиков и проектных компаний.
               Используйте проверенные шкафы АВР, ВРУ, ГРЩ и шкафы управления в своей
               документации, получайте готовые материалы для проекта и фиксированное
               вознаграждение после прохождения экспертизы / стадии Р.
             </p>
-
-            <div class="piris-value-chips" aria-label="Ключевые возможности">
-              <span>Готовые решения АВР, ВРУ, ГРЩ, ШУН</span>
-              <span>Документация и инженерная поддержка</span>
-              <span>Выплаты за подтверждённые решения</span>
-            </div>
           </div>
 
           <aside class="piris-scroll-hero-panel" aria-label="Слои ценности PIRIS">
@@ -90,25 +103,32 @@
       <section class="piris-section piris-problem-section" id="problem">
         <div class="piris-section-head">
           <span>Проблема</span>
-          <h2>Проектирование НКУ забирает слишком много инженерного времени</h2>
+          <h2>После проектирования НКУ нужно ещё доказать стоимость решения</h2>
         </div>
 
         <div class="piris-problem-layout">
           <div class="piris-problem-copy">
             <p>
-              Типовые шкафы часто проектируются по похожей логике, но каждый раз
-              требуют ручной сборки решений, поиска материалов и технических уточнений.
-              В итоге команда тратит ресурс не на инженерную задачу, а на повторяющуюся
-              подготовку документации.
+              Проектировщик может уже собрать технически корректное решение по ВРУ,
+              АВР, ГРЩ или шкафу управления, но для принятия проекта заказчику часто
+              нужен ориентир по стоимости. В этот момент инженер вынужден идти к
+              производителям и запрашивать расчёт.
+            </p>
+            <p>
+              Для производителя такой запрос не всегда приоритетен: проектировщик
+              не принимает решение о закупке, а значит расчёт может превратиться
+              в работу без гарантии заказа. В итоге проектировщик остаётся между
+              готовым техническим решением и коммерческой частью, которую сложно
+              быстро подтвердить.
             </p>
           </div>
 
           <ul class="piris-problem-list">
-            <li>приходится собирать решения с нуля;</li>
-            <li>искать схемы, спецификации и опросные листы;</li>
-            <li>уточнять параметры у производителей;</li>
-            <li>согласовывать спорные технические решения;</li>
-            <li>после выпуска проекта снабжение всё равно ищет аналоги и ломает проектную логику.</li>
+            <li>нужно указать стоимость шкафа, чтобы заказчик мог принять проект;</li>
+            <li>приходится запрашивать расчёты у производителей вручную;</li>
+            <li>производители часто не хотят считать проект без понятной закупки;</li>
+            <li>сметная часть тормозит выпуск уже готового технического решения;</li>
+            <li>после выпуска проекта снабжение всё равно может заменить заложенное оборудование аналогами.</li>
           </ul>
         </div>
       </section>
@@ -134,25 +154,108 @@
 
           <div class="piris-module-list" aria-label="Что входит в готовое решение PIRIS">
             <div>
-              <span>01</span>
               <strong>Артикул и параметры</strong>
               <p>Понятная идентификация решения для проекта и дальнейших уточнений.</p>
             </div>
             <div>
-              <span>02</span>
               <strong>Документация</strong>
-              <p>Схемы, спецификации, PDF и материалы, которые можно использовать в работе.</p>
+              <p>Принципиальные схемы, спецификации, габаритные чертежи и внешние виды.</p>
             </div>
             <div>
-              <span>03</span>
               <strong>Стоимость и поставка</strong>
               <p>Ориентир по сметной стоимости и привязка к реально поставляемому оборудованию.</p>
             </div>
             <div>
-              <span>04</span>
               <strong>Инженерная поддержка</strong>
-              <p>Уточнения по составу решений внутри проекта и в диалоге с командой PIRIS.</p>
+              <p>Прямой диалог с инженерами и менеджерами PIRIS в рамках проекта.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="piris-docs-section" data-piris-docs-showcase>
+        <div class="piris-docs-sticky">
+          <div class="piris-docs-copy">
+            <div class="piris-section-head">
+              <span>Документация</span>
+              <h2>Материалы, которые проектировщик может сразу брать в работу</h2>
+            </div>
+
+            <div class="piris-docs-caption-list" aria-live="polite">
+              <p class="is-active" data-piris-docs-caption>
+                Вот так выглядит габаритный чертёж: шкаф показан с размерами,
+                компоновкой и привязками, которые нужны для включения решения в проект.
+              </p>
+              <p data-piris-docs-caption>
+                Внешние виды помогают быстро понять исполнение шкафа, расположение
+                элементов и то, как решение будет выглядеть в составе объекта.
+              </p>
+              <p data-piris-docs-caption>
+                Принципиальные схемы уже подготовлены для работы проектировщика:
+                видны цепи, аппараты, логика подключения и основные электрические связи.
+              </p>
+              <p data-piris-docs-caption>
+                Дополнительные листы схем раскрывают детали решения, чтобы не собирать
+                документацию вручную из разрозненных источников.
+              </p>
+              <p data-piris-docs-caption>
+                Спецификация показывает состав оборудования и помогает быстро перенести
+                решение в проектную документацию.
+              </p>
+              <p data-piris-docs-caption>
+                Внутри карточки решения есть комплект материалов, который можно
+                использовать дальше в проекте, согласовании и закупке.
+              </p>
+            </div>
+
+            <div class="piris-docs-progress" aria-hidden="true">
+              <span></span>
+            </div>
+          </div>
+
+          <div class="piris-docs-stage" aria-label="Примеры документации PIRIS">
+            <figure class="is-active" data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/Габаритный чертеж.jpg"
+                alt="Большой пример габаритного чертежа решения PIRIS"
+              />
+              <figcaption>Габаритный чертёж</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/Внешние виды.jpg"
+                alt="Пример внешнего вида шкафа PIRIS"
+              />
+              <figcaption>Внешний вид</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/shema_1.jpg"
+                alt="Пример принципиальной схемы решения PIRIS"
+              />
+              <figcaption>Принципиальная схема</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/shema_2.jpg"
+                alt="Второй пример принципиальной схемы решения PIRIS"
+              />
+              <figcaption>Принципиальная схема</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/Спецификация.jpg"
+                alt="Пример спецификации решения PIRIS"
+              />
+              <figcaption>Спецификация</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/Спецификация_1.jpg"
+                alt="Второй пример спецификации решения PIRIS"
+              />
+              <figcaption>Спецификация</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -160,32 +263,24 @@
       <section class="piris-section piris-roles-section">
         <div class="piris-section-head">
           <span>Для кого</span>
-          <h2>Платформа полезна всей цепочке проектирования</h2>
+          <h2>Личный кабинет для проектировщиков и проектных команд</h2>
         </div>
 
-        <div class="piris-role-grid">
-          <article>
-            <span>Проектировщику</span>
-            <h3>Быстрее закрывать задачи</h3>
+        <div class="piris-role-grid" aria-label="Кому подходит личный кабинет PIRIS" data-piris-role-split>
+          <article class="piris-role-card piris-role-card-private" tabindex="0" data-piris-role-option="private">
+            <span>Частному проектировщику</span>
+            <h3>Быстрее собирать проектную часть</h3>
             <p>
-              Готовые материалы, меньше ручной сборки документации, поддержка инженеров
-              и фиксированная выплата за подтверждённые решения.
+              Готовые решения, документация и поддержка инженеров помогают быстрее
+              закрывать задачи по НКУ без ручного поиска схем и спецификаций.
             </p>
           </article>
-          <article>
+          <article class="piris-role-card piris-role-card-company" tabindex="0" data-piris-role-option="company">
             <span>Проектной компании</span>
-            <h3>Больше проектов на тех же ресурсах</h3>
+            <h3>Стандартизировать решения внутри команды</h3>
             <p>
-              Команда тратит меньше времени на повторяющиеся НКУ, быстрее выпускает
-              документацию и получает дополнительную маржу через выплаты.
-            </p>
-          </article>
-          <article>
-            <span>Заказчику</span>
-            <h3>Меньше неопределённости на закупке</h3>
-            <p>
-              В проекте появляются понятная стоимость, сроки, производитель и техническая
-              логика решения, которое можно произвести и отгрузить.
+              Единая база проработанных решений снижает количество повторной работы,
+              ускоряет выпуск документации и помогает команде вести больше проектов.
             </p>
           </article>
         </div>
@@ -409,6 +504,6 @@
         <a class="primary-button auth-link-button" href="./home.html">Войти в кабинет</a>
       </section>
     </main>
-    <script src="./script.js?v=20260612-02"></script>
+    <script src="./index-page/index.js?v=20260613-03"></script>
   </body>
 </html>
