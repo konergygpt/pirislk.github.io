@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./index-page/index.css?v=20260613-05" />
+    <link rel="stylesheet" href="./index-page/index.css?v=20260615-01" />
   </head>
   <body>
     <main class="partner-auth-page piris-landing" data-role="designer">
@@ -100,75 +100,35 @@
         </div>
       </section>
 
-      <section class="piris-section piris-problem-section" id="problem">
-        <div class="piris-section-head">
-          <span>Проблема</span>
-          <h2>После проектирования НКУ нужно ещё доказать стоимость решения</h2>
+      <section class="piris-base-section" id="base" data-piris-base-stats>
+        <div class="piris-base-copy">
+          <h2>Инженерная база PIRIS уже собрана внутри кабинета</h2>
+          <p>
+            Проектировщик заходит не в пустой каталог, а в рабочую базу типовых решений
+            НКУ: АВР, ВРУ, ГРЩ, ШУН, ШУЗ, ЩИБП, однофазные АВР и другие шкафы,
+            которые можно быстрее заложить в проект.
+          </p>
+          <p>
+            База постоянно растёт: каждую неделю команда PIRIS добавляет документацию
+            на новые решения, чтобы проектировщик быстрее закрывал и техническую,
+            и сметную часть проекта.
+          </p>
+
+          <div class="piris-base-update">
+            <span>Обновляется каждую неделю</span>
+            <strong>новые решения + рабочие файлы</strong>
+          </div>
         </div>
 
-        <div class="piris-problem-layout">
-          <div class="piris-problem-copy">
-            <p>
-              Проектировщик может уже собрать технически корректное решение по ВРУ,
-              АВР, ГРЩ или шкафу управления, но для принятия проекта заказчику часто
-              нужен ориентир по стоимости. В этот момент инженер вынужден идти к
-              производителям и запрашивать расчёт.
-            </p>
-            <p>
-              Для производителя такой запрос не всегда приоритетен: проектировщик
-              не принимает решение о закупке, а значит расчёт может превратиться
-              в работу без гарантии заказа. В итоге проектировщик остаётся между
-              готовым техническим решением и коммерческой частью, которую сложно
-              быстро подтвердить.
-            </p>
+        <div class="piris-base-data" aria-label="Масштаб инженерной базы PIRIS">
+          <div class="piris-base-main-stat">
+            <span data-piris-count="8000" data-piris-count-suffix="+">8 000+</span>
+            <p>типовых решений НКУ в базе PIRIS</p>
           </div>
 
-          <ul class="piris-problem-list">
-            <li>нужно указать стоимость шкафа, чтобы заказчик мог принять проект;</li>
-            <li>приходится запрашивать расчёты у производителей вручную;</li>
-            <li>производители часто не хотят считать проект без понятной закупки;</li>
-            <li>сметная часть тормозит выпуск уже готового технического решения;</li>
-            <li>после выпуска проекта снабжение всё равно может заменить заложенное оборудование аналогами.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="piris-section piris-solution-section">
-        <div class="piris-section-head">
-          <span>Решение PIRIS</span>
-          <h2>PIRIS закрывает разрыв между проектированием и поставкой</h2>
-        </div>
-
-        <div class="piris-solution-layout">
-          <div class="piris-solution-copy">
-            <p>
-              Проектировщик берёт не просто карточку товара, а готовый
-              инженерно-коммерческий модуль: артикул, параметры, документацию,
-              ориентир по стоимости и поддержку инженеров PIRIS.
-            </p>
-            <p>
-              Такое решение проще заложить в проект, согласовать внутри организации
-              и передать дальше по цепочке — от экспертизы до закупки.
-            </p>
-          </div>
-
-          <div class="piris-module-list" aria-label="Что входит в готовое решение PIRIS">
-            <div>
-              <strong>Артикул и параметры</strong>
-              <p>Понятная идентификация решения для проекта и дальнейших уточнений.</p>
-            </div>
-            <div>
-              <strong>Документация</strong>
-              <p>Принципиальные схемы, спецификации, габаритные чертежи и внешние виды.</p>
-            </div>
-            <div>
-              <strong>Стоимость и поставка</strong>
-              <p>Ориентир по сметной стоимости и привязка к реально поставляемому оборудованию.</p>
-            </div>
-            <div>
-              <strong>Инженерная поддержка</strong>
-              <p>Прямой диалог с инженерами и менеджерами PIRIS в рамках проекта.</p>
-            </div>
+          <div class="piris-base-main-stat piris-base-files-stat">
+            <span data-piris-count="5000" data-piris-count-suffix="+">5 000+</span>
+            <p>файлов: спецификации, схемы, габариты, 3D и внешние виды</p>
           </div>
         </div>
       </section>
@@ -183,28 +143,28 @@
 
             <div class="piris-docs-caption-list" aria-live="polite">
               <p class="is-active" data-piris-docs-caption>
-                Вот так выглядит габаритный чертёж: шкаф показан с размерами,
-                компоновкой и привязками, которые нужны для включения решения в проект.
+                Габаритные чертежи ВРУ с АВР показывают размеры, компоновку
+                и привязки, которые нужны для включения решения в проект.
               </p>
               <p data-piris-docs-caption>
-                Внешние виды помогают быстро понять исполнение шкафа, расположение
-                элементов и то, как решение будет выглядеть в составе объекта.
+                3D вид помогает быстро оценить исполнение шкафа, расположение
+                аппаратов и внешний облик решения до выпуска документации.
               </p>
               <p data-piris-docs-caption>
-                Принципиальные схемы уже подготовлены для работы проектировщика:
-                видны цепи, аппараты, логика подключения и основные электрические связи.
+                Дополнительный 3D ракурс показывает конструкцию ВРУ с АВР
+                наглядно, чтобы проектировщику было проще согласовать решение.
               </p>
               <p data-piris-docs-caption>
-                Дополнительные листы схем раскрывают детали решения, чтобы не собирать
-                документацию вручную из разрозненных источников.
+                Принципиальная схема раскрывает электрические связи, состав
+                аппаратов и логику работы решения.
               </p>
               <p data-piris-docs-caption>
-                Спецификация показывает состав оборудования и помогает быстро перенести
-                решение в проектную документацию.
+                Схема мини-АВР питания цепей управления помогает проверить
+                вспомогательные цепи и питание автоматики.
               </p>
               <p data-piris-docs-caption>
-                Внутри карточки решения есть комплект материалов, который можно
-                использовать дальше в проекте, согласовании и закупке.
+                Схема управления АВР и индикации ВРУ с АВР показывает работу
+                автоматики и сигнальные цепи внутри решения.
               </p>
             </div>
 
@@ -216,236 +176,292 @@
           <div class="piris-docs-stage" aria-label="Примеры документации PIRIS">
             <figure class="is-active" data-piris-docs-slide>
               <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/Габаритный чертеж.jpg"
-                alt="Большой пример габаритного чертежа решения PIRIS"
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-dimensions.jpg"
+                alt="Габаритные чертежи ВРУ с АВР PIRIS"
               />
-              <figcaption>Габаритный чертёж</figcaption>
+              <figcaption>Габаритные чертежи ВРУ с АВР</figcaption>
             </figure>
             <figure data-piris-docs-slide>
               <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/Внешние виды.jpg"
-                alt="Пример внешнего вида шкафа PIRIS"
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-3d-view.jpg"
+                alt="3D вид ВРУ с АВР PIRIS"
               />
-              <figcaption>Внешний вид</figcaption>
+              <figcaption>3D вид ВРУ с АВР</figcaption>
             </figure>
             <figure data-piris-docs-slide>
               <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/shema_1.jpg"
-                alt="Пример принципиальной схемы решения PIRIS"
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-3d-view-1.jpg"
+                alt="Второй 3D вид ВРУ с АВР PIRIS"
+              />
+              <figcaption>3D вид ВРУ с АВР</figcaption>
+            </figure>
+            <figure data-piris-docs-slide>
+              <img
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-wiring-diagram.jpg"
+                alt="Принципиальная схема ВРУ с АВР PIRIS"
               />
               <figcaption>Принципиальная схема</figcaption>
             </figure>
             <figure data-piris-docs-slide>
               <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/shema_2.jpg"
-                alt="Второй пример принципиальной схемы решения PIRIS"
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-wiring-diagram-1.jpg"
+                alt="Схема мини-АВР питания цепей управления"
               />
-              <figcaption>Принципиальная схема</figcaption>
+              <figcaption>Схема мини-АВР питания цепей управления</figcaption>
             </figure>
             <figure data-piris-docs-slide>
               <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/Спецификация.jpg"
-                alt="Пример спецификации решения PIRIS"
+                src="./assets/previews/avr-prs-mb-2-1-100-chint/vru-prs-avr-a-2-1-630-chint-wiring-diagram-2.jpg"
+                alt="Схема управления АВР и индикации ВРУ с АВР"
               />
-              <figcaption>Спецификация</figcaption>
-            </figure>
-            <figure data-piris-docs-slide>
-              <img
-                src="./assets/previews/avr-prs-mb-2-1-100-chint/Спецификация_1.jpg"
-                alt="Второй пример спецификации решения PIRIS"
-              />
-              <figcaption>Спецификация</figcaption>
+              <figcaption>Схема управления АВР и индикации</figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <section class="piris-section piris-roles-section">
-        <div class="piris-section-head">
-          <span>Для кого</span>
-          <h2>Личный кабинет для проектировщиков и проектных команд</h2>
-        </div>
-
-        <div class="piris-role-grid" aria-label="Кому подходит личный кабинет PIRIS" data-piris-role-split>
-          <article class="piris-role-card piris-role-card-private" tabindex="0" data-piris-role-option="private">
-            <span>Частному проектировщику</span>
-            <h3>Быстрее собирать проектную часть</h3>
-            <p>
-              Готовые решения, документация и поддержка инженеров помогают быстрее
-              закрывать задачи по НКУ без ручного поиска схем и спецификаций.
-            </p>
-          </article>
-          <article class="piris-role-card piris-role-card-company" tabindex="0" data-piris-role-option="company">
-            <span>Проектной компании</span>
-            <h3>Стандартизировать решения внутри команды</h3>
-            <p>
-              Единая база проработанных решений снижает количество повторной работы,
-              ускоряет выпуск документации и помогает команде вести больше проектов.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="piris-section piris-economy-section" id="economy">
-        <div class="piris-section-head">
-          <span>Экономика платформы</span>
-          <h2>Платформа повышает экономику проектирования</h2>
-        </div>
-
-        <div class="piris-economy-layout">
-          <div class="piris-economy-main">
-            <p>
-              Проектная компания зарабатывает не только на стоимости проектных работ,
-              но и на своей пропускной способности: сколько проектов команда может
-              качественно выпустить за месяц.
-            </p>
-            <p>
-              Готовые решения PIRIS сокращают время на подбор, оформление и согласование
-              НКУ. Проектировщик быстрее добавляет в проект шкафы АВР, ВРУ, ГРЩ и шкафы
-              управления, а компания может брать больше задач без пропорционального роста
-              нагрузки на инженеров.
-            </p>
-          </div>
-
-          <aside class="piris-economy-aside">
-            <strong>Для конечного заказчика это тоже выгодно</strong>
-            <p>
-              Он получает более предсказуемый проект, понятную сметную стоимость,
-              реальные сроки поставки и оборудование, которое можно произвести и отгрузить.
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="piris-section piris-flow-section" id="how-it-works">
-        <div class="piris-section-head">
-          <span>Как работает</span>
-          <h2>От готового решения до подтверждения проекта</h2>
-        </div>
-
-        <div class="piris-flow-grid">
-          <article>
-            <span>01</span>
-            <strong>Выберите готовое решение</strong>
-            <p>АВР, ВРУ, ГРЩ или шкаф управления с понятными параметрами.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <strong>Добавьте в проектную документацию</strong>
-            <p>Используйте готовые материалы, схемы, спецификации и сметную стоимость.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <strong>Зарегистрируйте проект в ЛК</strong>
-            <p>Укажите объект, стадию, артикулы и загрузите документацию.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <strong>Получите подтверждение и выплату</strong>
-            <p>После экспертизы / стадии Р фиксированная сумма начисляется в кабинете.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="piris-section piris-inside-section" id="inside">
+      <section class="piris-section piris-cabinet-section" id="inside" data-piris-cabinet-showcase>
         <div class="piris-section-head">
           <span>Личный кабинет</span>
-          <h2>Внутри — всё для нового workflow проектирования НКУ</h2>
+          <h2>
+            Личный кабинет проектировщика
+            <span>PIRIS – возможности платформы</span>
+          </h2>
         </div>
 
-        <div class="piris-inside-grid">
-          <article>
-            <strong>Каталог готовых решений НКУ</strong>
-            <p>АВР, ВРУ, ГРЩ, ШУН и другие типовые решения для проектной документации.</p>
-          </article>
-          <article>
-            <strong>Карточки изделий с параметрами</strong>
-            <p>Артикулы, состав, техническая логика, ориентиры по стоимости и применению.</p>
-          </article>
-          <article>
-            <strong>Документация для проекта</strong>
-            <p>PDF, схемы, спецификации, опросные листы и материалы для согласования.</p>
-          </article>
-          <article>
-            <strong>Регистрация объектов и артикулов</strong>
-            <p>Проект, стадия, заказчик, город и выбранные решения фиксируются в кабинете.</p>
-          </article>
-          <article>
-            <strong>Статусы проектов</strong>
-            <p>Черновик, Новый проект, На проверке, Подтвержден, Успешно реализован, Не принят / Отклонен.</p>
-          </article>
-          <article>
-            <strong>История начислений</strong>
-            <p>Суммы, подтверждённые решения и будущие выплаты видны в одном месте.</p>
-          </article>
-          <article>
-            <strong>Инженерные уточнения</strong>
-            <p>Диалог с командой PIRIS внутри карточки проекта, без потери контекста.</p>
-          </article>
+        <div class="piris-cabinet-showcase">
+          <div class="piris-cabinet-points" role="tablist" aria-label="Возможности личного кабинета PIRIS">
+            <button
+              class="piris-cabinet-point is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="piris-cabinet-screen-1"
+              id="piris-cabinet-point-1"
+              data-piris-cabinet-point
+            >
+              <span class="piris-cabinet-marker" aria-hidden="true"></span>
+              <span class="piris-cabinet-point-copy">
+                <strong>Каталог решений НКУ</strong>
+                <span>
+                  Подбирайте АВР, ВРУ, ГРЩ и шкафы управления по параметрам:
+                  номинал, вводы, бренд, схема коммутации и исполнение.
+                </span>
+              </span>
+            </button>
+
+            <button
+              class="piris-cabinet-point"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="piris-cabinet-screen-2"
+              id="piris-cabinet-point-2"
+              data-piris-cabinet-point
+            >
+              <span class="piris-cabinet-marker" aria-hidden="true"></span>
+              <span class="piris-cabinet-point-copy">
+                <strong>Проекты и статусы</strong>
+                <span>
+                  Регистрируйте объекты, добавляйте решения PIRIS и отслеживайте
+                  статус проверки: черновик, на проверке, требует уточнения,
+                  подтверждён.
+                </span>
+              </span>
+            </button>
+
+            <button
+              class="piris-cabinet-point"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="piris-cabinet-screen-3"
+              id="piris-cabinet-point-3"
+              data-piris-cabinet-point
+            >
+              <span class="piris-cabinet-marker" aria-hidden="true"></span>
+              <span class="piris-cabinet-point-copy">
+                <strong>Инженерная поддержка по проекту</strong>
+                <span>
+                  Все уточнения по документации, составу решений и проверке
+                  проекта сохраняются в одной ленте комментариев.
+                </span>
+              </span>
+            </button>
+
+            <button
+              class="piris-cabinet-point"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="piris-cabinet-screen-4"
+              id="piris-cabinet-point-4"
+              data-piris-cabinet-point
+            >
+              <span class="piris-cabinet-marker" aria-hidden="true"></span>
+              <span class="piris-cabinet-point-copy">
+                <strong>Статистика и выплаты</strong>
+                <span>
+                  Следите за подтверждёнными проектами, начислениями, суммой к
+                  выплате и уровнем участия в программе PIRIS.
+                </span>
+              </span>
+            </button>
+          </div>
+
+          <div class="piris-cabinet-screen-wrap">
+            <div class="piris-cabinet-screen-stage" aria-live="polite">
+              <figure
+                class="is-active"
+                id="piris-cabinet-screen-1"
+                role="tabpanel"
+                aria-labelledby="piris-cabinet-point-1"
+                data-piris-cabinet-screen
+              >
+                <img
+                  src="./assets/lkscreen/Каталог решений.jpg"
+                  alt="Каталог решений в личном кабинете PIRIS"
+                />
+                <figcaption>Каталог решений</figcaption>
+              </figure>
+              <figure
+                id="piris-cabinet-screen-2"
+                role="tabpanel"
+                aria-labelledby="piris-cabinet-point-2"
+                data-piris-cabinet-screen
+                hidden
+              >
+                <img
+                  src="./assets/lkscreen/Проекты и статусы.jpg"
+                  alt="Проекты и статусы проверки в личном кабинете PIRIS"
+                />
+                <figcaption>Проекты и статусы</figcaption>
+              </figure>
+              <figure
+                id="piris-cabinet-screen-3"
+                role="tabpanel"
+                aria-labelledby="piris-cabinet-point-3"
+                data-piris-cabinet-screen
+                hidden
+              >
+                <img
+                  src="./assets/lkscreen/Поддержка инженеров.jpg"
+                  alt="Лента инженерной поддержки по проекту в PIRIS"
+                />
+                <figcaption>Поддержка инженеров</figcaption>
+              </figure>
+              <figure
+                id="piris-cabinet-screen-4"
+                role="tabpanel"
+                aria-labelledby="piris-cabinet-point-4"
+                data-piris-cabinet-screen
+                hidden
+              >
+                <img
+                  src="./assets/lkscreen/Статистика.jpg"
+                  alt="Статистика, начисления и выплаты в личном кабинете PIRIS"
+                />
+                <figcaption>Статистика и выплаты</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="piris-cabinet-actions">
+          <a class="primary-button auth-link-button" href="./register.html">Зарегистрироваться</a>
         </div>
       </section>
 
-      <section class="piris-section piris-split-section" id="payments">
-        <div class="piris-section-head">
-          <span>Выплаты</span>
-          <h2>Фиксированное вознаграждение за подтверждённые решения PIRIS</h2>
+      <section class="piris-section piris-earning-section" id="how-it-works">
+        <div class="piris-earning-head">
+          <div class="piris-section-head">
+            <h2>Как проектировщик зарабатывает с PIRIS</h2>
+          </div>
           <p>
-            Это не скидка, не комиссия за продажу и не процент от сделки.
-            Выплата начисляется за то, что подтверждённое решение PIRIS использовано
-            в проектной документации.
+            Вы закладываете типовые решения PIRIS в проектную документацию,
+            регистрируете объект в личном кабинете и передаёте его на проверку.
+            После подтверждения уникальных артикулов в документации и прохождении
+            экспертизы платформа начисляет вознаграждение.
           </p>
         </div>
 
-        <div class="piris-payout-card">
-          <div class="piris-payout-rule">
-            <span>Правило начисления</span>
-            <strong>1 уникальный артикул = 1 выплата</strong>
-            <p>Начисление после экспертизы / стадии Р</p>
+        <div class="piris-earning-chain" aria-label="Цепочка заработка на платформе PIRIS">
+          <div class="piris-earning-node piris-earning-node-object">
+            <span>Проектируемый объект</span>
           </div>
-          <div class="piris-payout-list">
-            <div>
-              <span>Шкаф АВР</span>
-              <strong>2 000 ₽</strong>
+
+          <div class="piris-earning-link piris-earning-link-object" aria-hidden="true"></div>
+
+          <div class="piris-earning-node piris-earning-node-you">
+            <span>Вы</span>
+          </div>
+
+          <div class="piris-earning-link piris-earning-link-platform" aria-hidden="true"></div>
+
+          <div class="piris-earning-node piris-earning-node-platform">
+            <img src="./assets/logo-piris.png" alt="PIRIS" />
+          </div>
+
+          <svg
+            class="piris-earning-target-arrows"
+            viewBox="0 0 528 316"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <marker
+                id="piris-earning-arrowhead"
+                markerWidth="7"
+                markerHeight="7"
+                refX="6"
+                refY="3.5"
+                orient="auto"
+              >
+                <path d="M0 0L7 3.5L0 7Z" />
+              </marker>
+            </defs>
+            <path d="M170 158C206 130 226 82 258 48" />
+            <path d="M170 158H258" />
+            <path d="M170 158C206 186 226 234 258 268" />
+          </svg>
+
+          <div class="piris-earning-targets" aria-label="Куда дальше попадает проектное решение">
+            <div class="piris-earning-target piris-earning-target-top">
+              <span>Отдел снабжения конечного заказчика</span>
             </div>
-            <div>
-              <span>ВРУ</span>
-              <strong>3 000 ₽</strong>
+            <div class="piris-earning-target piris-earning-target-middle">
+              <span>Ген.подрядчик</span>
             </div>
-            <div>
-              <span>ГРЩ</span>
-              <strong>5 000 ₽</strong>
+            <div class="piris-earning-target piris-earning-target-bottom">
+              <span>Участники тендерных закупок</span>
             </div>
           </div>
-          <p>Выплата не зависит от фактической закупки оборудования.</p>
-        </div>
-      </section>
-
-      <section class="piris-section piris-proof-section">
-        <div class="piris-section-head">
-          <span>Доверие</span>
-          <h2>Проектные решения должны быть не только нарисованы, но и поставляемы</h2>
         </div>
 
-        <div class="piris-proof-grid">
-          <article class="piris-proof-wide">
-            <strong>Проверено на реальных проектах</strong>
-            <p>
-              Решения PIRIS закладывались в проектную документацию, проходили дальнейшие
-              стадии и приводили к заказам оборудования.
-            </p>
-          </article>
-          <article>
-            <strong>15 лет в НКУ</strong>
-            <p>АВР, ВРУ, ГРЩ и шкафы управления для реальных объектов.</p>
-          </article>
-          <article>
-            <strong>Производственная экспертиза</strong>
-            <p>Платформа связывает проектные решения с оборудованием, которое можно изготовить.</p>
-          </article>
-          <article>
-            <strong>Конкретное КП по оборудованию</strong>
-            <p>Когда решение PIRIS заложено в проект, участники закупки приходят за КП по нему.</p>
-          </article>
+        <div class="piris-earning-steps">
+          <h3><span>4 шага</span> до первой выплаты</h3>
+          <div class="piris-earning-step-grid">
+            <article>
+              <span>1</span>
+              <strong>Зарегистрируйтесь в ЛК PIRIS</strong>
+              <p>Получите доступ к каталогу решений, документации и регистрации проектов.</p>
+            </article>
+            <article>
+              <span>2</span>
+              <strong>Создайте проект</strong>
+              <p>Укажите объект, стадию, регион, заказчика и загрузите проектную документацию.</p>
+            </article>
+            <article>
+              <span>3</span>
+              <strong>Добавьте решения PIRIS</strong>
+              <p>Выберите АВР, ВРУ, ГРЩ или шкафы управления из каталога и привяжите их к проекту.</p>
+            </article>
+            <article>
+              <span>4</span>
+              <strong>Получите выплату</strong>
+              <p>После проверки проекта PIRIS начислит вознаграждение за подтверждённые уникальные артикулы.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -456,40 +472,40 @@
         </div>
 
         <div class="piris-faq-list">
-          <details>
-            <summary>Кому подходит платформа?</summary>
+          <article>
+            <h3>Кому подходит платформа?</h3>
             <p>
               Проектировщикам НКУ и проектным компаниям, которые закладывают в документацию
               АВР, ВРУ, ГРЩ, ШУН и другие шкафы управления.
             </p>
-          </details>
-          <details>
-            <summary>Когда начисляется выплата?</summary>
+          </article>
+          <article>
+            <h3>Когда начисляется выплата?</h3>
             <p>После подтверждения, что решение PIRIS прошло экспертизу / стадию Р.</p>
-          </details>
-          <details>
-            <summary>Нужно ли ждать фактической закупки оборудования?</summary>
+          </article>
+          <article>
+            <h3>Нужно ли ждать фактической закупки оборудования?</h3>
             <p>
               Нет. Выплата начисляется после подтверждения, что решение PIRIS прошло
               экспертизу / стадию Р. Дальнейшая закупка зависит от заказчика,
               генподрядчика или снабжения.
             </p>
-          </details>
-          <details>
-            <summary>Можно работать от проектной компании?</summary>
+          </article>
+          <article>
+            <h3>Можно работать от проектной компании?</h3>
             <p>Да. Формат участия, реквизиты и получатель выплат указываются в кабинете.</p>
-          </details>
-          <details>
-            <summary>Какие документы нужны для проверки?</summary>
+          </article>
+          <article>
+            <h3>Какие документы нужны для проверки?</h3>
             <p>
               Обычно достаточно данных по объекту, стадии проекта, выбранных артикулов
               PIRIS и загруженной проектной документации.
             </p>
-          </details>
-          <details>
-            <summary>Что делать, если нужны технические уточнения?</summary>
+          </article>
+          <article>
+            <h3>Что делать, если нужны технические уточнения?</h3>
             <p>Внутри проекта есть диалог с инженерами PIRIS, где сохраняется контекст проверки.</p>
-          </details>
+          </article>
         </div>
       </section>
 
@@ -504,6 +520,6 @@
         <a class="primary-button auth-link-button" href="./home.html">Войти в кабинет</a>
       </section>
     </main>
-    <script src="./index-page/index.js?v=20260613-03"></script>
+    <script src="./index-page/index.js?v=20260615-01"></script>
   </body>
 </html>

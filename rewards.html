@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260412-16" />
+    <link rel="stylesheet" href="./styles.css?v=20260614-02" />
   </head>
   <body>
     <div class="app-shell dashboard-shell">
@@ -225,7 +225,7 @@
               </div>
             </div>
             <div class="rewards-trend-stage" aria-label="График динамики выплат">
-              <svg viewBox="0 0 760 246" preserveAspectRatio="none" aria-hidden="true">
+              <svg viewBox="0 0 760 128" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="rewardsTrendFill" x1="0" x2="0" y1="0" y2="1">
                     <stop offset="0%" stop-color="rgba(92, 232, 205, 0.42)" />
@@ -238,43 +238,36 @@
                 </defs>
                 <path
                   class="rewards-trend-area"
-                  d="M0 216C48 188 86 164 126 152C165 140 205 140 253 182C300 224 345 96 390 66C435 40 479 118 524 132C568 146 613 78 659 68C698 60 728 78 760 98V246H0Z"
+                  d="M0 106C56 94 101 78 146 74C191 70 224 86 272 98C320 109 355 43 402 31C449 19 488 61 532 66C576 70 615 40 662 36C704 32 732 43 760 51V128H0Z"
                   fill="url(#rewardsTrendFill)"
                 ></path>
                 <path
                   class="rewards-trend-line"
-                  d="M0 216C48 188 86 164 126 152C165 140 205 140 253 182C300 224 345 96 390 66C435 40 479 118 524 132C568 146 613 78 659 68C698 60 728 78 760 98"
+                  d="M0 106C56 94 101 78 146 74C191 70 224 86 272 98C320 109 355 43 402 31C449 19 488 61 532 66C576 70 615 40 662 36C704 32 732 43 760 51"
                   fill="none"
                 ></path>
-                <line class="rewards-trend-guide" x1="390" y1="66" x2="390" y2="228"></line>
-                <circle class="rewards-trend-point" cx="390" cy="66" r="6"></circle>
+                <line class="rewards-trend-guide" x1="532" y1="66" x2="532" y2="116"></line>
+                <circle class="rewards-trend-point" cx="532" cy="66" r="6"></circle>
               </svg>
               <div class="rewards-trend-bubble">
-                <span>3 неделя</span>
+                <span>18 апр</span>
                 <strong>7 000 ₽</strong>
-                <small>Рост к прошлой неделе +18%</small>
+                <small>Рост к предыдущей дате +18%</small>
               </div>
             </div>
             <div class="rewards-trend-axis">
-              <span>1 нед</span>
-              <span>2 нед</span>
-              <span>3 нед</span>
-              <span>4 нед</span>
+              <span>24 мар</span>
+              <span>29 мар</span>
+              <span>3 апр</span>
+              <span>8 апр</span>
+              <span>13 апр</span>
+              <span>18 апр</span>
+              <span>23 апр</span>
+              <span>30 апр</span>
             </div>
           </article>
 
           <div class="rewards-overview-side">
-            <article class="panel rewards-summary-card">
-              <span class="rewards-summary-label">К выплате</span>
-              <strong>28 000 ₽</strong>
-              <p>Подтвержденные проекты уже готовы к выплате. В работе ещё 10 000 ₽.</p>
-              <div class="rewards-summary-inline">
-                <span>Подтверждено: 3</span>
-                <span>На проверке: 1</span>
-                <span>Нужно уточнить: 1</span>
-              </div>
-            </article>
-
             <article class="panel rewards-donut-card">
               <div class="rewards-chart-head">
                 <span>Статусы проектов</span>
@@ -366,6 +359,16 @@
                   </div>
                   <div class="rewards-type-bar"><span style="width: 28%"></span></div>
                 </div>
+              </div>
+            </article>
+
+            <article class="panel rewards-summary-card">
+              <span class="rewards-summary-label">К выплате</span>
+              <strong>28 000 ₽</strong>
+              <div class="rewards-summary-inline">
+                <span>Подтверждено: 3</span>
+                <span>На проверке: 1</span>
+                <span>Нужно уточнить: 1</span>
               </div>
             </article>
           </div>

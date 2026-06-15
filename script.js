@@ -1510,6 +1510,10 @@ function setupProjectsList() {
         pinnedProjectIds.add(projectId);
       }
 
+      button.classList.remove("is-toggling");
+      void button.offsetWidth;
+      button.classList.add("is-toggling");
+
       savePinnedProjectIds();
       updateProjectPinState(row);
       sortProjectRows(currentProjectSortKey);

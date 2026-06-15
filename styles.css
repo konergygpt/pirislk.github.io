@@ -3243,13 +3243,14 @@ textarea {
 
 .rewards-overview-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+  grid-template-columns: 1fr;
   gap: 8px;
   margin-top: 10px;
 }
 
 .rewards-overview-side {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -3294,7 +3295,7 @@ textarea {
 .rewards-trend-card {
   display: grid;
   gap: 6px;
-  padding: 12px 14px 8px;
+  padding: 12px 14px 10px;
 }
 
 .rewards-trend-head {
@@ -3347,9 +3348,10 @@ textarea {
 
 .rewards-trend-stage {
   position: relative;
-  min-height: 172px;
+  height: 104px;
+  min-height: 104px;
   padding: 0 2px;
-  border-radius: 18px;
+  border-radius: 16px;
   background: linear-gradient(180deg, rgba(248, 251, 249, 0.98) 0%, rgba(242, 247, 244, 0.98) 100%);
   overflow: hidden;
 }
@@ -3387,13 +3389,13 @@ textarea {
 
 .rewards-trend-bubble {
   position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-6%);
+  top: 8px;
+  left: 70%;
+  transform: translateX(-50%);
   display: grid;
-  gap: 3px;
+  gap: 2px;
   min-width: 128px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-radius: 12px;
   background: rgba(31, 45, 40, 0.88);
   color: #ffffff;
@@ -3426,22 +3428,35 @@ textarea {
 
 .rewards-trend-axis {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
-  margin-top: -10px;
-  padding: 0 2px;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+  padding: 6px 4px 0;
+  border-top: 1px solid rgba(17, 120, 93, 0.08);
 }
 
 .rewards-trend-axis span {
+  position: relative;
   color: #7a8f88;
   font-size: 10px;
+  font-weight: 700;
   line-height: 1.2;
   text-align: center;
+  white-space: nowrap;
+}
+
+.rewards-trend-axis span::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 1px;
+  height: 5px;
+  background: rgba(17, 120, 93, 0.18);
 }
 
 .rewards-summary-card {
   display: grid;
-  align-content: start;
+  align-content: space-between;
   gap: 6px;
   padding: 14px 16px;
 }
@@ -3499,12 +3514,14 @@ textarea {
   display: grid;
   gap: 10px;
   padding: 14px;
+  min-width: 0;
 }
 
 .rewards-types-card {
   display: grid;
   gap: 10px;
   padding: 14px;
+  min-width: 0;
 }
 
 .rewards-chart-head {
@@ -9202,7 +9219,7 @@ textarea {
   }
 
   .rewards-overview-side {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .rewards-hero-stats,
@@ -9221,6 +9238,18 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  .rewards-overview-side {
+    grid-template-columns: 1fr;
+  }
+
+  .rewards-trend-axis {
+    overflow-x: auto;
+  }
+
+  .rewards-trend-axis span {
+    min-width: 48px;
+  }
+
   .project-minimal-panel {
     padding: 15px 16px;
   }
